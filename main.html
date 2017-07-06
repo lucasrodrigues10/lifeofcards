@@ -9,13 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Boostrap 4.0 CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body class="full">
-    <ul class="nav nav-pills nav-justified">
+    <ul class="nav nav-pills nav-justified nav-top">
         <li class="nav-item">
-            <a class="nav-link active" href="#">Jogar</a>
+            <a class="nav-link" href="#">Jogar</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Perfil</a>
@@ -24,7 +26,7 @@
             <a class="nav-link" href="#">Inventário</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
+            <a class="nav-link" href="#">Loja</a>
         </li>
     </ul>
     <div class="container">
@@ -33,6 +35,19 @@
     </div>
     </div>
     </div>
+    <nav class="navbar fixed-bottom navbar-light bg-faded nav-bottom">
+        <div class="row justify-content-between">
+            <div class="col">
+                <i class="material-icons">home</i>
+            </div>
+            <a href="login.html" style="text-decoration:none;color: inherit;">
+                <div class="col text-right">
+                    <i class="material-icons">exit_to_app</i>
+                </div>
+            </a>
+        </div>
+    </nav>
+    <span class="glyphicons-home" aria-hidden="true"></span>
     <!--JQuery, Javascript para Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

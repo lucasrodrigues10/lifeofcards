@@ -26,10 +26,33 @@
         margin: 50px 100px 50px 100px;
     }
     
+    #bot-log:hover,
+    #bot-reg:hover {
+        background: #550400;
+    }
+    
     .btn-group .btn {
         width: 150px;
     }
     
     #bot-esq {
         margin-top: 20px;
+    }
+    
+    .nav-top,
+    .nav-bottom {
+        background-color: #674F91;
+    }
+    
+    .nav-top .nav-item a {
+        color: #white;
+        font-family: 'Merriweather', serif;
+    }
+    
+    .fa-home * {
+        height: 200px;
+    }
+    
+    .material-icons {
+        font-size: 2em;
     }
