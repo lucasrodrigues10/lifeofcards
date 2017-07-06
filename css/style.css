@@ -45,14 +45,11 @@
     }
     
     .nav-top .nav-item a {
-        color: #white;
+        color: white;
         font-family: 'Merriweather', serif;
-    }
-    
-    .fa-home * {
-        height: 200px;
     }
     
     .material-icons {
         font-size: 2em;
+        color: white;
     }

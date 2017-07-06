@@ -9,12 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Boostrap 4.0 CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!--Fonte do google -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <!--Icones do google -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--CSS do projeto -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+<!--body com background -->
 
 <body class="full">
+    <!--Barra de navegação em cima -->
     <ul class="nav nav-pills nav-justified nav-top">
         <li class="nav-item">
             <a class="nav-link" href="#">Jogar</a>
@@ -29,25 +34,45 @@
             <a class="nav-link" href="#">Loja</a>
         </li>
     </ul>
+    <!--Conteúdo -->
     <div class="container">
         <div class="jumbotron">
         </div>
     </div>
-    </div>
-    </div>
+    <!--Footer -->
     <nav class="navbar fixed-bottom navbar-light bg-faded nav-bottom">
         <div class="row justify-content-between">
             <div class="col">
-                <i class="material-icons">home</i>
+                <!--Botão Página Inicial -->
+                <button type="button" class="btn btn-primary"><i class="material-icons">home</i></button>
             </div>
-            <a href="login.html" style="text-decoration:none;color: inherit;">
-                <div class="col text-right">
-                    <i class="material-icons">exit_to_app</i>
-                </div>
-            </a>
+            <div class="col text-right">
+                <!--Botão para logout com um modal para confirmar -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="material-icons">exit_to_app</i></button>
+            </div>
         </div>
     </nav>
     <span class="glyphicons-home" aria-hidden="true"></span>
+    <!--Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deseja sair?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p> Você irá para página de login </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="window.location='login.html'">Sim</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--JQuery, Javascript para Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
