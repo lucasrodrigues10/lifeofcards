@@ -2,6 +2,46 @@
 <html>
 
 <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+            ['Vikings', 3],
+            ['Eagle', 1],
+            ['Wind', 1],
+            ['Demon', 1],
+            ['Angel', 2]
+        ]);
+
+        // Set chart options
+        var options = {
+            'title': '5 Decks Mais Jogados',
+            'width': 400,
+            'height': 400
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+    </script>
     <title>Jogo</title>
     <!--Ter todos os simbolos -->
     <meta charset="utf-8">
@@ -113,20 +153,31 @@
     </div>
     <div class="container perfil ">
         <div class="jumbotron ">
-            <div class="card " style="width: 20rem; text-align: center ">
-                <img src="img/avatar/gato.jpg " class="img-fluid img-thumbnail rounded mx-auto d-block rounded " alt="Responsive image " style="margin-top: 1em ">
-                <div class="card-block ">
-                    <h4 class="card-title ">JOGADOR123</h4>
-                    <p class="card-text ">Quero jogar e me divertir</p>
-                </div>
-                <ul class="list-group list-group-flush mx-auto ">
-                    <li class="list-group-item ">Nivel: 3</li>
-                    <div class="progress ">
-                        <div class="progress-bar " role="progressbar " style="width: 25%; " aria-valuenow="25 " aria-valuemin="0 " aria-valuemax="100 ">25%</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card " style="width: 20rem; text-align: center ">
+                            <img src="img/avatar/gato.jpg " class="img-fluid img-thumbnail rounded mx-auto d-block rounded " alt="Responsive image " style="margin-top: 1em ">
+                            <div class="card-block ">
+                                <h4 class="card-title ">JOGADOR123</h4>
+                                <p class="card-text ">Quero jogar e me divertir</p>
+                            </div>
+                            <ul class="list-group list-group-flush mx-auto ">
+                                <li class="list-group-item ">Nivel: 3</li>
+                                <div class="progress ">
+                                    <div class="progress-bar " role="progressbar " style="width: 25%; " aria-valuenow="25 " aria-valuemin="0 " aria-valuemax="100 ">25%</div>
+                                </div>
+                                <li class="list-group-item ">330 XP</li>
+                                <li class="list-group-item ">Dinheiro: 1000</li>
+                            </ul>
+                        </div>
                     </div>
-                    <li class="list-group-item ">330 XP</li>
-                    <li class="list-group-item ">Dinheiro: 1000</li>
-                </ul>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div id="chart_div"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -301,6 +352,7 @@
     <!--JQuery, Javascript para Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js " integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js " integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js " integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn " crossorigin="anonymous "></script>
     <script src="js/main.js "></script>
 </body>
