@@ -22,21 +22,58 @@
     <!--Barra de navegação em cima -->
     <ul class="nav nav-pills nav-justified nav-top">
         <li class="nav-item">
-            <a class="nav-link" href="#">Jogar</a>
+            <a class="nav-link btn-jogar" href="#">Jogar</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Perfil</a>
+            <a class="nav-link btn-perfil" href="#">Perfil</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Inventário</a>
+            <a class="nav-link btn-inventario" href="#">Inventário</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Loja</a>
+            <a class="nav-link btn-loja" href="#">Loja</a>
         </li>
     </ul>
     <!--Conteúdo -->
-    <div class="container">
+    <div class="container home">
         <div class="jumbotron">
+            <p>home </p>
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">Card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+                <div class="card-block">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container jogar">
+        <div class="jumbotron">
+            <p>jogar </p>
+        </div>
+    </div>
+    <div class="container perfil">
+        <div class="jumbotron">
+            <p>perfil </p>
+        </div>
+    </div>
+    <div class="container inventario">
+        <div class="jumbotron">
+            <p>inventario </p>
+        </div>
+    </div>
+    <div class="container loja">
+        <div class="jumbotron">
+            <p>loja </p>
         </div>
     </div>
     <!--Footer -->
@@ -44,7 +81,7 @@
         <div class="row justify-content-between">
             <div class="col">
                 <!--Botão Página Inicial -->
-                <button type="button" class="btn btn-primary"><i class="material-icons">home</i></button>
+                <button type="button" class="btn btn-primary btn-home"><i class="material-icons">home</i></button>
             </div>
             <div class="col text-right">
                 <!--Botão para logout com um modal para confirmar -->
@@ -54,11 +91,11 @@
     </nav>
     <span class="glyphicons-home" aria-hidden="true"></span>
     <!--Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Deseja sair?</h5>
+                    <h5 class="modal-title">Deseja sair?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

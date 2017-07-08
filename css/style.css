@@ -53,3 +53,10 @@
         font-size: 2em;
         color: white;
     }
+    
+    .jogar,
+    .perfil,
+    .inventario,
+    .loja {
+        display: none;
+    }
