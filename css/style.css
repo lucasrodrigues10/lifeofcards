@@ -57,6 +57,10 @@
         display: none;
     }
     
+    .jumbotron {
+        background-color: #1D1421;
+    }
+    
     .icn-status {
         color: green;
     }
@@ -68,7 +72,27 @@
         margin: auto;
     }
     
+    .nome-amigos {
+        font-family: 'Francois One', sans-serif;
+        font-size: 1.3em;
+    }
+    
     .nome-carta {
         font-family: 'Rakkas', cursive;
         font-size: 1.3em;
+        color: white;
+    }
+    
+    .carousel-caption {
+        color: white;
+        font-family: 'Francois One', sans-serif;
+    }
+    
+    .img-loja {
+        padding-left: 5em;
+    }
+    
+    .txt-loja {
+        margin: auto auto auto -1em;
+        color: white;
     }
