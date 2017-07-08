@@ -67,3 +67,8 @@
         font-size: 2em;
         margin: auto;
     }
+    
+    .nome-carta {
+        font-family: 'Rakkas', cursive;
+        font-size: 1.3em;
+    }
