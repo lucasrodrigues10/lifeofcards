@@ -64,3 +64,9 @@
     .icn-status {
         color: green;
     }
+    
+    .nome-jogador {
+        font-family: 'Noto Serif', serif;
+        color: #728DA5;
+        font-size: 2em;
+    }
