@@ -12,10 +12,6 @@
         margin-top: 2em;
     }
     
-    .full .container {
-        width: 800px;
-    }
-    
     #bot-log,
     #bot-reg {
         background-color: #AA3939;
