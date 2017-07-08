@@ -60,3 +60,7 @@
     .loja {
         display: none;
     }
+    
+    .icn-status {
+        color: green;
+    }

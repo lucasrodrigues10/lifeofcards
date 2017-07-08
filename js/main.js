@@ -3,6 +3,8 @@ $(document).ready(function() {
         e.preventDefault()
         $(this).tab('show')
     })
+    $('[data-toggle="tooltip"]').tooltip();
+
     $('#myModal').modal('show');
     $('.btn-jogar').click(function() {
         $('.jogar').show();
