@@ -103,6 +103,12 @@
         font-size: 1.4em;
     }
     
+    .txt-vit,
+    .txt-der {
+        color: white;
+        font-size: 2em;
+    }
+    
     .onoffswitch {
         position: relative;
         width: 73px;
