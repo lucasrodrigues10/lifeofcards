@@ -46,7 +46,7 @@ $(document).ready(function() {
 
         var options = {
             backgroundColor: "transparent",
-            title: 'Melhores Decks',
+            title: 'Mais Vitórias',
             titleTextStyle: {
                 color: 'white', // any HTML string color ('red', '#cc00cc')
                 fontName: 'Times New Roman', // i.e. 'Times New Roman'
@@ -68,16 +68,7 @@ $(document).ready(function() {
         chart.draw(data, options);
     }
 
-    function resizeChart() {
-        chart.draw(data, options);
-    }
-    if (document.addEventListener) {
-        window.addEventListener('resize', resizeChart);
-    } else if (document.attachEvent) {
-        window.attachEvent('onresize', resizeChart);
-    } else {
-        window.resize = resizeChart;
-    }
+
 
     $('.btn-mostrar').click(function() {
         $('.carousel').carousel('pause');

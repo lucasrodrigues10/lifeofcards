@@ -67,7 +67,7 @@
     }
     
     .nome-jogador {
-        font-family: 'Luckiest Guy', cursive;
+        font-family: 'Francois One', cursive;
         color: white;
         font-size: 1.5em;
         margin: auto;
@@ -103,15 +103,14 @@
         font-size: 1.4em;
     }
     
-    .txt-vit,
-    .txt-der {
+    .txt-info {
         color: #1F1959;
         font-size: 2em;
     }
     
     .txt-perfil {
         font-family: 'Francois One', sans-serif;
-        font-size: 1.5em;
+        font-size: 1em;
     }
     
     .icone {
