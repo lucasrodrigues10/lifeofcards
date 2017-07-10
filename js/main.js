@@ -34,8 +34,6 @@ $(document).ready(function() {
     google.charts.load("current", { packages: ["corechart"] });
     google.charts.setOnLoadCallback(drawChart);
 
-
-
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
@@ -80,4 +78,8 @@ $(document).ready(function() {
     } else {
         window.resize = resizeChart;
     }
+
+    $('.btn-mostrar').click(function() {
+        $('.carousel').carousel('pause');
+    });
 });
