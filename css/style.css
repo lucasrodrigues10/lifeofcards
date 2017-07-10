@@ -105,8 +105,17 @@
     
     .txt-vit,
     .txt-der {
-        color: white;
+        color: #1F1959;
         font-size: 2em;
+    }
+    
+    .txt-perfil {
+        font-family: 'Francois One', sans-serif;
+        font-size: 1.5em;
+    }
+    
+    .icone {
+        height: 1.5em;
     }
     
     .onoffswitch {
