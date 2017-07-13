@@ -19,4 +19,6 @@ Esse webgame foi criado pensando em um jogo casual, mas que envolvesse estratég
 * **Raul Freitas Vaz** - *14.03065-9*
 * **Yuri Costa dos Santos** - *14.03331-3*
 
-![Go_Horse](https://cdn-images-1.medium.com/max/800/1*pAiFtxYHdjg4-HP6e46wZA.gif)
+<p align="center">
+  <img width="460" height="300" src="https://cdn-images-1.medium.com/max/800/1*pAiFtxYHdjg4-HP6e46wZA.gif">
+</p>
