@@ -1,15 +1,25 @@
+<?php
+	require_once("system/config.php"); //inlucde, mas não carrega a página se falhar
+
+	if($manutencao){
+		echo "Site em manutencao";		
+	}else{
+		?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Jogo</title>
+  <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.ico" />
+    <title><?php echo $title.$seperator.$description;?></title>
     <!--Ter todos os simbolos -->
     <meta charset="utf-8">
     <!--Zoom em tablets/mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Boostrap 4.0 CDN -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+  
 </head>
 
 <body class="full">
@@ -64,3 +74,7 @@
 </body>
 
 </html>
+
+		<?php
+	}
+?>
