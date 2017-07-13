@@ -29,10 +29,10 @@
                 <div class="col-md-12 text-center">
                     <div class="btn-group btn-group-lg .btn-group-justified" data-toggle="buttons">
                         <label class="btn btn-primary active " id="opt-log">
-                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Entrarrrr
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Entrax
                         </label>
                         <label class="btn btn-primary " id="opt-reg">
-                            <input type="radio" name="options" id="option2" autocomplete="off"> Registrar
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Registrax
                         </label>
                     </div>
                 </div>
