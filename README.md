@@ -14,5 +14,6 @@ Esse webgame foi criado pensando em um jogo casual, mas que envolvesse estratég
 * **Lucas de Moura Rodrigues** - *14.00556-5*
 * **Levon Tcholakian Chahestian** - *14.01587-0*
 * **Raul Freitas Vaz** - *14.03065-9*
- 
+* **Yuri Costa dos Santos** - *14.03331-3*
+
 ![Go_Horse](https://cdn-images-1.medium.com/max/800/1*pAiFtxYHdjg4-HP6e46wZA.gif)
