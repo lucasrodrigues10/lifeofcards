@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="../img/icon/favicon.ico" />
     <title>
         LoC - Login
     </title>
@@ -18,6 +18,7 @@
 </head>
 
 <body class="full">
+    
     <div class="container">
         <div class="jumbotron">
             <div class="container">
@@ -31,21 +32,21 @@
                         </label>
                     </div>
                 </div>
-                <form role="form" action="../backend/registrar.php" method="post">
+                <form role="form" action="./registrar.php" method="post">
                     <div class="form-group">
-                        <input type="email" class="form-control form-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email">
+                        <input type="email" class="form-control form-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" placeholder="Usuário" name="usuario">
+                        <input class="form-control" placeholder="Usuário" name="username" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Senha" name="senha">
+                        <input type="password" class="form-control" placeholder="Senha" name="password" required>
                     </div>
                     <div class="row">
-                    <div class="col-sm-12" style="text-align: center">
-                        <button type="button" class="btn btn-danger btn-lg" id="bot-reg">Registraxr</button>
+                        <div class="col-sm-12" style="text-align: center">
+                            <button type="submit" class="btn btn-danger btn-lg" id="bot-reg" value="Submit" name="submit">Registrar</button>
+                        </div>
                     </div>
-                </div>
                 </form>
                 <a href="main.html">
                     <div class="row">
@@ -54,7 +55,6 @@
                         </div>
                     </div>
                 </a>
-                
                 <div class="row">
                     <div class="col-sm-12" style="text-align: center">
                         <button type="button" class="btn btn-link" id="bot-esq">Esqueceu a senha?</button>

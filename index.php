@@ -5,5 +5,6 @@
 		echo "Site em manutencao";		
 	}else{
 		header("Location: pages/login.html");
+
 	}
 ?>
