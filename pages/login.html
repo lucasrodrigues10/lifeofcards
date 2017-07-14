@@ -33,14 +33,19 @@
                 </div>
                 <form role="form" action="../backend/registrar.php" method="post">
                     <div class="form-group">
-                        <input type="email" class="form-control form-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
+                        <input type="email" class="form-control form-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" placeholder="Usuário">
+                        <input class="form-control" placeholder="Usuário" name="usuario">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Senha">
+                        <input type="password" class="form-control" placeholder="Senha" name="senha">
                     </div>
+                    <div class="row">
+                    <div class="col-sm-12" style="text-align: center">
+                        <button type="button" class="btn btn-danger btn-lg" id="bot-reg">Registraxr</button>
+                    </div>
+                </div>
                 </form>
                 <a href="main.html">
                     <div class="row">
@@ -49,11 +54,7 @@
                         </div>
                     </div>
                 </a>
-                <div class="row">
-                    <div class="col-sm-12" style="text-align: center">
-                        <button type="button" class="btn btn-danger btn-lg" id="bot-reg">Registrar</button>
-                    </div>
-                </div>
+                
                 <div class="row">
                     <div class="col-sm-12" style="text-align: center">
                         <button type="button" class="btn btn-link" id="bot-esq">Esqueceu a senha?</button>
