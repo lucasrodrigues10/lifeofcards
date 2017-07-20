@@ -197,13 +197,19 @@
     }
 
     .tabuleiro {
-        background-color: blue;
-        color: red;
+        background-color: #430029;
     }
 
-    .tabuleiro tbody tr th {
-        width: 100px;
-        height: 100px;
+    .quadrado {
+        width: 14%;
+        height: 150px;
+    }
+
+    .indica-linha,
+    .indica-coluna {
+        background: white;
+        color: black;
         text-align: center;
         vertical-align: middle;
+        color: #240339;
     }
