@@ -11,7 +11,7 @@
 	//CHECK CONNECTION
 	if ($conn->connect_error)
 	{
-		die("Connection failed: ".$conn->connect_error);
+		die("Conexão falhou: ".$conn->connect_error);
 	}
 
 	//ASSIGN VARIABLES FROM FORM
@@ -33,7 +33,8 @@
 	
 	if($rowcount >= 1)
 	{
-		echo "There is already an user with this username.";
+		header("Location: ./login.html");
+		
 	}
 	else
 	{

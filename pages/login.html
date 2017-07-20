@@ -18,7 +18,6 @@
 </head>
 
 <body class="full">
-    
     <div class="container">
         <div class="jumbotron">
             <div class="container">
@@ -34,7 +33,7 @@
                 </div>
                 <form role="form" action="./registrar.php" method="post">
                     <div class="form-group">
-                        <input type="email" class="form-control form-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" required>
+                        <input type="email" class="form-control form-email" style="display:none;" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" required>
                     </div>
                     <div class="form-group">
                         <input class="form-control" placeholder="Usuário" name="username" required>
@@ -43,8 +42,8 @@
                         <input type="password" class="form-control" placeholder="Senha" name="password" required>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12" style="text-align: center">
-                            <button type="submit" class="btn btn-danger btn-lg" id="bot-reg" value="Submit" name="submit">Registrar</button>
+                        <div class="col-sm-12" style="text-align: center;">
+                            <button type="submit" class="btn btn-danger btn-lg" id="bot-reg" style="display:none;" value="Submit" name="submit">Registrar</button>
                         </div>
                     </div>
                 </form>
@@ -60,6 +59,7 @@
                         <button type="button" class="btn btn-link" id="bot-esq">Esqueceu a senha?</button>
                     </div>
                 </div>
+                <p id="registro-erro" style="display:none"> Usuário/Email já registrado!</p>
             </div>
         </div>
     </div>
