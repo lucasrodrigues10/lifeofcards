@@ -1,9 +1,9 @@
 <?php
 	//DATABASE CONNECTION
-	$dbserver 		= "localhost";
-	$dbusername 	= "id2237061_admin";
-	$dbpassword 	= "shrekislove";
-	$db 			= "id2237061_lifeofcards";
+	$dbserver 		= "localhost"//"localhost";
+	$dbusername 	= "root"//"id2237061_admin";
+	$dbpassword 	= ""//"shrekislove";
+	$db 			= "cartas"//"id2237061_lifeofcards";
 	
 	//CREATE CONNECTION
 	$conn = new mysqli($dbserver, $dbusername, $dbpassword, $db);
