@@ -22,3 +22,14 @@ Esse webgame foi criado pensando em um jogo casual, mas que envolvesse estratég
 <p align="center">
   <img width="460" height="300" src="https://cdn-images-1.medium.com/max/800/1*pAiFtxYHdjg4-HP6e46wZA.gif">
 </p>
+
+
+## Sprints:
+
+** 1º Terminar interface, tabuleiro e criar as primeiras animações**
+
+** 2º Implementar o banco de dados
+
+** 3º Programar o servidor e programar comunicação cliente-servidor
+
+** 4º Desenvolver o resto das cartas e outros aspectos do jogo (sistema de nível, tutorias, etc.)
