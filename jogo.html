@@ -1,0 +1,69 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+    <title>Life of cards (tabuleiro)</title>
+	<script type="text/javascript" src="js/phaser.min(1).js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+var game = new Phaser.Game(448, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+var imagem_pequena = {l:32,h:32}; //NAO USAR POR ENQUANTO   
+var imagem_larga = {l:64,h:32};
+
+
+function  preload () {
+	game.load.image('tabuleiro','assets/tabuleiro.png');
+	game.load.image('joaninha','assets/teste.png');
+	game.load.spritesheet('devil','assets/devil.png',32,32);
+	game.load.spritesheet('mumia','assets/mumia.png',32,32);
+
+}
+
+function create (){
+    var capetinhas = game.add.group();
+	game.add.sprite(window.width,0,'tabuleiro');
+	//devil = spawn (2,2,'devil');
+	mumia = spawn (1,1,'mumia');
+    
+    mumia.animations.add('left', [7, 11], 2, true);
+	mumia.animations.add('right', [5, 9], 2, true);
+	mumia.animations.add('up', [4, 8], 2, true);
+	mumia.animations.add('down',[6,10],2,true); 
+    
+	for (var i=2;i<13;i++)
+        for (var j=1;j<13;j++)   
+            capetinhas.create(spawn(i,j,'devil'));
+		
+	/*capetinhas.callAll('animations.add','left', [7, 11], 2, true);
+	capetinhas.animations.add('right', [5, 9], 2, true);
+	capetinhas.animations.add('up', [4, 8], 2, true);
+	capetinhas.animations.add('down',[6,10],2,true);*/
+	
+	
+	
+	
+	
+	
+}
+
+function update (){
+	//devil.animations.play('right');
+	mumia.animations.play('right');
+}
+
+function spawn (posX,posY,nome){ //insere na posicao do tabuleiro
+	return game.add.sprite(posX*32,posY*32,nome);
+}
+</script>
+
+</body>
+</html>
