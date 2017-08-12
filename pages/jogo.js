@@ -276,7 +276,7 @@ function isNearLeader(currentPos,sprite){
 				var distance = game.physics.arcade.distanceBetween(sprite, arrayCubes[position]);
 					//console.log(distance);
 					//console.log(piecesByPos['z']);
-					if( distance < 70 && leaderPos!=position && typeof piecesByPos[position] == 'undefined')
+					if( distance < 70 && leaderPos!=position && (typeof piecesByPos[position] == 'undefined' || piecesByPos[position].alive == false))
 					{ // If drop piece on possible place
 		console.log(leaderPos,position,currentPos);
 					movePiece(currentPos,position);
@@ -328,13 +328,24 @@ function movePiece( from, to )
 
 function battle(from, to){
 
-	if(piecesByPos[from].atk>piecesByPos[to].def){
+	if(piecesByPos[from].atk>=piecesByPos[to].def){
 		piecesByPos[to].destroy();
+		piecesByPos[to].atk = null;
+		piecesByPos[to].def = null;
+		piecesByPos[to].leader = null;
+		piecesByPos[to].enemy = null;
+		text.destroy();
 		console.log('defendente morreu');
 		return 1;
 	}
 	else if (piecesByPos[from].atk<piecesByPos[to].def){
 		piecesByPos[from].destroy();
+		piecesByPos[from].atk = null;
+		piecesByPos[from].def = null;
+		piecesByPos[from].leader = null;
+		piecesByPos[from].enemy = null;
+		text.destroy();
+		console.log(piecesByPos[from]);
 		console.log('atacante morreu');
 		return 2;
 	}
@@ -362,9 +373,11 @@ function possiblePositions(sprite){
 			{
 				if(+currentPos.split(/(\d+)/)[0].charCodeAt(0)+a >= 97 && +currentPos.split(/(\d+)/)[0].charCodeAt(0)+a <= 103 
 				&& +currentPos.split(/(\d+)/)[1]+b >= 1 && +currentPos.split(/(\d+)/)[1]+b <=5)
-				position = String.fromCharCode(currentPos.split(/(\d+)/)[0].charCodeAt(0)+a) + (+currentPos.split(/(\d+)/)[1]+b);
-				//arrayCubes[position].alpha = 0.5;
-				arrayCubes[position].tint = Phaser.Color.RGBtoString(color.color1, color.color2, color.color3, '', '0x'); 
+				{
+					position = String.fromCharCode(currentPos.split(/(\d+)/)[0].charCodeAt(0)+a) + (+currentPos.split(/(\d+)/)[1]+b);
+					//arrayCubes[position].alpha = 0.5;
+					arrayCubes[position].tint = Phaser.Color.RGBtoString(color.color1, color.color2, color.color3, '', '0x'); 
+				}
 			}
 		}
 		text = game.add.text(sprite.x + 5, sprite.y - 90, "Atk: " + sprite.atk +"\nDef: " + sprite.def,
