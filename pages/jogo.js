@@ -1,6 +1,15 @@
+console.log($(window).width()); 
+console.log($(window).height());
+
+
 var gameOptions = {
+/*
+    gameWidth: (Math.trunc($(window).width()*window.devicePixelRatio)),
+    gameHeight: (Math.trunc($(window).height()*window.devicePixelRatio)),
+*/
     gameWidth: 1800,
     gameHeight: 900,
+	
     cardSheetWidth: 334,
     cardSheetHeight: 440,
     cardScale: 0.3	
@@ -50,7 +59,11 @@ function preload( ) {
 	var positions = [];
 	var cards = {};
 	var cardsInGame = [];
-
+	var color = {
+		color1: 0,
+		color2: 0,
+		color3: 0,
+	}
 
     var initPosBoardX = 441;
     var initPosBoardY = 390;
@@ -110,6 +123,8 @@ function create( ) {
 	piecesByPos['a3'].def = 10;
 	piecesByPos['a3'].leader = true;
 	piecesByPos['a3'].enemy = false;
+	piecesByPos['a3'].events.onInputOver.add(possiblePositions, this);
+	piecesByPos['a3'].events.onInputOut.add(possiblePositions2, this);
 	
 	piecesByPos['g3'] = pieces.create(1221, 383, 'black_knight');
 	piecesByPos['g3'].currentPos = 'g3';
@@ -119,6 +134,8 @@ function create( ) {
 	piecesByPos['g3'].def = 8;
 	piecesByPos['g3'].leader = true;
 	piecesByPos['g3'].enemy = true;
+	piecesByPos['g3'].events.onInputOver.add(possiblePositions, this);
+	piecesByPos['g3'].events.onInputOut.add(possiblePositions2, this);
 	
 	
     // Bind callback on drag start and stop events
@@ -145,11 +162,17 @@ function makeCard(cardIndex, cardNumber){
 	piecesByPos['z'+ yPos].scale.set(gameOptions.cardScale);
 	piecesByPos['z'+ yPos].frame = deck[cardIndex];
 	piecesByPos['z'+ yPos].currentPos = 'z'+ yPos;
+	piecesByPos['z'+ yPos].atk = Math.floor(Math.random() * 11);      // returns a number between 0 and 10
+	piecesByPos['z'+ yPos].def = Math.floor(Math.random() * 11);      // returns a number between 0 and 10
+	piecesByPos['z'+ yPos].leader = false;
+	piecesByPos['z'+ yPos].enemy = false;
 	//console.log(piecesByPos['z'+ yPos]);
     piecesByPos['z'+ yPos].inputEnabled = true;
 	piecesByPos['z'+ yPos].input.enableDrag();
 	piecesByPos['z'+ yPos].events.onDragStop.add(stopDrag, this);
 	piecesByPos['z'+ yPos].events.onDragStart.add(initDrag, this);
+	piecesByPos['z'+ yPos].events.onInputOver.add(possiblePositions, this);
+	piecesByPos['z'+ yPos].events.onInputOut.add(possiblePositions2, this);
 	delete piecesByPos['z'+ yPos].oldPosition;
 	return piecesByPos['z'+ yPos];
 }
@@ -318,6 +341,54 @@ function battle(from, to){
 	else return;
 }
 
+function possiblePositions(sprite){
+	var currentPos = sprite.currentPos;
+	
+	if (sprite.enemy)
+	{
+		color.color1 = 255;
+		color.color2 = 0;
+	}
+	else {
+		color.color1 = 0;
+		color.color2 = 255;
+	}
+	if (currentPos.split(/(\d+)/)[0] =='z'){
+		currentPos = findLeader();
+	}
+		for( var a = -1; a <= 1; a++ )
+		{
+			for( var b = -1; b <= 1; b++ )
+			{
+				if(+currentPos.split(/(\d+)/)[0].charCodeAt(0)+a >= 97 && +currentPos.split(/(\d+)/)[0].charCodeAt(0)+a <= 103 
+				&& +currentPos.split(/(\d+)/)[1]+b >= 1 && +currentPos.split(/(\d+)/)[1]+b <=5)
+				position = String.fromCharCode(currentPos.split(/(\d+)/)[0].charCodeAt(0)+a) + (+currentPos.split(/(\d+)/)[1]+b);
+				//arrayCubes[position].alpha = 0.5;
+				arrayCubes[position].tint = Phaser.Color.RGBtoString(color.color1, color.color2, color.color3, '', '0x'); 
+			}
+		}
+		text = game.add.text(sprite.x + 5, sprite.y - 90, "Atk: " + sprite.atk +"\nDef: " + sprite.def,
+		{ font: "35px Arial", fill: "#0000ff",outline: "black", align: "center", });
+		text.stroke = '#000000';
+		text.strokeThickness = 6;
+		text.fill = '#d68743';		  
+}
+
+
+function possiblePositions2(sprite){
+		for( var a = 0; a <= 7; a++ )
+		{
+			for( var b = 0; b <= 7; b++ )
+			{
+				if(letterACode+a >= 97 && letterACode+a <= 103 
+				&& b >= 1 && b <=5)
+				position = String.fromCharCode(letterACode+a) + b;
+				//arrayCubes[position].alpha = 1.0;
+				arrayCubes[position].tint = Phaser.Color.RGBtoString(255, 255, 255, '', '0x'); 
+			}
+		}
+		text.destroy();
+}
 /**
  * Check if sprite a overlaps sprite b
  *
