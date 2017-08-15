@@ -25,43 +25,49 @@ function  preload () {
 	game.load.image('joaninha','assets/teste.png');
 	game.load.spritesheet('devil','assets/devil.png',32,32);
 	game.load.spritesheet('mumia','assets/mumia.png',32,32);
-
+    game.load.spritesheet('torturer','assets/torturer.png',64,64); //imagem grande
+    var capetinhas;
+    var capangas;
 }
 
 function create (){
-    var capetinhas = game.add.group();
-	game.add.sprite(window.width,0,'tabuleiro');
-	//devil = spawn (2,2,'devil');
-	mumia = spawn (1,1,'mumia');
     
-    mumia.animations.add('left', [7, 11], 2, true);
-	mumia.animations.add('right', [5, 9], 2, true);
-	mumia.animations.add('up', [4, 8], 2, true);
-	mumia.animations.add('down',[6,10],2,true); 
+	game.add.sprite(0,0,'tabuleiro'); 
+	player1 = game.add.group();
+	player2 = game.add.group();
     
-	for (var i=2;i<13;i++)
-        for (var j=1;j<13;j++)   
-            capetinhas.create(spawn(i,j,'devil'));
+    player1.create(32,32,'devil');
+    addAnimations();
+   
+    
+
+	
+
+	
 		
-	/*capetinhas.callAll('animations.add','left', [7, 11], 2, true);
-	capetinhas.animations.add('right', [5, 9], 2, true);
-	capetinhas.animations.add('up', [4, 8], 2, true);
-	capetinhas.animations.add('down',[6,10],2,true);*/
-	
-	
-	
-	
-	
 	
 }
 
 function update (){
-	//devil.animations.play('right');
-	mumia.animations.play('right');
-}
+  
 
+}
 function spawn (posX,posY,nome){ //insere na posicao do tabuleiro
 	return game.add.sprite(posX*32,posY*32,nome);
+}
+    
+function addAnimations(){ //atualmente só adiciona animações com 12 sprites 
+    player1.callAll('animations.add','animations','left', [7, 11], 2, true);
+	player1.callAll('animations.add','animations','right', [5, 9], 2, true);
+	player1.callAll('animations.add','animations','up', [4, 8], 2, true);
+	player1.callAll('animations.add','animations','down',[6,10],2,true);
+    
+    player2.callAll('animations.add','animations','left', [7, 11], 2, true);
+	player2.callAll('animations.add','animations','right', [5, 9], 2, true);
+	player2.callAll('animations.add','animations','up', [4, 8], 2, true);
+	player2.callAll('animations.add','animations','down',[6,10],2,true);
+	
+
 }
 </script>
 

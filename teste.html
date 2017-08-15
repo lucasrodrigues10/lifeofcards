@@ -1,0 +1,46 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+    <title>Life of cards (tabuleiro)</title>
+	<script type="text/javascript" src="js/phaser.min(2).js"></script>
+	
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+var game = new Phaser.Game(448, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+
+
+function  preload () {
+	game.load.image('tabuleiro','assets/tabuleiro.png')
+	game.load.spritesheet('devil','assets/devil.png',32,32);
+	
+}
+
+function create (){
+    
+	
+	game.add.sprite(window.width,0,'tabuleiro');//loading the background
+	
+	
+	//var devil = game.add.sprite(128,128,'devil'); // this works
+	
+	capetinhas = game.add.group();
+    capetinhas.create(64,64,'devil'); // this doesnt	
+	
+}
+
+function update (){
+	
+}
+</script>
+
+</body>
+</html>
