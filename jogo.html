@@ -17,7 +17,8 @@
 var game = new Phaser.Game(448, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 var imagem_pequena = {l:32,h:32}; //NAO USAR POR ENQUANTO   
-var imagem_larga = {l:64,h:32};
+var numLinhas = 12;
+var numColunas = 12;
 
 
 function  preload () {
@@ -26,21 +27,22 @@ function  preload () {
 	game.load.spritesheet('devil','assets/devil.png',32,32);
 	game.load.spritesheet('mumia','assets/mumia.png',32,32);
     game.load.spritesheet('torturer','assets/torturer.png',64,64); //imagem grande
-    var capetinhas;
-    var capangas;
+    var unidades = [];
+    var cartas;
+    
 }
 
 function create (){
     
 	game.add.sprite(0,0,'tabuleiro'); 
-	player1 = game.add.group();
-	player2 = game.add.group();
+	
+    cartas = game.add.group(); //grupo para renderizar a "layer" das cartas no tabuleiro
     
-    player1.create(32,32,'devil');
-    addAnimations();
-   
-    
-
+    var spriteTeste = game.add.sprite(64,64,'torturer');
+    cartas.add(spriteTeste);
+    console.log(spriteTeste.z);
+    spriteTeste.moveUp();
+    console.log(spriteTeste.z);
 	
 
 	
@@ -52,23 +54,44 @@ function update (){
   
 
 }
-function spawn (posX,posY,nome){ //insere na posicao do tabuleiro
-	return game.add.sprite(posX*32,posY*32,nome);
+    
+    
+function summon (posX,posY,nome,player){ 
+    
+    //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
+	var sprite = game.add.sprite(posX*32+32,posY*32+32,nome);
+    
+    //muda a âncora para o canto inferior direito
+    sprite.anchor.set(1,1); 
+     
+    //cria animações para o sprite. Por enquanto só cria para spritesheets com 12 frames
+    addAnimations(sprite);  
+    
+    //adiciona o sprite ao grupo de cartas
+    cartas.add(sprite);
+    
+    console.log(sprite.z);
+    
+    //cartas com maior z ou "profundidade" serão renderizados por ultimo 
+    //while (sprite.z)
+    
+    if (player == player1){
+        //player1.add(sprite);
+    } else if (player == player2){
+       //player2.add(sprite);
+    }
+     
 }
-    
-function addAnimations(){ //atualmente só adiciona animações com 12 sprites 
-    player1.callAll('animations.add','animations','left', [7, 11], 2, true);
-	player1.callAll('animations.add','animations','right', [5, 9], 2, true);
-	player1.callAll('animations.add','animations','up', [4, 8], 2, true);
-	player1.callAll('animations.add','animations','down',[6,10],2,true);
-    
-    player2.callAll('animations.add','animations','left', [7, 11], 2, true);
-	player2.callAll('animations.add','animations','right', [5, 9], 2, true);
-	player2.callAll('animations.add','animations','up', [4, 8], 2, true);
-	player2.callAll('animations.add','animations','down',[6,10],2,true);
-	
 
+function addAnimations(sprite){
+    sprite.animations.add('left', [7, 11], 2, true);
+    sprite.animations.add('right', [5, 9], 2, true);
+    sprite.animations.add('up', [4, 8], 2, true);
+    sprite.animations.add('down',[6,10],2,true);
 }
+
+    
+    
 </script>
 
 </body>
