@@ -16,8 +16,7 @@
 
 <script type="text/javascript">
 var game = new Phaser.Game(448, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-
- //NAO USAR POR ENQUANTO   
+  
 var numLinhas = 12;
 var numColunas = 12;
 
@@ -27,15 +26,15 @@ function  preload () {
     loadAssets(); //carrega os assets necessários
 	
     
-    var cartas;
+    var unidades;
     
 }
 
 function create (){
-    
+    console.log("UNIDADES QUE PODEM SER CRIADAS: ferumbras, banshee, mummy, devil, torturer. Basta escrever 'spawn(x,y,nome_da_unidade)' ")
 	game.add.sprite(0,0,'tabuleiro'); 
 	
-    cartas = game.add.group(); //grupo para renderizar a "layer" das cartas no tabuleiro
+    unidades = game.add.group(); //grupo para renderizar a "layer" das cartas no tabuleiro
     
     
     //todas as animações estão se sobrepondo corretamente (até onde eu testei, ta funcionando)
@@ -44,7 +43,9 @@ function create (){
     summon(2,4,'banshee');
     summon(2,6,'torturer');
     summon(3,6,'torturer');
-    cartas.callAll('animations.play','animations','right'); 
+    summon(8,10,'ferumbras');
+    
+    unidades.callAll('animations.play','animations','right'); 
     
     
 	
