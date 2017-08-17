@@ -4,6 +4,7 @@
 	<meta charset="UTF-8" />
     <title>Life of cards (tabuleiro)</title>
 	<script type="text/javascript" src="js/phaser.min(1).js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
     <style type="text/css">
         body {
@@ -16,17 +17,15 @@
 <script type="text/javascript">
 var game = new Phaser.Game(448, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
-var imagem_pequena = {l:32,h:32}; //NAO USAR POR ENQUANTO   
+ //NAO USAR POR ENQUANTO   
 var numLinhas = 12;
 var numColunas = 12;
-var tabuleiro
+
+
 
 function  preload () {
-	game.load.image('tabuleiro','assets/tabuleiro.png');
-	game.load.image('joaninha','assets/teste.png');
-	game.load.spritesheet('devil','assets/devil.png',32,32);
-	game.load.spritesheet('mumia','assets/mumia.png',32,32);
-    game.load.spritesheet('torturer','assets/torturer.png',64,64); //imagem grande
+    loadAssets(); //carrega os assets necessários
+	
     
     var cartas;
     
@@ -40,9 +39,9 @@ function create (){
     
     
     //todas as animações estão se sobrepondo corretamente (até onde eu testei, ta funcionando)
-    summon(2,5,'torturer');
+    summon(2,5,'banshee');
     summon(3,5,'torturer');
-    summon(2,4,'torturer');
+    summon(2,4,'banshee');
     summon(2,6,'torturer');
     summon(3,6,'torturer');
     cartas.callAll('animations.play','animations','right'); 
@@ -59,38 +58,9 @@ function update (){
 }
     
     
-function summon (posX,posY,nome){ 
-    
-    //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
-	var sprite = game.add.sprite(posX*32+32,posY*32+32,nome);
-    
-    //muda a âncora para o canto inferior direito
-    sprite.anchor.set(1,1); 
-     
-    //cria animações para o sprite. Por enquanto só cria para spritesheets com 12 frames
-    addAnimations(sprite);  
-    
-    //adiciona o sprite ao grupo de cartas
-    cartas.add(sprite);
-    
-    console.log(sprite.z);
-    
-    //FALTA EXPLICAR ISSO AQUI 
-    cartas.sort('x');
-    cartas.sort('y');
-    console.log(sprite.z);
-    
-    
-    
-     
-}
 
-function addAnimations(sprite){
-    sprite.animations.add('left', [7, 11], 2, true);
-    sprite.animations.add('right', [5, 9], 2, true);
-    sprite.animations.add('up', [4, 8], 2, true);
-    sprite.animations.add('down',[6,10],2,true);
-}
+
+
 
     
     
