@@ -45,8 +45,12 @@ function preload( ) {
 	game.load.image('card', '../img/carta.jpg');
 	game.load.spritesheet("cards", "assets/cards.png", gameOptions.cardSheetWidth, gameOptions.cardSheetHeight);
 
+	game.scale.scaleMode = Phaser.ScaleManager.aspectRatio;
+	game.scale.pageAlignVertically = true;
+	game.scale.pageAlignHorizontally = true;
+	game.scale.setShowAll();
+	game.scale.refresh();
 }
-
 	var board       = 'undefined';
 	var pieces      = 'undefined';
 	var cubes       = 'undefined';
@@ -54,6 +58,8 @@ function preload( ) {
 	var platforms   = 'undefined';
 	var cursors     = 'undefined';
 	var rect        = 'undefined';
+	var gameover 	= null;
+	var win 		= null;
 	var arrayCubes  = {};
 	var piecesByPos = {};
 	var positions = [];
@@ -82,7 +88,8 @@ function preload( ) {
 	
 function create( ) {
     game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.add.sprite(0, 0, 'bg');
+    bg = game.add.sprite(0, 0, 'bg');
+	bg.scale.setTo(1.0, 1.0);
     var boardImage = game.cache.getImage('board');
 
     board = game.add.sprite(game.world.centerX - (boardImage.width/2)*1.0, game.world.centerY - (boardImage.height/2)*1.0, 'board'); //game.world.centerY - (boardImage.height/2)*1.0
@@ -123,8 +130,9 @@ function create( ) {
 	piecesByPos['a3'].def = 10;
 	piecesByPos['a3'].leader = true;
 	piecesByPos['a3'].enemy = false;
-	piecesByPos['a3'].events.onInputOver.add(possiblePositions, this);
-	piecesByPos['a3'].events.onInputOut.add(possiblePositions2, this);
+	piecesByPos['a3'].events.onInputDown.add(possiblePositions, this);
+	piecesByPos['a3'].events.onInputUp.add(possiblePositions2, this);
+	piecesByPos['a3'].events.onDragStop.add(possiblePositions2, this);
 	
 	piecesByPos['g3'] = pieces.create(1221, 383, 'black_knight');
 	piecesByPos['g3'].currentPos = 'g3';
@@ -134,8 +142,9 @@ function create( ) {
 	piecesByPos['g3'].def = 8;
 	piecesByPos['g3'].leader = true;
 	piecesByPos['g3'].enemy = true;
-	piecesByPos['g3'].events.onInputOver.add(possiblePositions, this);
-	piecesByPos['g3'].events.onInputOut.add(possiblePositions2, this);
+	piecesByPos['g3'].events.onInputDown.add(possiblePositions, this);
+	piecesByPos['g3'].events.onInputUp.add(possiblePositions2, this);
+	piecesByPos['g3'].events.onDragStop.add(possiblePositions2, this);
 	
 	
     // Bind callback on drag start and stop events
@@ -171,15 +180,14 @@ function makeCard(cardIndex, cardNumber){
 	piecesByPos['z'+ yPos].input.enableDrag();
 	piecesByPos['z'+ yPos].events.onDragStop.add(stopDrag, this);
 	piecesByPos['z'+ yPos].events.onDragStart.add(initDrag, this);
-	piecesByPos['z'+ yPos].events.onInputOver.add(possiblePositions, this);
-	piecesByPos['z'+ yPos].events.onInputOut.add(possiblePositions2, this);
+	piecesByPos['z'+ yPos].events.onInputDown.add(possiblePositions, this);
+	piecesByPos['z'+ yPos].events.onInputUp.add(possiblePositions2, this);
 	delete piecesByPos['z'+ yPos].oldPosition;
 	return piecesByPos['z'+ yPos];
 }
 function update( ) {
-  /* if( leaderDead() ){
-        console.log('gameover');
-    }*/
+	game.scale.setShowAll();
+	game.scale.refresh();
 }
 function isNear(currentPos,sprite){
 		for( var a = -1; a <= 1; a++ )
@@ -204,7 +212,8 @@ function isNear(currentPos,sprite){
 				//console.log(arrayCubes[position].y);
 												
 						//window.setTimeout(makeRandomMove, 350);
-						
+				// var screenDims = Utils.ScreenUtils.calculateScreenMetrics(800, 500, 1 /* LANDSCAPE */);
+
 						//console.log('true');
 						return true;
 					}
@@ -262,6 +271,22 @@ function findLeader(){
 	}
 }
 
+function findLeaderEnemy(){
+	for( var x = 0; x <= 6; x++ ){
+        for( var y = 0; y <= 4; y++ ){
+            var yPos = arrayPosition[y];
+            position = String.fromCharCode(97+x) + yPos;
+			if(typeof piecesByPos[position] !== 'undefined'){
+				if (piecesByPos[position].leader == true && piecesByPos[position].enemy == true){
+					var leaderPos=piecesByPos[position].currentPos;
+					//console.log(leaderPos);
+					return leaderPos;
+				}
+			}
+		}
+	}
+}
+
 function isNearLeader(currentPos,sprite){
 	var leaderPos = findLeader();
 		for( var a = -1; a <= 1; a++ )
@@ -310,8 +335,7 @@ function summon(sprite, currentPos){
  * @param from
  * @param to
  */
-function movePiece( from, to )
-{
+function movePiece( from, to ){
     if( typeof piecesByPos[to] !== 'undefined' ){ // If destination pos is not empty, battle
 		if (battle(from, to)==2)
 		return;
@@ -324,11 +348,25 @@ function movePiece( from, to )
 
 		delete piecesByPos[from]; // Delete old reference
 		piecesByPos[to].currentPos = to; 
+		
+		
 }
 
 function battle(from, to){
 
 	if(piecesByPos[from].atk>=piecesByPos[to].def){
+		if(piecesByPos[to].leader = true && piecesByPos[to].enemy == true)
+		{
+			gameover = true;
+			win = true;
+			checkGameOver(win);
+		}
+		else if(piecesByPos[to].leader = true && piecesByPos[to].enemy == false)
+		{
+			gameover = true;
+			win = false;
+			checkGameOver(win);
+		}
 		piecesByPos[to].destroy();
 		piecesByPos[to].atk = null;
 		piecesByPos[to].def = null;
@@ -339,6 +377,18 @@ function battle(from, to){
 		return 1;
 	}
 	else if (piecesByPos[from].atk<piecesByPos[to].def){
+		if(piecesByPos[from].leader = true && piecesByPos[from].enemy == true)
+		{
+			gameover = true;
+			win = true;
+			checkGameOver(win);
+		}
+		else if(piecesByPos[from].leader = true && piecesByPos[from].enemy == false)
+		{
+			gameover = true;
+			win = false;
+			checkGameOver(win);
+		}
 		piecesByPos[from].destroy();
 		piecesByPos[from].atk = null;
 		piecesByPos[from].def = null;
@@ -350,6 +400,17 @@ function battle(from, to){
 		return 2;
 	}
 	else return;
+}
+
+function checkGameOver(win){
+	if(win)
+	{
+		console.log("Vitoria");
+	}
+	else 
+	{
+		console.log("Derrota");
+	}	
 }
 
 function possiblePositions(sprite){
@@ -387,7 +448,6 @@ function possiblePositions(sprite){
 		text.fill = '#d68743';		  
 }
 
-
 function possiblePositions2(sprite){
 		for( var a = 0; a <= 7; a++ )
 		{
@@ -402,6 +462,47 @@ function possiblePositions2(sprite){
 		}
 		text.destroy();
 }
+
+/**
+ * Make random move of computer side
+ *
+ */
+function makeRandomMove (){
+	
+    var randomIndex = Math.floor(Math.random() * 8); // Select random movement
+	//var randomIndex = 7;
+	console.log(randomIndex);
+	var possibleMoves = '';	
+	var currentPos = findLeaderEnemy();
+	
+		for( var a = -1; a <= 1; a++ )
+		{
+			for( var b = -1; b <= 1; b++ )
+			{
+				if(+currentPos.split(/(\d+)/)[0].charCodeAt(0)+a >= 97 && +currentPos.split(/(\d+)/)[0].charCodeAt(0)+a <= 103 
+				&& +currentPos.split(/(\d+)/)[1]+b >= 1 && +currentPos.split(/(\d+)/)[1]+b <=5)
+				{
+					position = String.fromCharCode(currentPos.split(/(\d+)/)[0].charCodeAt(0)+a) + (+currentPos.split(/(\d+)/)[1]+b);
+					if(position != currentPos)
+					possibleMoves = possibleMoves+position;
+			
+				}
+			}
+		}
+				//console.log(possibleMoves.split(/(\d+)/)[2*randomIndex]); //.charCodeAt(0) String.fromCharCode(
+				//console.log(possibleMoves.split(/(\d+)/)[2*randomIndex+1]);
+				console.log(Math.floor(Math.random() * possibleMoves.length/2));
+		if (randomIndex >= possibleMoves.length/2){
+			randomIndex = Math.floor(Math.random() * possibleMoves.lenght/2 ); // Select random movement
+			console.log(randomIndex);
+			console.log("sajdnasjdaj");
+		}
+    var from = currentPos;
+    var to = possibleMoves.split(/(\d+)/)[2*randomIndex]+possibleMoves.split(/(\d+)/)[2*randomIndex+1];
+	
+    movePiece(from, to);
+}
+
 /**
  * Check if sprite a overlaps sprite b
  *
@@ -430,20 +531,4 @@ function animateCubes( cubeSprite )
             .to({ alpha: 0.5 }, 800, Phaser.Easing.Bounce.Out)
             .to({ alpha: 1.0 }, 800, Phaser.Easing.Bounce.Out)
             .start();
-}
-
-/**
- * Make random move of computer side
- *
- */
-function makeRandomMove ()
-{
-    if (possibleMoves.length === 0) return; 
-
-    //var randomIndex = Math.floor(Math.random() * possibleMoves.length); // Select random movement
-
-    var from = movement.from;
-    var to = movement.to;
-
-    movePiece(from, to);
 }
