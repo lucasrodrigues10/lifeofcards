@@ -101,7 +101,20 @@ function move(posX,posY,numCasas,dir){
 
 // 
 
-function
+//encontra a casa correspondente no tabuleiro com o click do mouse
+function escolheCasa(pointer){
+    var sprite = null;
+    posX = Math.ceil(pointer.x/32)*32-1;  //GoHorse magnífico    
+    posY = Math.ceil(pointer.y/32)*32-1;
+    
+    sprite = encontraSprite(posX,posY);//encontra o sprite
+    
+    if (sprite != null){
+       criaMovimentacao(posX,posY); 
+    } else {
+         movimentacao.callAll('kill');
+    }
+}
 
 function encontraSprite (posX,posY){ 
          
@@ -112,11 +125,26 @@ function encontraSprite (posX,posY){
           
 }
 
-//encontra a casa correspondente no tabuleiro com o click do mouse
-function encontraCasa(pointer){
-    posX = Math.ceil(pointer.x/32)*32;  //GoHorse magnífico    
-    posY = Math.ceil(pointer.y/32)*32;
-    
-    encontraSprite(posX,posY);
-}
 
+
+function criaMovimentacao (posX,posY){
+    movimentacao.callAll('kill');
+    var quadrados =[];
+    quadrados.push(game.add.sprite(posX,posY-32,'quadrado'));       //pra cima
+    quadrados.push(game.add.sprite(posX+32,posY-32,'quadrado'));    //pra cima e pra direita
+    quadrados.push(game.add.sprite(posX+32,posY,'quadrado'));       //pra direita
+    quadrados.push(game.add.sprite(posX+32,posY+32,'quadrado'));    //pra baixo e pra direita
+    quadrados.push(game.add.sprite(posX,posY+32,'quadrado'));       //pra baixo
+    quadrados.push(game.add.sprite(posX-32,posY+32,'quadrado'));    //pra baixo e pra esquerda
+    quadrados.push(game.add.sprite(posX-32,posY,'quadrado'));       //pra esquerda
+    quadrados.push(game.add.sprite(posX-32,posY-32,'quadrado'));    //pra cima e pra esquerda
+    
+    
+
+    console.log(quadrados);
+    movimentacao.addMultiple(quadrados);
+    movimentacao.children.forEach(function(movimentacao){   //muda âncora dos quadrados azuis
+        movimentacao.anchor.setTo(1,1);
+    })
+    movimentacao.visible = true;
+}
