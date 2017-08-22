@@ -1,4 +1,16 @@
-
+//carregador de assets
+function loadAssets (){ 
+    
+    game.load.image('tabuleiro','assets/tabuleiro.png');
+    game.load.image('quadrado','assets/quadrado.png');
+	game.load.spritesheet('devil','assets/devil.png',32,32);
+	game.load.spritesheet('mummy','assets/mumia.png',32,32);
+    game.load.spritesheet('torturer','assets/torturer.png',64,64); //imagem grande
+    game.load.spritesheet('banshee','assets/banshee.png',64,64); //imagem grande
+    game.load.spritesheet('ferumbras','assets/ferumbras.png',64,64); //imagem grande e com 36 frames
+    
+    
+}
 
 //cria os sprites de animações
 function addAnimations(sprite){
@@ -34,18 +46,27 @@ function addAnimations(sprite){
     sprite.animations.add('left',walkLeft, frameSpeed, true);
 }
 
+var spriteSelecionado;
+
+//função para criar sprites de maneira mais rápida
 function summon (linhaTabuleiro,colTabuleiro,nome){ 
     posX = linhaTabuleiro*32+31;
     posY = colTabuleiro*32+31;
     
     //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
 	var sprite = game.add.sprite(posX,posY,nome);
+    sprite.linha = linhaTabuleiro;
+    sprite.col = colTabuleiro;
     
-   
+    //criando resposta ao clique
+    sprite.inputEnabled = true;
+    sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32); 
+    sprite.events.onInputDown.add(criaMovimentacao,this);
+    
     
     //muda a âncora para o canto inferior direito
     sprite.anchor.set(1,1); 
-       
+    
     //cria animações para o sprite.
     addAnimations(sprite);  
     
@@ -59,27 +80,23 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
         
 }
 
-//carregador de assets
-function loadAssets (){ 
-    
-    game.load.image('tabuleiro','assets/tabuleiro.png');
-    game.load.image('quadrado','assets/quadrado.png');
-	game.load.spritesheet('devil','assets/devil.png',32,32);
-	game.load.spritesheet('mummy','assets/mumia.png',32,32);
-    game.load.spritesheet('torturer','assets/torturer.png',64,64); //imagem grande
-    game.load.spritesheet('banshee','assets/banshee.png',64,64); //imagem grande
-    game.load.spritesheet('ferumbras','assets/ferumbras.png',64,64); //imagem grande e com 36 frames
-    
+
+//funçao pra debug
+function clicou (sprite){
+    console.log("clicou numa unidade");
+    console.log(sprite.key,sprite.x,sprite.y);
     
 }
 
 
 
-
+function move (sprite){
+    console.log("moveu");
+    console.log(spriteClicado.key);
+}
 
 /* REESCREVER
-function move(posX,posY,numCasas,dir){  
-    var sprite = encontraSprite(posX,posY);
+function walk(sprite,numCasas,dir){  
     switch (dir) {
         case 'up':
             sprite.animations.play('up');
@@ -88,7 +105,7 @@ function move(posX,posY,numCasas,dir){
             sprite.animations.play('right');
             break;
         case 'down':
-            sprite.animations.play()
+            sprite.animations.play('down');
             break;
         case 'left':
             break;
@@ -98,37 +115,25 @@ function move(posX,posY,numCasas,dir){
 }
 
 */
-
-// 
-
-//encontra a casa correspondente no tabuleiro com o click do mouse
-function escolheCasa(pointer){
-    var sprite = null;
-    posX = Math.ceil(pointer.x/32)*32-1;  //GoHorse magnífico    
-    posY = Math.ceil(pointer.y/32)*32-1;
-    
-    sprite = encontraSprite(posX,posY);//encontra o sprite
-    
-    if (sprite != null){
-       criaMovimentacao(posX,posY); 
-    } else {
-         movimentacao.callAll('kill');
-    }
-}
-
+ 
 function encontraSprite (posX,posY){ 
          
+   
     var resultado = unidades.getAll('x',posX); //filtra pela posição X
     for (i=0;i<resultado.length;i++)            //faz a segundo busca, filtrando agora pela posição Y
-        if (resultado[i].y == posY)
-            return resultado[i];            
-          
+        if (resultado[i].y == posY){
+            resultado[i].selecionado  = true;
+            return resultado[i];         
+        }
 }
 
 
 
-function criaMovimentacao (posX,posY){
-    movimentacao.callAll('kill');
+function criaMovimentacao (sprite){
+    posX = sprite.x;
+    posY = sprite.y;
+    spriteClicado = sprite;
+    movimentacao.callAll('kill'); //remove os quadrados antigos
     var quadrados =[];
     quadrados.push(game.add.sprite(posX,posY-32,'quadrado'));       //pra cima
     quadrados.push(game.add.sprite(posX+32,posY-32,'quadrado'));    //pra cima e pra direita
@@ -140,11 +145,13 @@ function criaMovimentacao (posX,posY){
     quadrados.push(game.add.sprite(posX-32,posY-32,'quadrado'));    //pra cima e pra esquerda
     
     
-
-    console.log(quadrados);
-    movimentacao.addMultiple(quadrados);
-    movimentacao.children.forEach(function(movimentacao){   //muda âncora dos quadrados azuis
-        movimentacao.anchor.setTo(1,1);
+    movimentacao.addMultiple(quadrados);                            //adiciona os quadrados de movimento ao grupo
+    movimentacao.children.forEach(function(quadrado){   
+        quadrado.anchor.setTo(1,1);                             //muda âncora dos quadrados azuis
+        quadrado.inputEnabled = true;
+        
     })
     movimentacao.visible = true;
+    
+    movimentacao.onChildInputDown.add(move,this);
 }
