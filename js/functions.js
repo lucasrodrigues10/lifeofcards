@@ -22,7 +22,7 @@ function addAnimations(sprite){
     
     if (game.cache.getImage(key).width <= 768){
         
-        frameSpeed = 2;
+        frameSpeed = 3;
         
         walkUp = [4,8];     
         walkRight = [5,9];
@@ -63,6 +63,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
     sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32); 
     sprite.events.onInputDown.add(criaMovimentacao,this);
     
+    game.physics.arcade.enable(sprite);
     
     //muda a âncora para o canto inferior direito
     sprite.anchor.set(1,1); 
@@ -81,18 +82,28 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 }
 
 
-//funçao pra debug
-function clicou (sprite){
-    console.log("clicou numa unidade");
-    console.log(sprite.key,sprite.x,sprite.y);
-    
-}
+
 
 
 
 function move (sprite){
     console.log("moveu");
-    console.log(spriteClicado.key);
+    //desabilita o input pro usuario não fazer m*rda
+    game.input.enabled = false;
+    
+    //elimina quadrados antigos
+    movimentacao.callAll('kill');
+    
+    //move o objeto
+    game.physics.arcade.moveToObject(spriteSelecionado,sprite,60,600);
+    
+    //função para para o sprite quando ele chega ao destino
+    game.time.events.add(600, function () {
+        spriteSelecionado.body.velocity.x = 0;
+        spriteSelecionado.body.velocity.y = 0;
+        game.input.enabled = true;
+    }, this);
+   
 }
 
 /* REESCREVER
@@ -130,9 +141,10 @@ function encontraSprite (posX,posY){
 
 
 function criaMovimentacao (sprite){
+    spriteClicado = sprite;
     posX = sprite.x;
     posY = sprite.y;
-    spriteClicado = sprite;
+    spriteSelecionado = sprite;
     movimentacao.callAll('kill'); //remove os quadrados antigos
     var quadrados =[];
     quadrados.push(game.add.sprite(posX,posY-32,'quadrado'));       //pra cima
