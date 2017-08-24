@@ -99,6 +99,12 @@ function move (sprite){
     
     //função para para o sprite quando ele chega ao destino
     game.time.events.add(600, function () {
+        
+        //corrige erro de precisão ao movimentar (pergunta se nao entender)
+        spriteSelecionado.x = Math.ceil(sprite.x/32)*32-1;
+        spriteSelecionado.y = Math.ceil(sprite.y/32)*32-1;
+        
+        console.log(sprite.x,sprite.y);
         spriteSelecionado.body.velocity.x = 0;
         spriteSelecionado.body.velocity.y = 0;
         game.input.enabled = true;
@@ -127,7 +133,7 @@ function walk(sprite,numCasas,dir){
 
 */
  
-function encontraSprite (posX,posY){ 
+function encontraSprite (posX,posY){ //NÃO UTILIZADO NO MOMENTO
          
    
     var resultado = unidades.getAll('x',posX); //filtra pela posição X
@@ -157,11 +163,16 @@ function criaMovimentacao (sprite){
     quadrados.push(game.add.sprite(posX-32,posY-32,'quadrado'));    //pra cima e pra esquerda
     
     
-    movimentacao.addMultiple(quadrados);                            //adiciona os quadrados de movimento ao grupo
+    //adiciona os quadrados de movimento ao grupo
+    movimentacao.addMultiple(quadrados);            
+ 
+    
+    
     movimentacao.children.forEach(function(quadrado){   
         quadrado.anchor.setTo(1,1);                             //muda âncora dos quadrados azuis
         quadrado.inputEnabled = true;
-        
+       
+        console.log(quadrado.x,quadrado.y);
     })
     movimentacao.visible = true;
     
