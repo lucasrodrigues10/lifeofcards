@@ -81,9 +81,17 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
         
 }
 
+function foraDoMapa (posX,posY){
+    if ((posX < margemLateral*32) || (posX >= (margemLateral+numColunas)*32) ||
+        (posY < margemVertical*32) || (posY >= (margemVertical+numLinhas)*32))
+        return true;
+    else 
+        return false;
+}
 
-
-
+function dentroDoMapa (posX,posY){
+    return !(foraDoMapa(posX,posY));
+}
 
 
 function move (sprite){
