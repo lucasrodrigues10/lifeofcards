@@ -61,7 +61,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
     //criando resposta ao clique
     sprite.inputEnabled = true;
     sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32); 
-    sprite.events.onInputDown.add(criaMovimentacao,this);
+    sprite.events.onInputDown.add(criaMovimentacao2,this); 
     
     game.physics.arcade.enable(sprite);
     
@@ -91,8 +91,7 @@ function move (sprite){
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
     
-    //elimina quadrados antigos
-    movimentacao.callAll('kill');
+   
     
     //move o objeto
     game.physics.arcade.moveToObject(spriteSelecionado,sprite,60,600);
@@ -107,33 +106,15 @@ function move (sprite){
         console.log(sprite.x,sprite.y);
         spriteSelecionado.body.velocity.x = 0;
         spriteSelecionado.body.velocity.y = 0;
+        
+        movimentacao.callAll('kill');           //elimina quadrados antigos
         game.input.enabled = true;
     }, this);
    
 }
 
-/* REESCREVER
-function walk(sprite,numCasas,dir){  
-    switch (dir) {
-        case 'up':
-            sprite.animations.play('up');
-            break;
-        case 'right':
-            sprite.animations.play('right');
-            break;
-        case 'down':
-            sprite.animations.play('down');
-            break;
-        case 'left':
-            break;
-            
-    }
-    
-}
-
-*/
  
-function encontraSprite (posX,posY){ //NÃO UTILIZADO NO MOMENTO
+function encontraUnidade (posX,posY){ //NÃO UTILIZADO NO MOMENTO
          
    
     var resultado = unidades.getAll('x',posX); //filtra pela posição X
@@ -142,15 +123,15 @@ function encontraSprite (posX,posY){ //NÃO UTILIZADO NO MOMENTO
             resultado[i].selecionado  = true;
             return resultado[i];         
         }
+    return null;
 }
 
 
 
 function criaMovimentacao (sprite){
-    spriteClicado = sprite;
+    spriteSelecionado = sprite;
     posX = sprite.x;
     posY = sprite.y;
-    spriteSelecionado = sprite;
     movimentacao.callAll('kill'); //remove os quadrados antigos
     var quadrados =[];
     quadrados.push(game.add.sprite(posX,posY-32,'quadrado'));       //pra cima
@@ -163,6 +144,7 @@ function criaMovimentacao (sprite){
     quadrados.push(game.add.sprite(posX-32,posY-32,'quadrado'));    //pra cima e pra esquerda
     
     
+    
     //adiciona os quadrados de movimento ao grupo
     movimentacao.addMultiple(quadrados);            
  
@@ -171,10 +153,50 @@ function criaMovimentacao (sprite){
     movimentacao.children.forEach(function(quadrado){   
         quadrado.anchor.setTo(1,1);                             //muda âncora dos quadrados azuis
         quadrado.inputEnabled = true;
-       
-        console.log(quadrado.x,quadrado.y);
+        if (encontraUnidade(quadrado.x,quadrado.y)!=null)
+            //remove um quadrado se já há uma unidade nele
+            quadrado.kill();
+        
     })
     movimentacao.visible = true;
     
+    movimentacao.onChildInputDown.add(this.move,this,0,2);
+}
+
+//alternativa para a primeira funcção de movimentar
+function criaMovimentacao2 (sprite,count){
+    var quadrados = [];
+    
+    console.log(count);
+    spriteSelecionado = sprite;
+    movimentacao.callAll('kill');
+    posX = sprite.x;
+    posY = sprite.y;
+    quadrados.push(game.add.sprite(posX,posY-32,'quadrado'));   //cima
+    quadrados.push(game.add.sprite(posX+32,posY,'quadrado'));   //direita
+    quadrados.push(game.add.sprite(posX,posY+32,'quadrado'));   //baixo
+    quadrados.push(game.add.sprite(posX-32,posY,'quadrado'));   //pra esquerda
+
+    //adiciona os quadrados de movimento ao grupo
+    movimentacao.addMultiple(quadrados);
+    
+    movimentacao.children.forEach(function(quadrado){   
+        quadrado.anchor.setTo(1,1);                             //muda âncora dos quadrados azuis
+        quadrado.inputEnabled = true;
+        if (encontraUnidade(quadrado.x,quadrado.y)!=null)
+            //remove um quadrado se já há uma unidade nele
+            quadrado.kill();
+        
+        if (count != 0){
+            count--;
+            console.log(count);
+            criaMovimentacao2(quadrado,count);
+        }
+    })
+    
+    
+    movimentacao.visible = true;
+    
     movimentacao.onChildInputDown.add(move,this);
+ 
 }
