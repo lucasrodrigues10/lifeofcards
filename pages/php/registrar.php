@@ -19,13 +19,13 @@
     $situacaoU = "Usuario já Registrado";
   }
 
-  /* Procura se já tem um email idêntico 
+  /* Procura se já tem um email idêntico */
   $query = "SELECT * FROM usuario WHERE Email = '$email'";
   $result = $conn->query($query);
   $row = $result->fetch_assoc();
   if($result->num_rows > 0){ //se encontrar um email igual
   	$situacaoE = "Email já Registrado";
-  } */
+  } 
   
   if(($situacaoE === "") && ($situacaoU === "")){//insere se nao tiver iguais
     $query = "INSERT INTO usuario (login,senha,email) VALUES ('$usuario','$senha','$email');";
