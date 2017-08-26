@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	include "php/db.php";
+	$id = $_SESSION["id"];
+	$query = "SELECT * FROM Usuario WHERE IDusuario = '$id'";
+	$result = $conn->query($query);
+	$row = $result->fetch_assoc();
+	$login = $row["Login"];
+?>
 <!DOCTYPE html>
 <html>
 
@@ -393,7 +402,7 @@
             </div>
             <div class="col text-center ">
                 <!--Botão Página Inicial -->
-                <p class="nome-jogador "> Jogador123 </p>
+                <p class="nome-jogador "> <?= $login ?> </p>
             </div>
             <div class="col text-right ">
                 <!--Botão para logout com um modal para confirmar -->
