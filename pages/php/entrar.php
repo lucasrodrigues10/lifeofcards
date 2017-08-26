@@ -5,7 +5,7 @@
 	$usuario = $_POST['usuario'];
 	$senha = $_POST['senha'];
 
-	$query = "SELECT * FROM usuario WHERE login = '$usuario' AND senha = '$senha'";
+	$query = "SELECT * FROM Usuario WHERE Login = '$usuario' AND Senha = '$senha'";
 	$result = $conn->query($query);
 
 	if($result->num_rows > 0){

@@ -20,7 +20,7 @@
   }
 
   /* Procura se já tem um email idêntico */
-  $query = "SELECT * FROM usuario WHERE Email = '$email'";
+  $query = "SELECT * FROM Usuario WHERE Email = '$email'";
   $result = $conn->query($query);
   $row = $result->fetch_assoc();
   if($result->num_rows > 0){ //se encontrar um email igual
@@ -28,9 +28,9 @@
   } 
   
   if(($situacaoE === "") && ($situacaoU === "")){//insere se nao tiver iguais
-    $query = "INSERT INTO usuario (login,senha,email) VALUES ('$usuario','$senha','$email');";
+    $query = "INSERT INTO Usuario (Login,Senha,Email) VALUES ('$usuario','$senha','$email');";
     if($conn->query($query)){
-      	$query = "SELECT * FROM usuario WHERE Login = '$usuario' AND Senha = '$senha'";
+      	$query = "SELECT * FROM Usuario WHERE Login = '$usuario' AND Senha = '$senha'";
 		$result = $conn->query($query);		
 		$row = $result->fetch_assoc();
 		$_SESSION["id"] = $row["IDusuario"];
