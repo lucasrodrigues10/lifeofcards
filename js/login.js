@@ -2,20 +2,19 @@ $(document).ready(function() {
 
 
     $('#opt-reg').click(function() {
-        $('#bot-reg').show();
-        $('.form-email').show();
-        $('#bot-log').hide();
-        $('#bot-esq').hide();
-
+        $('#form-reg').show();
+        $('#form-log').hide();
+        $('#form-esq').hide();
     });
     $('#opt-log').click(function() {
-        $('#bot-reg').hide();
-        $('.form-email').hide();
-        $('#bot-log').show();
-        $('#bot-esq').show();
+        $('#form-reg').hide();
+        $('#form-log').show();
+        $('#form-esq').hide();
+
     });
 
-    $('#botao-erro').click(function() {
-        $('#registro-erro').show();
+    $('#bot-esq').click(function() {
+        $('#form-esq').toggle();
     });
+
 });
