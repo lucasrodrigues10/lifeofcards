@@ -1,5 +1,5 @@
 <?php
-	$manutencao = 1;
+	$manutencao = 0;
 	if($manutencao){
 		echo "Site em manutencao";		
 	}else{
