@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	session_destroy();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +25,7 @@
     <div class="container">
         <div class="jumbotron">
             <div class="container">
-            	<!-- Radio Button: entrar/registrar -->
+                <!-- Radio Button: entrar/registrar -->
                 <div class="col-md-12 text-center">
                     <div class="btn-group btn-group-lg .btn-group-justified" data-toggle="buttons">
                         <label class="btn btn-primary active " id="opt-log">
@@ -33,37 +37,32 @@
                     </div>
                 </div>
                 <!-- Formulario para registro -->
-                <form role="form" action="./registrar.php" method="post" style="display:none;" id="form-reg">
+                <form role="form" action="php/registrar.php" method="post" style="display:none;" id="form-reg">
                     <div class="form-group">
-                        <input type="email" class="form-control form-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" required>
-                    </div>
+                        <input type="email" class="form-control form-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" required> </div>
                     <div class="form-group">
-                        <input class="form-control" placeholder="Usuário" name="username" required>
-                    </div>
+                        <input class="form-control" placeholder="Usuário" name="usuario" required> </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Senha" name="password" required>
-                    </div>
+                        <input type="password" class="form-control" placeholder="Senha" name="senha" required> </div>
                     <div class="row">
                         <div class="col-sm-12" style="text-align: center;">
-                            <button type="submit" class="btn btn-danger btn-lg" id="bot-reg"  value="Submit" name="submit">Registrar</button>
+                            <button type="submit" class="btn btn-danger btn-lg" id="bot-reg" value="Submit" name="submit">Registrar</button>
                         </div>
                     </div>
                 </form>
                 <!-- Formulario para entrar -->
-                <form role="form" action="./login.php" method="post" id="form-log">
+                <form role="form" action="php/entrar.php" method="post" id="form-log">
                     <div class="form-group">
-                        <input class="form-control" placeholder="Usuário" name="username" required>
+                        <input class="form-control" placeholder="Usuário" name="usuario" required>
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" placeholder="Senha" name="senha" required>
                     </div>
-                    <a href="main.html">
-                        <div class="row">
-                            <div class="col-sm-12" style="text-align: center">
-                                <button type="submit" name="submit" class="btn btn-danger btn-lg" id="bot-log">Entrar</button>
-                            </div>
+                    <div class="row">
+                        <div class="col-sm-12" style="text-align: center">
+                            <button type="submit" name="submit" class="btn btn-danger btn-lg" id="bot-log">Entrar</button>
                         </div>
-                    </a>
+                    </div>
                 </form>
                 <!--Botão esqueceu a senha -->
                 <div class="row">
@@ -72,13 +71,13 @@
                     </div>
                 </div>
                 <!--Formulário Esqueceu a Senha -->
-                <form role="form" action="./esqueceu.php" method="post" style="display:none;" id="form-esq">
+                <form role="form" action="php/esqueceu.php" method="post" style="display:none;" id="form-esq">
                     <div class="form-group">
                         <input type="email" class="form-control form-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" required>
                     </div>
                     <div class="row">
                         <div class="col-sm-12" style="text-align: center;">
-                            <button type="submit" class="btn btn-danger btn-lg" id="bot-mudar" value="Submit" name="submit">Mudar a Senha</button>
+                            <button type="submit" class="btn btn-warning btn-lg" id="bot-mudar" value="Submit" name="submit">Mudar Senha</button>
                         </div>
                     </div>
                 </form>
