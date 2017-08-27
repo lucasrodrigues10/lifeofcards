@@ -112,8 +112,8 @@
                             Jogue agora
                         </div>
                         <div class="card-block">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.location='jogo.html'">Ranqueado</button>
-                            <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="window.location='jogo.html'">Treino</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.location='jogo.php'">Ranqueado</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="window.location='jogo.php'">Treino</button>
                         </div>
                     </div>
                 </div>
