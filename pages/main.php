@@ -15,8 +15,6 @@
 
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.ico" />
-    <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <title>Jogo</title>
     <!--Ter todos os simbolos -->
     <meta charset="utf-8">
@@ -36,7 +34,6 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <!--body com background -->
-
 <body class="full">
     <!--Modal-->
     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -102,7 +99,7 @@
             <a class="nav-link btn-loja" href="#">Loja</a>
         </li>
     </ul>
-    <!--Conteúdo -->
+    <!--Início -->
     <div class="container home">
         <div class="jumbotron main">
             <div class="row">
@@ -176,6 +173,7 @@
             </div>
         </div>
     </div>
+    <!-- Perfil -->
     <div class="container perfil ">
         <div class="jumbotron main">
             <div class="container">
@@ -184,7 +182,7 @@
                         <div class="card text-center ">
                             <img src="../img/avatar/gato.jpg " class="img-fluid img-thumbnail rounded mx-auto d-block rounded " alt="Responsive image " style="margin-top: 1em">
                             <div class="card-block">
-                                <h4 class="card-title nome-jogador" style='color:purple'>Jogador123</h4>
+                                <h4 class="card-title nome-jogador" style='color:purple'><?= $login ?></h4>
                             </div>
                             <div class="txt-perfil">
                                 <div class='container'>
@@ -254,7 +252,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div id="piechart_3d" align="center" style="width: auto;margin: 0 auto !important;"></div>
+                    <div class="ct-chart ct-perfect-fourth"> </div>
                 </div>
             </div>
         </div>
@@ -415,6 +413,7 @@
         </div>
     </nav>
     <span class="glyphicons-home" aria-hidden="true "></span>
+    
     <!--JQuery, Javascript para Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js " integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js " integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb " crossorigin="anonymous "></script>
