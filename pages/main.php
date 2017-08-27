@@ -50,7 +50,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                    <button onclick="location.href = '../index.php';" type="button" class="btn btn-primary">Sim</button>
+                    <button onclick="location.href = 'php/sair.php';" type="button" class="btn btn-primary">Sim</button>
                 </div>
             </div>
         </div>
