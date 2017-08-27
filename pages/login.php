@@ -73,10 +73,11 @@
                 <!--Formulário Esqueceu a Senha -->
                 <form role="form" action="php/esqueceu.php" method="post" style="display:none;" id="form-esq">
                     <div class="form-group">
+                        <p style="text-align: center"> Digite o seu email para resetar a sua senha </p>
                         <input type="email" class="form-control form-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" required>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12" style="text-align: center;">
+                        <div class="col-sm-12" style="text-align: center; margin-top: -2em;">
                             <button type="submit" class="btn btn-warning btn-lg" id="bot-mudar" value="Submit" name="submit">Mudar Senha</button>
                         </div>
                     </div>

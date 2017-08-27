@@ -30,7 +30,7 @@
   if(($situacaoE === "") && ($situacaoU === "")){//insere se nao tiver iguais
     $query = "INSERT INTO Usuario (Login,Senha,Email) VALUES ('$usuario','$senha','$email');";
     if($conn->query($query)){
-    	/* Email para informar o registro*/
+    /* Email para informar o registro*/
 		$subject = 'Life of Cards - Registrado com sucesso';
 		$message = 
 		'Bem vindo, '. $usuario .'!' . "\r\n" .
@@ -43,7 +43,7 @@
 			$situacaoM = "sucesso";
 		else
 			$situacaoM = "erro";
-      	$query = "SELECT * FROM Usuario WHERE Login = '$usuario' AND Senha = '$senha'";
+    $query = "SELECT * FROM Usuario WHERE Login = '$usuario' AND Senha = '$senha'";
 		$result = $conn->query($query);		
 		$row = $result->fetch_assoc();
 		$_SESSION["id"] = $row["IDusuario"];
