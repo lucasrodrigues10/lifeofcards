@@ -1,6 +1,9 @@
 <?php
 	session_start();
 	include "php/db.php";
+    if (empty($_SESSION["id"])) {
+        header("Location: login.php");
+    }   
 	$id = $_SESSION["id"];
 	$query = "SELECT * FROM Usuario WHERE IDusuario = '$id'";
 	$result = $conn->query($query);
