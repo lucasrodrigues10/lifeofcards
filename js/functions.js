@@ -175,11 +175,13 @@ function criaMovimentacao (sprite){
 function criaMovimentacao2 (sprite,count){
     var quadrados = [];
     
-    console.log(count);
+    
     spriteSelecionado = sprite;
     movimentacao.callAll('kill');
     posX = sprite.x;
     posY = sprite.y;
+    
+    //criando os quatro primeiros tiles de movimentação
     quadrados.push(game.add.sprite(posX,posY-32,'quadrado'));   //cima
     quadrados.push(game.add.sprite(posX+32,posY,'quadrado'));   //direita
     quadrados.push(game.add.sprite(posX,posY+32,'quadrado'));   //baixo
@@ -187,24 +189,28 @@ function criaMovimentacao2 (sprite,count){
 
     //adiciona os quadrados de movimento ao grupo
     movimentacao.addMultiple(quadrados);
-    
-    movimentacao.children.forEach(function(quadrado){   
-        quadrado.anchor.setTo(1,1);                             //muda âncora dos quadrados azuis
-        quadrado.inputEnabled = true;
+    movimentacao.onChildInputDown.add(move,this);
+    movimentacao.children.forEach(function(quadrado){  
+        posX = quadrado.x;
+        posY = quadrado.y;
+       
         if (encontraUnidade(quadrado.x,quadrado.y)!=null)
             //remove um quadrado se já há uma unidade nele
             quadrado.kill();
-        
-        if (count != 0){
-            count--;
-            console.log(count);
-            criaMovimentacao2(quadrado,count);
+        else {
+            //cria os próximos tiles
+            //quadrados.push(game.add.sprite(posX,posY-32,'quadrado'));   //cima
+            //quadrados.push(game.add.sprite(posX+32,posY,'quadrado'));   //direita
+            //quadrados.push(game.add.sprite(posX,posY+32,'quadrado'));   //baixo
+            //quadrados.push(game.add.sprite(posX-32,posY,'quadrado'));   //pra esquerda
         }
+        
+        //quadrado.anchor.setTo(1,1);                             //muda âncora dos quadrados azuis
+        quadrado.inputEnabled = true;
     })
     
     
     movimentacao.visible = true;
-    
-    movimentacao.onChildInputDown.add(move,this);
+    movimentacao.callAll('anchor','setTo',1,1);   
  
 }
