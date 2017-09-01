@@ -58,8 +58,16 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
     posX = linhaTabuleiro*32+31;
     posY = colTabuleiro*32+31;
     
+	
+	
+	
     //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
 	var sprite = game.add.sprite(posX,posY,nome);
+	
+	//adicionando informações da posição do sprite para facilatar posteriores funções
+	sprite.linha = linhaTabuleiro;
+	sprite.coluna = colTabuleiro;
+	
     tabuleiro[linhaTabuleiro][colTabuleiro] = sprite; 
     //criando resposta ao clique
     sprite.inputEnabled = true;
@@ -101,8 +109,12 @@ function move (sprite){
     console.log("moveu");
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
-    
-   
+		
+	//posição antiga do sprite deve ficar livre na matriz 'tabuleiro'
+	tabuleiro[spriteSelecionado.linha][spriteSelecionado.coluna] = null;
+	
+	//atualiza a posição do sprite movimentado na matriz. 
+	
     
     //move o objeto
     game.physics.arcade.moveToObject(spriteSelecionado,sprite,60,600);
@@ -121,6 +133,9 @@ function move (sprite){
         movimentacao.removeAll(true);           //elimina quadrados antigos
         game.input.enabled = true;
     }, this);
+	
+	//atualiza a posição do sprite movimentado na matriz.
+	tabuleiro[(spriteSelecionado.x-31)/32][(spriteSelecionado.y-31)/32];
    
 }
 
