@@ -9,6 +9,18 @@
 	$result = $conn->query($query);
 	$row = $result->fetch_assoc();
 	$login = $row["Login"];
+    
+    $query = "SELECT * FROM UsuarioNoJogo WHERE IDusuario = '$id'"; 
+    $result = $conn->query($query); 
+    if($result > 0){
+    $row = $result->fetch_assoc();
+        $nickname = $row["Nickname"]; 
+        $moedas = $row["Moedas"]; 
+        $exp = $row["Experiência"]; 
+        $avatar_imagem = $row["img_avatar.arquivo"]; 
+        $vitorias = $row["Vitorias"]; 
+        $derrotas = $row["Derrotas"];
+        }
 ?>
 <!DOCTYPE html>
 <html>
@@ -84,6 +96,7 @@
             </div>
         </div>
     </div>
+
     <!--Barra de navegação em cima -->
     <ul class="nav nav-pills nav-justified nav-top">
         <li class="nav-item">
@@ -182,7 +195,7 @@
                         <div class="card text-center ">
                             <img src="../img/avatar/gato.jpg " class="img-fluid img-thumbnail rounded mx-auto d-block rounded " alt="Responsive image " style="margin-top: 1em">
                             <div class="card-block">
-                                <h4 class="card-title nome-jogador" style='color:purple'><?= $login ?></h4>
+                                <h4 class="card-title nome-jogador" style='color:purple'><?= $nickname ?></h4>
                             </div>
                             <div class="txt-perfil">
                                 <div class='container'>
