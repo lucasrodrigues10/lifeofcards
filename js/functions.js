@@ -118,8 +118,12 @@ function move (sprite){
     
     //move o objeto
     game.physics.arcade.moveToObject(spriteSelecionado,sprite,60,600);
+    console.log(sprite.x,sprite.y);
+   
     
-    //função para para o sprite quando ele chega ao destino
+    
+    
+     //função para para o sprite quando ele chega ao destin
     game.time.events.add(600, function () {
         
         //corrige erro de precisão ao movimentar (pergunta se nao entender)
@@ -135,12 +139,13 @@ function move (sprite){
     }, this);
 	
 	//atualiza a posição do sprite movimentado na matriz.
-	tabuleiro[(spriteSelecionado.x-31)/32][(spriteSelecionado.y-31)/32];
-   
+	tabuleiro[(spriteSelecionado.x-31)/32][(spriteSelecionado.y-31)/32] = spriteSelecionado;
+    
 }
 
 function moveSec (sprite){
-	console.log("moveu na diagonal?");
+	console.log(sprite.anterior.x);
+	console.log(sprite.anterior.y);
 }
  
 function encontraUnidade (posX,posY){
@@ -160,7 +165,7 @@ function encontraUnidade (posX,posY){
 
 
 function criaMovimentacao (sprite){
-    spriteSelecionado = sprite;
+    spriteSelecionado = sprite; //atualiza a variavel global que guarda o ultimo sprite a ser clicado
     posX = sprite.x;
     posY = sprite.y;
     movimentacao.callAll('kill'); //remove os quadrados antigos
@@ -213,8 +218,9 @@ function criaMovimentacao2 (sprite,count){
 
     //adiciona os quadrados de movimento ao grupo
     movimentacao.addMultiple(quadrados);
-    //movimentacao.onChildInputDown.add(move,this);
+    
     movimentacao.children.forEach(function(quadrado){
+        quadrado.anchor.set(1,1);
 		quadrado.events.onInputDown.add(move,this);
         posX = quadrado.x;
         posY = quadrado.y;
@@ -223,7 +229,7 @@ function criaMovimentacao2 (sprite,count){
             //remove um quadrado se já há uma unidade nele
             quadrado.destroy();
         else {
-            //cria os próximos tiles
+            //cria os próximos tiles de movimentação
 			if (encontraUnidade(posX,posY-32)==null)
             quadSecundarios.push(game.add.sprite(posX,posY-32,'quadrado'));   //cima
             if (encontraUnidade(posX+32,posY)==null)
@@ -243,18 +249,15 @@ function criaMovimentacao2 (sprite,count){
 		});
         
 		movimentacao.addMultiple(quadSecundarios);
-		//muda âncora dos quadrados azuis
+		
         quadrado.inputEnabled = true;
     });
     
     
     
-	for (i=0;i<quadrados.length;i++){
-		quadrados[i].anchor.set(1,1); // mudando a âncora de todos os quadrados
-		if (encontraUnidade(quadrados[i].x,quadrados[i].y)!=null)
-			quadrados[i]=null;//quadrados.splice(i, 1); //removendo quadrados que possam sobre unidades
-		//console.log(quadrados[i].x);
-	}
+	
+
+	
 	
 	movimentacao.visible = true;
 }
