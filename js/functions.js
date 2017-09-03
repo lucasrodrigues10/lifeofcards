@@ -46,6 +46,11 @@ function addAnimations(sprite){
     sprite.animations.add('left',walkLeft, frameSpeed, true);
 }
 
+var numLinhas = 12;
+var numColunas = 12;
+var margemLateral = 1;
+var margemVertical = 1;
+
 var spriteSelecionado;
 //criando um vetor 12x12 pra guardar as referencias dos sprites
 var tabuleiro = new Array (12);
@@ -73,7 +78,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
     //criando resposta ao clique
     sprite.inputEnabled = true;
     sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32); 
-    sprite.events.onInputDown.add(criaMovimentacao,this); 
+    sprite.events.onInputDown.add(criaMovimentacao2,this); 
     
     game.physics.arcade.enable(sprite);
     
@@ -110,11 +115,13 @@ function move (sprite){
     console.log("moveu");
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
+    
+    //remove a posicao anterior na matriz
     removePosicao(spriteSelecionado.x,spriteSelecionado.y);
 	
 	
 	
-	//atualiza a posição do sprite movimentado na matriz. 
+	 
 	
     
     //move o objeto
@@ -148,8 +155,32 @@ function move (sprite){
 }
 
 function moveSec (sprite){
-	console.log(sprite.anterior.x);
-	console.log(sprite.anterior.y);
+    console.log(sprite.anterior);
+    game.physics.arcade.moveToObject(spriteSelecionado,sprite.anterior,60,600);
+    
+   
+    
+    
+    
+     //função para para o sprite quando ele chega ao destin
+    game.time.events.add(600, function () {
+        
+        //corrige erro de precisão ao movimentar (pergunta se nao entender)
+        //spriteSelecionado.x = Math.ceil(this.anterior.x/32)*32-1;
+        //spriteSelecionado.y = Math.ceil(this.anterior.y/32)*32-1;
+        
+        
+        spriteSelecionado.body.velocity.x = 0;
+        spriteSelecionado.body.velocity.y = 0;
+        
+        movimentacao.removeAll(true);           //elimina quadrados antigos
+        game.input.enabled = true;
+        
+        //atualiza a posição do sprite movimentado na matriz.
+        atualizaPosicao(spriteSelecionado.x,spriteSelecionado.y,null);
+    
+    }, this);
+	
 }
  
 function encontraUnidade (posX,posY){
@@ -158,7 +189,7 @@ function encontraUnidade (posX,posY){
 	coluna = (posY-31)/32
 	
 	
-	
+	if (linha>=margemLateral && coluna>=margemLateral)  //evita possiveis erros de indices
 	var casa = tabuleiro[linha-1][coluna-1];
    if (casa !=null) //casa ocupada por uma unidade
 	   return casa;
@@ -195,7 +226,7 @@ function criaMovimentacao (sprite){
         quadrado.inputEnabled = true;
         if (encontraUnidade(quadrado.x,quadrado.y)!=null)
             //remove um quadrado se já há uma unidade nele
-            quadrado.kill();
+            quadrado.destroy();
         
     })
     movimentacao.visible = true;
@@ -203,8 +234,10 @@ function criaMovimentacao (sprite){
     movimentacao.onChildInputDown.add(this.move,this);
 }
 
+
+
 //alternativa para a primeira funcção de movimentar
-function criaMovimentacao2 (sprite,count){
+function criaMovimentacao2 (sprite){
     var quadrados = [];
     var quadSecundarios = [];
     
@@ -215,9 +248,13 @@ function criaMovimentacao2 (sprite,count){
     posY = sprite.y;
     
     //criando os quatro primeiros tiles de movimentação
+    if (posicaoValida(posX,posY-32))
     quadrados.push(game.add.sprite(posX,posY-32,'quadrado'));   //cima
+    if (posicaoValida(posX+32,posY))                    
     quadrados.push(game.add.sprite(posX+32,posY,'quadrado'));   //direita
+    if (posicaoValida(posX,posY+32))
     quadrados.push(game.add.sprite(posX,posY+32,'quadrado'));   //baixo
+    if (posicaoValida(posX-32,posY))
     quadrados.push(game.add.sprite(posX-32,posY,'quadrado'));   //pra esquerda
 
     //adiciona os quadrados de movimento ao grupo
@@ -229,20 +266,18 @@ function criaMovimentacao2 (sprite,count){
         posX = quadrado.x;
         posY = quadrado.y;
 		console.log(posX,posY);
-        if (encontraUnidade(posX,posY)!=null)
-            //remove um quadrado se já há uma unidade nele
-            quadrado.destroy();
-        else {
-            //cria os próximos tiles de movimentação
-			if (encontraUnidade(posX,posY-32)==null)
+        
+        //cria os próximos tiles de movimentação
+        if (posicaoValida(posX,posY-32))
             quadSecundarios.push(game.add.sprite(posX,posY-32,'quadrado'));   //cima
-            if (encontraUnidade(posX+32,posY)==null)
-			quadSecundarios.push(game.add.sprite(posX+32,posY,'quadrado'));   //direita
-			if (encontraUnidade(posX,posY+32)==null)
+        if (posicaoValida(posX+32,posY))
+            quadSecundarios.push(game.add.sprite(posX+32,posY,'quadrado'));   //direita
+        if (posicaoValida(posX,posY+32))
             quadSecundarios.push(game.add.sprite(posX,posY+32,'quadrado'));   //baixo
-			if (encontraUnidade(posX-32,posY)==null)
-            quadSecundarios.push(game.add.sprite(posX-32,posY,'quadrado'));   //pra esquerda
-        }
+        if (posicaoValida(posX-32,posY))
+            quadSecundarios.push(game.add.sprite(posX-32,posY,'quadrado'));   //pra esquerda}
+      
+            
 			
 		quadSecundarios.forEach(function(quadradoSecundario){
 			quadradoSecundario.anterior = quadrado; //cada quadrado secundario guarda um referencia do quadrado orirginal que o gerou
@@ -290,3 +325,10 @@ function removePosicao (posX,posY){
     tabuleiro[linha][coluna] = null;
     console.log(linha,coluna);
 }
+
+function posicaoValida(posX,posY){
+    if (encontraUnidade(posX,posY)== null && dentroDoMapa(posX,posY))
+        return true;
+    else
+        return false;
+} 
