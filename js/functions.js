@@ -110,7 +110,7 @@ function move (sprite){
     console.log("moveu");
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
-		
+    removePosicao(spriteSelecionado.x,spriteSelecionado.y);
 	
 	
 	
@@ -137,10 +137,13 @@ function move (sprite){
         
         movimentacao.removeAll(true);           //elimina quadrados antigos
         game.input.enabled = true;
+        
+        //atualiza a posição do sprite movimentado na matriz.
+        atualizaPosicao(spriteSelecionado.x,spriteSelecionado.y,null);
+    
     }, this);
 	
-	//atualiza a posição do sprite movimentado na matriz.
-    atualizaPosicao(spriteSelecionado.x,spriteSelecionado.y,null);
+	
     
 }
 
@@ -269,13 +272,12 @@ function atualizaPosicao (posX,posY,sprite){
     coluna = (posY-31)/32-1;
     
     //mande 'null' como paramentro para atualizar a posicao do sprite clicado
-    if (sprite==null){
+    if (sprite==null)
         tabuleiro[linha][coluna] = spriteSelecionado;          
-    }
-    else {
+    else 
         tabuleiro[linha][coluna] = sprite;      
-    }
     
+
     
     
     
@@ -286,4 +288,5 @@ function removePosicao (posX,posY){
     linha = (posX-31)/32-1;     
     coluna = (posY-31)/32-1;
     tabuleiro[linha][coluna] = null;
+    console.log(linha,coluna);
 }
