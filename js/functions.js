@@ -68,11 +68,12 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 	sprite.linha = linhaTabuleiro;
 	sprite.coluna = colTabuleiro;
 	
-    tabuleiro[linhaTabuleiro][colTabuleiro] = sprite; 
+    atualizaPosicao(posX,posY,sprite);
+    
     //criando resposta ao clique
     sprite.inputEnabled = true;
     sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32); 
-    sprite.events.onInputDown.add(criaMovimentacao2,this); 
+    sprite.events.onInputDown.add(criaMovimentacao,this); 
     
     game.physics.arcade.enable(sprite);
     
@@ -110,8 +111,8 @@ function move (sprite){
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
 		
-	//posição antiga do sprite deve ficar livre na matriz 'tabuleiro'
-	tabuleiro[spriteSelecionado.linha][spriteSelecionado.coluna] = null;
+	
+	
 	
 	//atualiza a posição do sprite movimentado na matriz. 
 	
@@ -139,7 +140,7 @@ function move (sprite){
     }, this);
 	
 	//atualiza a posição do sprite movimentado na matriz.
-	tabuleiro[(spriteSelecionado.x-31)/32][(spriteSelecionado.y-31)/32] = spriteSelecionado;
+    atualizaPosicao(spriteSelecionado.x,spriteSelecionado.y,null);
     
 }
 
@@ -155,7 +156,7 @@ function encontraUnidade (posX,posY){
 	
 	
 	
-	var casa = tabuleiro[linha][coluna];
+	var casa = tabuleiro[linha-1][coluna-1];
    if (casa !=null) //casa ocupada por uma unidade
 	   return casa;
 	else
@@ -260,4 +261,29 @@ function criaMovimentacao2 (sprite,count){
 	
 	
 	movimentacao.visible = true;
+}
+
+//função que atualiza a variavel global "tabuleiro"
+function atualizaPosicao (posX,posY,sprite){
+    linha = (posX-31)/32-1;     
+    coluna = (posY-31)/32-1;
+    
+    //mande 'null' como paramentro para atualizar a posicao do sprite clicado
+    if (sprite==null){
+        tabuleiro[linha][coluna] = spriteSelecionado;          
+    }
+    else {
+        tabuleiro[linha][coluna] = sprite;      
+    }
+    
+    
+    
+    
+}
+
+//
+function removePosicao (posX,posY){
+    linha = (posX-31)/32-1;     
+    coluna = (posY-31)/32-1;
+    tabuleiro[linha][coluna] = null;
 }
