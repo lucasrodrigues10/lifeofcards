@@ -280,6 +280,7 @@ function criaMovimentacao2 (sprite){
             
 			
 		quadSecundarios.forEach(function(quadradoSecundario){
+            if (quadradoSecundario.anterior == null)
 			quadradoSecundario.anterior = quadrado; //cada quadrado secundario guarda um referencia do quadrado orirginal que o gerou
 			quadradoSecundario.anchor.set(1,1);
 			quadradoSecundario.inputEnabled = true;
