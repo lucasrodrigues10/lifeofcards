@@ -80,6 +80,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
     sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32); 
     sprite.events.onInputDown.add(criaMovimentacao2,this); 
     
+    //habilitando fisica para movimentar os sprites
     game.physics.arcade.enable(sprite);
     
     //muda a âncora para o canto inferior direito
@@ -126,8 +127,7 @@ function move (sprite){
     
     //move o objeto
     game.physics.arcade.moveToObject(spriteSelecionado,sprite,60,600);
-    console.log(sprite.x,sprite.y);
-   
+    
     
     
     
@@ -147,6 +147,9 @@ function move (sprite){
         
         //atualiza a posição do sprite movimentado na matriz.
         atualizaPosicao(spriteSelecionado.x,spriteSelecionado.y,null);
+        
+        console.log("terminou de mover");
+        
     
     }, this);
 	
@@ -155,31 +158,15 @@ function move (sprite){
 }
 
 function moveSec (sprite){
-    console.log(sprite.anterior);
-    game.physics.arcade.moveToObject(spriteSelecionado,sprite.anterior,60,600);
     
-   
+    move(sprite.anterior);
+    game.time.events.onComplete.add(function(){
+        game.time.events.removeAll();
+        move(sprite);
+        console.log("move pela segunda vez");
+        
+    })
     
-    
-    
-     //função para para o sprite quando ele chega ao destin
-    game.time.events.add(600, function () {
-        
-        //corrige erro de precisão ao movimentar (pergunta se nao entender)
-        //spriteSelecionado.x = Math.ceil(this.anterior.x/32)*32-1;
-        //spriteSelecionado.y = Math.ceil(this.anterior.y/32)*32-1;
-        
-        
-        spriteSelecionado.body.velocity.x = 0;
-        spriteSelecionado.body.velocity.y = 0;
-        
-        movimentacao.removeAll(true);           //elimina quadrados antigos
-        game.input.enabled = true;
-        
-        //atualiza a posição do sprite movimentado na matriz.
-        atualizaPosicao(spriteSelecionado.x,spriteSelecionado.y,null);
-    
-    }, this);
 	
 }
  
