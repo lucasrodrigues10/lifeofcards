@@ -93,23 +93,11 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
     unidades.add(sprite);
     
     
-    //Ordena a ordem de rederização dos sprites
-    unidades.sort('x');
-    unidades.sort('y');
+    
         
 }
 
-function foraDoMapa (posX,posY){
-    if ((posX < margemLateral*32) || (posX >= (margemLateral+numColunas)*32) ||
-        (posY < margemVertical*32) || (posY >= (margemVertical+numLinhas)*32))
-        return true;
-    else 
-        return false;
-}
 
-function dentroDoMapa (posX,posY){
-    return !(foraDoMapa(posX,posY));
-}
 
 
 function move (sprite){
@@ -172,19 +160,6 @@ function moveSec (sprite){
 	
 }
  
-function encontraUnidade (posX,posY){
-	//transforma a coordenada em pixels para posição do tabuleiro 
-	linha = (posX-31)/32;
-	coluna = (posY-31)/32
-	
-	
-	if (linha>=margemLateral && coluna>=margemLateral)  //evita possiveis erros de indices
-	var casa = tabuleiro[linha-1][coluna-1];
-   if (casa !=null) //casa ocupada por uma unidade
-	   return casa;
-	else
-		return null; //casa livre
-}
 
 
 
@@ -254,7 +229,7 @@ function criaMovimentacao2 (sprite){
 		quadrado.events.onInputDown.add(move,this);
         posX = quadrado.x;
         posY = quadrado.y;
-		console.log(posX,posY);
+		
         
         //cria os próximos tiles de movimentação
         if (posicaoValida(posX,posY-32))
@@ -303,17 +278,41 @@ function atualizaPosicao (posX,posY,sprite){
         tabuleiro[linha][coluna] = sprite;      
     
 
-    
-    
-    
 }
 
-//
+function foraDoMapa (posX,posY){
+    if ((posX < margemLateral*32) || (posX >= (margemLateral+numColunas)*32) ||
+        (posY < margemVertical*32) || (posY >= (margemVertical+numLinhas)*32))
+        return true;
+    else 
+        return false;
+}
+
+
+function dentroDoMapa (posX,posY){
+    return !(foraDoMapa(posX,posY));
+}
+
+
 function removePosicao (posX,posY){
     linha = (posX-31)/32-1;     
     coluna = (posY-31)/32-1;
     tabuleiro[linha][coluna] = null;
     console.log(linha,coluna);
+}
+
+function encontraUnidade (posX,posY){
+	//transforma a coordenada em pixels para posição do tabuleiro 
+	linha = (posX-31)/32;
+	coluna = (posY-31)/32
+	console.log(linha,coluna);
+	
+	if (dentroDoMapa(posX,posY))                   //evita possiveis erros de indices
+	   var casa = tabuleiro[linha-1][coluna-1];
+   if (casa !=null) //casa ocupada por uma unidade
+	   return casa;
+	else
+		return null; //casa livre (ou a posição fornecida está fora do mapa)
 }
 
 function posicaoValida(posX,posY){
@@ -322,6 +321,7 @@ function posicaoValida(posX,posY){
     else
         return false;
 } 
+
 
 //encontra a direção em que o sprite está se movendo
 function defineDirecao(sprite){
