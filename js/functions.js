@@ -128,6 +128,8 @@ function move (sprite){
     //move o objeto
     game.physics.arcade.moveToObject(spriteSelecionado,sprite,60,600);
     
+    defineDirecao(spriteSelecionado);
+    
     
     
     
@@ -320,3 +322,16 @@ function posicaoValida(posX,posY){
     else
         return false;
 } 
+
+//encontra a direção em que o sprite está se movendo
+function defineDirecao(sprite){
+    if (sprite.body.velocity.x > 0.1)           //OBS: coloquei 0.1 porque com 0 dava errado
+        sprite.direcao = "right";
+    if (sprite.body.velocity.x < -0.1 )
+        sprite.direcao =  "left";
+    if (sprite.body.velocity.y < -0.1 )
+        sprite.direcao = "up"; 
+    if (sprite.body.velocity.y > 0.1 )
+        sprite.direcao = "down";
+    spriteSelecionado.animations.play(spriteSelecionado.direcao);
+}
