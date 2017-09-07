@@ -46,6 +46,18 @@ function addAnimations(sprite){
     sprite.animations.add('left',walkLeft, frameSpeed, true);
 }
 
+function deixaResponsivo(){
+    //faz o canvas se ajustar ao tamanho da tela (responsivo)
+    game.scale.scaleMode = Phaser.ScaleManager.aspectRatio;
+	game.scale.pageAlignVertically = true;
+	game.scale.pageAlignHorizontally = true;
+	game.scale.setShowAll();
+	game.scale.refresh();
+}
+
+function desenhaInterface(){
+    
+}
 var numLinhas = 12;
 var numColunas = 12;
 var margemLateral = 1;
@@ -65,34 +77,35 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
     
 	
 	
-	
-    //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
-	var sprite = game.add.sprite(posX,posY,nome);
-	
-	//adicionando informações da posição do sprite para facilatar posteriores funções
-	sprite.linha = linhaTabuleiro;
-	sprite.coluna = colTabuleiro;
-	
-    atualizaPosicao(posX,posY,sprite);
+	if (posicaoValida(posX,posY)){
+        //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
+        var sprite = game.add.sprite(posX,posY,nome);
+
+        //adicionando informações da posição do sprite para facilatar posteriores funções
+        sprite.linha = linhaTabuleiro;
+        sprite.coluna = colTabuleiro;
+
+        atualizaPosicao(posX,posY,sprite);
+
+        //criando resposta ao clique
+        sprite.inputEnabled = true;
+        sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32); 
+        sprite.events.onInputDown.add(criaMovimentacao2,this); 
+
+        //habilitando fisica para movimentar os sprites
+        game.physics.arcade.enable(sprite);
+
+        //muda a âncora para o canto inferior direito
+        sprite.anchor.set(1,1); 
+
+        //cria animações para o sprite.
+        addAnimations(sprite);  
+
+        //adiciona o sprite ao grupo de unidades
+        unidades.add(sprite);
     
-    //criando resposta ao clique
-    sprite.inputEnabled = true;
-    sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32); 
-    sprite.events.onInputDown.add(criaMovimentacao2,this); 
-    
-    //habilitando fisica para movimentar os sprites
-    game.physics.arcade.enable(sprite);
-    
-    //muda a âncora para o canto inferior direito
-    sprite.anchor.set(1,1); 
-    
-    //cria animações para o sprite.
-    addAnimations(sprite);  
-    
-    //adiciona o sprite ao grupo de unidades
-    unidades.add(sprite);
-    
-    
+    } else 
+        console.log("posição inválida");
     
         
 }
@@ -124,13 +137,17 @@ function move (sprite){
      //função para para o sprite quando ele chega ao destin
     game.time.events.add(600, function () {
         
-        //corrige erro de precisão ao movimentar (pergunta se nao entender)
+        //corrige erro de precisão ao movimentar 
         spriteSelecionado.x = Math.ceil(sprite.x/32)*32-1;
         spriteSelecionado.y = Math.ceil(sprite.y/32)*32-1;
         
-        console.log(sprite.x,sprite.y);
+        
         spriteSelecionado.body.velocity.x = 0;
         spriteSelecionado.body.velocity.y = 0;
+         
+        //Ordena a ordem de rederização dos sprites
+        unidades.sort('x');
+        unidades.sort('y');
         
         movimentacao.removeAll(true);           //elimina quadrados antigos
         game.input.enabled = true;
@@ -305,7 +322,7 @@ function encontraUnidade (posX,posY){
 	//transforma a coordenada em pixels para posição do tabuleiro 
 	linha = (posX-31)/32;
 	coluna = (posY-31)/32
-	console.log(linha,coluna);
+	
 	
 	if (dentroDoMapa(posX,posY))                   //evita possiveis erros de indices
 	   var casa = tabuleiro[linha-1][coluna-1];

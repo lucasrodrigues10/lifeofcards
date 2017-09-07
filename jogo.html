@@ -16,13 +16,15 @@
 <body>
 
 <script type="text/javascript">
-var game = new Phaser.Game(448, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update});  
+var game = new Phaser.Game(window.innerWidth, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update});  
     
 
 
 
 function  preload () {
     loadAssets(); //carrega os assets necessários    
+    
+    deixaResponsivo();
 }
 
 function create (){
@@ -57,9 +59,7 @@ function create (){
 }
 
 function update (){
-    //Ordena a ordem de rederização dos sprites
-    unidades.sort('x');
-    unidades.sort('y');
+    
 }
     
     
