@@ -53,11 +53,19 @@ function deixaResponsivo(){
 	game.scale.pageAlignHorizontally = true;
 	game.scale.setShowAll();
 	game.scale.refresh();
+    
+    
+    /*
+    deixa em fullscreen, só pode ser chamado dentro de um handler.
+    game.scale.startFullScreen(false);
+    game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+    */
 }
 
 function desenhaInterface(){
     
 }
+
 var numLinhas = 12;
 var numColunas = 12;
 var margemLateral = 1;
@@ -220,8 +228,7 @@ function criaMovimentacao (sprite){
 //alternativa para a primeira funcção de movimentar
 function criaMovimentacao2 (sprite){
     //deixa fullscrenn. apenas para teste
-    game.scale.startFullScreen(false);
-    game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+    
     
     
     var quadrados = [];
