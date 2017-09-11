@@ -28,18 +28,26 @@ function  preload () {
 }
 
 function create (){
-    console.log("UNIDADES QUE PODEM SER CRIADAS: ferumbras, banshee, mummy, devil, torturer. Basta escrever 'spawn(x,y,nome_da_unidade)' ")
+    console.log("UNIDADES QUE PODEM SER CRIADAS: ferumbras, banshee, mummy, devil, torturer. Basta escrever 'spawn(x,y,nome_da_unidade)' ");
+    
+    //inicializa fisica. necessario para fazer as unidades se movimentar
 	game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.add.sprite(0,0,'tabuleiro');
+    
+    jogo = game.add.sprite( window.innerWidth/2-game.height/2 ,0, 'tabuleiro');
     
     movimentacao = game.add.group(); // grupo para movimentação das unidades
     movimentacao.visible = false;
     
-    //game.input.onDown.add(escolheCasa, this); //adiciona listener para um clique do mouse.Desabilitado por enquanto
+    
     
     unidades = game.add.group(); //grupo para renderizar a "layer" das cartas no tabuleiro
     unidades.enableBody = true;
-   
+    
+    
+    //vincula todos os sprites ao tabuleiro
+    jogo.addChild(movimentacao);
+    jogo.addChild(unidades);
+    
    
     //summon(1,1,'mummy');
     //summon(2,5,'banshee');
@@ -51,6 +59,8 @@ function create (){
     
     unidades.callAll('animations.play','animations','right'); 
     
+    
+        
     
    
 	

@@ -219,6 +219,11 @@ function criaMovimentacao (sprite){
 
 //alternativa para a primeira funcção de movimentar
 function criaMovimentacao2 (sprite){
+    //deixa fullscrenn. apenas para teste
+    game.scale.startFullScreen(false);
+    game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+    
+    
     var quadrados = [];
     var quadSecundarios = [];
     
