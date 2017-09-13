@@ -21,6 +21,102 @@
         $vitorias = $row["Vitorias"]; 
         $derrotas = $row["Derrotas"];
         }
+
+    $modal = strlen($nickname);
+/*
+        POPULAR BANCO DE DADOS ANTES DE ADICIONAR
+
+    $query = "SELECT * FROM Notícias WHERE IDnotícia = '1'"; 
+    $result = $conn->query($query); 
+    while($row = $result->fetch_assoc()){ 
+        $titulo = $row["Título"]; 
+        $descricao = $row["Descrição"]; 
+        $data = $row["Data"]; 
+    } 
+    $nickname_amigos = array(); 
+    $query = "SELECT Nickname FROM Amizades WHERE IDusuario = '$id'"; 
+    $result = $conn->query($query); 
+    while($row = $result->fetch_assoc()){ 
+        $nickname_amigos = $row["Nickname"]; 
+    } 
+    $query = "SELECT Nível FROM Nível WHERE XPnecessaria > '$exp' LIMIT 1"; 
+    $result = $conn->query($query); 
+    $row = $result->fetch_assoc(); 
+    $nivel = $row["Nível"]; 
+    $query = "SELECT * FROM Usuário WHERE IDusuario = '$id'"; 
+    $result = $conn->query($query); 
+    while($row = $result->fetch_assoc()){ 
+        $idade = $row["Idade"]; 
+        $localizacao = $row["Endereço"]; 
+        $sexo = $row["Sexo"]; 
+        $email = $row["Email"]; 
+    } 
+    $IDdeck = array(); 
+    $Nome_Deck = array(); 
+    $Descricao_Deck = array(); 
+    $query = "SELECT * FROM Deck usuário WHERE IDusuario = '$id' or IDusuario = '0'"; 
+    $result = $conn->query($query); 
+    while($row = $result->fetch_assoc()){ 
+        $IDdeck[] = $row["IDdeck"]; 
+        $Nome_Deck[] = $row["Nome"]; 
+        $Descricao_Deck[] = $row["Descrição"]; 
+    } 
+    $IDproduto = array(); 
+    $Tabnum = array(); 
+    $IDpromocao = array(); 
+    $preco = array(); 
+    $preco_certo =  array(); 
+    $query = "SELECT * FROM Loja"; 
+    $result = $conn->query($query); 
+    while($row = $result->fetch_assoc()){ 
+        $IDproduto[] = $row["IDproduto"]; 
+        $Tabnum[] = $row["TabNum"]; 
+        $IDpromocao[] = $row["IDpromocao"]; 
+        $preco[] = $row["Preço"]; 
+    } 
+    $i=0; 
+    foreach($IDpromocao as $value){ 
+        $query = "SELECT Valor FROM Promoção WHERE IDpromoção = '$value'"; 
+        $result = $conn->query($query); 
+        $row = $result->fetch_assoc(); 
+        $valor = $row["Valor"]; 
+        $preco_certo[] = $preco[++$i]*$valor; 
+    } 
+    $IDcarta_loja = array(); 
+    $IDskin_loja = array(); 
+    $IDpacote_loja = array(); 
+    foreach ($IDproduto as $value){ 
+        if($Tabnum == 1){ 
+            $IDcarta_loja[] = $value; 
+        } 
+        if($Tabnum == 2){ 
+            $IDskin_loja[] = $value; 
+        } 
+        if($Tabnum == 3){ 
+            $IDpacote_loja[] = $value; 
+        } 
+    } 
+    $Nome_pacote = array(); 
+    $Descricao_pacote = array(); 
+    $qtdecartas_pacote = array(); 
+    $Descricao_carta = array(); 
+    foreach ($IDpacote_loja as $value){ 
+        $query = "SELECT * FROM Tabela pacote WHERE IDpacote = '$value'"; 
+        $result = $conn->query($query); 
+        while($row = $result->fetch_assoc()){ 
+            $Nome_pacote[] = $row["Nome"]; 
+            $Descricao_pacote[] = $row["Descrição"]; 
+            $qtdecartas_pacote[] = $row["QtdeCartas/pacote"]; 
+        } 
+    } 
+    foreach ($IDcarta_loja as $value){ 
+        $query = "SELECT IDcarta FROM Cartas WHERE IDpacote = '$value'"; 
+        $result = $conn->query($query); 
+        while($row = $result->fetch_assoc()){ 
+            $Descricao_carta[] = $row["Descrição"]; 
+        } 
+    } 
+    */
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,8 +143,32 @@
 </head>
 <!--body com background -->
 <body class="full">
+    <?php if ($modal < 1){ ?>
+ 
+     <script>
+         window.open("Nickpag.php","_self");
+     </script>
+
+    
+<?php } ?>
+       <div class="modal fade" id="teste" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Data</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="fetched-data"><?php $message ?></div> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--Modal-->
-    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div  class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -96,6 +216,8 @@
             </div>
         </div>
     </div>
+
+
 
     <!--Barra de navegação em cima -->
     <ul class="nav nav-pills nav-justified nav-top">
@@ -270,7 +392,6 @@
             </div>
         </div>
     </div>
-    </div>
     <div class="container inventario ">
         <div class="jumbotron main">
             <div class="container ">
@@ -279,49 +400,49 @@
                         <a href="# ">
                             <img class="img-fluid img-thumbnail " src="../img/deck/angel.jpg " alt=" ">
                         </a>
-                        <p class="text-center nome-carta ">Angel of Death</pa>
+                        <p class="text-center nome-carta ">Angel of Death</p>
                     </div>
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                         <a href="# ">
                             <img class="img-fluid img-thumbnail " src="../img/deck/demon.jpg " alt=" ">
                         </a>
-                        <p class="text-center nome-carta ">Demon of the Dark</pa>
+                        <p class="text-center nome-carta ">Demon of the Dark</p>
                     </div>
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                         <a href="# ">
                             <img class="img-fluid img-thumbnail " src="../img/deck/wind.jpg " alt=" ">
                         </a>
-                        <p class="text-center nome-carta ">Hard Wind</pa>
+                        <p class="text-center nome-carta ">Hard Wind</p>
                     </div>
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                         <a href="# ">
                             <img class="img-fluid img-thumbnail " src="../img/deck/dragao.jpg " alt=" ">
                         </a>
-                        <p class="text-center nome-carta ">Dragon Lord</pa>
+                        <p class="text-center nome-carta ">Dragon Lord</p>
                     </div>
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                         <a href="# ">
                             <img class="img-fluid img-thumbnail " src="../img/deck/fire.jpg " alt=" ">
                         </a>
-                        <p class="text-center nome-carta ">Fear of Fire</pa>
+                        <p class="text-center nome-carta ">Fear of Fire</p>
                     </div>
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                         <a href="# ">
                             <img class="img-fluid img-thumbnail " src="../img/deck/magic.jpg " alt=" ">
                         </a>
-                        <p class="text-center nome-carta ">Invencible Magic </pa>
+                        <p class="text-center nome-carta ">Invencible Magic </p>
                     </div>
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                         <a href="# ">
                             <img class="img-fluid img-thumbnail " src="../img/deck/shield.jpg " alt=" ">
                         </a>
-                        <p class="text-center nome-carta ">Unbreakable Shield </pa>
+                        <p class="text-center nome-carta ">Unbreakable Shield </p>
                     </div>
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                         <a href="# ">
                             <img class="img-fluid img-thumbnail " src="../img/deck/sword.jpg " alt=" ">
                         </a>
-                        <p class="text-center nome-carta ">Sword of Blood </pa>
+                        <p class="text-center nome-carta ">Sword of Blood </p>
                     </div>
                 </div>
                 <hr>
@@ -416,12 +537,11 @@
             </div>
             <div class="col text-center ">
                 <!--Botão Página Inicial -->
-                <p class="nome-jogador "> <?= $login ?> </p>
+                <p class="nome-jogador "> <?= $nickname ?> </p>
             </div>
             <div class="col text-right ">
                 <!--Botão para logout com um modal para confirmar -->
                 <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="material-icons ">exit_to_app</i></button>
-                </button>
             </div>
         </div>
     </nav>
