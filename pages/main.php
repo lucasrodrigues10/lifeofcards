@@ -238,7 +238,7 @@ if (isset($nickname) && $nickname != null) {
     </li>
 </ul>
 <!--Início -->
-<div class="container home">
+<div class="container home my-3">
     <div class="row">
         <div class="col-sm-6">
             <div class="card text-center">
@@ -318,8 +318,7 @@ if (isset($nickname) && $nickname != null) {
     </div>
 </div>
 <!-- Perfil -->
-<div class="container perfil ">
-    <div class="jumbotron main">
+<div class="container perfil my-3">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
@@ -407,9 +406,7 @@ if (isset($nickname) && $nickname != null) {
             </div>
         </div>
     </div>
-</div>
-<div class="container inventario ">
-    <div class="jumbotron main">
+<div class="container inventario my-3">
         <div class="container ">
             <div class="row ">
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
@@ -465,9 +462,7 @@ if (isset($nickname) && $nickname != null) {
         </div>
         <!-- /.container -->
     </div>
-</div>
-<div class="container loja ">
-    <div class="jumbotron main">
+<div class="container loja my-3">
         <div id="carouselExampleIndicators" class="carousel slide" data-interval="3000" data-pause="hover"
              data-ride="carousel">
             <ol class="carousel-indicators">
@@ -559,7 +554,6 @@ if (isset($nickname) && $nickname != null) {
             </div>
         </div>
     </div>
-</div>
 <!--Footer -->
 <nav class="navbar fixed-bottom navbar-light bg-faded nav-bottom ">
     <div class="row justify-content-between ">
