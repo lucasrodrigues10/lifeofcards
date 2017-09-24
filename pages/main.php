@@ -144,7 +144,7 @@ if (isset($nickname) && $nickname != null) {
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <!--body com background -->
-<body>
+<body class="full">
 <?php if ($modal < 1) { ?>
 
     <script>

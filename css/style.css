@@ -1,16 +1,9 @@
     /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
     .full {
-        background-color: #240339;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        background-size: cover;
-        -o-background-size: cover;
-    }
-
-    body{
         background: dimgrey url('/img/background.jpg') repeat center center;
     }
+
 
     .full .jumbotron {
         margin-top: 2em;
