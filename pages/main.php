@@ -239,9 +239,9 @@ if (isset($nickname) && $nickname != null) {
     </li>
 </ul>
 <!--Início -->
-<div class="container home my-3">
+<div class="container home my-2">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 mb-3">
             <div class="card text-center">
                 <div class="card-header">
                     Jogue agora
@@ -256,7 +256,7 @@ if (isset($nickname) && $nickname != null) {
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 my-3">
+        <div class="col-sm-6">
             <div class="card text-center">
                 <div class="card-header">
                     Amigos
