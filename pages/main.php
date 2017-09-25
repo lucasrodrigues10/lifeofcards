@@ -242,8 +242,8 @@ if (isset($nickname) && $nickname != null) {
 <div class="container home my-2">
     <div class="row">
         <div class="col-sm-6 mb-3">
-            <div class="card text-center">
-                <div class="card-header">
+            <div class="card text-center" style="margin:1em auto; width: 97.3%; background-color: #B4B4AF">
+                <div class="card-header" style="background-color: #636359; color:white">
                     Jogue agora
                 </div>
                 <div class="card-block">
@@ -257,8 +257,8 @@ if (isset($nickname) && $nickname != null) {
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="card text-center">
-                <div class="card-header">
+            <div class="card text-center" style="margin:1em auto; width: 97.3%; background-color: #B4B4AF">
+                <div class="card-header" style="background-color: #636359; color:white">
                     Amigos
                 </div>
                 <div class="card-block">
@@ -303,16 +303,16 @@ if (isset($nickname) && $nickname != null) {
                 </div>
             </div>
         </div>
-        <div class="card mx-3 mb-3" style="margin:1em auto; width: 97.3%;">
-            <div class="card-header text-center ">
+        <div class="card mx-3 mb-3" style="margin:1em auto; width: 97.3%; background-color: #B4B4AF">
+            <div class="card-header text-center " style="background-color: #636359; color:white">
                 Notícias
             </div>
-            <div class="card-block ">
+            <div class="card-block">
                 <h4 class="card-title ">Nova carta de ataque</h4>
                 <p class="card-text ">Com o novo update foi adicionado a carta espada de ouro com um dos maiores
                     danos. <a href="#"> Clique aqui para vê-la.</a></p>
-                <div class="card-footer text-muted text-center ">
-                    01/05/2018
+                <div class="card-footer text-muted text-center " style="background-color: #636359; color:white">
+                    <p style="color:white;display: inline">01/05/2018</p>
                 </div>
             </div>
         </div>
