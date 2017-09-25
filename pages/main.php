@@ -151,7 +151,7 @@ if (isset($nickname) && $nickname != null) {
 <html>
 
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/icon/favicon.ico"/>
     <title>Jogo</title>
     <!--Ter todos os simbolos -->
     <meta charset="utf-8">
@@ -188,7 +188,7 @@ if (isset($nickname) && $nickname != null) {
                 <h4 class="modal-title">Edit Data</h4>
             </div>
             <div class="modal-body">
-                <div class="fetched-data"><?php $message ?></div>
+                <div class="fetched-data"><?php if(isset($message))$message ?></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -337,7 +337,7 @@ if (isset($nickname) && $nickname != null) {
             <div class="card-block ">
                 <h4 class="card-title ">Nova carta de ataque</h4>
                 <p class="card-text ">Com o novo update foi adicionado a carta espada de ouro com um dos maiores
-                    danos. <a href="# "> Clique aqui para vê-la.</a></p>
+                    danos. <a href="#"> Clique aqui para vê-la.</a></p>
                 <div class="card-footer text-muted text-center ">
                     01/05/2018
                 </div>
@@ -356,7 +356,7 @@ if (isset($nickname) && $nickname != null) {
                          alt="Responsive image "
                          style="margin-top: 1em">
                     <div class="card-block">
-                        <h4 class="card-title nome-jogador" style='color:purple'><?= $nickname ?></h4>
+                        <h4 class="card-title nome-jogador" style='color:purple'><?php if(isset($nickname)) echo($nickname); ?></h4>
                     </div>
                     <div class="txt-perfil">
                         <div class='container'>
@@ -386,7 +386,7 @@ if (isset($nickname) && $nickname != null) {
                             </div>
                         </div>
                         <div class="progress" style="width: 95%;margin:1.2em auto">
-                            <div class="progress-bar " role="progressbar " style="width: 25%;height: 3em"
+                            <div class="progress-bar " role="progressbar" style="width: 25%;height: 3em"
                                  aria-valuenow="25 " aria-valuemin="0 " aria-valuemax="100 "></div>
                         </div>
                     </div>
@@ -438,49 +438,49 @@ if (isset($nickname) && $nickname != null) {
     <div class="container ">
         <div class="row ">
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <a href="# ">
+                <a href="#">
                     <img class="img-fluid img-thumbnail " src="../img/deck/angel.jpg " alt=" ">
                 </a>
                 <p class="text-center nome-carta ">Angel of Death</p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <a href="# ">
+                <a href="#">
                     <img class="img-fluid img-thumbnail " src="../img/deck/demon.jpg " alt=" ">
                 </a>
                 <p class="text-center nome-carta ">Demon of the Dark</p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <a href="# ">
+                <a href="#">
                     <img class="img-fluid img-thumbnail " src="../img/deck/wind.jpg " alt=" ">
                 </a>
                 <p class="text-center nome-carta ">Hard Wind</p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <a href="# ">
+                <a href="#">
                     <img class="img-fluid img-thumbnail " src="../img/deck/dragao.jpg " alt=" ">
                 </a>
                 <p class="text-center nome-carta ">Dragon Lord</p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <a href="# ">
+                <a href="#">
                     <img class="img-fluid img-thumbnail " src="../img/deck/fire.jpg " alt=" ">
                 </a>
                 <p class="text-center nome-carta ">Fear of Fire</p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <a href="# ">
+                <a href="#">
                     <img class="img-fluid img-thumbnail " src="../img/deck/magic.jpg " alt=" ">
                 </a>
                 <p class="text-center nome-carta ">Invencible Magic </p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <a href="# ">
+                <a href="#">
                     <img class="img-fluid img-thumbnail " src="../img/deck/shield.jpg " alt=" ">
                 </a>
                 <p class="text-center nome-carta ">Unbreakable Shield </p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <a href="# ">
+                <a href="#">
                     <img class="img-fluid img-thumbnail " src="../img/deck/sword.jpg " alt=" ">
                 </a>
                 <p class="text-center nome-carta ">Sword of Blood </p>
@@ -600,7 +600,7 @@ if (isset($nickname) && $nickname != null) {
         </div>
         <div class="col text-right ">
 
-            <button class="btn btn-primary" href="javascript:void(0)" onclick="javascript:toggleFullScreen()">
+            <button class="btn btn-primary" href="javascript:void(0)" onclick="toggleFullScreen()">
                 <i class="material-icons" id="btn-fullscreen">fullscreen</i>
             </button>
 
@@ -624,9 +624,6 @@ if (isset($nickname) && $nickname != null) {
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn "
         crossorigin="anonymous "></script>
 <script src="../js/main.js "></script>
-<!--Fullscreen JQuery API-->
-<script type="text/javascript" src="../js/jquery.fullscreen.min.js">
-</script>
 </body>
 
 </html>

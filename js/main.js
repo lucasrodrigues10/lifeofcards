@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
     $('.nav-pills a').click(function(e) {
-        e.preventDefault()
+        e.preventDefault();
         $(this).tab('show')
-    })
+    });
     $('[data-toggle="tooltip"]').tooltip();
 
     $('#myModal').modal('show');
@@ -30,9 +30,6 @@ $(document).ready(function() {
         $('.loja').hide();
         $('.perfil').hide();
         $('.inventario').hide();
-    });
-    $('.btn-fullscreen').click(function() {
-        $('body').fullscreen(options);
     });
     $('.btn-mostrar').click(function() {
         $('.carousel').carousel('pause');
