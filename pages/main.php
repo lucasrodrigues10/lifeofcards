@@ -119,40 +119,11 @@ if (isset($nickname) && $nickname != null) {
     } 
     */
 ?>
-<style>
-    /* custom full-screen styles
-    :-webkit-full-screen .main {
-        background-color: #ccc;
-        font-size: 24px;
-        width: 95%;
-    }
-    :-moz-full-screen .main {
-        background-color: #ccc;
-        font-size: 24px;
-        width: 95%;
-    }*/
-    :-webkit-full-screen .fs {
-        display: none
-    }
-
-    :-moz-full-screen .fs {
-        display: none
-    }
-
-    :-webkit-full-screen .rs {
-        display: block
-    }
-
-    :-moz-full-screen .rs {
-        display: block
-    }
-</style>
 <!DOCTYPE html>
 <html>
-
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="../img/icon/favicon.ico"/>
-    <title>Jogo</title>
+    <title>Jogo1</title>
     <!--Ter todos os simbolos -->
     <meta charset="utf-8">
     <!--Zoom em tablets/mobile-->
@@ -180,6 +151,9 @@ if (isset($nickname) && $nickname != null) {
     </script>
 
 <?php } ?>
+<audio autoplay mute loop id="audio">
+    <source src="/others/music.mp3">
+</audio>
 <div class="modal fade" id="teste" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -188,7 +162,7 @@ if (isset($nickname) && $nickname != null) {
                 <h4 class="modal-title">Edit Data</h4>
             </div>
             <div class="modal-body">
-                <div class="fetched-data"><?php if(isset($message))$message ?></div>
+                <div class="fetched-data"><?php if (isset($message)) $message ?></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -231,7 +205,7 @@ if (isset($nickname) && $nickname != null) {
                         <div class="col">
                             <div class="onoffswitch">
                                 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
-                                       id="myonoffswitch" checked>
+                                       id="myonoffswitch">
                                 <label class="onoffswitch-label" for="myonoffswitch">
                                     <span class="onoffswitch-inner"></span>
                                     <span class="onoffswitch-switch"></span>
@@ -356,7 +330,8 @@ if (isset($nickname) && $nickname != null) {
                          alt="Responsive image "
                          style="margin-top: 1em">
                     <div class="card-block">
-                        <h4 class="card-title nome-jogador" style='color:purple'><?php if(isset($nickname)) echo($nickname); ?></h4>
+                        <h4 class="card-title nome-jogador"
+                            style='color:purple'><?php if (isset($nickname)) echo($nickname); ?></h4>
                     </div>
                     <div class="txt-perfil">
                         <div class='container'>
@@ -582,7 +557,6 @@ if (isset($nickname) && $nickname != null) {
         </div>
     </div>
 </div>
-
 <!--Footer -->
 <nav class="navbar fixed-bottom navbar-light bg-faded nav-bottom ">
     <div class="row justify-content-between ">
@@ -607,10 +581,9 @@ if (isset($nickname) && $nickname != null) {
         </div>
     </div>
 </nav>
-<span class="glyphicons-home" aria-hidden="true "></span>
 
-<!-- Fullscreen script -->
-<script type="text/javascript" src="../js/fullscreen.js"></script>
+
+<span class="glyphicons-home" aria-hidden="true "></span>
 
 <!--JQuery, Javascript para Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js "
@@ -623,7 +596,10 @@ if (isset($nickname) && $nickname != null) {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js "
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn "
         crossorigin="anonymous "></script>
+<!-- Geral script from site -->
 <script src="../js/main.js "></script>
+<!-- Fullscreen script -->
+<script type="text/javascript" src="../js/fullscreen.js"></script>
 </body>
 
 </html>

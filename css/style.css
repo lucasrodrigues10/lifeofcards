@@ -1,226 +1,244 @@
-    /* Variaveis */
-    :root{
-        --sec-color: #0000ff;
-    }
-    .full {
-        background: grey url('/img/background.jpg') repeat center center;
-    }
+/* Variaveis */
+:root {
+    --sec-color: #0000ff;
+}
 
-    .full .jumbotron {
-        margin-top: 2em;
-    }
+.full {
+    background: grey url('/img/background.jpg') repeat center center;
+}
 
-    /*
-     Fullscreen options
-     */
-    *:fullscreen
-    *:-ms-fullscreen,
-    *:-webkit-full-screen,
-    *:-moz-full-screen {
-        overflow: auto !important;
-    }
-    #bot-log,
-    #bot-reg {
-        background-color: #AA3939;
-        width: 50%;
-    }
+.full .jumbotron {
+    margin-top: 2em;
+}
 
-    .form-group {
-        margin: 50px 100px 50px 100px;
-    }
+/*
+ Fullscreen options
+ */
+*:fullscreen
+*:-ms-fullscreen,
+*:-webkit-full-screen,
+*:-moz-full-screen {
+    overflow: auto !important;
+}
 
-    #bot-log:hover,
-    #bot-reg:hover {
-        background: #550400;
-    }
+#bot-log,
+#bot-reg {
+    background-color: #AA3939;
+    width: 50%;
+}
 
-    .btn-group .btn {
-        width: 150px;
-    }
+.form-group {
+    margin: 50px 100px 50px 100px;
+}
 
-    #bot-esq {
-        margin-top: 20px;
-    }
+#bot-log:hover,
+#bot-reg:hover {
+    background: #550400;
+}
 
-    .nav-top,
-    .nav-bottom {
-        background-color: black;
-    }
+.btn-group .btn {
+    width: 150px;
+}
 
-    .nav-top .nav-item a {
-        color: white;
-        font-family: 'Merriweather', serif;
-    }
+#bot-esq {
+    margin-top: 20px;
+}
 
-    .material-icons {
-        font-size: 1em;
-        color: white;
-    }
+.nav-top,
+.nav-bottom {
+    background-color: black;
+}
 
-    .jogar,
-    .perfil,
-    .inventario,
-    .loja {
-        display: none;
-    }
+.nav-top .nav-item a {
+    color: white;
+    font-family: 'Merriweather', serif;
+}
 
-    .main {
-        background-color: #1D1421;
-    }
+.material-icons {
+    font-size: 1em;
+    color: white;
+}
 
-    .icn-status {
-        color: green;
-        font-size: 30px;
-    }
+.jogar,
+.perfil,
+.inventario,
+.loja {
+    display: none;
+}
 
-    .nome-jogador {
-        font-family: 'Francois One', cursive;
-        color: white;
-        font-size: 1.5em;
-        margin: auto;
-    }
+.main {
+    background-color: #1D1421;
+}
 
-    .nome-amigos {
-        font-family: 'Francois One', sans-serif;
-        font-size: 1.3em;
-    }
+.icn-status {
+    color: green;
+    font-size: 30px;
+}
 
-    .nome-carta {
-        font-family: 'Rakkas', cursive;
-        font-size: 1.3em;
-        color: white;
-    }
+.nome-jogador {
+    font-family: 'Francois One', cursive;
+    color: white;
+    font-size: 1.5em;
+    margin: auto;
+}
 
-    .carousel-caption {
-        color: white;
-        font-family: 'Francois One', sans-serif;
-    }
+.nome-amigos {
+    font-family: 'Francois One', sans-serif;
+    font-size: 1.3em;
+}
 
-    .img-loja {
-        padding-left: 5em;
-    }
+.nome-carta {
+    font-family: 'Rakkas', cursive;
+    font-size: 1.3em;
+    color: white;
+}
 
-    .txt-loja {
-        margin: auto auto auto -1em;
-        color: white;
-    }
+.carousel-caption {
+    color: white;
+    font-family: 'Francois One', sans-serif;
+}
 
-    .txt-config {
-        font-family: 'Work Sans', sans-serif;
-        font-size: 1.4em;
-    }
+.img-loja {
+    padding-left: 5em;
+}
 
-    .txt-info {
-        color: #1F1959;
-        font-size: 2em;
-    }
+.txt-loja {
+    margin: auto auto auto -1em;
+    color: white;
+}
 
-    .txt-title {
-        font-family: 'Merriweather', serif;
-        color: white;
-    }
+.txt-config {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.4em;
+}
 
-    .txt-perfil {
-        font-family: 'Francois One', sans-serif;
-        font-size: 1em;
-    }
+.txt-info {
+    color: #1F1959;
+    font-size: 2em;
+}
 
-    .icone {
-        height: 1.5em;
-    }
+.txt-title {
+    font-family: 'Merriweather', serif;
+    color: white;
+}
 
-    .onoffswitch {
-        position: relative;
-        width: 73px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-    }
+.txt-perfil {
+    font-family: 'Francois One', sans-serif;
+    font-size: 1em;
+}
 
-    .onoffswitch-checkbox {
-        display: none;
-    }
+.icone {
+    height: 1.5em;
+}
 
-    .onoffswitch-label {
-        display: block;
-        overflow: hidden;
-        cursor: pointer;
-        border: 2px solid #E3E3E3;
-        border-radius: 26px;
-    }
+.onoffswitch {
+    position: relative;
+    width: 73px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
 
-    .onoffswitch-inner {
-        display: block;
-        width: 200%;
-        margin-left: -100%;
-        transition: margin 0.3s ease-in 0s;
-    }
+.onoffswitch-checkbox {
+    display: none;
+}
 
-    .onoffswitch-inner:before,
-    .onoffswitch-inner:after {
-        display: block;
-        float: left;
-        width: 50%;
-        height: 34px;
-        padding: 0;
-        line-height: 34px;
-        font-size: 15px;
-        color: white;
-        font-family: Trebuchet, Arial, sans-serif;
-        font-weight: bold;
-        box-sizing: border-box;
-    }
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #E3E3E3;
+    border-radius: 26px;
+}
 
-    .onoffswitch-inner:before {
-        content: "";
-        padding-left: 10px;
-        background-color: #292B61;
-        color: #FFFFFF;
-    }
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
 
-    .onoffswitch-inner:after {
-        content: "";
-        padding-right: 10px;
-        background-color: #FFFFFF;
-        color: #666666;
-        text-align: right;
-    }
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 34px;
+    padding: 0;
+    line-height: 34px;
+    font-size: 15px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+}
 
-    .onoffswitch-switch {
-        display: block;
-        width: 36px;
-        margin: -1px;
-        background: #FFFFFF;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 35px;
-        border: 2px solid #E3E3E3;
-        border-radius: 26px;
-        transition: all 0.3s ease-in 0s;
-    }
+.onoffswitch-inner:before {
+    content: "";
+    padding-left: 10px;
+    background-color: #292B61;
+    color: #FFFFFF;
+}
 
-    .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
-        margin-left: 0;
-    }
+.onoffswitch-inner:after {
+    content: "";
+    padding-right: 10px;
+    background-color: #FFFFFF;
+    color: #666666;
+    text-align: right;
+}
 
-    .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
-        right: 0;
-    }
+.onoffswitch-switch {
+    display: block;
+    width: 36px;
+    margin: -1px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 35px;
+    border: 2px solid #E3E3E3;
+    border-radius: 26px;
+    transition: all 0.3s ease-in 0s;
+}
 
-    .tabuleiro {
-        background-color: #430029;
-    }
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
 
-    .quadrado {
-        width: 14%;
-        height: 150px;
-    }
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0;
+}
 
-    .indica-linha,
-    .indica-coluna {
-        background: white;
-        text-align: center;
-        vertical-align: middle;
-        color: #240339;
-    }
+.tabuleiro {
+    background-color: #430029;
+}
+
+.quadrado {
+    width: 14%;
+    height: 150px;
+}
+
+.indica-linha,
+.indica-coluna {
+    background: white;
+    text-align: center;
+    vertical-align: middle;
+    color: #240339;
+}
+
+:-webkit-full-screen .fs {
+    display: none
+}
+
+:-moz-full-screen .fs {
+    display: none
+}
+
+:-webkit-full-screen .rs {
+    display: block
+}
+
+:-moz-full-screen .rs {
+    display: block
+}
