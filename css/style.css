@@ -1,6 +1,8 @@
 /* Variaveis */
 :root {
+    --pri-color: black;
     --sec-color: #0000ff;
+    --thi-color: #000066;
 }
 
 .full {
@@ -35,7 +37,16 @@
 #bot-reg:hover {
     background: #550400;
 }
+.btn-inventario,.btn-perfil,.btn-loja, .btn-home {
+    /*background: var(--thi-color);*/
+    border-style: solid;
+    border-width: medium;
+    border-color: transparent;
+}
 
+.btn-inventario:hover,.btn-perfil:hover,.btn-loja:hover, .btn-home:hover {
+    border-color: var(--thi-color);
+}
 .btn-group .btn {
     width: 150px;
 }

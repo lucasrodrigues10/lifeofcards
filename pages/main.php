@@ -151,7 +151,7 @@ if (isset($nickname) && $nickname != null) {
     </script>
 
 <?php } ?>
-<audio autoplay mute loop id="audio">
+<audio loop id="audio"> <!-- <audio autoplay loop id="audio"> vai comecar tocando -->
     <source src="/others/music.mp3">
 </audio>
 <div class="modal fade" id="teste" role="dialog">
@@ -223,11 +223,10 @@ if (isset($nickname) && $nickname != null) {
     </div>
 </div>
 
-
 <!--Barra de navegação de cima -->
 <ul class="nav nav-pills nav-justified nav-top">
     <li class="nav-item">
-        <a class="nav-link btn-home active" href="#">Início</a>
+        <a class="nav-link btn-home" href="#">Início</a>
     </li>
     <li class="nav-item">
         <a class="nav-link btn-perfil" href="#">Perfil</a>
@@ -257,7 +256,7 @@ if (isset($nickname) && $nickname != null) {
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 my-3">
             <div class="card text-center">
                 <div class="card-header">
                     Amigos
@@ -304,7 +303,7 @@ if (isset($nickname) && $nickname != null) {
                 </div>
             </div>
         </div>
-        <div class="card" style="margin:1em auto; width: 97.3%;">
+        <div class="card mx-3 mb-3" style="margin:1em auto; width: 97.3%;">
             <div class="card-header text-center ">
                 Notícias
             </div>

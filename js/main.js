@@ -1,8 +1,5 @@
 $(document).ready(function () {
 
-    //Começa com o som desligado
-    audio.pause();
-    audio.currentTime = 0;
 
     var vol = 50;
     $('#audio')[0].volume = vol / 100.0;
@@ -19,8 +16,11 @@ $(document).ready(function () {
         }
     });
 
+    $('.btn-home').css('background-color','#000066');
     $('.nav-pills a').click(function (e) {
         e.preventDefault();
+        $('.nav-pills a').css('background-color','black');
+        $(this).css('background-color','#000066');
         $(this).tab('show')
     });
     $('[data-toggle="tooltip"]').tooltip();
