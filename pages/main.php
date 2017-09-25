@@ -119,6 +119,34 @@ if (isset($nickname) && $nickname != null) {
     } 
     */
 ?>
+<style>
+    /* custom full-screen styles
+    :-webkit-full-screen .main {
+        background-color: #ccc;
+        font-size: 24px;
+        width: 95%;
+    }
+    :-moz-full-screen .main {
+        background-color: #ccc;
+        font-size: 24px;
+        width: 95%;
+    }*/
+    :-webkit-full-screen .fs {
+        display: none
+    }
+
+    :-moz-full-screen .fs {
+        display: none
+    }
+
+    :-webkit-full-screen .rs {
+        display: block
+    }
+
+    :-moz-full-screen .rs {
+        display: block
+    }
+</style>
 <!DOCTYPE html>
 <html>
 
@@ -319,241 +347,242 @@ if (isset($nickname) && $nickname != null) {
 </div>
 <!-- Perfil -->
 <div class="container perfil my-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="card text-center ">
-                        <img src="../img/avatar/gato.jpg "
-                             class="img-fluid img-thumbnail rounded mx-auto d-block rounded "
-                             alt="Responsive image "
-                             style="margin-top: 1em">
-                        <div class="card-block">
-                            <h4 class="card-title nome-jogador" style='color:purple'><?= $nickname ?></h4>
-                        </div>
-                        <div class="txt-perfil">
-                            <div class='container'>
-                                <div class="row">
-                                    <div class="col text-right">
-                                        <p>3</p>
-                                    </div>
-                                    <div class="col text-left">
-                                        <img src="../img/icon/nivel.svg" alt="nivel" class="icone">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col text-right">
-                                        <p>1000</p>
-                                    </div>
-                                    <div class="col text-left">
-                                        <img src="../img/icon/coin.svg" alt="moeda" class="icone">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col text-right">
-                                        <p>330</p>
-                                    </div>
-                                    <div class="col text-left">
-                                        <img src="../img/icon/xp.png" alt="xp" class="icone">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="progress" style="width: 95%;margin:1.2em auto">
-                                <div class="progress-bar " role="progressbar " style="width: 25%;height: 3em"
-                                     aria-valuenow="25 " aria-valuemin="0 " aria-valuemax="100 "></div>
-                            </div>
-                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card text-center ">
+                    <img src="../img/avatar/gato.jpg "
+                         class="img-fluid img-thumbnail rounded mx-auto d-block rounded "
+                         alt="Responsive image "
+                         style="margin-top: 1em">
+                    <div class="card-block">
+                        <h4 class="card-title nome-jogador" style='color:purple'><?= $nickname ?></h4>
                     </div>
-                </div>
-                <div class="col-sm-8 text-center">
-                    <div class="card txt-info">
-                        <div class="row">
-                            <div class="col">
-                                <p><img src="../img/icon/vitoria.svg" alt="vitoria" class="icone"> 13</p>
+                    <div class="txt-perfil">
+                        <div class='container'>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <p>3</p>
+                                </div>
+                                <div class="col text-left">
+                                    <img src="../img/icon/nivel.svg" alt="nivel" class="icone">
+                                </div>
                             </div>
-                            <div class="col">
-                                <p><img src="../img/icon/derrota.svg" alt="vitoria" class="icone"> 20</p>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <p>1000</p>
+                                </div>
+                                <div class="col text-left">
+                                    <img src="../img/icon/coin.svg" alt="moeda" class="icone">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <p>330</p>
+                                </div>
+                                <div class="col text-left">
+                                    <img src="../img/icon/xp.png" alt="xp" class="icone">
+                                </div>
                             </div>
                         </div>
-                        <table class="table table-bordered" style="font-size:.7em">
-                            <tbody>
-                            <tr>
-                                <th scope="row" class="text-center">Idade</th>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-center">Localização</th>
-                                <td>Brasil</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-center">Sexo</th>
-                                <td>Masculino</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-center">Email</th>
-                                <td colspan="2">jogadorlegal123@gmail.com</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <button type="button" class="btn btn-primary" style="margin:1em auto 1em auto;width: 40%">
-                            Editar
-                            Dados
-                        </button>
+                        <div class="progress" style="width: 95%;margin:1.2em auto">
+                            <div class="progress-bar " role="progressbar " style="width: 25%;height: 3em"
+                                 aria-valuenow="25 " aria-valuemin="0 " aria-valuemax="100 "></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="ct-chart ct-perfect-fourth"></div>
+            <div class="col-sm-8 text-center">
+                <div class="card txt-info">
+                    <div class="row">
+                        <div class="col">
+                            <p><img src="../img/icon/vitoria.svg" alt="vitoria" class="icone"> 13</p>
+                        </div>
+                        <div class="col">
+                            <p><img src="../img/icon/derrota.svg" alt="vitoria" class="icone"> 20</p>
+                        </div>
+                    </div>
+                    <table class="table table-bordered" style="font-size:.7em">
+                        <tbody>
+                        <tr>
+                            <th scope="row" class="text-center">Idade</th>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-center">Localização</th>
+                            <td>Brasil</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-center">Sexo</th>
+                            <td>Masculino</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-center">Email</th>
+                            <td colspan="2">jogadorlegal123@gmail.com</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-primary" style="margin:1em auto 1em auto;width: 40%">
+                        Editar
+                        Dados
+                    </button>
+                </div>
             </div>
         </div>
+        <div class="col">
+            <div class="ct-chart ct-perfect-fourth"></div>
+        </div>
     </div>
+</div>
 <div class="container inventario my-3">
-        <div class="container ">
-            <div class="row ">
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                    <a href="# ">
-                        <img class="img-fluid img-thumbnail " src="../img/deck/angel.jpg " alt=" ">
-                    </a>
-                    <p class="text-center nome-carta ">Angel of Death</p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                    <a href="# ">
-                        <img class="img-fluid img-thumbnail " src="../img/deck/demon.jpg " alt=" ">
-                    </a>
-                    <p class="text-center nome-carta ">Demon of the Dark</p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                    <a href="# ">
-                        <img class="img-fluid img-thumbnail " src="../img/deck/wind.jpg " alt=" ">
-                    </a>
-                    <p class="text-center nome-carta ">Hard Wind</p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                    <a href="# ">
-                        <img class="img-fluid img-thumbnail " src="../img/deck/dragao.jpg " alt=" ">
-                    </a>
-                    <p class="text-center nome-carta ">Dragon Lord</p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                    <a href="# ">
-                        <img class="img-fluid img-thumbnail " src="../img/deck/fire.jpg " alt=" ">
-                    </a>
-                    <p class="text-center nome-carta ">Fear of Fire</p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                    <a href="# ">
-                        <img class="img-fluid img-thumbnail " src="../img/deck/magic.jpg " alt=" ">
-                    </a>
-                    <p class="text-center nome-carta ">Invencible Magic </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                    <a href="# ">
-                        <img class="img-fluid img-thumbnail " src="../img/deck/shield.jpg " alt=" ">
-                    </a>
-                    <p class="text-center nome-carta ">Unbreakable Shield </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                    <a href="# ">
-                        <img class="img-fluid img-thumbnail " src="../img/deck/sword.jpg " alt=" ">
-                    </a>
-                    <p class="text-center nome-carta ">Sword of Blood </p>
-                </div>
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                <a href="# ">
+                    <img class="img-fluid img-thumbnail " src="../img/deck/angel.jpg " alt=" ">
+                </a>
+                <p class="text-center nome-carta ">Angel of Death</p>
             </div>
-            <hr>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                <a href="# ">
+                    <img class="img-fluid img-thumbnail " src="../img/deck/demon.jpg " alt=" ">
+                </a>
+                <p class="text-center nome-carta ">Demon of the Dark</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                <a href="# ">
+                    <img class="img-fluid img-thumbnail " src="../img/deck/wind.jpg " alt=" ">
+                </a>
+                <p class="text-center nome-carta ">Hard Wind</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                <a href="# ">
+                    <img class="img-fluid img-thumbnail " src="../img/deck/dragao.jpg " alt=" ">
+                </a>
+                <p class="text-center nome-carta ">Dragon Lord</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                <a href="# ">
+                    <img class="img-fluid img-thumbnail " src="../img/deck/fire.jpg " alt=" ">
+                </a>
+                <p class="text-center nome-carta ">Fear of Fire</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                <a href="# ">
+                    <img class="img-fluid img-thumbnail " src="../img/deck/magic.jpg " alt=" ">
+                </a>
+                <p class="text-center nome-carta ">Invencible Magic </p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                <a href="# ">
+                    <img class="img-fluid img-thumbnail " src="../img/deck/shield.jpg " alt=" ">
+                </a>
+                <p class="text-center nome-carta ">Unbreakable Shield </p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                <a href="# ">
+                    <img class="img-fluid img-thumbnail " src="../img/deck/sword.jpg " alt=" ">
+                </a>
+                <p class="text-center nome-carta ">Sword of Blood </p>
+            </div>
         </div>
-        <!-- /.container -->
+        <hr>
     </div>
+    <!-- /.container -->
+</div>
 <div class="container loja my-3">
-        <div id="carouselExampleIndicators" class="carousel slide" data-interval="3000" data-pause="hover"
-             data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner " role="listbox">
-                <div class="carousel-item active ">
-                    <div class="container">
-                        <div class="row ">
-                            <div class="col-sm">
-                                <img class="d-block img-fluid img-loja" src="../img/deck/viking.jpg"
-                                     alt="First slide">
-                            </div>
-                            <div class="col-sm txt-loja">
-                                <div>
-                                    <h3>Viking Deck</h3>
-                                    <p>Esse deck possui cartas com muito dano físico e defesa.</p>
-                                    <p>300 <img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
-                                    <button type="button" class="btn btn-info btn-mostrar" data-toggle="collapse"
-                                            data-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample">Mostrar Cartas
-                                    </button>
-                                    <button type="button" class="btn btn-danger">Comprar</button>
-                                </div>
-                            </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-interval="3000" data-pause="hover"
+         data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner " role="listbox">
+            <div class="carousel-item active ">
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-sm">
+                            <img class="d-block img-fluid img-loja" src="../img/deck/viking.jpg"
+                                 alt="First slide">
                         </div>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    <div class="container">
-                        <div class="row ">
-                            <div class="col-sm">
-                                <img class="d-block img-fluid img-loja" src="../img/deck/eagle.jpg"
-                                     alt="First slide">
-                            </div>
-                            <div class="col-sm txt-loja">
-                                <div>
-                                    <h3>Eagle Deck</h3>
-                                    <p>Esse deck possui cartas com muito dano físico e defesa.</p>
-                                    <p>300 <img src="../img/icon/coin.svg" alt="moeda" class="icone">
-                                    </p>
-                                    <button type="button" class="btn btn-info btn-mostrar" data-toggle="collapse"
-                                            data-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample">Mostrar Cartas
-                                    </button>
-                                    <button type="button" class="btn btn-danger">Comprar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    <div class="container">
-                        <div class="row ">
-                            <div class="col-sm">
-                                <img class="d-block img-fluid img-loja" src="../img/deck/3eyes.jpg"
-                                     alt="First slide">
-                            </div>
-                            <div class="col-sm txt-loja">
-                                <div>
-                                    <h3>Three Eyes Deck</h3>
-                                    <p>Esse deck possui cartas com muito dano físico e defesa.</p>
-                                    <p>300 <img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
-                                    <button type="button" class="btn btn-info btn-mostrar" data-toggle="collapse"
-                                            data-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample">Mostrar Cartas
-                                    </button>
-                                    <button type="button" class="btn btn-danger">Comprar</button>
-                                </div>
+                        <div class="col-sm txt-loja">
+                            <div>
+                                <h3>Viking Deck</h3>
+                                <p>Esse deck possui cartas com muito dano físico e defesa.</p>
+                                <p>300 <img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
+                                <button type="button" class="btn btn-info btn-mostrar" data-toggle="collapse"
+                                        data-target="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">Mostrar Cartas
+                                </button>
+                                <button type="button" class="btn btn-danger">Comprar</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <div class="carousel-item ">
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-sm">
+                            <img class="d-block img-fluid img-loja" src="../img/deck/eagle.jpg"
+                                 alt="First slide">
+                        </div>
+                        <div class="col-sm txt-loja">
+                            <div>
+                                <h3>Eagle Deck</h3>
+                                <p>Esse deck possui cartas com muito dano físico e defesa.</p>
+                                <p>300 <img src="../img/icon/coin.svg" alt="moeda" class="icone">
+                                </p>
+                                <button type="button" class="btn btn-info btn-mostrar" data-toggle="collapse"
+                                        data-target="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">Mostrar Cartas
+                                </button>
+                                <button type="button" class="btn btn-danger">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-sm">
+                            <img class="d-block img-fluid img-loja" src="../img/deck/3eyes.jpg"
+                                 alt="First slide">
+                        </div>
+                        <div class="col-sm txt-loja">
+                            <div>
+                                <h3>Three Eyes Deck</h3>
+                                <p>Esse deck possui cartas com muito dano físico e defesa.</p>
+                                <p>300 <img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
+                                <button type="button" class="btn btn-info btn-mostrar" data-toggle="collapse"
+                                        data-target="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">Mostrar Cartas
+                                </button>
+                                <button type="button" class="btn btn-danger">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-block" style="color:black;margin:1em">
-                Foto e descrição das cartas
-            </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-block" style="color:black;margin:1em">
+            Foto e descrição das cartas
         </div>
     </div>
+</div>
+
 <!--Footer -->
 <nav class="navbar fixed-bottom navbar-light bg-faded nav-bottom ">
     <div class="row justify-content-between ">
@@ -564,16 +593,24 @@ if (isset($nickname) && $nickname != null) {
         </div>
         <div class="col text-center ">
             <!--Botão Página Inicial -->
-            <p class="nome-jogador "> <?= $nickname ?> </p>
-        </div>
-        <div class="col text-right ">
+            <p class="nome-jogador " style="display: inline"> <?= $nickname ?> </p>
             <!--Botão para logout com um modal para confirmar -->
             <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i
                         class="material-icons ">exit_to_app</i></button>
         </div>
+        <div class="col text-right ">
+
+            <button class="btn btn-primary" href="javascript:void(0)" onclick="javascript:toggleFullScreen()">
+                <i class="material-icons" id="btn-fullscreen">fullscreen</i>
+            </button>
+
+        </div>
     </div>
 </nav>
 <span class="glyphicons-home" aria-hidden="true "></span>
+
+<!-- Fullscreen script -->
+<script type="text/javascript" src="../js/fullscreen.js"></script>
 
 <!--JQuery, Javascript para Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js "
@@ -587,6 +624,9 @@ if (isset($nickname) && $nickname != null) {
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn "
         crossorigin="anonymous "></script>
 <script src="../js/main.js "></script>
+<!--Fullscreen JQuery API-->
+<script type="text/javascript" src="../js/jquery.fullscreen.min.js">
+</script>
 </body>
 
 </html>

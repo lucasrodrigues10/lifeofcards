@@ -1,14 +1,24 @@
-    /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
-
-    .full {
-        background: dimgrey url('/img/background.jpg') repeat center center;
+    /* Variaveis */
+    :root{
+        --sec-color: #0000ff;
     }
-
+    .full {
+        background: grey url('/img/background.jpg') repeat center center;
+    }
 
     .full .jumbotron {
         margin-top: 2em;
     }
 
+    /*
+     Fullscreen options
+     */
+    *:fullscreen
+    *:-ms-fullscreen,
+    *:-webkit-full-screen,
+    *:-moz-full-screen {
+        overflow: auto !important;
+    }
     #bot-log,
     #bot-reg {
         background-color: #AA3939;
