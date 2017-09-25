@@ -38,10 +38,17 @@
     background: #550400;
 }
 .btn-inventario,.btn-perfil,.btn-loja, .btn-home {
-    /*background: var(--thi-color);*/
     border-style: solid;
     border-width: medium;
     border-color: transparent;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: var(--sec-color) !important;
+    border-color: var(--sec-color) !important;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:visited{
+    background-color: var(--thi-color) !important;
 }
 
 .btn-inventario:hover,.btn-perfil:hover,.btn-loja:hover, .btn-home:hover {
