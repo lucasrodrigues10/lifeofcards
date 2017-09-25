@@ -1,5 +1,4 @@
 # Life of Cards - Jogo de Cartas #
-Site: http://lifeofcards.site11.com/
 
 <p align="center">
   <img width="460" height="300" src="https://s3.amazonaws.com/galapagosproduction/system/ckeditor_assets/pictures/175/content_original_jogo-senhor-dos-aneis-card-game_cartas.png">
