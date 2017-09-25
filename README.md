@@ -32,3 +32,10 @@ Esse webgame foi criado pensando em um jogo casual, mas que envolvesse estratég
 * ** 3º Programar o servidor e programar comunicação cliente-servidor **
 
 * ** 4º Desenvolver o resto das cartas e outros aspectos do jogo (sistema de nível, tutorias, etc.) **
+
+## Objetivos:
+* encontrar amigo
+* montar decks
+* montar pacotes
+* alterar senha e email config
+* colocar historico
