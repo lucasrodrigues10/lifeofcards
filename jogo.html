@@ -6,6 +6,7 @@
 	<script type="text/javascript" src="js/phaser.min(1).js"></script>
 	<script type="text/javascript" src="js/functions.js"></script>
 	<script type="text/javascript" src="js/array.js"></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
     <style type="text/css">
         body {
@@ -28,6 +29,8 @@ function  preload () {
 }
 
 function create (){
+    
+    
     console.log("UNIDADES QUE PODEM SER CRIADAS: ferumbras, banshee, mummy, devil, torturer. Basta escrever 'spawn(x,y,nome_da_unidade)' ");
     
     //inicializa fisica. necessario para fazer as unidades se movimentar
@@ -60,7 +63,7 @@ function create (){
     unidades.callAll('animations.play','animations','right'); 
     
     
-        
+    
     
    
 	

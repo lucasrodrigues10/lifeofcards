@@ -48,7 +48,10 @@ function addAnimations(sprite){
 
 function deixaResponsivo(){
     //faz o canvas se ajustar ao tamanho da tela (responsivo)
-    game.scale.scaleMode = Phaser.ScaleManager.aspectRatio;
+    var escala = $(window).height()/jogo.height;
+    console.log(escala);
+    game.scale.setUserScale(escala,escala);
+    game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
 	game.scale.pageAlignVertically = true;
 	game.scale.pageAlignHorizontally = true;
 	game.scale.setShowAll();
@@ -70,7 +73,7 @@ var numLinhas = 12;
 var numColunas = 12;
 var margemLateral = 1;
 var margemVertical = 1;
-
+var jogo; //referencia para o sprite do tabuleiro
 var spriteSelecionado;
 //criando um vetor 12x12 pra guardar as referencias dos sprites
 var tabuleiro = new Array (12);
@@ -98,7 +101,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
         //criando resposta ao clique
         sprite.inputEnabled = true;
         sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32); 
-        sprite.events.onInputDown.add(criaMovimentacao2,this); 
+        sprite.events.onInputDown.add(criaMovimentacao,this); 
 
         //habilitando fisica para movimentar os sprites
         game.physics.arcade.enable(sprite);
@@ -188,47 +191,9 @@ function moveSec (sprite){
 
 
 
+
+
 function criaMovimentacao (sprite){
-    spriteSelecionado = sprite; //atualiza a variavel global que guarda o ultimo sprite a ser clicado
-    posX = sprite.x;
-    posY = sprite.y;
-    movimentacao.callAll('kill'); //remove os quadrados antigos
-    var quadrados =[];
-    quadrados.push(game.add.sprite(posX,posY-32,'quadrado'));       //pra cima
-    quadrados.push(game.add.sprite(posX+32,posY-32,'quadrado'));    //pra cima e pra direita
-    quadrados.push(game.add.sprite(posX+32,posY,'quadrado'));       //pra direita
-    quadrados.push(game.add.sprite(posX+32,posY+32,'quadrado'));    //pra baixo e pra direita
-    quadrados.push(game.add.sprite(posX,posY+32,'quadrado'));       //pra baixo
-    quadrados.push(game.add.sprite(posX-32,posY+32,'quadrado'));    //pra baixo e pra esquerda
-    quadrados.push(game.add.sprite(posX-32,posY,'quadrado'));       //pra esquerda
-    quadrados.push(game.add.sprite(posX-32,posY-32,'quadrado'));    //pra cima e pra esquerda
-    
-    
-    
-    //adiciona os quadrados de movimento ao grupo
-    movimentacao.addMultiple(quadrados);            
- 
-    
-    
-    movimentacao.children.forEach(function(quadrado){   
-        quadrado.anchor.setTo(1,1);                             //muda âncora dos quadrados azuis
-        quadrado.inputEnabled = true;
-        if (encontraUnidade(quadrado.x,quadrado.y)!=null)
-            //remove um quadrado se já há uma unidade nele
-            quadrado.destroy();
-        
-    })
-    movimentacao.visible = true;
-    
-    movimentacao.onChildInputDown.add(this.move,this);
-}
-
-
-
-//alternativa para a primeira funcção de movimentar
-function criaMovimentacao2 (sprite){
-    //deixa fullscrenn. apenas para teste
-    
     
     
     var quadrados = [];
@@ -290,9 +255,14 @@ function criaMovimentacao2 (sprite){
     
 	
 
-	
+    
 	
 	movimentacao.visible = true;
+    
+    //deixa em fullscreen. esta aqui apenas para teste
+    game.scale.startFullScreen(false);
+    game.scale.fullScreenScaleMode = Phaser.ScaleManager.USER_SCALE;
+    game.scale.refresh();
 }
 
 //função que atualiza a variavel global "tabuleiro"
