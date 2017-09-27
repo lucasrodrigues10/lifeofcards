@@ -17,7 +17,7 @@
 <body>
 
 <script type="text/javascript">
-var game = new Phaser.Game(window.innerWidth, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update});  
+var game = new Phaser.Game(150+448+100, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update},false,false);  
     
 
 
@@ -25,18 +25,23 @@ var game = new Phaser.Game(window.innerWidth, 448, Phaser.AUTO, '', { preload: p
 function  preload () {
     loadAssets(); //carrega os assets necessários    
     
+
     
 }
 
 function create (){
     
+    //jogo se torna responsivo de acordo com o tamanho da tela do browser
+    deixaResponsivo();
+    window.addEventListener("resize",deixaResponsivo);
     
     console.log("UNIDADES QUE PODEM SER CRIADAS: ferumbras, banshee, mummy, devil, torturer. Basta escrever 'spawn(x,y,nome_da_unidade)' ");
     
     //inicializa fisica. necessario para fazer as unidades se movimentar
 	game.physics.startSystem(Phaser.Physics.ARCADE);
     
-    jogo = game.add.sprite( window.innerWidth/2-game.height/2 ,0, 'tabuleiro');
+    jogo = game.add.sprite( 200 ,0, 'tabuleiro');
+    
     
     movimentacao = game.add.group(); // grupo para movimentação das unidades
     movimentacao.visible = false;
@@ -72,7 +77,7 @@ function create (){
 }
 
 function update (){
-    deixaResponsivo();
+    
 }
     
     

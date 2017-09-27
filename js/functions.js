@@ -48,10 +48,8 @@ function addAnimations(sprite){
 
 function deixaResponsivo(){
     //faz o canvas se ajustar ao tamanho da tela (responsivo)
-    var escala = $(window).height()/jogo.height;
-    console.log(escala);
-    game.scale.setUserScale(escala,escala);
-    game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
+    
+    game.scale.scaleMode = Phaser.ScaleManager.aspectRatio;
 	game.scale.pageAlignVertically = true;
 	game.scale.pageAlignHorizontally = true;
 	game.scale.setShowAll();
