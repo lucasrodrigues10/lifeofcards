@@ -140,49 +140,6 @@ if ($result->num_rows > 0) {
         $a++;
     }
     $a=0;
-
-/*
-        POPULAR BANCO DE DADOS ANTES DE ADICIONAR
-
-
-    
-    $i=0; 
-
-    $IDcarta_loja = array(); 
-    $IDskin_loja = array(); 
-    $IDpacote_loja = array(); 
-    foreach ($IDproduto as $value){ 
-        if($Tabnum == 1){ 
-            $IDcarta_loja[] = $value; 
-        } 
-        if($Tabnum == 2){ 
-            $IDskin_loja[] = $value; 
-        } 
-        if($Tabnum == 3){ 
-            $IDpacote_loja[] = $value; 
-        } 
-    } 
-    $Nome_pacote = array(); 
-    $Descricao_pacote = array(); 
-    $qtdecartas_pacote = array(); 
-    $Descricao_carta = array(); 
-    foreach ($IDpacote_loja as $value){ 
-        $query = "SELECT * FROM Tabela pacote WHERE IDpacote = '$value'"; 
-        $result = $conn->query($query); 
-        while($row = $result->fetch_assoc()){ 
-            $Nome_pacote[] = $row["Nome"]; 
-            $Descricao_pacote[] = $row["Descrição"]; 
-            $qtdecartas_pacote[] = $row["QtdeCartas/pacote"]; 
-        } 
-    } 
-    foreach ($IDcarta_loja as $value){ 
-        $query = "SELECT IDcarta FROM Cartas WHERE IDpacote = '$value'"; 
-        $result = $conn->query($query); 
-        while($row = $result->fetch_assoc()){ 
-            $Descricao_carta[] = $row["Descrição"]; 
-        } 
-    } 
-    */
 ?>
 <!DOCTYPE html>
 <html>
