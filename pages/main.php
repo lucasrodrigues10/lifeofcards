@@ -145,7 +145,7 @@ if ($result->num_rows > 0) {
 <html>
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="../img/icon/favicon.ico"/>
-    <title>Jogo1</title>
+    <title>Jogo</title>
     <!--Ter todos os simbolos -->
     <meta charset="utf-8">
     <!--Zoom em tablets/mobile-->

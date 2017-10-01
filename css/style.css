@@ -1,8 +1,8 @@
 /* Variaveis */
 :root {
-    --pri-color: black;
-    --sec-color: #0000ff;
-    --thi-color: #000066;
+    --color1: black;
+    --color2: #000066;
+    --color3: #0000ff;
 }
 
 .full {
@@ -23,6 +23,7 @@
     overflow: auto !important;
 }
 
+
 #bot-log,
 #bot-reg {
     background-color: #AA3939;
@@ -33,26 +34,21 @@
     margin: 50px 100px 50px 100px;
 }
 
-#bot-log:hover,
-#bot-reg:hover {
-    background: #550400;
-}
 .btn-inventario,.btn-perfil,.btn-loja, .btn-home {
     border-style: solid;
     border-width: medium;
     border-color: transparent;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: var(--sec-color) !important;
-    border-color: var(--sec-color) !important;
-}
-.btn-primary:hover, .btn-primary:active, .btn-primary:visited{
-    background-color: var(--thi-color) !important;
+.btn-primary, .btn-primary:hover, .btn-primary:visited, .btn-primary:active {
+    background-color: var(--color3) !important;
+    border-color: var(--color3) !important;
 }
 
 .btn-inventario:hover,.btn-perfil:hover,.btn-loja:hover, .btn-home:hover {
-    border-color: var(--thi-color);
+    border-color: var(--color3);
+    background-color: var(--color3) !important;
+
 }
 .btn-group .btn {
     width: 150px;

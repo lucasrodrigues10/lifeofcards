@@ -15,7 +15,7 @@ $(document).ready(function () {
             audio.currentTime = 0;
         }
     });
-
+    $('#opt-log').button('toggle');
     $('.btn-home').css('background-color','#000066');
     $('.nav-pills a').click(function (e) {
         e.preventDefault();

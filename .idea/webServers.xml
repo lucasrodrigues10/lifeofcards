@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="d8b40728-24df-4a78-a20d-71fcad9fc0b2" name="lifeofcards" url="http://lifeofcards.site11.com">
+      <webServer id="2789f2ce-a0a9-4dfe-97f2-070c00fcd72b" name="lifeofcards_site" url="http://lifeofcards.site11.com">
         <fileTransfer host="files.000webhost.com" port="21" rootFolder="/public_html">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
