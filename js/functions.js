@@ -255,12 +255,7 @@ function criaMovimentacao (sprite){
 
     
 	
-	movimentacao.visible = true;
-    
-    //deixa em fullscreen. esta aqui apenas para teste
-    game.scale.startFullScreen(false);
-    game.scale.fullScreenScaleMode = Phaser.ScaleManager.USER_SCALE;
-    game.scale.refresh();
+	
 }
 
 //função que atualiza a variavel global "tabuleiro"
