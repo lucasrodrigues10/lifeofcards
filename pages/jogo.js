@@ -1,7 +1,4 @@
-var game = new Phaser.Game(448, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update},false,false);  
-    
-
-
+var game = new Phaser.Game(448, 448, Phaser.AUTO, "phaser-game", { preload: preload, create: create, update: update},false,false);
 
 function  preload () {
     loadAssets(); //carrega os assets necessários    
