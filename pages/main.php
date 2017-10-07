@@ -507,10 +507,62 @@ if ($result->num_rows > 0) {
             <span class="sr-only">Next</span>
         </a>
     </div>
+	
+	
+	
+	
     <div class="collapse" id="collapseExample">
         <div class="card card-block" style="color:black;margin:1em">
-            Foto e descrição das cartas
+
+    <?php
+            $aux2 = 0;
+			$query = "SELECT * FROM Cartas WHERE IDpacote= '$IDproduto[$aux2]'";
+            $result = $conn->query($query); 
+            if ($result->num_rows > 0) 
+            {     
+     ?>
+                <div class = "cartas" style="">
+        <?php                
+                while($row = $result->fetch_assoc())
+                { 
+         ?>
+                    <div class = "carta" style="width:30%;display:inline-block;border:5px solid black;border-radius: 10px;margin: 1%;">
+                       
+                <?php       
+                    $Nome_Carta[$aux2] = $row["Nome"];
+                    $Descricao_Carta[$aux2] = $row["Descricao"];
+                    $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
+		    $Ataque_Carta[$aux2] = $row["Ataque"];
+		    $Vida_Carta[$aux2] = $row["Vida"]; 
+		?>
+        	        <div class = "nome" style="Height:5%;padding:1%;">
+			 <p style="text-align: left; font-weight: bold;"> <?php  echo $Nome_Carta[$aux2] ?> </p> 
+			</div>
+			<div class = "imagem" style="Height:40%;border:1px solid black;margin: 1%;">
+				<img style="height:100%;width:100%" src="../img/cartas/<?php echo $Imagem_Carta[$aux2] ?> " > 
+			</div>
+			<div class = "descricao" style="Height:60%;border:1px solid black;margin: 2%;padding:2%;">
+				<p style="text-align: left"><?php echo  $Descricao_Carta[$aux2] ?></p>
+			</div>
+			<div class = "stats" style="Height:5%;padding-right:2%;">
+				<p style="text-align: right"><?php echo  $Ataque_Carta[$aux2] ?> / <?php echo  $Vida_Carta[$aux2] ?></p>
+			</div>
+                </div>
+		<?php 
+		}
+		?>
         </div>
+	<?php
+	}
+	?>
+
+
+			
+        </div>
+		
+		
+		
+		
     </div>
 </div>
 <!--Footer -->
