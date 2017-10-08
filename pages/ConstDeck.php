@@ -134,7 +134,7 @@ if ($result->num_rows > 0) {
         <div class="row">
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                 <img class="img-fluid img-thumbnail Adicionar" src="../img/deck/angel.jpg" >
-                <p class="text-center nome-carta " class="Adicionar">Carta1</p>
+                <p class="text-center nome-carta " class="Adicionar">Carta5</p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                 <img class="img-fluid img-thumbnail Adicionar" src="../img/deck/angel.jpg">
@@ -142,15 +142,15 @@ if ($result->num_rows > 0) {
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                 <img class="img-fluid img-thumbnail Adicionar" src="../img/deck/angel.jpg">
-                <p class="text-center nome-carta ">Carta1</p>
+                <p class="text-center nome-carta ">Carta2</p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                 <img class="img-fluid img-thumbnail Adicionar" src="../img/deck/angel.jpg">
-                <p class="text-center nome-carta ">Carta1</p>
+                <p class="text-center nome-carta ">Carta3</p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
                 <img class="img-fluid img-thumbnail Adicionar" src="../img/deck/angel.jpg">
-                <p class="text-center nome-carta ">Carta1</p>
+                <p class="text-center nome-carta ">Carta4</p>
             </div>       
         </div>
     </div>
@@ -239,7 +239,7 @@ if ($result->num_rows > 0) {
 $(document).ready(function() {
     var Total = 0;
     $('.Adicionar').click(function() {
-       $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 thumb "><h3 class="nome-carta">Carta1</h3></div>');
+       $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 thumb "><h3 class="nome-carta">'+$(this).closest("div").text()+'</h3></div>');
     });
     $('.Adicionar').click(function() {
        $('.Total').text(parseInt($('.Total').text()) + 1);
