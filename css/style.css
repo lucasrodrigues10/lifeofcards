@@ -1,259 +1,565 @@
 /* Variaveis */
+
 :root {
+
     --color1: black;
+
     --color2: #000066;
+
     --color3: #0000ff;
+
 }
+
+
 
 .full {
+
     background: grey url('/img/background.jpg') repeat center center;
+
 }
+
+
 
 .full .jumbotron {
+
     margin-top: 2em;
+
 }
 
+
+
 /*
+
  Fullscreen options
+
  */
+
 *:fullscreen
+
 *:-ms-fullscreen,
+
 *:-webkit-full-screen,
+
 *:-moz-full-screen {
+
     overflow: auto !important;
+
+}
+
+
+html{
+    height:100%;
+}
+body{
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.tem1{
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: rgb(255, 128, 128) repeat center center; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, rgb(255, 128, 128), gray) ; /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, rgb(255, 128, 128), gray) ; /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, rgb(255, 128, 128), gray) ; /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgb(255, 128, 128), gray) ; /* Standard syntax */
+}
+
+.tem2{
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: rgb(255, 255, 179) repeat center center; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, rgb(255, 255, 179), gray); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, rgb(255, 255, 179), gray); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, rgb(255, 255, 179), gray); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgb(255, 255, 179), gray); /* Standard syntax */
+}
+
+.tem3{
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: rgb(179, 204, 255); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, rgb(179, 204, 255) , gray); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, rgb(179, 204, 255), gray); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right,rgb(179, 204, 255), gray); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgb(179, 204, 255), gray); /* Standard syntax */
+}
+
+.tem4{
+  background: gray; /* For browsers that do not support gradients */
 }
 
 
 #bot-log,
+
 #bot-reg {
+
     background-color: #AA3939;
+
     width: 50%;
+
 }
+
 #logo{
+
 }
+
 .form-group {
+
     margin: 50px 100px 50px 100px;
+
 }
+
+
 
 .btn-inventario,.btn-perfil,.btn-loja, .btn-home {
+
     border-style: solid;
+
     border-width: medium;
+
     border-color: transparent;
+
 }
+
+
 
 .btn-primary, .btn-primary:hover, .btn-primary:visited, .btn-primary:active {
+
     background-color: var(--color3) !important;
+
     border-color: var(--color3) !important;
+
 }
+
+
 
 .btn-inventario:hover,.btn-perfil:hover,.btn-loja:hover, .btn-home:hover {
+
     border-color: var(--color3);
+
     background-color: var(--color3) !important;
 
+
+
 }
+
 .btn-group .btn {
+
     width: 150px;
+
 }
+
+
 
 #bot-esq {
+
     margin-top: 20px;
+
 }
+
+
 
 .nav-top,
+
 .nav-bottom {
+
     background-color: black;
+
 }
+
+
 
 .nav-top .nav-item a {
+
     color: white;
+
     font-family: 'Merriweather', serif;
+
 }
+
+
 
 .material-icons {
+
     font-size: 1em;
+
     color: white;
+
 }
+
+
 
 .jogar,
+
 .perfil,
+
 .inventario,
+
 .loja {
+
     display: none;
+
 }
+
+
 
 .main {
+
     background-color: #1D1421;
+
 }
+
+
 
 .icn-status {
+
     color: green;
+
     font-size: 30px;
+
 }
+
+
 
 .nome-jogador {
+
     font-family: 'Francois One', cursive;
+
     color: white;
+
     font-size: 1.5em;
+
     margin: auto;
+
 }
+
+
 
 .nome-amigos {
+
     font-family: 'Francois One', sans-serif;
+
     font-size: 1.3em;
+
 }
+
+
 
 .nome-carta {
+
     font-family: 'Rakkas', cursive;
+
     font-size: 1.3em;
+
     color: white;
+
 }
+
+
 
 .carousel-caption {
+
     color: white;
+
     font-family: 'Francois One', sans-serif;
+
 }
+
+
 
 .img-loja {
+
     padding-left: 5em;
+
 }
+
+
 
 .txt-loja {
+
     margin: auto auto auto -1em;
+
     color: white;
+
 }
+
+
 
 .txt-config {
+
     font-family: 'Work Sans', sans-serif;
+
     font-size: 1.4em;
+
 }
+
+
 
 .txt-info {
+
     color: #1F1959;
+
     font-size: 2em;
+
 }
+
+
 
 .txt-title {
+
     font-family: 'Merriweather', serif;
+
     color: white;
+
 }
+
+
 
 .txt-perfil {
+
     font-family: 'Francois One', sans-serif;
+
     font-size: 1em;
+
 }
+
+
 
 .icone {
+
     height: 1.5em;
+
 }
+
+
 
 .onoffswitch {
+
     position: relative;
+
     width: 73px;
+
     -webkit-user-select: none;
+
     -moz-user-select: none;
+
     -ms-user-select: none;
+
 }
+
+
 
 .onoffswitch-checkbox {
+
     display: none;
+
 }
+
+
 
 .onoffswitch-label {
+
     display: block;
+
     overflow: hidden;
+
     cursor: pointer;
+
     border: 2px solid #E3E3E3;
+
     border-radius: 26px;
+
 }
+
+
 
 .onoffswitch-inner {
+
     display: block;
+
     width: 200%;
+
     margin-left: -100%;
+
     transition: margin 0.3s ease-in 0s;
+
 }
+
+
 
 .onoffswitch-inner:before,
+
 .onoffswitch-inner:after {
+
     display: block;
+
     float: left;
+
     width: 50%;
+
     height: 34px;
+
     padding: 0;
+
     line-height: 34px;
+
     font-size: 15px;
+
     color: white;
+
     font-family: Trebuchet, Arial, sans-serif;
+
     font-weight: bold;
+
     box-sizing: border-box;
+
 }
+
+
 
 .onoffswitch-inner:before {
+
     content: "";
+
     padding-left: 10px;
+
     background-color: #292B61;
+
     color: #FFFFFF;
+
 }
+
+
 
 .onoffswitch-inner:after {
+
     content: "";
+
     padding-right: 10px;
+
     background-color: #FFFFFF;
+
     color: #666666;
+
     text-align: right;
+
 }
+
+
 
 .onoffswitch-switch {
+
     display: block;
+
     width: 36px;
+
     margin: -1px;
+
     background: #FFFFFF;
+
     position: absolute;
+
     top: 0;
+
     bottom: 0;
+
     right: 35px;
+
     border: 2px solid #E3E3E3;
+
     border-radius: 26px;
+
     transition: all 0.3s ease-in 0s;
+
 }
+
+
 
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+
     margin-left: 0;
+
 }
+
+
 
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+
     right: 0;
+
 }
+
+
 
 .tabuleiro {
+
     background-color: #430029;
+
 }
+
+
 
 .quadrado {
+
     width: 14%;
+
     height: 150px;
+
 }
+
+
 
 .indica-linha,
+
 .indica-coluna {
+
     background: white;
+
     text-align: center;
+
     vertical-align: middle;
+
     color: #240339;
+
 }
+
+
 
 :-webkit-full-screen .fs {
+
     display: none
+
 }
+
+
 
 :-moz-full-screen .fs {
+
     display: none
+
 }
+
+
 
 :-webkit-full-screen .rs {
+
     display: block
+
 }
 
+
+
 :-moz-full-screen .rs {
+
     display: block
+
 }
