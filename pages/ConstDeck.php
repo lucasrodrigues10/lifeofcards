@@ -44,6 +44,7 @@ if ($result->num_rows > 0) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--CSS do projeto -->
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+
 </head>
 <!--body com background -->
 <body class="tem1" id="body">
@@ -117,71 +118,12 @@ if ($result->num_rows > 0) {
             <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
                 <h3>Cartas Selecionadas</h3>
             </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta5678909</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta2</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta3</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta4</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta5</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta6</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta2</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta3</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta4</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta5</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta6</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta2</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta3</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta4</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta5</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta6</h5>
-            </div>
-                        <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta2</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta3</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta4</h5>
-            </div>
-            <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">Carta5</h5>
-            </div>
+            <div class="Adicionado"></div>
             <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
                 <h3>Cartas no deck:</h3>
             </div>
             <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                <h5 class="nome-carta">6/20</h5>
+                <h5 class="nome-carta"><span class="Total">0</span>/20</h5>
             </div>
         </div>
     </div>
@@ -191,23 +133,23 @@ if ($result->num_rows > 0) {
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <a href="www.uol.com.br"><img class="img-fluid img-thumbnail " src="../img/deck/angel.jpg"></a>
+                <img class="img-fluid img-thumbnail Adicionar" src="../img/deck/angel.jpg" >
+                <p class="text-center nome-carta " class="Adicionar">Carta1</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                <img class="img-fluid img-thumbnail Adicionar" src="../img/deck/angel.jpg">
                 <p class="text-center nome-carta ">Carta1</p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <img class="img-fluid img-thumbnail " src="../img/deck/angel.jpg">
+                <img class="img-fluid img-thumbnail Adicionar" src="../img/deck/angel.jpg">
                 <p class="text-center nome-carta ">Carta1</p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <img class="img-fluid img-thumbnail " src="../img/deck/angel.jpg">
+                <img class="img-fluid img-thumbnail Adicionar" src="../img/deck/angel.jpg">
                 <p class="text-center nome-carta ">Carta1</p>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <a href="www.uol.com.br"><img class="img-fluid img-thumbnail " src="../img/deck/angel.jpg"></a>
-                <p class="text-center nome-carta ">Carta1</p>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <img class="img-fluid img-thumbnail " src="../img/deck/angel.jpg">
+                <img class="img-fluid img-thumbnail Adicionar" src="../img/deck/angel.jpg">
                 <p class="text-center nome-carta ">Carta1</p>
             </div>       
         </div>
@@ -275,12 +217,7 @@ if ($result->num_rows > 0) {
         </div>
     </div>
 </nav>
-<script>
-    function Cor1(){ document.getElementById("body").className = "tem1"; }
-    function Cor2(){ document.getElementById("body").className = "tem2"; }   
-    function Cor3(){ document.getElementById("body").className = "tem3"; }
-    function Cor4(){ document.getElementById("body").className = "tem4"; }        
-</script>
+
     <!--JQuery, Javascript para Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js "
         integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n "
@@ -292,6 +229,23 @@ if ($result->num_rows > 0) {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js "
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn "
         crossorigin="anonymous "></script>
+<script>
+    function Cor1(){ document.getElementById("body").className = "tem1"; }
+    function Cor2(){ document.getElementById("body").className = "tem2"; }   
+    function Cor3(){ document.getElementById("body").className = "tem3"; }
+    function Cor4(){ document.getElementById("body").className = "tem4"; }
+</script>
+<script>
+$(document).ready(function() {
+    var Total = 0;
+    $('.Adicionar').click(function() {
+       $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 thumb "><h3 class="nome-carta">Carta1</h3></div>');
+    });
+    $('.Adicionar').click(function() {
+       $('.Total').text(parseInt($('.Total').text()) + 1);
+    });
+});
+</script>
 <!-- Geral script from site -->
 <script src="../js/main.js "></script>
 <!-- Fullscreen script -->
