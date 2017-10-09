@@ -9,10 +9,10 @@ $query = "SELECT * FROM Usuario WHERE IDusuario = '$id'";
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
 $login = $row["Login"];
-$idade = $row["Nascimento"]; 
-$localizacao = $row["Endereço"]; 
-$sexo = $row["Sexo"]; 
-$email = $row["Email"]; 
+$idade = $row["Nascimento"];
+$localizacao = $row["Endereço"];
+$sexo = $row["Sexo"];
+$email = $row["Email"];
 
 $query = "SELECT * FROM UsuarioNoJogo WHERE IDusuario = '$id'";
 $result = $conn->query($query);
@@ -26,120 +26,120 @@ if ($result->num_rows > 0) {
     $derrotas = $row["Derrotas"];
 }
 
-    $query = "SELECT Nivel FROM Nivel WHERE XPnecessaria > '$exp' LIMIT 1"; 
-    $result = $conn->query($query); 
-    $row = $result->fetch_assoc(); 
-    $nivel = $row["Nivel"]; 
+$query = "SELECT Nivel FROM Nivel WHERE XPnecessaria > '$exp' LIMIT 1";
+$result = $conn->query($query);
+$row = $result->fetch_assoc();
+$nivel = $row["Nivel"];
 
 if (isset($nickname) && $nickname != null) {
     $modal = strlen($nickname);
 }
-    $IDdeck = array(); 
-    $Nome_Deck = array(); 
-    $Descricao_Deck = array();
-    $Imagem_Deck = array();
-    $i=0;
-    $query = "SELECT * FROM DeckUsuario WHERE IDusuario = '$id'"; 
-    $result = $conn->query($query); 
+$IDdeck = array();
+$Nome_Deck = array();
+$Descricao_Deck = array();
+$Imagem_Deck = array();
+$i = 0;
+$query = "SELECT * FROM DeckUsuario WHERE IDusuario = '$id'";
+$result = $conn->query($query);
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()){ 
-        $IDdeck[$i] = $row["IDdeck"]; 
-        $Nome_Deck[$i] = $row["Nome"]; 
+    while ($row = $result->fetch_assoc()) {
+        $IDdeck[$i] = $row["IDdeck"];
+        $Nome_Deck[$i] = $row["Nome"];
         $Descricao_Deck[$i] = $row["Descrição"];
         $Imagem_Deck[$i] = $row["ImagemDeck"];
         $i++;
     }
 }
-    $nickname_amigos = array(); 
-    $query = "SELECT Nickname FROM Amizades WHERE IDusuario = '$id'"; 
-    $result = $conn->query($query);
-    $k=0;
+$nickname_amigos = array();
+$query = "SELECT Nickname FROM Amizades WHERE IDusuario = '$id'";
+$result = $conn->query($query);
+$k = 0;
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()){ 
-        $nickname_amigos[$k] = $row["Nickname"]; 
+    while ($row = $result->fetch_assoc()) {
+        $nickname_amigos[$k] = $row["Nickname"];
         $k++;
-    } 
+    }
 }
-    $query = "SELECT * FROM Noticias WHERE IDnoticia = '1'"; 
-    $result = $conn->query($query); 
+$query = "SELECT * FROM Noticias WHERE IDnoticia = '1'";
+$result = $conn->query($query);
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    $titulo = $row["Título"]; 
-    $descricao = $row["Descrição"]; 
-    $data = $row["Data"]; 
+    $titulo = $row["Título"];
+    $descricao = $row["Descrição"];
+    $data = $row["Data"];
 }
-    
-    $IDproduto = array(); 
-    $Tabnum = array(); 
-    $IDpromocao = array(); 
-    $preco = array(); 
-    $preco_certo =  array();
-    $valor = 0;
-    $query = "SELECT * FROM Loja"; 
-    $result = $conn->query($query); 
-    $z = 0;
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()){ 
-            $IDproduto[$z] = $row["IDproduto"]; 
-            $Tabnum[$z] = $row["TabNum"]; 
-            $IDpromocao[$z] = $row["IDpromocao"]; 
-            $preco[$z] = $row["Preço"];
-            $query = "SELECT Valor FROM Promoção WHERE IDpromoção = '$IDpromocao[$z]'";
-            $result2 = $conn->query($query); 
-            if ($result2->num_rows > 0) {
-                $row = $result2->fetch_assoc();
-                $valor = $row["Valor"];
-                $preco_certo[$z] = $preco[$z]*$valor; 
-            }
-            $z++;
-        } 
-    }
-    
 
-    $a = 0;
-    $b=0;
-    $c=0;
-    $d=0;
-    $Nome_Carta = array();
-    $Descricao_Carta = array();
-    $Imagem_Carta = array();
-    $Nome_Skin = array();
-    $Descricao_Skin = array();
-    $Imagem_Skin = array();
-    $Nome_Pacote = array();
-    $Descricao_Pacote = array();
-    $Imagem_Pacote = array();
-    while($a < $z){
-        if($Tabnum[$a] == 1){
-            $query = "SELECT Nome,Descricao,arquivo.sprite FROM Cartas WHERE IDcarta= '$IDproduto[$a]'"; 
-            $result = $conn->query($query); 
-            $row = $result->fetch_assoc();
-            $Nome_Carta[$b] = $row["Nome"];
-            $Descricao_Carta[$b] = $row["Descricao"];
-            $Imagem_Carta[$b] = $row["arquivo.sprite"];
-            $b++;
+$IDproduto = array();
+$Tabnum = array();
+$IDpromocao = array();
+$preco = array();
+$preco_certo = array();
+$valor = 0;
+$query = "SELECT * FROM Loja";
+$result = $conn->query($query);
+$z = 0;
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $IDproduto[$z] = $row["IDproduto"];
+        $Tabnum[$z] = $row["TabNum"];
+        $IDpromocao[$z] = $row["IDpromocao"];
+        $preco[$z] = $row["Preço"];
+        $query = "SELECT Valor FROM Promoção WHERE IDpromoção = '$IDpromocao[$z]'";
+        $result2 = $conn->query($query);
+        if ($result2->num_rows > 0) {
+            $row = $result2->fetch_assoc();
+            $valor = $row["Valor"];
+            $preco_certo[$z] = $preco[$z] * $valor;
         }
-        if($Tabnum[$a] == 2){
-            $query = "SELECT Nome,Descricao,ImagemSkin FROM Skin WHERE IDskin= '$IDproduto[$a]'"; 
-            $result = $conn->query($query);
-            $row = $result->fetch_assoc();
-            $Nome_Skin[$c] = $row["Nome"];
-            $Descricao_Skin[$c] = $row["Descricao"];
-            $Imagem_Skin[$c] = $row["ImagemSkin"];
-            $c++;
-        }
-        if($Tabnum[$a] == 3){
-            $query = "SELECT Nome,Descricao,ImagemPacote FROM Pacote WHERE IDpacote= '$IDproduto[$a]'"; 
-            $result = $conn->query($query);
-            $row = $result->fetch_assoc();
-            $Nome_Pacote[$d] = $row["Nome"];
-            $Descricao_Pacote[$d] = $row["Descricao"];
-            $Imagem_Pacote[$d] = $row["ImagemPacote"];
-            $d++;
-        }
-        $a++;
+        $z++;
     }
-    $a=0;
+}
+
+
+$a = 0;
+$b = 0;
+$c = 0;
+$d = 0;
+$Nome_Carta = array();
+$Descricao_Carta = array();
+$Imagem_Carta = array();
+$Nome_Skin = array();
+$Descricao_Skin = array();
+$Imagem_Skin = array();
+$Nome_Pacote = array();
+$Descricao_Pacote = array();
+$Imagem_Pacote = array();
+while ($a < $z) {
+    if ($Tabnum[$a] == 1) {
+        $query = "SELECT Nome,Descricao,arquivo.sprite FROM Cartas WHERE IDcarta= '$IDproduto[$a]'";
+        $result = $conn->query($query);
+        $row = $result->fetch_assoc();
+        $Nome_Carta[$b] = $row["Nome"];
+        $Descricao_Carta[$b] = $row["Descricao"];
+        $Imagem_Carta[$b] = $row["arquivo.sprite"];
+        $b++;
+    }
+    if ($Tabnum[$a] == 2) {
+        $query = "SELECT Nome,Descricao,ImagemSkin FROM Skin WHERE IDskin= '$IDproduto[$a]'";
+        $result = $conn->query($query);
+        $row = $result->fetch_assoc();
+        $Nome_Skin[$c] = $row["Nome"];
+        $Descricao_Skin[$c] = $row["Descricao"];
+        $Imagem_Skin[$c] = $row["ImagemSkin"];
+        $c++;
+    }
+    if ($Tabnum[$a] == 3) {
+        $query = "SELECT Nome,Descricao,ImagemPacote FROM Pacote WHERE IDpacote= '$IDproduto[$a]'";
+        $result = $conn->query($query);
+        $row = $result->fetch_assoc();
+        $Nome_Pacote[$d] = $row["Nome"];
+        $Descricao_Pacote[$d] = $row["Descricao"];
+        $Imagem_Pacote[$d] = $row["ImagemPacote"];
+        $d++;
+    }
+    $a++;
+}
+$a = 0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -285,21 +285,22 @@ if ($result->num_rows > 0) {
                 </div>
                 <div class="card-block">
                     <div class="container">
-                            <?php $l=0;
-                                while($l < $k) { ?>
-                        <div class="row">
-                            <div class="col">
-                                <p class="card-text nome-amigos"><?php if (isset($nickname_amigos[$l])) echo($nickname_amigos[$l]); ?></p>
+                        <?php $l = 0;
+                        while ($l < $k) { ?>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="card-text nome-amigos"><?php if (isset($nickname_amigos[$l])) echo($nickname_amigos[$l]); ?></p>
+                                </div>
+                                <div class="col">
+                                    <i class="material-icons icn-status" data-toggle="tooltip" data-placement="top"
+                                       title="online">cloud</i>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btn btn-primary btn-sm">Jogar</button>
+                                </div>
                             </div>
-                            <div class="col">
-                                <i class="material-icons icn-status" data-toggle="tooltip" data-placement="top"
-                                   title="online">cloud</i>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-primary btn-sm">Jogar</button>
-                            </div>
-                        </div>
-                            <?php $l++; } ?>
+                            <?php $l++;
+                        } ?>
                     </div>
                 </div>
             </div>
@@ -310,7 +311,8 @@ if ($result->num_rows > 0) {
             </div>
             <div class="card-block">
                 <h4 class="card-title "><?php if (isset($titulo)) echo($titulo); ?></h4>
-                <p class="card-text "><?php if (isset($descricao)) echo($descricao); ?> <a href="#"> Clique aqui para vê-la(o).</a></p>
+                <p class="card-text "><?php if (isset($descricao)) echo($descricao); ?> <a href="#"> Clique aqui para
+                        vê-la(o).</a></p>
                 <div class="card-footer text-muted text-center " style="background-color: #636359; color:white">
                     <p style="color:white;display: inline"><?php if (isset($data)) echo($data); ?></p>
                 </div>
@@ -336,7 +338,10 @@ if ($result->num_rows > 0) {
                         <div class='container'>
                             <div class="row">
                                 <div class="col text-right">
-                                    <p><?php if (isset($nivel)){ $nivel=$nivel-1; echo($nivel); }?></p>
+                                    <p><?php if (isset($nivel)) {
+                                            $nivel = $nivel - 1;
+                                            echo($nivel);
+                                        } ?></p>
                                 </div>
                                 <div class="col text-left">
                                     <img src="../img/icon/nivel.svg" alt="nivel" class="icone">
@@ -370,10 +375,12 @@ if ($result->num_rows > 0) {
                 <div class="card txt-info">
                     <div class="row">
                         <div class="col">
-                            <p><img src="../img/icon/vitoria.svg" alt="vitoria" class="icone"> <?php if (isset($vitorias)) echo($vitorias); ?></p>
+                            <p><img src="../img/icon/vitoria.svg" alt="vitoria"
+                                    class="icone"> <?php if (isset($vitorias)) echo($vitorias); ?></p>
                         </div>
                         <div class="col">
-                            <p><img src="../img/icon/derrota.svg" alt="vitoria" class="icone"> <?php if (isset($derrotas)) echo($derrotas); ?></p>
+                            <p><img src="../img/icon/derrota.svg" alt="vitoria"
+                                    class="icone"> <?php if (isset($derrotas)) echo($derrotas); ?></p>
                         </div>
                     </div>
                     <table class="table table-bordered" style="font-size:.7em">
@@ -408,28 +415,30 @@ if ($result->num_rows > 0) {
         </div>
     </div>
 </div>
-    <!-- adiciona os decks no inventário -->
+<!-- adiciona os decks no inventário -->
 <div class="container inventario my-3">
     <div class="container ">
         <div class="row ">
-            
+
             <?php
             $j = 0;
-            while($j < $i) { ?>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
-                <a href="ConstDeck.php?id=<?php echo $IDdeck[$j]?>">
-                    <img class="img-fluid img-thumbnail " src="../img/deck/<?php if (isset($Imagem_Deck[$j])) echo($Imagem_Deck[$j]); ?>" alt=" ">
-                </a>
-                <p class="text-center nome-carta "><?php if (isset($Nome_Deck[$j])) echo($Nome_Deck[$j]); ?>  </p>
-           </div>
-            <?php $j++; } ?>
-            
+            while ($j < $i) { ?>
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                    <a href="ConstDeck.php?id=<?php echo $IDdeck[$j] ?>">
+                        <img class="img-fluid img-thumbnail "
+                             src="../img/deck/<?php if (isset($Imagem_Deck[$j])) echo($Imagem_Deck[$j]); ?>" alt=" ">
+                    </a>
+                    <p class="text-center nome-carta "><?php if (isset($Nome_Deck[$j])) echo($Nome_Deck[$j]); ?>  </p>
+                </div>
+                <?php $j++;
+            } ?>
+
         </div>
         <hr>
     </div>
     <!-- /.container -->
 </div>
-<div class="container loja my-3">
+<div class="container loja mt-3 mb-5">
     <div id="carouselExampleIndicators" class="carousel slide" data-interval="3000" data-pause="hover"
          data-ride="carousel">
         <ol class="carousel-indicators">
@@ -442,19 +451,22 @@ if ($result->num_rows > 0) {
                 <div class="container">
                     <div class="row ">
                         <div class="col-sm">
-                            <img class="d-block img-fluid img-loja" src="../img/deck/<?php if (isset($Imagem_Pacote[0])) echo($Imagem_Pacote[0]); 
-                                                                                           if (isset($Imagem_Skin[0])) echo($Imagem_Skin[0]);                     if (isset($Imagem_Carta[0])) echo($Imagem_Carta[0]);                                                                            ?>"
+                            <img class="d-block img-fluid img-loja"
+                                 src="../img/deck/<?php if (isset($Imagem_Pacote[0])) echo($Imagem_Pacote[0]);
+                                 if (isset($Imagem_Skin[0])) echo($Imagem_Skin[0]);
+                                 if (isset($Imagem_Carta[0])) echo($Imagem_Carta[0]); ?>"
                                  alt="First slide">
                         </div>
                         <div class="col-sm txt-loja">
                             <div>
-                                <h3><?php if (isset($Nome_Pacote[0])) echo($Nome_Pacote[0]); 
-                                          if (isset($Nome_Skin[0])) echo($Nome_Skin[0]);
-                                          if (isset($Nome_Carta[0])) echo($Nome_Carta[0]); ?></h3>
-                                <p><?php if (isset($Descricao_Pacote[0])) echo($Descricao_Pacote[0]); 
-                                          if (isset($Descricao_Skin[0])) echo($Descricao_Skin[0]);
-                                          if (isset($Descricao_Carta[0])) echo($Descricao_Carta[0]); ?></p>
-                                <p><?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?> <img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
+                                <h3><?php if (isset($Nome_Pacote[0])) echo($Nome_Pacote[0]);
+                                    if (isset($Nome_Skin[0])) echo($Nome_Skin[0]);
+                                    if (isset($Nome_Carta[0])) echo($Nome_Carta[0]); ?></h3>
+                                <p><?php if (isset($Descricao_Pacote[0])) echo($Descricao_Pacote[0]);
+                                    if (isset($Descricao_Skin[0])) echo($Descricao_Skin[0]);
+                                    if (isset($Descricao_Carta[0])) echo($Descricao_Carta[0]); ?></p>
+                                <p><?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?> <img
+                                            src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
                                 <button type="button" class="btn btn-info btn-mostrar" data-toggle="collapse"
                                         data-target="#collapseExample" aria-expanded="false"
                                         aria-controls="collapseExample">Mostrar Cartas
@@ -467,36 +479,40 @@ if ($result->num_rows > 0) {
             </div>
             <?php
             $aux = 1;
-            while($aux < $z) { ?>
-            <div class="carousel-item ">
-                <div class="container">
-                    <div class="row ">
-                        <div class="col-sm">
-                            <img class="d-block img-fluid img-loja" src="../img/deck/<?php if (isset($Imagem_Pacote[$aux])) echo($Imagem_Pacote[$aux]); 
-                                                                                           if (isset($Imagem_Skin[$aux])) echo($Imagem_Skin[$aux]);                     if (isset($Imagem_Carta[$aux])) echo($Imagem_Carta[$aux]);                                                                            ?>"
-                                 alt="First slide">
-                        </div>
-                        <div class="col-sm txt-loja">
-                            <div>
-                                <h3><?php if (isset($Nome_Pacote[$aux])) echo($Nome_Pacote[$aux]); 
-                                          if (isset($Nome_Skin[$aux])) echo($Nome_Skin[$aux]);
-                                          if (isset($Nome_Carta[$aux])) echo($Nome_Carta[$aux]); ?></h3>
-                                <p><?php if (isset($Descricao_Pacote[$aux])) echo($Descricao_Pacote[$aux]); 
-                                          if (isset($Descricao_Skin[$aux])) echo($Descricao_Skin[$aux]);
-                                          if (isset($Descricao_Carta[$aux])) echo($Descricao_Carta[$aux]); ?></p>
-                                <p><?php if (isset($preco_certo[$aux])) echo($preco_certo[$aux]); ?> <img src="../img/icon/coin.svg" alt="moeda" class="icone">
-                                </p>
-                                <button type="button" class="btn btn-info btn-mostrar" data-toggle="collapse"
-                                        data-target="#collapseExample" aria-expanded="false"
-                                        aria-controls="collapseExample">Mostrar Cartas
-                                </button>
-                                <button type="button" class="btn btn-danger">Comprar</button>
+            while ($aux < $z) { ?>
+                <div class="carousel-item ">
+                    <div class="container">
+                        <div class="row ">
+                            <div class="col-sm">
+                                <img class="d-block img-fluid img-loja"
+                                     src="../img/deck/<?php if (isset($Imagem_Pacote[$aux])) echo($Imagem_Pacote[$aux]);
+                                     if (isset($Imagem_Skin[$aux])) echo($Imagem_Skin[$aux]);
+                                     if (isset($Imagem_Carta[$aux])) echo($Imagem_Carta[$aux]); ?>"
+                                     alt="First slide">
+                            </div>
+                            <div class="col-sm txt-loja">
+                                <div>
+                                    <h3><?php if (isset($Nome_Pacote[$aux])) echo($Nome_Pacote[$aux]);
+                                        if (isset($Nome_Skin[$aux])) echo($Nome_Skin[$aux]);
+                                        if (isset($Nome_Carta[$aux])) echo($Nome_Carta[$aux]); ?></h3>
+                                    <p><?php if (isset($Descricao_Pacote[$aux])) echo($Descricao_Pacote[$aux]);
+                                        if (isset($Descricao_Skin[$aux])) echo($Descricao_Skin[$aux]);
+                                        if (isset($Descricao_Carta[$aux])) echo($Descricao_Carta[$aux]); ?></p>
+                                    <p><?php if (isset($preco_certo[$aux])) echo($preco_certo[$aux]); ?> <img
+                                                src="../img/icon/coin.svg" alt="moeda" class="icone">
+                                    </p>
+                                    <button type="button" class="btn btn-info btn-mostrar" data-toggle="collapse"
+                                            data-target="#collapseExample" aria-expanded="false"
+                                            aria-controls="collapseExample">Mostrar Cartas
+                                    </button>
+                                    <button type="button" class="btn btn-danger">Comprar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <?php $aux++; } ?>
+                <?php $aux++;
+            } ?>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -507,62 +523,57 @@ if ($result->num_rows > 0) {
             <span class="sr-only">Next</span>
         </a>
     </div>
-	
-	
-	
-	
-   <div class="collapse" id="collapseExample">
-        <div class="card card-block" style="color:black;margin:1em">
 
-		<?php
+
+    <div class="collapse" id="collapseExample">
+        <div class="card card-block" style="color:black;margin:2em auto 4em auto">
+            <?php
             $aux2 = 0;
-			$query = "SELECT * FROM Cartas WHERE IDpacote= '$IDproduto[$aux2]'";
-            $result = $conn->query($query); 
-            if ($result->num_rows > 0) 
-            {     
-		?>
-			<div class = "cartas row"  style="">
-			<?php                
-                while($row = $result->fetch_assoc())
-                {
-			?>
-				<div class="col-lg-4 col-md-4 col-xs-6">
-                    <div class = "carta  " style="border:5px solid black;border-radius: 10px;margin: 1%;">
-						   
-					<?php       
-						$Nome_Carta[$aux2] = $row["Nome"];
-						$Descricao_Carta[$aux2] = $row["Descricao"];
-						$Imagem_Carta[$aux2] = $row["arquivo.sprite"];
-						$Ataque_Carta[$aux2] = $row["Ataque"];
-						$Vida_Carta[$aux2] = $row["Vida"]; 
-					?>
-						<div class = "nome" style="Height:5%;padding:1%;">
-							<p style="text-align: left; font-weight: bold;"> <?php  echo $Nome_Carta[$aux2] ?> </p> 
-						</div>
-						<div class = "imagem" style="Height:50%;border:1px solid black;margin: 1%;">
-							<img style="height:100%;width:100%" src="../img/cartas/<?php echo $Imagem_Carta[$aux2] ?> " > 
-						</div>
-						<div class = "descricao" style="Height:40%;border:1px solid black;margin: 2%;padding:2%;">
-							<p style="text-align: left"><?php echo  $Descricao_Carta[$aux2] ?></p>
-						</div>
-						<div class = "stats" style="Height:5%;padding-right:2%;">
-							<p style="text-align: right"><?php echo  $Ataque_Carta[$aux2] ?> / <?php echo  $Vida_Carta[$aux2] ?></p>
-						</div>
-					</div>
-				</div>
-			<?php 
-				}
-			?>
-        	</div>
-		
-		<?php
-			}
-		?>
+            $query = "SELECT * FROM Cartas WHERE IDpacote= '$IDproduto[$aux2]'";
+            $result = $conn->query($query);
+            if ($result->num_rows > 0) {
+                ?>
+
+                <div class="row equal" style="height: ;">
+                    <?php
+                    while ($row = $result->fetch_assoc()) {
+                        ?>
+                        <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch">
+                            <div class="carta" style="border:5px solid black;border-radius: 10px;">
+                                <?php
+                                $Nome_Carta[$aux2] = $row["Nome"];
+                                $Descricao_Carta[$aux2] = $row["Descricao"];
+                                $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
+                                $Ataque_Carta[$aux2] = $row["Ataque"];
+                                $Vida_Carta[$aux2] = $row["Vida"];
+                                ?>
+                                <div class="nome" style="Height:5%">
+                                    <p style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
+                                </div>
+                                <div class="imagem" style="Height:50%;border:1px solid black;margin: 2%;">
+                                    <img style="height:100%;width:100%"
+                                         src="../img/cartas/<?php echo $Imagem_Carta[$aux2] ?> ">
+                                </div>
+                                <div class="descricao" style="Height:35%;border:1px solid black;margin: 2%;padding:2%;">
+                                    <p style="text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
+                                </div>
+                                <div class="stats" style="Height:5%;padding-right:2%;">
+                                    <p style="text-align: right"><?php echo $Ataque_Carta[$aux2] ?>
+                                        / <?php echo $Vida_Carta[$aux2] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+
+                <?php
+            }
+            ?>
         </div>
-		
-		
-		
-		
+
+
     </div>
 </div>
 <!--Footer -->
