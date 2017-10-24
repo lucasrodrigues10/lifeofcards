@@ -17,7 +17,7 @@
 <body>
 
 <script type="text/javascript">
-var game = new Phaser.Game(150+448+100, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update},false,false);  
+var game = new Phaser.Game(448, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update},false,false);  
     
 
 
@@ -40,7 +40,7 @@ function create (){
     //inicializa fisica. necessario para fazer as unidades se movimentar
 	game.physics.startSystem(Phaser.Physics.ARCADE);
     
-    jogo = game.add.sprite( 200 ,0, 'tabuleiro');
+    jogo = game.add.sprite( 0 ,0, 'tabuleiro');
     
     
     movimentacao = game.add.group(); // grupo para movimentação das unidades

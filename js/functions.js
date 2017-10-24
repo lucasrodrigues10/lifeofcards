@@ -250,7 +250,7 @@ function criaMovimentacao (sprite){
     });
     
     
-    
+    movimentacao.visible = true;
 	
 
     
