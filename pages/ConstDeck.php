@@ -148,7 +148,7 @@ if ($result->num_rows > 0) {
 
                                 ?>
 
-                                <div class="col-3 col-sm-2 col-md-2 col-xs-2 col-lg d-flex align-items-stretch Adicionar">
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch Adicionar">
 
                                     <div class="carta " style="border:5px solid black;border-radius: 10px;">
 
@@ -259,7 +259,7 @@ if ($result->num_rows > 0) {
 
                                 ?>
 
-                                <div class="col-3 col-sm-2 col-md-2 col-xs-2 col-lg d-flex align-items-stretch Adicionar">
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch Adicionar">
 
                                     <div class="carta " style="border:5px solid black;border-radius: 10px;">
 
@@ -370,7 +370,7 @@ if ($result->num_rows > 0) {
 
                                 ?>
 
-                                <div class="col-3 col-sm-2 col-md-2 col-xs-2 col-lg d-flex align-items-stretch Adicionar">
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch Adicionar">
 
                                     <div class="carta " style="border:5px solid black;border-radius: 10px;">
 
@@ -481,7 +481,7 @@ if ($result->num_rows > 0) {
 
                                 ?>
 
-                                <div class="col-3 col-sm-2 col-md-2 col-xs-2 col-lg d-flex align-items-stretch Adicionar">
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch Adicionar">
 
                                     <div class="carta " style="border:5px solid black;border-radius: 10px;">
 
@@ -648,18 +648,26 @@ if ($result->num_rows > 0) {
                 });
 
                 $('.Adicionar').click(function() {
-                    $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 NomeAdd"><h3 class="nome-carta">'+$(this).closest("div").find(".Nome").text()+'</h3></div>');
                     var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
-                    Qtde = Qtde - 1;
-                    $(this).closest("div").find(".Qtde").text(Qtde);
+                    
+                    if(Qtde<1){
+                        $(this).unbind("click");
+                    }
+                    else{
+                        
+                        $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><h3 class="nome-carta">'+$(this).closest("div").find(".Nome").text()+'</h3></div>');
+                        Qtde = Qtde - 1;
+                        $(this).closest("div").find(".Qtde").text(Qtde);
+                    }
                 });
                 $('.Adicionar').click(function() {
                     $('.Total').text(parseInt($('.Total').text()) + 1);
-                });
-                $('.nome-carta').on('click', function(){
+                });      
+                $('.Adicionado').on("click", ".RemoveCarta", function(e){
+                    e.preventDefault();
                     $(this).hide();
-                    console.log("Funfou");
                     var Nome = $(this).text();
+                    $('.Total').text(parseInt($('.Total').text()) - 1);
                     $('.Adicionar').each(function(i){
                         if($(this).closest("div").find(".Nome").text() === Nome){
                             var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
