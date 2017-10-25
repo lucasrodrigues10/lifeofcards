@@ -651,18 +651,15 @@ if ($result->num_rows > 0) {
                     var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
                     
                     if(Qtde<1){
-                        $(this).unbind("click");
+                        $(this).click(false);
                     }
                     else{
-                        
                         $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><h3 class="nome-carta">'+$(this).closest("div").find(".Nome").text()+'</h3></div>');
                         Qtde = Qtde - 1;
                         $(this).closest("div").find(".Qtde").text(Qtde);
+                        $('.Total').text(parseInt($('.Total').text()) + 1);
                     }
-                });
-                $('.Adicionar').click(function() {
-                    $('.Total').text(parseInt($('.Total').text()) + 1);
-                });      
+                });    
                 $('.Adicionado').on("click", ".RemoveCarta", function(e){
                     e.preventDefault();
                     $(this).hide();
