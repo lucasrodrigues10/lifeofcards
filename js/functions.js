@@ -3,11 +3,22 @@ function loadAssets (){
     
     game.load.image('tabuleiro','assets/tabuleiro.png');
     game.load.image('quadrado','assets/quadrado.png');
+    
+    
+    
 	game.load.spritesheet('devil','assets/devil.png',32,32);
 	game.load.spritesheet('mummy','assets/mumia.png',32,32);
     game.load.spritesheet('torturer','assets/torturer.png',64,64); //imagem grande
     game.load.spritesheet('banshee','assets/banshee.png',64,64); //imagem grande
     game.load.spritesheet('ferumbras','assets/ferumbras.png',64,64); //imagem grande e com 36 frames
+    game.load.spritesheet('orc_warlord','assets/orc_warlord.png',32,32);
+    game.load.spritesheet('necromancer','assets/necromancer.png',32,32);
+    game.load.spritesheet('orc_leader','assets/orc_leader.png',32,32);
+    game.load.spritesheet('priestess','assets/priestess.png',32,32);
+    game.load.spritesheet('','assets/.png',32,32);
+    game.load.spritesheet('','assets/.png',32,32);
+    game.load.spritesheet('','assets/.png',32,32);
+    game.load.spritesheet('','assets/.png',32,32);
     
     
 }
