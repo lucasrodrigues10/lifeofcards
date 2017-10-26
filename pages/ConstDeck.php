@@ -51,7 +51,7 @@ if ($result->num_rows > 0) {
         <audio loop id="audio"> <!-- <audio autoplay loop id="audio"> vai comecar tocando -->
             <source src="/others/music.mp3">
         </audio>
-        <ul class="nav nav-pills nav-justified nav-top">
+        <ul class="nav nav-pills nav-justified nav-top Tematica0">
             <li class="nav-item">
                 <a class="nav-link btn-home Tematica1" href="#" onclick="Cor1()">Temática 1</a>
             </li>
@@ -64,7 +64,31 @@ if ($result->num_rows > 0) {
             <li class="nav-item">
                 <a class="nav-link btn-loja Tematica4" href="#" onclick="Cor4()">Neutros</a>
             </li>
-        </ul>    
+        </ul>
+        <ul class="nav nav-pills nav-justified nav-top Postura1">
+            <li class="nav-item">
+                <a class="nav-link btn-home Tematica1" href="#" onclick="Cor1()">Temática 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-loja Tematica4" href="#" onclick="Cor4()">Neutros</a>
+            </li>
+        </ul>
+        <ul class="nav nav-pills nav-justified nav-top Tempo1">
+            <li class="nav-item">
+                <a class="nav-link btn-perfil Tematica2" href="#" onclick="Cor2()">Temática 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-loja Tematica4" href="#" onclick="Cor4()">Neutros</a>
+            </li>
+        </ul>
+        <ul class="nav nav-pills nav-justified nav-top Swarm1">
+            <li class="nav-item">
+                <a class="nav-link btn-inventario Tematica3" href="#" onclick="Cor3()">Temática 3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-loja Tematica4" href="#" onclick="Cor4()">Neutros</a>
+            </li>
+        </ul>
         <!-- modal -->
         <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
              aria-hidden="true">
@@ -146,9 +170,11 @@ if ($result->num_rows > 0) {
 
                                 while ($row = $result->fetch_assoc()) {
 
+                                    $General[$aux2] = $row["General"];
+
                                 ?>
 
-                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch Adicionar">
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Postura<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
 
                                     <div class="carta " style="border:5px solid black;border-radius: 10px;">
 
@@ -257,9 +283,11 @@ if ($result->num_rows > 0) {
 
                                 while ($row = $result->fetch_assoc()) {
 
+                                    $General[$aux2] = $row["General"];
+
                                 ?>
 
-                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch Adicionar">
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Tempo<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
 
                                     <div class="carta " style="border:5px solid black;border-radius: 10px;">
 
@@ -368,9 +396,11 @@ if ($result->num_rows > 0) {
 
                                 while ($row = $result->fetch_assoc()) {
 
+                                    $General[$aux2] = $row["General"];
+
                                 ?>
 
-                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch Adicionar">
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Swarm<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
 
                                     <div class="carta " style="border:5px solid black;border-radius: 10px;">
 
@@ -563,6 +593,9 @@ if ($result->num_rows > 0) {
             </div>
             <div class="col-4">
                 <div class="container">
+                    <div class="col-lg-6 col-md-7 col-xs-12 thumb Generalizado">
+                        <h3>General Selecionado</h3>
+                    </div>
                     <div class="col-lg-6 col-md-7 col-xs-12 thumb Adicionado">
                         <h3>Cartas Selecionadas</h3>
                     </div>
@@ -622,6 +655,12 @@ if ($result->num_rows > 0) {
         <script>
             $(document).ready(function() {
                 var Total = 0;
+                
+                $('.Tematica0').show();
+                $('.Postura1').hide();
+                $('.Tempo1').hide();
+                $('.Swarm1').hide();
+                
                 $(".Tematica1").click(function(){
                     $(".Tema1").show();
                     $(".Tema2").hide();
@@ -647,10 +686,53 @@ if ($result->num_rows > 0) {
                     $(".Tema3").hide();
                 });
 
+                $(".Postura").click(function(){
+                    $(".Postura1").show();
+                    $(".Tempo1").hide();
+                    $(".Swarm1").hide();
+                    $(".Tematica0").hide();
+                });
+                $(".Tempo").click(function(){
+                    $(".Tempo1").show();
+                    $(".Postura1").hide();
+                    $(".Swarm1").hide();
+                    $(".Tematica0").hide();
+                });
+
+                $(".Swarm").click(function(){
+                    $(".Swarm1").show();
+                    $(".Postura1").hide();
+                    $(".Tempo2").hide();
+                    $(".Tematica0").hide();
+                });
+
+
+                var count = $(".Generalizado div").length;
+
+                if(count === 0){
+                    $('.Adicionar').css("background-color", "black");
+                }
+
+                $('.General').click(function() {
+                    var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
+
+                    if(Qtde<1 || count > 0){
+                        $(this).click(false);
+                    }
+                    else{
+                        $('.Generalizado').append('<div class="col-lg-6 col-md-7 col-xs-12 Chefao"><h3 class="nome-carta">'+$(this).closest("div").find(".Nome").text()+'</h3></div>');
+                        Qtde = Qtde - 1;
+                        $(this).closest("div").find(".Qtde").text(Qtde);
+                        $('.Total').text(parseInt($('.Total').text()) + 1);
+                        count = count + 1 ;
+                        $('.Adicionar').css("background-color", "white");
+                    }
+                });
+
                 $('.Adicionar').click(function() {
                     var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
-                    
-                    if(Qtde<1){
+
+                    if(Qtde<1 || count === 0){
                         $(this).click(false);
                     }
                     else{
