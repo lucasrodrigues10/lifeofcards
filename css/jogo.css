@@ -1,0 +1,33 @@
+#tabuleiro{
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    right: 15%;
+    left: auto;
+}
+
+canvas{
+    position: relative;
+    height: 0px;
+    width: 0px;
+    margin-left: 0px;
+    margin-right: auto;
+}
+
+.sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
