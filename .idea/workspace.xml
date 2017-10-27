@@ -4,8 +4,6 @@
     <list default="true" id="f0d390e3-6308-459e-86de-0994556d3ca4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/login.php" afterPath="$PROJECT_DIR$/pages/login.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +17,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="148" column="44" lean-forward="true" selection-start-line="148" selection-start-column="44" selection-end-line="148" selection-end-column="44" />
+            <state relative-caret-position="292">
+              <caret line="150" column="0" lean-forward="true" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -29,8 +27,8 @@
       <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="957" column="73" lean-forward="true" selection-start-line="957" selection-start-column="73" selection-end-line="957" selection-end-column="73" />
+            <state relative-caret-position="105">
+              <caret line="917" column="24" lean-forward="false" selection-start-line="917" selection-start-column="24" selection-end-line="917" selection-end-column="45" />
               <folding>
                 <marker date="1509109772785" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
                 <marker date="1509109772785" expanded="true" signature="415:466" ph="SELECT * FRO... UsuarioNoJogo" />
@@ -78,9 +76,9 @@
       <find>bot-reg</find>
       <find>btn-primar</find>
       <find>btn-prim</find>
-      <find>mostrar</find>
       <find>active</find>
       <find>entrar</find>
+      <find>mostrar</find>
     </findStrings>
     <replaceStrings>
       <replace>--botao</replace>
@@ -239,7 +237,7 @@
       <workItem from="1507521818277" duration="4404000" />
       <workItem from="1509053133451" duration="203000" />
       <workItem from="1509064127750" duration="1692000" />
-      <workItem from="1509108071496" duration="2685000" />
+      <workItem from="1509108071496" duration="2928000" />
     </task>
     <task id="LOCAL-00001" summary="canvas dentro de div e espaco para cartas e botoes">
       <created>1506972079531</created>
@@ -269,11 +267,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509110009657</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="login radio buttons color active consertado">
+      <created>1509110783305</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1509110783305</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28816000" />
+    <option name="totallyTimeSpent" value="29059000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
@@ -311,7 +316,8 @@
     <MESSAGE value="canvas dentro de div e espaco para cartas e botoes" />
     <MESSAGE value="coloquei um logo temporario feito no illustrator" />
     <MESSAGE value="mudanca das cores do site em geral" />
-    <option name="LAST_COMMIT_MESSAGE" value="mudanca das cores do site em geral" />
+    <MESSAGE value="login radio buttons color active consertado" />
+    <option name="LAST_COMMIT_MESSAGE" value="login radio buttons color active consertado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -631,10 +637,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="57" column="56" lean-forward="false" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="957" column="73" lean-forward="true" selection-start-line="957" selection-start-column="73" selection-end-line="957" selection-end-column="73" />
+        <state relative-caret-position="105">
+          <caret line="917" column="24" lean-forward="false" selection-start-line="917" selection-start-column="24" selection-end-line="917" selection-end-column="45" />
           <folding>
             <marker date="1509109772785" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
             <marker date="1509109772785" expanded="true" signature="415:466" ph="SELECT * FRO... UsuarioNoJogo" />
@@ -652,26 +674,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="57" column="56" lean-forward="false" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="148" column="44" lean-forward="true" selection-start-line="148" selection-start-column="44" selection-end-line="148" selection-end-column="44" />
+        <state relative-caret-position="292">
+          <caret line="150" column="0" lean-forward="true" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
           <folding />
         </state>
       </provider>

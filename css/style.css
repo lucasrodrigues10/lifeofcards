@@ -149,6 +149,10 @@ body {
    background-color: var(--botao1Hover) !important;
 }
 
+.carousel-inner > .active {
+    background-color: transparent !important;
+}
+
 .btn-inventario:hover, .btn-perfil:hover, .btn-loja:hover, .btn-home:hover {
 
     border-color: var(--botao1Hover);
