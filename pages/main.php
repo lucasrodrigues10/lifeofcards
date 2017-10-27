@@ -955,7 +955,7 @@ $a = 0;
 
                                             src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
 
-                                <button type="button" class="btn btn-info btn-mostrar" data-toggle="collapse"
+                                <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
 
                                         data-target="#collapseExample" aria-expanded="false"
 

@@ -2,113 +2,107 @@
 
 :root {
 
-    --color1: black;
+    --botao1: #56566A; /* botoes */
 
-    --color2: #000066;
+    --botao1Hover: #3B3B4F;
 
-    --color3: #0000ff;
+    --botao1Borda: #988B97;
+
+    --botao2: #604450;
+
+    --botao2Hover: #7E6C7C;
+
+    --background: #677077;
 
 }
-
-
 
 .full {
-
-    background: grey url('/img/background.jpg') repeat center center;
-
+    /*background: grey url('/img/background.jpg') repeat center center;*/
+    background-color: var(--background);
 }
-
-
 
 .full .jumbotron {
-
     margin-top: 2em;
-
 }
 
-
-
 /*
-
  Fullscreen options
-
  */
 
 *:fullscreen
-
 *:-ms-fullscreen,
-
 *:-webkit-full-screen,
-
 *:-moz-full-screen {
 
     overflow: auto !important;
 
 }
 
-
-html{
-    height:100%;
-}
-body{
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+html {
+    height: 100%;
 }
 
-.tem1{
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background: rgb(255, 128, 128) repeat center center; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, rgb(255, 128, 128), gray) ; /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, rgb(255, 128, 128), gray) ; /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, rgb(255, 128, 128), gray) ; /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, rgb(255, 128, 128), gray) ; /* Standard syntax */
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.tem2{
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background: rgb(255, 255, 179) repeat center center; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, rgb(255, 255, 179), gray); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, rgb(255, 255, 179), gray); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, rgb(255, 255, 179), gray); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, rgb(255, 255, 179), gray); /* Standard syntax */
+.tem1 {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: rgb(255, 128, 128) repeat center center; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, rgb(255, 128, 128), gray); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, rgb(255, 128, 128), gray); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, rgb(255, 128, 128), gray); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, rgb(255, 128, 128), gray); /* Standard syntax */
 }
 
-.tem3{
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background: rgb(179, 204, 255); /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, rgb(179, 204, 255) , gray); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, rgb(179, 204, 255), gray); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right,rgb(179, 204, 255), gray); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, rgb(179, 204, 255), gray); /* Standard syntax */
+.tem2 {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: rgb(255, 255, 179) repeat center center; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, rgb(255, 255, 179), gray); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, rgb(255, 255, 179), gray); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, rgb(255, 255, 179), gray); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, rgb(255, 255, 179), gray); /* Standard syntax */
 }
 
-.tem4{
-  background: gray; /* For browsers that do not support gradients */
+.tem3 {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: rgb(179, 204, 255); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, rgb(179, 204, 255), gray); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, rgb(179, 204, 255), gray); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, rgb(179, 204, 255), gray); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, rgb(179, 204, 255), gray); /* Standard syntax */
 }
 
+.tem4 {
+    background: gray; /* For browsers that do not support gradients */
+}
 
 #bot-log,
-
 #bot-reg {
-
-    background-color: #AA3939;
-
+    border: #988B97;
+    background-color: var(--botao2);
     width: 50%;
-
 }
 
+#option1:hover{
+    background-color: yellow;
+}
 
+#bot-log:hover{
+    background-color: var(--botao2Hover);
+}
 
 @media (min-width: 768px) {
     .row.equal {
@@ -119,10 +113,9 @@ body{
 
 /* add this for full height column content*/
 .equal > div[class*='col-'] {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
-
 
 .form-group {
 
@@ -130,9 +123,7 @@ body{
 
 }
 
-
-
-.btn-inventario,.btn-perfil,.btn-loja, .btn-home {
+.btn-inventario, .btn-perfil, .btn-loja, .btn-home {
 
     border-style: solid;
 
@@ -142,25 +133,24 @@ body{
 
 }
 
+.btn-primary{
+    background-color: var(--botao1) !important;
+    border: var(--botao1Borda);
+}
 
+.btn-primary:hover, .btn-primary:visited, .btn-primary:active {
 
-.btn-primary, .btn-primary:hover, .btn-primary:visited, .btn-primary:active {
+    background-color: var(--botao1Hover) !important;
 
-    background-color: var(--color3) !important;
-
-    border-color: var(--color3) !important;
+    border-color: var(--botao1Hover) !important;
 
 }
 
+.btn-inventario:hover, .btn-perfil:hover, .btn-loja:hover, .btn-home:hover {
 
+    border-color: var(--botao1Hover);
 
-.btn-inventario:hover,.btn-perfil:hover,.btn-loja:hover, .btn-home:hover {
-
-    border-color: var(--color3);
-
-    background-color: var(--color3) !important;
-
-
+    background-color: var(--botao1Hover) !important;
 
 }
 
@@ -170,25 +160,18 @@ body{
 
 }
 
-
-
 #bot-esq {
 
     margin-top: 20px;
 
 }
 
-
-
 .nav-top,
-
 .nav-bottom {
 
     background-color: black;
 
 }
-
-
 
 .nav-top .nav-item a {
 
@@ -198,8 +181,6 @@ body{
 
 }
 
-
-
 .material-icons {
 
     font-size: 1em;
@@ -208,29 +189,20 @@ body{
 
 }
 
-
-
 .jogar,
-
 .perfil,
-
 .inventario,
-
 .loja {
 
     display: none;
 
 }
 
-
-
 .main {
 
     background-color: #1D1421;
 
 }
-
-
 
 .icn-status {
 
@@ -239,8 +211,6 @@ body{
     font-size: 30px;
 
 }
-
-
 
 .nome-jogador {
 
@@ -254,8 +224,6 @@ body{
 
 }
 
-
-
 .nome-amigos {
 
     font-family: 'Francois One', sans-serif;
@@ -263,8 +231,6 @@ body{
     font-size: 1.3em;
 
 }
-
-
 
 .nome-carta {
 
@@ -276,8 +242,6 @@ body{
 
 }
 
-
-
 .carousel-caption {
 
     color: white;
@@ -286,15 +250,11 @@ body{
 
 }
 
-
-
 .img-loja {
 
     padding-left: 5em;
 
 }
-
-
 
 .txt-loja {
 
@@ -304,8 +264,6 @@ body{
 
 }
 
-
-
 .txt-config {
 
     font-family: 'Work Sans', sans-serif;
@@ -313,8 +271,6 @@ body{
     font-size: 1.4em;
 
 }
-
-
 
 .txt-info {
 
@@ -324,8 +280,6 @@ body{
 
 }
 
-
-
 .txt-title {
 
     font-family: 'Merriweather', serif;
@@ -333,8 +287,6 @@ body{
     color: white;
 
 }
-
-
 
 .txt-perfil {
 
@@ -344,15 +296,11 @@ body{
 
 }
 
-
-
 .icone {
 
     height: 1.5em;
 
 }
-
-
 
 .onoffswitch {
 
@@ -368,15 +316,11 @@ body{
 
 }
 
-
-
 .onoffswitch-checkbox {
 
     display: none;
 
 }
-
-
 
 .onoffswitch-label {
 
@@ -392,8 +336,6 @@ body{
 
 }
 
-
-
 .onoffswitch-inner {
 
     display: block;
@@ -406,10 +348,7 @@ body{
 
 }
 
-
-
 .onoffswitch-inner:before,
-
 .onoffswitch-inner:after {
 
     display: block;
@@ -436,8 +375,6 @@ body{
 
 }
 
-
-
 .onoffswitch-inner:before {
 
     content: "";
@@ -449,8 +386,6 @@ body{
     color: #FFFFFF;
 
 }
-
-
 
 .onoffswitch-inner:after {
 
@@ -465,8 +400,6 @@ body{
     text-align: right;
 
 }
-
-
 
 .onoffswitch-switch {
 
@@ -494,15 +427,11 @@ body{
 
 }
 
-
-
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
 
     margin-left: 0;
 
 }
-
-
 
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
 
@@ -510,15 +439,11 @@ body{
 
 }
 
-
-
 .tabuleiro {
 
     background-color: #430029;
 
 }
-
-
 
 .quadrado {
 
@@ -528,10 +453,7 @@ body{
 
 }
 
-
-
 .indica-linha,
-
 .indica-coluna {
 
     background: white;
@@ -544,15 +466,11 @@ body{
 
 }
 
-
-
 :-webkit-full-screen .fs {
 
     display: none
 
 }
-
-
 
 :-moz-full-screen .fs {
 
@@ -560,15 +478,11 @@ body{
 
 }
 
-
-
 :-webkit-full-screen .rs {
 
     display: block
 
 }
-
-
 
 :-moz-full-screen .rs {
 
