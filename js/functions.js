@@ -31,9 +31,9 @@ function loadAssets (){
     game.load.spritesheet('banshee','assets/banshee.png',64,64);    
     game.load.spritesheet('ferumbras','assets/ferumbras.png',64,64);
     game.load.spritesheet('undead_dragon','assets/undead_dragon.png',64,64);
-    game.load.spritesheet('','assets/.png',64,64);
-    game.load.spritesheet('','assets/.png',64,64);
-    game.load.spritesheet('','assets/.png',64,64);
+    //game.load.spritesheet('','assets/.png',64,64);
+    //game.load.spritesheet('','assets/.png',64,64);
+    //game.load.spritesheet('','assets/.png',64,64);
     
     
     
