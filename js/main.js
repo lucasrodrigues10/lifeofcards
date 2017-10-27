@@ -40,10 +40,12 @@ $(document).ready(function () {
 
         e.preventDefault();
 
-        $('.nav-pills a').css('background-color','black');
+       // $('.nav-pills a').css('background-color','black');
+        $('.nav-pills a').addClass('barra');
+        $('.nav-pills a').removeClass('active')
 
-        $(this).css('background-color','#000066');
-
+        //$(this).css('background-color','#000066');
+        $(this).addClass('active');
         $(this).tab('show')
 
     });

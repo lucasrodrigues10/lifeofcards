@@ -18,6 +18,8 @@
 
     --corFundo2: #354049;
 
+    --barraNavegacao: #0E2D47;
+
 }
 
 .full {
@@ -29,6 +31,9 @@
     margin-top: 2em;
 }
 
+.barra {
+    background-color: var(--barraNavegacao) !important;
+}
 /*
  Fullscreen options
  */

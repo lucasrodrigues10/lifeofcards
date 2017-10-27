@@ -486,7 +486,7 @@ $a = 0;
 
 <!--Barra de navegação de cima -->
 
-<ul class="nav nav-pills nav-justified nav-top">
+<ul class="nav nav-pills nav-justified nav-top barra">
 
     <li class="nav-item">
 
@@ -1013,7 +1013,7 @@ $a = 0;
 
                                     </p>
 
-                                    <button type="button" class="btn btn-info btn-mostrar" data-toggle="collapse"
+                                    <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
 
                                             data-target="#collapseExample" aria-expanded="false"
 
@@ -1158,7 +1158,7 @@ $a = 0;
 
 <!--Footer -->
 
-<nav class="navbar fixed-bottom navbar-light bg-faded nav-bottom ">
+<nav class="navbar fixed-bottom navbar-light bg-faded nav-bottom barra">
 
     <div class="row justify-content-between ">
 
