@@ -29,7 +29,6 @@ $sexo = $row["Sexo"];
 $email = $row["Email"];
 
 
-
 $query = "SELECT * FROM UsuarioNoJogo WHERE IDusuario = '$id'";
 
 $result = $conn->query($query);
@@ -46,14 +45,13 @@ if ($result->num_rows > 0) {
 
     $avatar_imagem = $row["img_avatar.arquivo"];
 
-    if($avatar_imagem == NULL)
+    if ($avatar_imagem == NULL)
         $avatar_imagem = 'cachorro.jpg';
     $vitorias = $row["Vitorias"];
 
     $derrotas = $row["Derrotas"];
 
 }
-
 
 
 $query = "SELECT Nivel FROM Nivel WHERE XPnecessaria > '$exp' LIMIT 1";
@@ -63,7 +61,6 @@ $result = $conn->query($query);
 $row = $result->fetch_assoc();
 
 $nivel = $row["Nivel"];
-
 
 
 if (isset($nickname) && $nickname != null) {
@@ -141,7 +138,6 @@ if ($result->num_rows > 0) {
 }
 
 
-
 $IDproduto = array();
 
 $Tabnum = array();
@@ -191,9 +187,6 @@ if ($result->num_rows > 0) {
     }
 
 }
-
-
-
 
 
 $a = 0;
@@ -339,13 +332,11 @@ $a = 0;
 <?php if ($modal < 1) { ?>
 
 
-
     <script>
 
         window.open("nickname.php", "_self");
 
     </script>
-
 
 
 <?php } ?>
@@ -493,7 +484,6 @@ $a = 0;
 </div>
 
 
-
 <!--Barra de navegação de cima -->
 
 <ul class="nav nav-pills nav-justified nav-top">
@@ -532,9 +522,9 @@ $a = 0;
 
         <div class="col-sm-6 mb-3">
 
-            <div class="card text-center" style="margin:1em auto; width: 97.3%; background-color: #B4B4AF">
+            <div class="card text-center fundo1" style="margin:1em auto; width: 97.3%">
 
-                <div class="card-header" style="background-color: #636359; color:white">
+                <div class="card-header fundo2" style="color:white">
 
                     Jogue agora
 
@@ -562,9 +552,9 @@ $a = 0;
 
         <div class="col-sm-6">
 
-            <div class="card text-center" style="margin:1em auto; width: 97.3%; background-color: #B4B4AF">
+            <div class="card text-center fundo1" style="margin:1em auto; width: 97.3%;">
 
-                <div class="card-header" style="background-color: #636359; color:white">
+                <div class="card-header fundo2" style="color:white">
 
                     Amigos
 
@@ -614,23 +604,23 @@ $a = 0;
 
         </div>
 
-        <div class="card mx-3 mb-3" style="margin:1em auto; width: 97.3%; background-color: #B4B4AF">
+        <div class="card mx-3 mb-3 fundo1" style="margin:1em auto; width: 97.3%">
 
-            <div class="card-header text-center " style="background-color: #636359; color:white">
+            <div class="card-header text-center fundo2" style=" color:white">
 
                 Notícias
 
             </div>
 
-            <div class="card-block">
+            <div class="card-block fundo 2">
 
-                <h4 class="card-title "><?php if (isset($titulo)) echo($titulo); ?></h4>
+                <h4 class="card-title"><?php if (isset($titulo)) echo($titulo); ?></h4>
 
                 <p class="card-text "><?php if (isset($descricao)) echo($descricao); ?> <a href="#"> Clique aqui para
 
                         vê-la(o).</a></p>
 
-                <div class="card-footer text-muted text-center " style="background-color: #636359; color:white">
+                <div class="card-footer text-muted text-center fundo2" style=" color:white">
 
                     <p style="color:white;display: inline"><?php if (isset($data)) echo($data); ?></p>
 
@@ -777,7 +767,7 @@ $a = 0;
                         <tr>
 
                             <th scope="row" class="text-center">Idade</th>
-                           
+
                             <td>
                                 <?php if (isset($idade)) echo($idade); ?>
                                 <input style="display:none;" class="field" type="idade" id="idade" name="idade">
@@ -788,7 +778,7 @@ $a = 0;
                         <tr>
 
                             <th scope="row" class="text-center">Localização</th>
-                          
+
                             <td>
                                 <?php if (isset($localizacao)) echo($localizacao); ?>
                                 <input style="display:none;" class="field" type="local" id="local" name="local">
@@ -798,12 +788,12 @@ $a = 0;
 
                         <tr>
 
-                            <th scope="row" class="text-center">Sexo</th>    
-                                
+                            <th scope="row" class="text-center">Sexo</th>
+
                             <td>
                                 <?php if (isset($sexo)) echo($sexo); ?>
-                                <input style="display:none;" class="field" type ="sexo" id="sexo" name="sexo">
-                                <input style="display:none" id="id" value = <?php echo $id ?> >
+                                <input style="display:none;" class="field" type="sexo" id="sexo" name="sexo">
+                                <input style="display:none" id="id" value= <?php echo $id ?>>
                             </td>
 
                         </tr>
@@ -819,7 +809,8 @@ $a = 0;
                         </tbody>
 
                     </table>
-                    <button type="button" class="btn btn-primary btn-enviar" style="margin:1em auto 1em auto;width: 40%;display:none">
+                    <button type="button" class="btn btn-primary btn-enviar"
+                            style="margin:1em auto 1em auto;width: 40%;display:none">
 
                         Enviar
 
@@ -827,7 +818,8 @@ $a = 0;
 
                     </button>
 
-                    <button type="button" class="btn btn-primary btn-editar" style="margin:1em auto 1em auto;width: 40%">
+                    <button type="button" class="btn btn-primary btn-editar"
+                            style="margin:1em auto 1em auto;width: 40%">
 
                         Editar
 
@@ -860,7 +852,6 @@ $a = 0;
         <div class="row ">
 
 
-
             <?php
 
             $j = 0;
@@ -884,7 +875,6 @@ $a = 0;
                 <?php $j++;
 
             } ?>
-
 
 
         </div>
@@ -922,7 +912,7 @@ $a = 0;
                     <div class="row ">
 
                         <div class="col-sm">
-                            
+
                             <img class="d-block img-fluid img-loja"
 
                                  src="../img/deck/<?php if (isset($Imagem_Pacote[0])) echo($Imagem_Pacote[0]);
@@ -1004,7 +994,7 @@ $a = 0;
                             <div class="col-sm txt-loja">
 
                                 <div>
-       
+
                                     <h3><?php if (isset($Nome_Pacote[$aux])) echo($Nome_Pacote[$aux]);
 
                                         if (isset($Nome_Skin[$aux])) echo($Nome_Skin[$aux]);
@@ -1068,16 +1058,11 @@ $a = 0;
     </div>
 
 
-
-
-
     <div class="collapse" id="collapseExample">
 
         <div class="card card-block" style="color:black;margin:2em auto 4em auto">
 
             <?php
-
-
 
 
             $aux2 = 0;
@@ -1089,7 +1074,6 @@ $a = 0;
             if ($result->num_rows > 0) {
 
                 ?>
-
 
 
                 <div class="row equal" style="height: ;">
@@ -1159,7 +1143,6 @@ $a = 0;
                 </div>
 
 
-
                 <?php
 
             }
@@ -1167,9 +1150,6 @@ $a = 0;
             ?>
 
         </div>
-
-
-
 
 
     </div>
@@ -1209,13 +1189,11 @@ $a = 0;
         <div class="col text-right ">
 
 
-
             <button class="btn btn-primary" href="javascript:void(0)" onclick="toggleFullScreen()">
 
                 <i class="material-icons" id="btn-fullscreen">fullscreen</i>
 
             </button>
-
 
 
         </div>
@@ -1225,20 +1203,18 @@ $a = 0;
 </nav>
 
 
-
-
-
 <span class="glyphicons-home" aria-hidden="true "></span>
-
 
 
 <!--JQuery, Javascript para Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js">
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js "
+    <
+    script
+    src = "https://code.jquery.com/jquery-3.1.1.slim.min.js "
 
-        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n "
+    integrity = "sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n "
 
-        crossorigin="anonymous "></script>
+    crossorigin = "anonymous " ></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js "
 
@@ -1263,7 +1239,6 @@ $a = 0;
 <script type="text/javascript" src="../js/fullscreen.js"></script>
 
 </body>
-
 
 
 </html>

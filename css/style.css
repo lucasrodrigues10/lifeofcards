@@ -14,6 +14,10 @@
 
     --background: #677077;
 
+    --corFundo1: #858B90 ;
+
+    --corFundo2: #354049;
+
 }
 
 .full {
@@ -209,6 +213,14 @@ body {
 
     background-color: #1D1421;
 
+}
+
+.fundo1{
+    background-color: var(--corFundo1);
+}
+
+.fundo2{
+    background-color: var(--corFundo2);
 }
 
 .icn-status {
