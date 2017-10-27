@@ -112,5 +112,10 @@ $(document).ready(function () {
 
     });
 
+    $('#opt-log').click(function(){
+        $('label').removeClass('selected');
+        $(this).addClass('selected');
+    });
+
 });
 

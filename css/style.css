@@ -145,6 +145,9 @@ body {
     border-color: var(--botao1Hover) !important;
 
 }
+.active{
+   background-color: var(--botao1Hover) !important;
+}
 
 .btn-inventario:hover, .btn-perfil:hover, .btn-loja:hover, .btn-home:hover {
 
