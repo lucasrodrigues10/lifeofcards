@@ -644,7 +644,7 @@ $a = 0;
 
             <div class="col-sm-4">
 
-                <div class="card text-center ">
+                <div class="card text-center fundo1">
 
                     <img src="../img/avatar/<?php if (isset($avatar_imagem)) echo($avatar_imagem); ?> "
 
@@ -738,7 +738,7 @@ $a = 0;
 
             <div class="col-sm-8 text-center">
 
-                <div class="card txt-info">
+                <div class="card txt-info fundo1">
 
                     <div class="row">
 

@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+            <state relative-caret-position="102">
+              <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="585" column="35" lean-forward="false" selection-start-line="585" selection-start-column="35" selection-end-line="585" selection-end-column="35" />
+            <state relative-caret-position="620">
+              <caret line="768" column="63" lean-forward="false" selection-start-line="768" selection-start-column="63" selection-end-line="768" selection-end-column="63" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -47,18 +47,20 @@
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1509113179738" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-                <marker date="1509113179738" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-                <marker date="1509113179738" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-                <marker date="1509113179738" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-                <marker date="1509113179738" expanded="true" signature="1627:1680" ph="SELECT Nickn... Amizades" />
-                <marker date="1509113179738" expanded="true" signature="1886:1930" ph="SELECT * FRO... Noticias" />
-                <marker date="1509113179738" expanded="true" signature="2266:2284" ph="SELECT * FRO... Loja" />
-                <marker date="1509113179738" expanded="true" signature="2591:2654" ph="SELECT Valor... Promoção" />
-                <marker date="1509113179738" expanded="true" signature="3250:3330" ph="SELECT Nome,... Cartas" />
-                <marker date="1509113179738" expanded="true" signature="3629:3702" ph="SELECT Nome,... Skin" />
-                <marker date="1509113179738" expanded="true" signature="3994:4073" ph="SELECT Nome,... Pacote" />
-                <marker date="1509113179738" expanded="true" signature="25172:25228" ph="SELECT * FRO... Cartas" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1509113485712" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+                <marker date="1509113485712" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+                <marker date="1509113485712" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+                <marker date="1509113485712" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+                <marker date="1509113485712" expanded="true" signature="1627:1680" ph="SELECT Nickn... Amizades" />
+                <marker date="1509113485712" expanded="true" signature="1886:1930" ph="SELECT * FRO... Noticias" />
+                <marker date="1509113485712" expanded="true" signature="2266:2284" ph="SELECT * FRO... Loja" />
+                <marker date="1509113485712" expanded="true" signature="2591:2654" ph="SELECT Valor... Promoção" />
+                <marker date="1509113485712" expanded="true" signature="3250:3330" ph="SELECT Nome,... Cartas" />
+                <marker date="1509113485712" expanded="true" signature="3629:3702" ph="SELECT Nome,... Skin" />
+                <marker date="1509113485712" expanded="true" signature="3994:4073" ph="SELECT Nome,... Pacote" />
+                <marker date="1509113485712" expanded="true" signature="25185:25241" ph="SELECT * FRO... Cartas" />
               </folding>
             </state>
           </provider>
@@ -103,6 +105,7 @@
       <find>amigos</find>
       <find>barra</find>
       <find>mostrar carta</find>
+      <find>idade</find>
     </findStrings>
     <replaceStrings>
       <replace>--botao</replace>
@@ -124,9 +127,9 @@
         <option value="$PROJECT_DIR$/pages/jogo.php" />
         <option value="$PROJECT_DIR$/img/logo/logo.svg" />
         <option value="$PROJECT_DIR$/pages/login.php" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/pages/main.php" />
+        <option value="$PROJECT_DIR$/css/style.css" />
       </list>
     </option>
   </component>
@@ -261,7 +264,7 @@
       <workItem from="1507521818277" duration="4404000" />
       <workItem from="1509053133451" duration="203000" />
       <workItem from="1509064127750" duration="1692000" />
-      <workItem from="1509108071496" duration="5113000" />
+      <workItem from="1509108071496" duration="5510000" />
     </task>
     <task id="LOCAL-00001" summary="canvas dentro de div e espaco para cartas e botoes">
       <created>1506972079531</created>
@@ -333,11 +336,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509113165805</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="removido icone online">
+      <created>1509113197474</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1509113197474</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31244000" />
+    <option name="totallyTimeSpent" value="31641000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
@@ -380,7 +390,8 @@
     <MESSAGE value="cor do active da barra de navegacao principal consertada" />
     <MESSAGE value="mudei cor dos cards do perfil" />
     <MESSAGE value="cor da barra de navegacao superior consertada" />
-    <option name="LAST_COMMIT_MESSAGE" value="cor da barra de navegacao superior consertada" />
+    <MESSAGE value="removido icone online" />
+    <option name="LAST_COMMIT_MESSAGE" value="removido icone online" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -528,18 +539,20 @@
             <element signature="n#style#0;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1509113179738" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-            <marker date="1509113179738" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1509113179738" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-            <marker date="1509113179738" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-            <marker date="1509113179738" expanded="true" signature="1627:1680" ph="SELECT Nickn... Amizades" />
-            <marker date="1509113179738" expanded="true" signature="1886:1930" ph="SELECT * FRO... Noticias" />
-            <marker date="1509113179738" expanded="true" signature="2266:2284" ph="SELECT * FRO... Loja" />
-            <marker date="1509113179738" expanded="true" signature="2591:2654" ph="SELECT Valor... Promoção" />
-            <marker date="1509113179738" expanded="true" signature="3250:3330" ph="SELECT Nome,... Cartas" />
-            <marker date="1509113179738" expanded="true" signature="3629:3702" ph="SELECT Nome,... Skin" />
-            <marker date="1509113179738" expanded="true" signature="3994:4073" ph="SELECT Nome,... Pacote" />
-            <marker date="1509113179738" expanded="true" signature="25172:25228" ph="SELECT * FRO... Cartas" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1509113485712" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+            <marker date="1509113485712" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1509113485712" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+            <marker date="1509113485712" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+            <marker date="1509113485712" expanded="true" signature="1627:1680" ph="SELECT Nickn... Amizades" />
+            <marker date="1509113485712" expanded="true" signature="1886:1930" ph="SELECT * FRO... Noticias" />
+            <marker date="1509113485712" expanded="true" signature="2266:2284" ph="SELECT * FRO... Loja" />
+            <marker date="1509113485712" expanded="true" signature="2591:2654" ph="SELECT Valor... Promoção" />
+            <marker date="1509113485712" expanded="true" signature="3250:3330" ph="SELECT Nome,... Cartas" />
+            <marker date="1509113485712" expanded="true" signature="3629:3702" ph="SELECT Nome,... Skin" />
+            <marker date="1509113485712" expanded="true" signature="3994:4073" ph="SELECT Nome,... Pacote" />
+            <marker date="1509113485712" expanded="true" signature="25185:25241" ph="SELECT * FRO... Cartas" />
           </folding>
         </state>
       </provider>
@@ -723,18 +736,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="585" column="35" lean-forward="false" selection-start-line="585" selection-start-column="35" selection-end-line="585" selection-end-column="35" />
+        <state relative-caret-position="620">
+          <caret line="768" column="63" lean-forward="false" selection-start-line="768" selection-start-column="63" selection-end-line="768" selection-end-column="63" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -743,19 +748,29 @@
             <element signature="n#style#0;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1509113179738" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-            <marker date="1509113179738" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1509113179738" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-            <marker date="1509113179738" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-            <marker date="1509113179738" expanded="true" signature="1627:1680" ph="SELECT Nickn... Amizades" />
-            <marker date="1509113179738" expanded="true" signature="1886:1930" ph="SELECT * FRO... Noticias" />
-            <marker date="1509113179738" expanded="true" signature="2266:2284" ph="SELECT * FRO... Loja" />
-            <marker date="1509113179738" expanded="true" signature="2591:2654" ph="SELECT Valor... Promoção" />
-            <marker date="1509113179738" expanded="true" signature="3250:3330" ph="SELECT Nome,... Cartas" />
-            <marker date="1509113179738" expanded="true" signature="3629:3702" ph="SELECT Nome,... Skin" />
-            <marker date="1509113179738" expanded="true" signature="3994:4073" ph="SELECT Nome,... Pacote" />
-            <marker date="1509113179738" expanded="true" signature="25172:25228" ph="SELECT * FRO... Cartas" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1509113485712" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+            <marker date="1509113485712" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1509113485712" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+            <marker date="1509113485712" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+            <marker date="1509113485712" expanded="true" signature="1627:1680" ph="SELECT Nickn... Amizades" />
+            <marker date="1509113485712" expanded="true" signature="1886:1930" ph="SELECT * FRO... Noticias" />
+            <marker date="1509113485712" expanded="true" signature="2266:2284" ph="SELECT * FRO... Loja" />
+            <marker date="1509113485712" expanded="true" signature="2591:2654" ph="SELECT Valor... Promoção" />
+            <marker date="1509113485712" expanded="true" signature="3250:3330" ph="SELECT Nome,... Cartas" />
+            <marker date="1509113485712" expanded="true" signature="3629:3702" ph="SELECT Nome,... Skin" />
+            <marker date="1509113485712" expanded="true" signature="3994:4073" ph="SELECT Nome,... Pacote" />
+            <marker date="1509113485712" expanded="true" signature="25185:25241" ph="SELECT * FRO... Cartas" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
