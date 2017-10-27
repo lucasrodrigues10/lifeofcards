@@ -500,7 +500,7 @@ $a = 0;
 
     <li class="nav-item">
 
-        <a class="nav-link btn-home" href="#">Início</a>
+        <a class="nav-link btn-home active" href="#">Início</a>
 
     </li>
 
