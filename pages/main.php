@@ -575,7 +575,7 @@ $a = 0;
                                     <p class="card-text nome-amigos"><?php if (isset($nickname_amigos[$l])) echo($nickname_amigos[$l]); ?></p>
 
                                 </div>
-
+                                <!-- icone online
                                 <div class="col">
 
                                     <i class="material-icons icn-status" data-toggle="tooltip" data-placement="top"
@@ -583,7 +583,7 @@ $a = 0;
                                        title="online">cloud</i>
 
                                 </div>
-
+                                -->
                                 <div class="col">
 
                                     <button type="button" class="btn btn-primary btn-sm">Jogar</button>
