@@ -366,7 +366,7 @@ $a = 0;
             <div class="modal-body mx-auto">
                 <div class="form-group">
                     <input class="form-control" id="input-add-amigo"
-                           placeholder="Amigo" name="amigo">
+                           placeholder="ID Amigo" name="amigo">
                 </div>
                 <?php
                 $query = "SELECT * FROM UsuarioNoJogo";
@@ -825,56 +825,57 @@ $a = 0;
                         </div>
 
                     </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" style="font-size:.7em">
 
-                    <table class="table table-bordered" style="font-size:.7em">
+                            <tbody>
 
-                        <tbody>
+                            <tr>
 
-                        <tr>
+                                <th scope="row" class="text-center">Idade</th>
 
-                            <th scope="row" class="text-center">Idade</th>
+                                <td>
+                                    <?php if (isset($idade)) echo($idade); ?>
+                                    <input style="display:none;" class="field" type="idade" id="idade" name="idade">
+                                </td>
 
-                            <td>
-                                <?php if (isset($idade)) echo($idade); ?>
-                                <input style="display:none;" class="field" type="idade" id="idade" name="idade">
-                            </td>
+                            </tr>
 
-                        </tr>
+                            <tr>
 
-                        <tr>
+                                <th scope="row" class="text-center">Localização</th>
 
-                            <th scope="row" class="text-center">Localização</th>
+                                <td>
+                                    <?php if (isset($localizacao)) echo($localizacao); ?>
+                                    <input style="display:none;" class="field" type="local" id="local" name="local">
+                                </td>
 
-                            <td>
-                                <?php if (isset($localizacao)) echo($localizacao); ?>
-                                <input style="display:none;" class="field" type="local" id="local" name="local">
-                            </td>
+                            </tr>
 
-                        </tr>
+                            <tr>
 
-                        <tr>
+                                <th scope="row" class="text-center">Sexo</th>
 
-                            <th scope="row" class="text-center">Sexo</th>
+                                <td>
+                                    <?php if (isset($sexo)) echo($sexo); ?>
+                                    <input style="display:none;" class="field" type="sexo" id="sexo" name="sexo">
+                                    <input style="display:none" id="id" value= <?php echo $id ?>>
+                                </td>
 
-                            <td>
-                                <?php if (isset($sexo)) echo($sexo); ?>
-                                <input style="display:none;" class="field" type="sexo" id="sexo" name="sexo">
-                                <input style="display:none" id="id" value= <?php echo $id ?>>
-                            </td>
+                            </tr>
 
-                        </tr>
+                            <tr>
 
-                        <tr>
+                                <th scope="row" class="text-center">Email</th>
 
-                            <th scope="row" class="text-center">Email</th>
+                                <td colspan="2"><?php if (isset($email)) echo($email); ?></td>
 
-                            <td colspan="2"><?php if (isset($email)) echo($email); ?></td>
+                            </tr>
 
-                        </tr>
+                            </tbody>
 
-                        </tbody>
-
-                    </table>
+                        </table>
+                    </div>
                     <button type="button" class="btn btn-primary btn-enviar"
                             style="margin:1em auto 1em auto;width: 40%;display:none">
 
