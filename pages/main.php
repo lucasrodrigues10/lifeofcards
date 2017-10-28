@@ -364,16 +364,16 @@ $a = 0;
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-group" >
+                <div class="form-group">
 
-                    <input class="form-control" id=""
+                    <input class="form-control" id="input-add-amigo"
                            placeholder="Amigo">
 
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-primary" id="btn-add-amigo">Salvar</button>
             </div>
         </div>
 
@@ -1247,14 +1247,11 @@ $a = 0;
 
 
 <!--JQuery, Javascript para Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.1.1.min.js">
-    <
-    script
-    src = "https://code.jquery.com/jquery-3.1.1.slim.min.js "
 
-    integrity = "sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n "
-
-    crossorigin = "anonymous " ></script>
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js "
 

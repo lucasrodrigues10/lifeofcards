@@ -9,13 +9,13 @@ $(document).ready(function () {
             }
         })
             .done(function (msg) {
-                if(msg == "valido") {
+                if (msg == "valido") {
                     $("#email-val").show();
                     $("#email-inval").hide();
-                }else if(msg == "invalido"){
+                } else if (msg == "invalido") {
                     $("#email-val").hide();
                     $("#email-inval").show();
-                }else if(msg == "" || msg.empty() ){
+                } else if (msg == "" || msg.empty()) {
                     $("#email-val").show();
                     $("#email-inval").show();
                 }
@@ -26,23 +26,23 @@ $(document).ready(function () {
             });
 
 
-});
+    });
 
-$('#opt-reg').click(function () {
-    $('#form-reg').show();
-    $('#form-log').hide();
-    $('#form-esq').hide();
-});
-$('#opt-log').click(function () {
-    $('#form-reg').hide();
-    $('#form-log').show();
-    $('#form-esq').hide();
+    $('#opt-reg').click(function () {
+        $('#form-reg').show();
+        $('#form-log').hide();
+        $('#form-esq').hide();
+    });
+    $('#opt-log').click(function () {
+        $('#form-reg').hide();
+        $('#form-log').show();
+        $('#form-esq').hide();
 
-});
+    });
 
-$('#bot-esq').click(function () {
-    $('#form-esq').toggle();
-});
+    $('#bot-esq').click(function () {
+        $('#form-esq').toggle();
+    });
 
 })
 ;

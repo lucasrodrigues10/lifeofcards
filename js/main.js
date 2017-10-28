@@ -1,5 +1,31 @@
 $(document).ready(function () {
+    $('seletor').on('click', function(){});
 
+    $("#btn-add-amigo").on("click", function () {
+        $input = $("#input-add-amigo").val()
+        $.ajax({
+            url: "php/adicionaAmigo.php",
+            type: 'post',
+            data: {
+                email: $("#input-add-amigo").val()
+            }
+        })
+            .done(function (msg) {
+                if (msg == "valido") {
+                    location.reload();
+                } else if (msg == "invalido") {
+                    alert("Amigo nao encontrado.")
+                } else if (msg == "" || msg.empty()) {
+                    alert("Erro, tente novamente.")
+                }
+
+            })
+            .fail(function (jqXHR, textStatus, msg) {
+                alert("Erro");
+            });
+
+
+    });
 
 
 
