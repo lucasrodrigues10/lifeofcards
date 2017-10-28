@@ -94,6 +94,8 @@
             </div>
 
         </div>
+        <img src="/img/banner-mc.jpg" class="img-fluid" alt="Responsive image" >
+
     </div>
 </div>
 
