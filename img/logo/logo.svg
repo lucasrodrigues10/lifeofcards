@@ -1,17 +1,1 @@
-<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
-    <defs>
-        <style>.cls-1{fill:#266;}.cls-2{fill:#033;}.cls-3{font-size:459.94px;fill:#2d0303;font-family:MongolianBaiti,
-            Mongolian Baiti;letter-spacing:-0.05em;}
-        </style>
-    </defs>
-    <title>Prancheta 1</title>
-    <polygon class="cls-1" points="3.54 263.5 580.34 171.75 740.63 984.84 163.84 1076.58 3.54 263.5"/>
-    <path class="cls-2"
-          d="M578,175.17,737.09,982.36l-570.86,90.8L7.09,266,578,175.17m4.77-6.83L0,261l161.46,819,582.72-92.69-161.46-819Z"/>
-    <polygon class="cls-1" points="1179.37 984.84 1339.66 171.75 1916.45 263.5 1756.16 1076.58 1179.37 984.84"/>
-    <path class="cls-2"
-          d="M1342,175.17,1912.91,266l-159.14,807.19-570.86-90.8L1342,175.17m-4.77-6.83-161.46,819L1758.54,1080,1920,261l-582.72-92.69Z"/>
-    <rect class="cls-1" x="600.65" y="3" width="726.04" height="988.83"/>
-    <path class="cls-2" d="M1323.69,6V988.83h-720V6h720m6-6h-732V994.83h732V0Z"/>
-    <text class="cls-3" transform="translate(104.55 733.19) scale(0.78 1)">Life of Cards</text>
-</svg>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><style>.cls-1{fill:#604450;}.cls-2{fill:#033;}.cls-3{font-size:459.94px;fill:#171732;font-family:MongolianBaiti, Mongolian Baiti;letter-spacing:-0.05em;}</style></defs><title>logo</title><polygon class="cls-1" points="3.54 263.5 580.34 171.75 740.63 984.84 163.84 1076.58 3.54 263.5"/><path class="cls-2" d="M578,175.17,737.09,982.36l-570.86,90.8L7.09,266,578,175.17m4.77-6.83L0,261l161.46,819,582.72-92.69-161.46-819Z" transform="translate(0 0)"/><polygon class="cls-1" points="1179.37 984.84 1339.66 171.75 1916.45 263.5 1756.16 1076.58 1179.37 984.84"/><path class="cls-2" d="M1342,175.17,1912.91,266l-159.14,807.19-570.86-90.8L1342,175.17m-4.77-6.83-161.46,819L1758.54,1080,1920,261l-582.72-92.69Z" transform="translate(0 0)"/><rect class="cls-1" x="600.65" y="3" width="726.04" height="988.83"/><path class="cls-2" d="M1323.69,6V988.83h-720V6h720m6-6h-732V994.83h732V0Z" transform="translate(0 0)"/><text class="cls-3" transform="translate(104.55 733.19) scale(0.78 1)">Life of Cards</text></svg>
