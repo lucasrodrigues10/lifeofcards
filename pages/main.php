@@ -790,9 +790,10 @@ $a = 0;
 
                         <div class="progress" style="width: 95%;margin:1.2em auto">
 
-                            <div class="progress-bar " role="progressbar" style="width: 25%;height: 3em"
+                            <div class="progress-bar" role="progressbar" style="width: <?php if (isset($exp)) echo($exp); ?>%" aria-valuenow="<?php if (isset($exp)) echo($exp); ?>"
+                                 aria-valuemin="0" aria-valuemax="100">
 
-                                 aria-valuenow="25 " aria-valuemin="0 " aria-valuemax="100 "></div>
+                            </div>
 
                         </div>
 
