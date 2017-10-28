@@ -351,6 +351,37 @@ $a = 0;
     <source src="/others/music.mp3">
 
 </audio>
+<!-- Modal para adicionar amigos -->
+<div class="modal fade" id="bd-amigos" role="dialog">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Digite o Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" >
+
+                    <input class="form-control" id=""
+                           placeholder="Amigo">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
 
 <div class="modal fade" id="teste" role="dialog">
 
@@ -565,7 +596,7 @@ $a = 0;
 
                 </div>
 
-                <div class="card-block">
+                <div class="card-block" style="  overflow-y:scroll; height: 150px">
 
                     <div class="container">
 
@@ -600,7 +631,11 @@ $a = 0;
                             <?php $l++;
 
                         } ?>
-
+                        <div class="row my-3">
+                            <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#bd-amigos">
+                                Adicionar
+                            </button>
+                        </div>
                     </div>
 
                 </div>
