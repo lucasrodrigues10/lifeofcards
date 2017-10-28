@@ -18,7 +18,20 @@ if ($result->num_rows > 0) {
     $derrotas = $row["Derrotas"];
 }
 
+
+
 /* Fazer queries para recuperar cartas que já estão no deck */
+
+$query = "SELECT * FROM Cartas_Usuario WHERE IDusuario = '$id'";
+$result = $conn->query($query);
+$aux = 0;
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {   
+        $IDcarta[$aux] = $row["IDcarta"];
+        $Quantidade[$aux] = $row["Qtde"];
+        $aux = $aux+1;
+    }
+}
 
 ?>
 
@@ -152,17 +165,18 @@ if ($result->num_rows > 0) {
 
 
                             $aux2 = 0;
+                            $cont = 0;
+                            $cont1 = 0;
+                            
+                            while($cont < $aux){
 
-                            $query = "SELECT * FROM Cartas WHERE IDtema= 1";
+                            $query = "SELECT * FROM Cartas WHERE (IDtema= 1) AND (IDcarta = '$IDcarta[$cont]')";
 
                             $result = $conn->query($query);
 
                             if ($result->num_rows > 0) {
 
-
                             ?>
-
-
 
                             <div class="row equal" style="height: ;">
 
@@ -222,9 +236,14 @@ if ($result->num_rows > 0) {
 
 
                                     </div>
+                                    
+                                    <?php if ($Quantidade[$cont] > 0){ ?>
+                                            
                                     <div class="Quantidade">
-                                        <p>x<span class="Qtde">3</span></p>
+                                        <p>x<span class="Qtde"><?php echo $Quantidade[$cont] ?></span></p>
                                     </div>
+                                    
+                                    <?php } ?>
 
                                 </div>
 
@@ -241,6 +260,8 @@ if ($result->num_rows > 0) {
 
                             <?php
 
+                            }
+                                $cont++;
                             }
 
                             ?>
@@ -655,12 +676,12 @@ if ($result->num_rows > 0) {
         <script>
             $(document).ready(function() {
                 var Total = 0;
-                
+
                 $('.Tematica0').show();
                 $('.Postura1').hide();
                 $('.Tempo1').hide();
                 $('.Swarm1').hide();
-                
+
                 $(".Tematica1").click(function(){
                     $(".Tema1").show();
                     $(".Tema2").hide();
@@ -710,13 +731,17 @@ if ($result->num_rows > 0) {
                 var count = $(".Generalizado div").length;
 
                 if(count === 0){
-                    $('.Adicionar').css("background-color", "black");
+                    $('.Adicionar').css("color", "gray");
+                    $('.carta').css("border-color", "gray");
                 }
+
+
+                //Adiciona General no Deck
 
                 $('.General').click(function() {
                     var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
 
-                    if(Qtde<1 || count > 0){
+                    if(count > 0){
                         $(this).click(false);
                     }
                     else{
@@ -725,14 +750,26 @@ if ($result->num_rows > 0) {
                         $(this).closest("div").find(".Qtde").text(Qtde);
                         $('.Total').text(parseInt($('.Total').text()) + 1);
                         count = count + 1 ;
-                        $('.Adicionar').css("background-color", "white");
+                        $('.General').css("color", "gray");
+                        $('.Adicionar').css("color", "black");
+                        $('.carta').css("border-color", "black");
                     }
                 });
 
+
+                if(count > 0){
+                    $('.General').css("color", "gray");
+                    $('.Adicionar').css("color", "black");
+                    $('.carta').css("border-color", "black");
+                }
+
+                //Adiciona Cartas no Deck
+
                 $('.Adicionar').click(function() {
                     var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
+                    var Total = parseInt($(".Total").text());
 
-                    if(Qtde<1 || count === 0){
+                    if(Qtde<1 || count === 0 || Total === 20){
                         $(this).click(false);
                     }
                     else{
