@@ -363,7 +363,7 @@ $a = 0;
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body mx-auto">
                 <div class="form-group">
                     <input class="form-control" id="input-add-amigo"
                            placeholder="Amigo" name="amigo">
@@ -374,26 +374,28 @@ $a = 0;
 
 
                 ?>
-                <table class="table table-hover text-center">
-                    <thead>
+                <div class="table-responsive" style="display: block; height: 20vh; overflow-y: scroll;">
+                    <table class="table table-hover table-bordered ">
+                        <thead>
                         <tr>
                             <th class="text-center">ID</th>
-                            <th class="text-center">Nickname</th>
+                            <th class="text-center d-block">Nickname</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         <?php
-                            while ($row = $result->fetch_assoc()) {
-                        ?>
-                        <tr>
-                            <th class="text-center"><?php echo $row['IDusuario']; ?></th>
-                            <td class="text-center"><?php echo $row['Nickname']; ?></td>
-                        </tr>
-                        <?php
+                        while ($row = $result->fetch_assoc()) {
+                            ?>
+                            <tr>
+                                <th class="text-center"><?php echo $row['IDusuario']; ?></th>
+                                <td class="text-center d-block"><?php echo $row['Nickname']; ?></td>
+                            </tr>
+                            <?php
                         }
                         ?>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
