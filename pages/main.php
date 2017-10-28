@@ -368,6 +368,32 @@ $a = 0;
                     <input class="form-control" id="input-add-amigo"
                            placeholder="Amigo" name="amigo">
                 </div>
+                <?php
+                $query = "SELECT * FROM UsuarioNoJogo";
+                $result = $conn->query($query);
+
+
+                ?>
+                <table class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">Nickname</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            while ($row = $result->fetch_assoc()) {
+                        ?>
+                        <tr>
+                            <th class="text-center"><?php echo $row['IDusuario']; ?></th>
+                            <td class="text-center"><?php echo $row['Nickname']; ?></td>
+                        </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

@@ -5,23 +5,21 @@ $(document).ready(function () {
             url: "php/adicionaAmigo.php",
             type: 'post',
             data: {
-                email: $("#input-add-amigo").val()
+                amigo: $("#input-add-amigo").val()
             }
         })
             .done(function (msg) {
                 if (msg == "valido") {
-                    alert("Amigo encontrado");
+                    location.reload();
                 } else if (msg == "invalido") {
                     alert("Amigo nao encontrado.");
-                } else if (msg == "" || msg.empty()) {
+                } else if (msg == "") {
                     alert("Erro, tente novamente.");
                 }
             })
             .fail(function (jqXHR, textStatus, msg) {
                 alert("Erro");
             });
-
-
     });
 
 

@@ -3,20 +3,34 @@
 include "db.php";
 session_start();
 
-$amigo = "raul";
+$situacao = "invalido";
+$amigo = (int)$_REQUEST["amigo"];
+$ID = $_SESSION["id"];
 
-$query = "SELECT * FROM Usuario WHERE Login = '$amigo'";
+$query = "SELECT * FROM UsuarioNoJogo WHERE IDusuario = '$amigo'";
 $result = $conn->query($query);
-
-// Check connection
-if ($conn->connect_error) {
-    echo "invalido";
-} else {
-    if ($result->num_rows > 0) {
-        echo "valido";
-    } else {
-        echo "invalido";
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $nickname = $row['Nickname'];
     }
 }
+
+if ($conn->connect_error) {
+    $situacao = "invalido";
+} else {
+    if ($result->num_rows > 0) {
+        $situacao = "valido";
+    } else {
+        $situacao = "invalido";
+    }
+}
+
+if ($situacao == "valido") {
+    $query = "INSERT INTO Amizades (IDusuario, Nickname) VALUES ('$ID','$nickname');";
+    $result = $conn->query($query);
+}
+
+echo $situacao;
+
 $conn->close();
 
