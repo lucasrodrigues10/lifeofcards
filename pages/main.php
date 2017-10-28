@@ -285,9 +285,14 @@ $a = 0;
 
 <head>
 
-    <link rel="shortcut icon" type="image/x-icon" href="../img/icon/favicon.ico"/>
+    <!-- Icone do site http://game-icons.net/ -->
+    <link rel="shortcut icon" type="image/x-icon" href="../img/icon/logo.ico"/>
 
-    <title>Jogo</title>
+    <title>
+
+        Life of Cards
+
+    </title>
 
     <!--Ter todos os simbolos -->
 
