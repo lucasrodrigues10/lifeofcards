@@ -365,10 +365,8 @@ $a = 0;
             </div>
             <div class="modal-body">
                 <div class="form-group">
-
                     <input class="form-control" id="input-add-amigo"
-                           placeholder="Amigo">
-
+                           placeholder="Amigo" name="amigo">
                 </div>
             </div>
             <div class="modal-footer">

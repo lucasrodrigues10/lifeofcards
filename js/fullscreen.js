@@ -29,7 +29,7 @@ function toggleFullScreen() {
 
 // keydown event handler
 document.addEventListener('keydown', function (e) {
-    if (e.keyCode == 13 || e.keyCode == 70) { // F or Enter key
+    /*if (e.keyCode == 13 || e.keyCode == 70) { // F or Enter key
         toggleFullScreen();
-    }
+    }*/
 }, false);

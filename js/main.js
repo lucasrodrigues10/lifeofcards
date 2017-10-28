@@ -1,8 +1,6 @@
 $(document).ready(function () {
-    $('seletor').on('click', function(){});
 
     $("#btn-add-amigo").on("click", function () {
-        $input = $("#input-add-amigo").val()
         $.ajax({
             url: "php/adicionaAmigo.php",
             type: 'post',
@@ -12,13 +10,12 @@ $(document).ready(function () {
         })
             .done(function (msg) {
                 if (msg == "valido") {
-                    location.reload();
+                    alert("Amigo encontrado");
                 } else if (msg == "invalido") {
-                    alert("Amigo nao encontrado.")
+                    alert("Amigo nao encontrado.");
                 } else if (msg == "" || msg.empty()) {
-                    alert("Erro, tente novamente.")
+                    alert("Erro, tente novamente.");
                 }
-
             })
             .fail(function (jqXHR, textStatus, msg) {
                 alert("Erro");
@@ -28,14 +25,11 @@ $(document).ready(function () {
     });
 
 
-
-
-    var vol = 50;
+    var vol = 100;
 
     $('#audio')[0].volume = vol / 100.0;
 
     audio.volume = vol / 100.0;
-
 
 
     $('#myonoffswitch').on('click', function () {
@@ -60,13 +54,13 @@ $(document).ready(function () {
 
     $('#opt-log').button('toggle');
 
-    $('.btn-home').css('background-color','#000066');
+    $('.btn-home').css('background-color', '#000066');
 
     $('.nav-pills a').click(function (e) {
 
         e.preventDefault();
 
-       // $('.nav-pills a').css('background-color','black');
+        // $('.nav-pills a').css('background-color','black');
         $('.nav-pills a').addClass('barra');
         $('.nav-pills a').removeClass('active')
 
@@ -77,7 +71,6 @@ $(document).ready(function () {
     });
 
     $('[data-toggle="tooltip"]').tooltip();
-
 
 
     $('#myModal').modal('show');
@@ -129,18 +122,17 @@ $(document).ready(function () {
         $('.inventario').hide();
 
 
-
     });
 
     $('.btn-mostrar').click(function () {
 
-        $('.carousel').carousel('pause');	
-	console.log(	$('.btn-mostrar').closest('.active').find('h3').html()	);
+        $('.carousel').carousel('pause');
+        console.log($('.btn-mostrar').closest('.active').find('h3').html());
 
 
     });
 
-    $('#opt-log').click(function(){
+    $('#opt-log').click(function () {
         $('label').removeClass('selected');
         $(this).addClass('selected');
     });
