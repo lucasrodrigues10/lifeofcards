@@ -3,11 +3,40 @@ function loadAssets (){
     
     game.load.image('tabuleiro','assets/tabuleiro.png');
     game.load.image('quadrado','assets/quadrado.png');
+    
+    
+    /****  imagens com 32 bits de tamanho ****/
 	game.load.spritesheet('devil','assets/devil.png',32,32);
 	game.load.spritesheet('mummy','assets/mumia.png',32,32);
-    game.load.spritesheet('torturer','assets/torturer.png',64,64); //imagem grande
-    game.load.spritesheet('banshee','assets/banshee.png',64,64); //imagem grande
-    game.load.spritesheet('ferumbras','assets/ferumbras.png',64,64); //imagem grande e com 36 frames
+    game.load.spritesheet('orc_warlord','assets/orc_warlord.png',32,32);
+    game.load.spritesheet('necromancer','assets/necromancer.png',32,32);
+    game.load.spritesheet('orc_leader','assets/orc_leader.png',32,32);
+    game.load.spritesheet('priestess','assets/priestess.png',32,32);
+    game.load.spritesheet('demon_skeleton','assets/demon_skeleton.png',32,32);
+    game.load.spritesheet('bug','assets/bug.png',32,32);
+    game.load.spritesheet('dwarf','assets/dwarf.png',32,32);
+    
+    
+    
+    
+    /****  imagens com 64 bits de tamanho ****/
+    game.load.spritesheet('betrayed_wraith','assets/betrayed_wraith.png',64,64);
+    game.load.spritesheet('constrictor','assets/constrictor.png',64,64);
+    game.load.spritesheet('cursed_hand','assets/cursed_hand.png',64,64);
+    game.load.spritesheet('frost_troll','assets/frost_troll.png',64,64);
+    game.load.spritesheet('green_djin','assets/green_djin.png',64,64);
+    game.load.spritesheet('hydromancer','assets/hydromancer.png',64,64);
+    game.load.spritesheet('lost_soul','assets/lost_soul.png',64,64);
+    game.load.spritesheet('torturer','assets/torturer.png',64,64); 
+    game.load.spritesheet('banshee','assets/banshee.png',64,64);    
+    game.load.spritesheet('ferumbras','assets/ferumbras.png',64,64);
+    game.load.spritesheet('undead_dragon','assets/undead_dragon.png',64,64);
+    //game.load.spritesheet('','assets/.png',64,64);
+    //game.load.spritesheet('','assets/.png',64,64);
+    //game.load.spritesheet('','assets/.png',64,64);
+    
+    
+    
     
     
 }
@@ -62,14 +91,6 @@ function deixaResponsivo(){
     game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
     */
 }
-
-function desenhaInterface(){
-    
-}
-
-//futuramente o servidor que enviará esses parametros(turnos) para o cliente
-var turnoJogador = 1;
-var turnoInimigo = 2;
 
 var numLinhas = 12;
 var numColunas = 12;
@@ -254,14 +275,12 @@ function criaMovimentacao (sprite){
     });
     
     
-    
+    movimentacao.visible = true;
 	
 
     
 	
-	movimentacao.visible = true;
-    
-    
+	
 }
 
 //função que atualiza a variavel global "tabuleiro"
