@@ -1,11 +1,40 @@
 //carregador de assets
 function loadAssets (){ 
     
+    var arquivo = [];
+    var listaSprites = [];
+    
     game.load.image('tabuleiro','assets/tabuleiro.png');
     game.load.image('quadrado','assets/quadrado.png');
+     
     
     
-    /****  imagens com 32 bits de tamanho ****/
+    //perguntando pro servidor quais são os arquivos que estão na pasta de spritesheets
+    $.ajax({
+        url: "getSprites.php",
+        dataType:"json",
+        type: "post",
+        success: function(result){
+          for (var i=2;i<result.length;i++){
+              
+              result[i] = result[i].replace(".png","");
+              listaSprites.push(result[i]);
+          }
+        }
+    })
+        
+    listaSprites.push("carrega porcaria");
+    for (i = 0;i<listaSprites.length;i++)
+       console.log(listaSprites[i]);
+     
+     
+     
+    
+
+     
+
+    /*
+    
 	game.load.spritesheet('devil','assets/devil.png',32,32);
 	game.load.spritesheet('mummy','assets/mumia.png',32,32);
     game.load.spritesheet('orc_warlord','assets/orc_warlord.png',32,32);
@@ -19,7 +48,7 @@ function loadAssets (){
     
     
     
-    /****  imagens com 64 bits de tamanho ****/
+    
     game.load.spritesheet('betrayed_wraith','assets/betrayed_wraith.png',64,64);
     game.load.spritesheet('constrictor','assets/constrictor.png',64,64);
     game.load.spritesheet('cursed_hand','assets/cursed_hand.png',64,64);
@@ -31,11 +60,9 @@ function loadAssets (){
     game.load.spritesheet('banshee','assets/banshee.png',64,64);    
     game.load.spritesheet('ferumbras','assets/ferumbras.png',64,64);
     game.load.spritesheet('undead_dragon','assets/undead_dragon.png',64,64);
-    //game.load.spritesheet('','assets/.png',64,64);
-    //game.load.spritesheet('','assets/.png',64,64);
-    //game.load.spritesheet('','assets/.png',64,64);
+
     
-    
+    */
     
     
     
