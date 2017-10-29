@@ -2,11 +2,13 @@
 function loadAssets (){ 
     
     var arquivo = [];
-    var listaSprites = [];
+    
+    var contexto = this;
     
     game.load.image('tabuleiro','assets/tabuleiro.png');
     game.load.image('quadrado','assets/quadrado.png');
-     
+    
+    
     
     
     //perguntando pro servidor quais são os arquivos que estão na pasta de spritesheets
@@ -14,55 +16,26 @@ function loadAssets (){
         url: "getSprites.php",
         dataType:"json",
         type: "post",
+        context: contexto,
         success: function(result){
-          for (var i=2;i<result.length;i++){
+            
+            for (var i=2;i<result.length;i++){              
+                key = result[i].replace(".png","");
+                path = 'assets/sprites/' + result[i];
+                console.log(key,path);  
+                game.load.image(key,path);
+                
               
-              result[i] = result[i].replace(".png","");
-              listaSprites.push(result[i]);
           }
         }
     })
         
-    listaSprites.push("carrega porcaria");
-    for (i = 0;i<listaSprites.length;i++)
-       console.log(listaSprites[i]);
-     
-     
+    
      
     
-
+    
      
 
-    /*
-    
-	game.load.spritesheet('devil','assets/devil.png',32,32);
-	game.load.spritesheet('mummy','assets/mumia.png',32,32);
-    game.load.spritesheet('orc_warlord','assets/orc_warlord.png',32,32);
-    game.load.spritesheet('necromancer','assets/necromancer.png',32,32);
-    game.load.spritesheet('orc_leader','assets/orc_leader.png',32,32);
-    game.load.spritesheet('priestess','assets/priestess.png',32,32);
-    game.load.spritesheet('demon_skeleton','assets/demon_skeleton.png',32,32);
-    game.load.spritesheet('bug','assets/bug.png',32,32);
-    game.load.spritesheet('dwarf','assets/dwarf.png',32,32);
-    
-    
-    
-    
-    
-    game.load.spritesheet('betrayed_wraith','assets/betrayed_wraith.png',64,64);
-    game.load.spritesheet('constrictor','assets/constrictor.png',64,64);
-    game.load.spritesheet('cursed_hand','assets/cursed_hand.png',64,64);
-    game.load.spritesheet('frost_troll','assets/frost_troll.png',64,64);
-    game.load.spritesheet('green_djin','assets/green_djin.png',64,64);
-    game.load.spritesheet('hydromancer','assets/hydromancer.png',64,64);
-    game.load.spritesheet('lost_soul','assets/lost_soul.png',64,64);
-    game.load.spritesheet('torturer','assets/torturer.png',64,64); 
-    game.load.spritesheet('banshee','assets/banshee.png',64,64);    
-    game.load.spritesheet('ferumbras','assets/ferumbras.png',64,64);
-    game.load.spritesheet('undead_dragon','assets/undead_dragon.png',64,64);
-
-    
-    */
     
     
     

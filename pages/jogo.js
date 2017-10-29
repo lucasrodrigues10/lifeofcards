@@ -40,7 +40,7 @@ function create (){
     jogo.addChild(movimentacao);
     jogo.addChild(unidades);
     
-    /*
+    
     summon(1,1,'mummy');
     summon(2,5,'banshee');
     summon(3,5,'torturer');
@@ -54,7 +54,7 @@ function create (){
     summon(1,5,'green_djin');
     summon(6,6,'orc_leader');
     summon(7,7,'constrictor');
-    */
+    
     
     unidades.callAll('animations.play','animations','right'); 
     
