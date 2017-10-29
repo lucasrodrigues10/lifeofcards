@@ -14,30 +14,30 @@ function loadAssets (){
     //perguntando pro servidor quais são os arquivos que estão na pasta de spritesheets
     $.ajax({
         url: "getSprites.php",
-        dataType:"json",
         type: "post",
         context: contexto,
+        dataType: "json",
         async:false,
         success: function(result){
             
-            for (var i=2;i<result.length;i++){              
-                key = result[i].replace(".png","");
-                path = 'assets/sprites/' + result[i];
-                //game.load.image(key,path);
-                     
+            for(var key in result){
+                tamanhoFrame = result[key];
+                
+                nomeArquivo = key;
+                
+                nomeTextura = nomeArquivo.replace(".png",""); //nome da textura do phaser é nome do arquivo sem o '.png' no fim
+                
+                game.load.spritesheet(nomeTextura, 'assets/sprites/'+nomeArquivo, tamanhoFrame, tamanhoFrame);    
+        
             }
-            
-            //game.cache.addSpriteSheet('vampire',null,null,32,32); //acho que nao esta funcionando
-            
-            
-            
         }
+            
     })
         
     
     
-    //testando
-    game.cache.addSpritesheet('ferumbras','assets/ferumbras.png',"",64,64);
+  
+    
     
     
      

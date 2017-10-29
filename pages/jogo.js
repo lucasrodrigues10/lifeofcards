@@ -42,7 +42,7 @@ function create (){
     
     
     
-    summon(8,8,'ferumbras');
+    //summon(8,8,'ferumbras');
     
     
     unidades.callAll('animations.play','animations','right'); 
