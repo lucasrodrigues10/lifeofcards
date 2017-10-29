@@ -17,21 +17,27 @@ function loadAssets (){
         dataType:"json",
         type: "post",
         context: contexto,
+        async:false,
         success: function(result){
             
             for (var i=2;i<result.length;i++){              
                 key = result[i].replace(".png","");
                 path = 'assets/sprites/' + result[i];
-                console.log(key,path);  
-                game.load.image(key,path);
-                
-              
-          }
+                //game.load.image(key,path);
+                     
+            }
+            
+            //game.cache.addSpriteSheet('vampire',null,null,32,32); //acho que nao esta funcionando
+            
+            
+            
         }
     })
         
     
-     
+    
+    //testando
+    game.cache.addSpritesheet('ferumbras','assets/ferumbras.png',"",64,64);
     
     
      
