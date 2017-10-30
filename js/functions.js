@@ -1,41 +1,47 @@
 //carregador de assets
 function loadAssets (){ 
     
+    var arquivo = [];
+    
+    var contexto = this;
+    
     game.load.image('tabuleiro','assets/tabuleiro.png');
     game.load.image('quadrado','assets/quadrado.png');
     
     
-    /****  imagens com 32 bits de tamanho ****/
-	game.load.spritesheet('devil','assets/devil.png',32,32);
-	game.load.spritesheet('mummy','assets/mumia.png',32,32);
-    game.load.spritesheet('orc_warlord','assets/orc_warlord.png',32,32);
-    game.load.spritesheet('necromancer','assets/necromancer.png',32,32);
-    game.load.spritesheet('orc_leader','assets/orc_leader.png',32,32);
-    game.load.spritesheet('priestess','assets/priestess.png',32,32);
-    game.load.spritesheet('demon_skeleton','assets/demon_skeleton.png',32,32);
-    game.load.spritesheet('bug','assets/bug.png',32,32);
-    game.load.spritesheet('dwarf','assets/dwarf.png',32,32);
+    
+    
+    //perguntando pro servidor quais são os arquivos que estão na pasta de spritesheets
+    $.ajax({
+        url: "getSprites.php",
+        type: "post",
+        context: contexto,
+        dataType: "json",
+        async:false,
+        success: function(result){
+            
+            for(var key in result){
+                tamanhoFrame = result[key];
+                
+                nomeArquivo = key;
+                
+                nomeTextura = nomeArquivo.replace(".png",""); //nome da textura do phaser é nome do arquivo sem o '.png' no fim
+                
+                game.load.spritesheet(nomeTextura, 'assets/sprites/'+nomeArquivo, tamanhoFrame, tamanhoFrame);    
+        
+            }
+        }
+            
+    })
+        
+    
+    
+  
     
     
     
-    
-    /****  imagens com 64 bits de tamanho ****/
-    game.load.spritesheet('betrayed_wraith','assets/betrayed_wraith.png',64,64);
-    game.load.spritesheet('constrictor','assets/constrictor.png',64,64);
-    game.load.spritesheet('cursed_hand','assets/cursed_hand.png',64,64);
-    game.load.spritesheet('frost_troll','assets/frost_troll.png',64,64);
-    game.load.spritesheet('green_djin','assets/green_djin.png',64,64);
-    game.load.spritesheet('hydromancer','assets/hydromancer.png',64,64);
-    game.load.spritesheet('lost_soul','assets/lost_soul.png',64,64);
-    game.load.spritesheet('torturer','assets/torturer.png',64,64); 
-    game.load.spritesheet('banshee','assets/banshee.png',64,64);    
-    game.load.spritesheet('ferumbras','assets/ferumbras.png',64,64);
-    game.load.spritesheet('undead_dragon','assets/undead_dragon.png',64,64);
-    //game.load.spritesheet('','assets/.png',64,64);
-    //game.load.spritesheet('','assets/.png',64,64);
-    //game.load.spritesheet('','assets/.png',64,64);
-    
-    
+     
+
     
     
     

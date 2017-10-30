@@ -363,10 +363,38 @@ $a = 0;
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body mx-auto">
                 <div class="form-group">
                     <input class="form-control" id="input-add-amigo"
-                           placeholder="Amigo" name="amigo">
+                           placeholder="ID Amigo" name="amigo">
+                </div>
+                <?php
+                $query = "SELECT * FROM UsuarioNoJogo";
+                $result = $conn->query($query);
+
+
+                ?>
+                <div class="table-responsive" style="display: block; height: 20vh; overflow-y: scroll;">
+                    <table class="table table-hover table-bordered ">
+                        <thead>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center d-block">Nickname</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        while ($row = $result->fetch_assoc()) {
+                            ?>
+                            <tr>
+                                <th class="text-center"><?php echo $row['IDusuario']; ?></th>
+                                <td class="text-center d-block"><?php echo $row['Nickname']; ?></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="modal-footer">
@@ -762,9 +790,10 @@ $a = 0;
 
                         <div class="progress" style="width: 95%;margin:1.2em auto">
 
-                            <div class="progress-bar " role="progressbar" style="width: 25%;height: 3em"
+                            <div class="progress-bar" role="progressbar" style="width: <?php if (isset($exp)) echo($exp); ?>%" aria-valuenow="<?php if (isset($exp)) echo($exp); ?>"
+                                 aria-valuemin="0" aria-valuemax="100">
 
-                                 aria-valuenow="25 " aria-valuemin="0 " aria-valuemax="100 "></div>
+                            </div>
 
                         </div>
 
@@ -797,56 +826,57 @@ $a = 0;
                         </div>
 
                     </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" style="font-size:.7em">
 
-                    <table class="table table-bordered" style="font-size:.7em">
+                            <tbody>
 
-                        <tbody>
+                            <tr>
 
-                        <tr>
+                                <th scope="row" class="text-center">Idade</th>
 
-                            <th scope="row" class="text-center">Idade</th>
+                                <td>
+                                    <?php if (isset($idade)) echo($idade); ?>
+                                    <input style="display:none;" class="field" type="idade" id="idade" name="idade">
+                                </td>
 
-                            <td>
-                                <?php if (isset($idade)) echo($idade); ?>
-                                <input style="display:none;" class="field" type="idade" id="idade" name="idade">
-                            </td>
+                            </tr>
 
-                        </tr>
+                            <tr>
 
-                        <tr>
+                                <th scope="row" class="text-center">Localização</th>
 
-                            <th scope="row" class="text-center">Localização</th>
+                                <td>
+                                    <?php if (isset($localizacao)) echo($localizacao); ?>
+                                    <input style="display:none;" class="field" type="local" id="local" name="local">
+                                </td>
 
-                            <td>
-                                <?php if (isset($localizacao)) echo($localizacao); ?>
-                                <input style="display:none;" class="field" type="local" id="local" name="local">
-                            </td>
+                            </tr>
 
-                        </tr>
+                            <tr>
 
-                        <tr>
+                                <th scope="row" class="text-center">Sexo</th>
 
-                            <th scope="row" class="text-center">Sexo</th>
+                                <td>
+                                    <?php if (isset($sexo)) echo($sexo); ?>
+                                    <input style="display:none;" class="field" type="sexo" id="sexo" name="sexo">
+                                    <input style="display:none" id="id" value= <?php echo $id ?>>
+                                </td>
 
-                            <td>
-                                <?php if (isset($sexo)) echo($sexo); ?>
-                                <input style="display:none;" class="field" type="sexo" id="sexo" name="sexo">
-                                <input style="display:none" id="id" value= <?php echo $id ?>>
-                            </td>
+                            </tr>
 
-                        </tr>
+                            <tr>
 
-                        <tr>
+                                <th scope="row" class="text-center">Email</th>
 
-                            <th scope="row" class="text-center">Email</th>
+                                <td colspan="2"><?php if (isset($email)) echo($email); ?></td>
 
-                            <td colspan="2"><?php if (isset($email)) echo($email); ?></td>
+                            </tr>
 
-                        </tr>
+                            </tbody>
 
-                        </tbody>
-
-                    </table>
+                        </table>
+                    </div>
                     <button type="button" class="btn btn-primary btn-enviar"
                             style="margin:1em auto 1em auto;width: 40%;display:none">
 
