@@ -41,11 +41,9 @@ function create (){
     jogo.addChild(unidades);
     
     
+    mostraSprites();
     
-    //summon(8,8,'ferumbras');
-    
-    
-    unidades.callAll('animations.play','animations','right'); 
+    unidades.callAll('animations.play','animations','down'); 
     
     
     
