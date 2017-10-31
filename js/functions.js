@@ -27,22 +27,34 @@ function loadAssets (){
                 
                 nomeTextura = nomeArquivo.replace(".png",""); //nome da textura do phaser é nome do arquivo sem o '.png' no fim
                 
-                game.load.spritesheet(nomeTextura, 'assets/sprites/'+nomeArquivo, tamanhoFrame, tamanhoFrame);    
+                game.load.spritesheet(nomeTextura, 'assets/sprites/'+nomeArquivo, tamanhoFrame, tamanhoFrame);  
+                
+                listaSprites.push(nomeTextura);
         
             }
         }
             
     })
-        
     
-    
-  
-    
-    
-    
-     
+}
 
+
+function exibeSprites(){
+    var coluna = 1;
+    var linha = 1;
     
+    for (var i = 0;i<listaSprites.length;i++){
+        console.log(coluna,linha);
+        
+        summon(linha,coluna,listaSprites[i]);
+        linha++;
+        if (i%12==0 && i!=0){
+            linha = 1;
+            coluna += 2;
+        }
+        
+        
+    }
     
     
 }
@@ -79,6 +91,7 @@ function addAnimations(sprite){
     sprite.animations.add('right',walkRight, frameSpeed, true);
     sprite.animations.add('down', walkDown,frameSpeed,true);
     sprite.animations.add('left',walkLeft, frameSpeed, true);
+    
 }
 
 function deixaResponsivo(){
@@ -104,6 +117,8 @@ var margemLateral = 1;
 var margemVertical = 1;
 var jogo; //referencia para o sprite do tabuleiro
 var spriteSelecionado;
+
+var listaSprites = [];
 //criando um vetor 12x12 pra guardar as referencias dos sprites
 var tabuleiro = new Array (12);
 for (i=0;i<12;i++)
@@ -112,10 +127,11 @@ for (i=0;i<12;i++)
 
 //função para criar sprites de maneira mais rápida
 function summon (linhaTabuleiro,colTabuleiro,nome){ 
-    posX = linhaTabuleiro*32+31;
-    posY = colTabuleiro*32+31;
+    var posX = linhaTabuleiro*32+31;
+    var posY = colTabuleiro*32+31;
     
-	
+    console.log("************* posX = " + posX);
+    console.log("************* posY = " + posY);
 	
 	if (posicaoValida(posX,posY)){
         //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
@@ -283,16 +299,16 @@ function criaMovimentacao (sprite){
     
     movimentacao.visible = true;
 	
-
-    
+    console.clear();
+    console.log(spriteSelecionado.key);
 	
 	
 }
 
 //função que atualiza a variavel global "tabuleiro"
 function atualizaPosicao (posX,posY,sprite){
-    linha = (posX-31)/32-1;     
-    coluna = (posY-31)/32-1;
+    var linha = (posX-31)/32-1;     
+    var coluna = (posY-31)/32-1;
     
     //mande 'null' como paramentro para atualizar a posicao do sprite clicado
     if (sprite==null)
@@ -318,16 +334,16 @@ function dentroDoMapa (posX,posY){
 
 
 function removePosicao (posX,posY){
-    linha = (posX-31)/32-1;     
-    coluna = (posY-31)/32-1;
+    var linha = (posX-31)/32-1;     
+    var coluna = (posY-31)/32-1;
     tabuleiro[linha][coluna] = null;
     console.log(linha,coluna);
 }
 
 function encontraUnidade (posX,posY){
 	//transforma a coordenada em pixels para posição do tabuleiro 
-	linha = (posX-31)/32;
-	coluna = (posY-31)/32
+	var linha = (posX-31)/32;
+	var coluna = (posY-31)/32
 	
 	
 	if (dentroDoMapa(posX,posY))                   //evita possiveis erros de indices

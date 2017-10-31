@@ -40,7 +40,7 @@ function create (){
     jogo.addChild(movimentacao);
     jogo.addChild(unidades);
     
-    
+    exibeSprites();
     
     //summon(8,8,'ferumbras');
     
