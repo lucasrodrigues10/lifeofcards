@@ -102,13 +102,6 @@ function deixaResponsivo(){
 	game.scale.pageAlignHorizontally = true;
 	game.scale.setShowAll();
 	game.scale.refresh();
-    
-    
-    /*
-    deixa em fullscreen, só pode ser chamado dentro de um handler.
-    game.scale.startFullScreen(false);
-    game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
-    */
 }
 
 var numLinhas = 12;
@@ -130,11 +123,14 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
     var posX = linhaTabuleiro*32+31;
     var posY = colTabuleiro*32+31;
     
-    console.log("************* posX = " + posX);
-    console.log("************* posY = " + posY);
 	
 	if (posicaoValida(posX,posY)){
+        
         //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
+        var defesa = game.make.text(0,-26,'D:'+6,{font:'8px Arial',fill: "#FF0000"});
+        var ataque = game.make.text(-15,-26,'A:'+3,{font:'8px Arial',fill:"#43d637"});
+        
+        
         var sprite = game.add.sprite(posX,posY,nome);
 
         //adicionando informações da posição do sprite para facilatar posteriores funções
@@ -159,7 +155,25 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 
         //adiciona o sprite ao grupo de unidades
         unidades.add(sprite);
-    
+        
+        
+        defesa.fontWeight = 'bold';
+        defesa.anchor.x = 0.9;
+        defesa.anchor.y = 0.7;
+        defesa.stroke = '#000000';
+        defesa.strokeThickness = 4;
+        
+        ataque.fontWeight = 'bold';
+        ataque.anchor.x = 1;
+        ataque.anchor.y = 0.7;
+        ataque.stroke = '#000000';
+        ataque.strokeThickness = 4;
+        
+        sprite.addChild(defesa);
+        sprite.addChild(ataque);
+        
+       
+        
     } else 
         console.log("posição inválida");
     

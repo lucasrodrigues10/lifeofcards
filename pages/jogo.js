@@ -40,9 +40,9 @@ function create (){
     jogo.addChild(movimentacao);
     jogo.addChild(unidades);
     
-    exibeSprites();
+    //exibeSprites();
     
-    //summon(8,8,'ferumbras');
+    summon(7,7,'minotaur_guard');
     
     
     unidades.callAll('animations.play','animations','right'); 
