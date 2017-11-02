@@ -27,7 +27,9 @@ function loadAssets (){
                 
                 nomeTextura = nomeArquivo.replace(".png",""); //nome da textura do phaser é nome do arquivo sem o '.png' no fim
                 
+
                 game.load.spritesheet(nomeTextura, 'assets/sprites/'+nomeArquivo, tamanhoFrame, tamanhoFrame);  
+
                 
                 listaSprites.push(nomeTextura);
         
@@ -108,6 +110,8 @@ var numLinhas = 12;
 var numColunas = 12;
 var margemLateral = 1;
 var margemVertical = 1;
+
+var listaSprites = [];
 var jogo; //referencia para o sprite do tabuleiro
 var spriteSelecionado;
 
@@ -387,4 +391,25 @@ function defineDirecao(sprite){
     if (sprite.body.velocity.y > 0.1 )
         sprite.direcao = "down";
     spriteSelecionado.animations.play(spriteSelecionado.direcao);
+}
+
+
+function mostraSprites(){
+    coluna = 1;
+    linha = 1;
+    console.log(linha,coluna);
+
+    for (var i=0; i<listaSprites.length;i++){
+       
+        summon(linha,coluna,listaSprites[i]);
+        console.log(linha,coluna);
+        
+        if (i%11==0){
+            coluna +=2;
+            linha = 1;
+        }
+        
+        
+        linha++;
+    }
 }

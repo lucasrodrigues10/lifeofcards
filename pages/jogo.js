@@ -40,13 +40,11 @@ function create (){
     jogo.addChild(movimentacao);
     jogo.addChild(unidades);
     
-    //exibeSprites();
     
-    summon(7,7,'minotaur_guard');
+    mostraSprites();
     
-    
-    unidades.callAll('animations.play','animations','right'); 
-    
+    unidades.callAll('animations.play','animations','down'); 
+
     
     
    

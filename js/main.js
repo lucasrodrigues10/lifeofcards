@@ -121,13 +121,113 @@ $(document).ready(function () {
 
 
     });
+    
+    $('.btn-editar').click(function () {
+ 
+         $('.field').show();
+         
+         $('.btn-editar').hide();
+         
+         $('.btn-enviar').show();
+     });
+     
+     $('.btn-enviar').click(function () {
+         
+     var idad = $('#idade').val();
+     var loc = $('#local').val();
+     var sex = $('#sexo').val();
+     var idu = $('#id').val();
+      $.ajax({
+             type: "POST",
+             url: '/pages/php/editardados.php',
+             data: 
+             { 
+                 idade: idad,
+                 local: loc,
+                 sexo: sex,
+                 id: idu
+                 
+             },
+             success: function(data) {
+              /*  location.reload();
+                $(document).ready(function () {
+                    $('.home').hide();
+                    $('.inventario').hide();
+                    $('.loja').hide();
+                    $('.perfil').show();
+                });*/
+ 	           // console.log(data);
+             }
+         });
+ 
+         $('.field').hide();
+         
+         $('.btn-editar').show();
+         
+         $('.btn-enviar').hide();
+     });
+     
+     
+     
+     $('.img-avatar').click(function () {
+         $('.escolhido').removeClass('escolhido');
+         
+         $(this).addClass('escolhido');
+        //console.log(this);
+     });
+     
+     
+    $('.salvar-avatar').click(function () {
+         
+     var a = $('.escolhido').attr("alt");
+ 	            console.log(a);
+     var idu = $('.escolhido').attr("value");
+     console.log(idu);
+      $.ajax({
+             type: "POST",
+             url: '/pages/php/editaravatar.php',
+             data: 
+             { 
+                 nome: a,
+                 id: idu
+             },
+             success: function(data) {
+                location.reload();
+               /* $(document).ready(function () {
+                    $('.home').hide();
+                    $('.inventario').hide();
+                    $('.loja').hide();
+                    $('.perfil').show();
+                });*/
+ 	            console.log(data);
+             }
+         });
+     });
 
+        
     $('.btn-mostrar').click(function () {
-
+        var x = -1;
         $('.carousel').carousel('pause');
         console.log($('.btn-mostrar').closest('.active').find('h3').html());
-
-
+        if($('.z').closest('.active').hasClass("0"))
+        {
+            x = 1;
+        } else if($('.z').closest('.active').hasClass("1"))
+        {
+            x = 2;
+        } else if($('.z').closest('.active').hasClass("2"))
+        {
+            x = 3;
+        }
+        $('.p'+x).show();
+        if($('.collapse').hasClass('show'))
+        {
+            $('.carta').hide();
+        }
+    });
+    
+    $('.btn-danger').click(function () {  
+        
     });
 
     $('#opt-log').click(function () {
