@@ -365,6 +365,7 @@ $a = 0;
             </div>
             <div class="modal-body mx-auto">
                 <div class="form-group">
+                    <p style="font-size:1rem;color:black;font-family:'Francois One', sans-serif;text-align: center; "> Seu ID: <?php echo $id ?> </p>
                     <input class="form-control" id="input-add-amigo"
                            placeholder="ID Amigo" name="amigo">
                 </div>
@@ -545,6 +546,71 @@ $a = 0;
 
 </div>
 
+<div class="modal fade bd-example2-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="exampleModalLongTitle">Trocar avatar</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                    <span aria-hidden="true">&times;</span>
+
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="container-fluid text-center">
+
+                    <div class="row">
+
+
+                        <div class="col">
+                            <?php
+                            $dir = '../img/avatar/';
+                            $scan = scandir($dir);
+                 
+                            for ($i=0; $i<count($scan); $i++) {
+                             if ($scan[$i] != '.' && $scan[$i] != '..') {
+                             echo '
+                            
+                             
+                               <img class="img-avatar ' . $scan[$i] .'" value= "'. $id . '" height="100"src="'. $dir . $scan[$i] . '" alt="'. $scan[$i] . '" />
+                             
+                             ';
+                             }  
+                            }
+                            ?>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Descartar</button>
+
+                <button type="button" class="btn btn-primary salvar-avatar">Salvar</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <!--Barra de navegação de cima -->
 
@@ -715,6 +781,7 @@ $a = 0;
                     <img src="../img/avatar/<?php if (isset($avatar_imagem)) echo($avatar_imagem); ?> "
 
                          class="img-fluid img-thumbnail rounded mx-auto d-block rounded "
+                         data-toggle="modal" data-target=".bd-example2-modal-lg"
 
                          alt="Responsive image "
 
