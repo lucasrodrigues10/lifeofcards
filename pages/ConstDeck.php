@@ -167,14 +167,14 @@ if ($result->num_rows > 0) {
                             $aux2 = 0;
                             $cont = 0;
                             $cont1 = 0;
-                            
+
                             while($cont < $aux){
 
-                            $query = "SELECT * FROM Cartas WHERE (IDtema= 1) AND (IDcarta = '$IDcarta[$cont]')";
+                                $query = "SELECT * FROM Cartas WHERE (IDtema= 1) AND (IDcarta = '$IDcarta[$cont]')";
 
-                            $result = $conn->query($query);
+                                $result = $conn->query($query);
 
-                            if ($result->num_rows > 0) {
+                                if ($result->num_rows > 0) {
 
                             ?>
 
@@ -182,9 +182,9 @@ if ($result->num_rows > 0) {
 
                                 <?php
 
-                                while ($row = $result->fetch_assoc()) {
+                                    while ($row = $result->fetch_assoc()) {
 
-                                    $General[$aux2] = $row["General"];
+                                        $General[$aux2] = $row["General"];
 
                                 ?>
 
@@ -194,15 +194,15 @@ if ($result->num_rows > 0) {
 
                                         <?php
 
-                                    $Nome_Carta[$aux2] = $row["Nome"];
+                                        $Nome_Carta[$aux2] = $row["Nome"];
 
-                                    $Descricao_Carta[$aux2] = $row["Descricao"];
+                                        $Descricao_Carta[$aux2] = $row["Descricao"];
 
-                                    $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
+                                        $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
 
-                                    $Ataque_Carta[$aux2] = $row["Ataque"];
+                                        $Ataque_Carta[$aux2] = $row["Ataque"];
 
-                                    $Vida_Carta[$aux2] = $row["Vida"];
+                                        $Vida_Carta[$aux2] = $row["Vida"];
 
                                         ?>
 
@@ -236,21 +236,21 @@ if ($result->num_rows > 0) {
 
 
                                     </div>
-                                    
+
                                     <?php if ($Quantidade[$cont] > 0){ ?>
-                                            
+
                                     <div class="Quantidade">
                                         <p>x<span class="Qtde"><?php echo $Quantidade[$cont] ?></span></p>
                                     </div>
-                                    
+
                                     <?php } ?>
 
                                 </div>
 
 
                                 <?php
-                                            $aux2 = $aux2 +1;
-                                }
+                                        $aux2 = $aux2 +1;
+                                    }
 
                                 ?>
 
@@ -260,7 +260,7 @@ if ($result->num_rows > 0) {
 
                             <?php
 
-                            }
+                                }
                                 $cont++;
                             }
 
@@ -765,15 +765,39 @@ if ($result->num_rows > 0) {
 
                 //Adiciona Cartas no Deck
 
-                $('.Adicionar').click(function() {
+                $('.Adicionar').on("click", function(e) {
+                    e.preventDefault();
+                    var Nome = $(this).closest("div").find(".Nome").text();
                     var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
                     var Total = parseInt($(".Total").text());
+                    var QuantidadeCarta = 0;
+
+
 
                     if(Qtde<1 || count === 0 || Total === 20){
                         $(this).click(false);
                     }
                     else{
-                        $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><h3 class="nome-carta">'+$(this).closest("div").find(".Nome").text()+'</h3></div>');
+
+                        //Checa se ja tem carta igual adicionada
+                        $('.Adicionado').each(function(i){ // Seleciona div adicionado
+
+                            $(this).find(".RemoveCarta").find(".nome-carta").each(function(i){ //Seleciona cada carta no div
+                                if($(this).text() === Nome){
+                                    QuantidadeCarta = parseInt($(this).closest("div").find(".Amount").text());
+                                    QuantidadeCarta = QuantidadeCarta + 1;
+                                    $(this).closest("div").find(".Amount").text(QuantidadeCarta);
+                                    console.log(QuantidadeCarta);
+                                }
+                            });
+                        });
+
+                        //Adiciona carta nova se nao foi adicionada ainda
+                        if(isNaN(QuantidadeCarta) || QuantidadeCarta < 1){
+                            $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><h3 class="nome-carta">'+Nome+'</h3><h3>x<span class="Amount">1</span></h3></div>');
+                        }
+
+
                         Qtde = Qtde - 1;
                         $(this).closest("div").find(".Qtde").text(Qtde);
                         $('.Total').text(parseInt($('.Total').text()) + 1);
@@ -781,8 +805,15 @@ if ($result->num_rows > 0) {
                 });    
                 $('.Adicionado').on("click", ".RemoveCarta", function(e){
                     e.preventDefault();
-                    $(this).hide();
-                    var Nome = $(this).text();
+                    var NumeroCartas = parseInt($(this).find(".Amount").text());
+
+                    NumeroCartas = NumeroCartas - 1;
+                    if(NumeroCartas < 1){
+                        $(this).remove();
+                    }else{
+                        $(this).closest("div").find(".Amount").text(NumeroCartas);
+                    }
+                    var Nome = $(this).find(".nome-carta").text();
                     $('.Total').text(parseInt($('.Total').text()) - 1);
                     $('.Adicionar').each(function(i){
                         if($(this).closest("div").find(".Nome").text() === Nome){
@@ -792,6 +823,7 @@ if ($result->num_rows > 0) {
                         }
                     });
                 });
+
             });
         </script>
         <!-- Geral script from site -->
