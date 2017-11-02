@@ -206,24 +206,25 @@ $(document).ready(function () {
 
         
     $('.btn-mostrar').click(function () {
-        var x = -1;
         $('.carousel').carousel('pause');
         console.log($('.btn-mostrar').closest('.active').find('h3').html());
-        if($('.z').closest('.active').hasClass("0"))
-        {
-            x = 1;
-        } else if($('.z').closest('.active').hasClass("1"))
-        {
-            x = 2;
-        } else if($('.z').closest('.active').hasClass("2"))
-        {
-            x = 3;
-        }
-        $('.p'+x).show();
+        var x = $('.btn-mostrar').closest('.active').find('h3').html();
+         $.ajax({
+             type: "POST",
+             url: '/pages/php/mostrarcartas.php',
+             data: 
+             { 
+                 nome: x
+             },
+             success: function(data) {
+                 $('#collapseExample').html(data);
+             }
+         });
         if($('.collapse').hasClass('show'))
         {
             $('.carta').hide();
         }
+        
     });
     
     $('.btn-danger').click(function () {  
