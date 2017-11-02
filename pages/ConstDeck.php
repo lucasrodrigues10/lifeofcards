@@ -632,6 +632,7 @@ if ($result->num_rows > 0) {
                 </div>
             </div>
         </div>
+        
         <!--Footer -->
         <nav class="navbar fixed-bottom navbar-light bg-faded nav-bottom ">
             <div class="row justify-content-between ">
