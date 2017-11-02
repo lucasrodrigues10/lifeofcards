@@ -365,6 +365,7 @@ $a = 0;
             </div>
             <div class="modal-body mx-auto">
                 <div class="form-group">
+                    <p style="font-size:1rem;color:black;font-family:'Francois One', sans-serif;text-align: center; "> Seu ID: <?php echo $id ?> </p>
                     <input class="form-control" id="input-add-amigo"
                            placeholder="ID Amigo" name="amigo">
                 </div>
