@@ -26,10 +26,15 @@ function create (){
     
     jogo = game.add.sprite( 0 ,0, 'tabuleiro');
     
+    textoAtk = game.add.group(); //grupo para renderizar as informaçoes das cartas no tabuleiro
+    textoAtk.visible = true;
+    
+    textoDef = game.add.group(); //grupo para renderizar as informaçoes das cartas no tabuleiro
+    textoDef.visible = true;
+    
     
     movimentacao = game.add.group(); // grupo para movimentação das unidades
     movimentacao.visible = false;
-    
     
     
     unidades = game.add.group(); //grupo para renderizar a "layer" das cartas no tabuleiro
@@ -41,7 +46,6 @@ function create (){
     jogo.addChild(unidades);
     
     
-    mostraSprites();
     
     unidades.callAll('animations.play','animations','down'); 
 
@@ -54,6 +58,8 @@ function create (){
 }
 
 function update (){
+    
+    atualizaTexto();
     
 }
     

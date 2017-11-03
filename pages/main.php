@@ -583,7 +583,7 @@ $a = 0;
                              echo '
                             
                              
-                               <img class="img-avatar ' . $scan[$i] .'" value= "'. $id . '" height="100"src="'. $dir . $scan[$i] . '" alt="'. $scan[$i] . '" />
+                               <img class="img-avatar ' . $scan[$i] .'" value= "'. $id . '" src="'. $dir . $scan[$i] . '" alt="'. $scan[$i] . '" />
                              
                              ';
                              }  
@@ -1076,9 +1076,13 @@ $a = 0;
 
                                     if (isset($Descricao_Carta[0])) echo($Descricao_Carta[0]); ?></p>
 
-                                <p><?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?> <img
-
-                                            src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
+                                <p class="preco_certo" alt="<?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>">Preço: <?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>
+								<img src="../img/icon/coin.svg" class="icone"></p>
+								
+				<p class="moedas" alt="<?php if (isset($moedas)) echo($moedas); ?>">
+						Suas Moedas: <?php if (isset($moedas)) echo($moedas); ?>
+						<img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
+						
 
                                 <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
 
@@ -1088,7 +1092,7 @@ $a = 0;
 
                                 </button>
 
-                                <button type="button" class="btn btn-danger">Comprar</button>
+                                <button type="button" value=<?php echo $id ?> class="btn btn-danger">Comprar</button>
 
                             </div>
 
@@ -1142,13 +1146,21 @@ $a = 0;
 
                                         if (isset($Descricao_Carta[$aux])) echo($Descricao_Carta[$aux]); ?></p>
 
-                                    <p><?php if (isset($preco_certo[$aux])) echo($preco_certo[$aux]); ?> <img
+                                    <p class="preco_certo" alt="<?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>">Preço: <?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>
+								<img src="../img/icon/coin.svg" class="icone"></p>
+								
+				
 
-                                                src="../img/icon/coin.svg" alt="moeda" class="icone">
 
-                                    </p>
+						<p class="moedas" alt="<?php if (isset($moedas)) echo($moedas); ?>">
+						Suas Moedas: <?php if (isset($moedas)) echo($moedas); ?>
+						<img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
 
-                                    <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
+					
+
+
+
+                                <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
 
                                             data-target="#collapseExample" aria-expanded="false"
 
@@ -1156,7 +1168,7 @@ $a = 0;
 
                                     </button>
 
-                                    <button type="button" class="btn btn-danger">Comprar</button>
+									<button type="button" value=<?php echo $id ?> class="btn btn-danger">Comprar</button>
 
                                 </div>
 
