@@ -207,7 +207,7 @@ $(document).ready(function () {
         
     $('.btn-mostrar').click(function () {
         $('.carousel').carousel('pause');
-        console.log($('.btn-mostrar').closest('.active').find('h3').html());
+        //console.log($('.btn-mostrar').closest('.active').find('h3').html());
         var x = $('.btn-mostrar').closest('.active').find('h3').html();
          $.ajax({
              type: "POST",
@@ -227,8 +227,33 @@ $(document).ready(function () {
         
     });
     
-    $('.btn-danger').click(function () {  
-        
+    $('.btn-danger').click(function () { 
+        var x = $('.btn-mostrar').closest('.active').find('h3').html();
+		var y = $('.moedas').attr("alt");
+		var z = $('.preco_certo').attr("alt");
+		var idu = $('.btn-danger').attr("value");
+		if(z>y)
+		{
+			//nao compra
+			console.log('sem dinhero');
+		}
+		else
+		{
+		    console.log('com dinhero');
+			 $.ajax({
+				 type: "POST",
+				 url: '/pages/php/comprarpacote.php',
+				 data: 
+				 { 
+					 nome: x,
+					 id: idu
+				 },
+				 success: function(data) {
+					 console.log(data);
+					 alert("Pacote Comprado");
+				 }
+			 });
+        }
     });
 
     $('#opt-log').click(function () {
