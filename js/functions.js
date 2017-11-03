@@ -130,11 +130,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 	
 	if (posicaoValida(posX,posY)){
         
-        //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
-        var defesa = game.make.text(0,-26,'D:'+6,{font:'8px Arial',fill: "#FF0000"});
-        var ataque = game.make.text(-15,-26,'A:'+3,{font:'8px Arial',fill:"#43d637"});
-        
-        
+     
         var sprite = game.add.sprite(posX,posY,nome);
 
         //adicionando informações da posição do sprite para facilatar posteriores funções
@@ -161,6 +157,10 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
         unidades.add(sprite);
         
         
+        //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
+        var defesa = game.make.text(sprite.x,sprite.y-26,'D:'+6,{font:'8px Arial',fill: "#FF0000"});
+        var ataque = game.make.text(sprite.x-15,sprite.y-26,'A:'+3,{font:'8px Arial',fill:"#43d637"});
+        
         defesa.fontWeight = 'bold';
         defesa.anchor.x = 0.9;
         defesa.anchor.y = 0.7;
@@ -173,9 +173,11 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
         ataque.stroke = '#000000';
         ataque.strokeThickness = 4;
         
-        sprite.addChild(defesa);
-        sprite.addChild(ataque);
+        textoAtk.add(defesa);
+        textoDef.add(ataque);
         
+        ataque.unidade = sprite;
+        defesa.unidade = sprite;
        
         
     } else 
@@ -185,10 +187,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 }
 
 
-
-
 function move (sprite){
-    console.log("moveu");
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
     
@@ -228,9 +227,7 @@ function move (sprite){
         
         //atualiza a posição do sprite movimentado na matriz.
         atualizaPosicao(spriteSelecionado.x,spriteSelecionado.y,null);
-        
-        console.log("terminou de mover");
-        
+               
     
     }, this);
 	
@@ -244,17 +241,11 @@ function moveSec (sprite){
     game.time.events.onComplete.add(function(){
         game.time.events.removeAll();
         move(sprite);
-        console.log("move pela segunda vez");
         
     })
     
 	
 }
- 
-
-
-
-
 
 function criaMovimentacao (sprite){
     
@@ -345,11 +336,9 @@ function foraDoMapa (posX,posY){
         return false;
 }
 
-
 function dentroDoMapa (posX,posY){
     return !(foraDoMapa(posX,posY));
 }
-
 
 function removePosicao (posX,posY){
     var linha = (posX-31)/32-1;     
@@ -379,7 +368,6 @@ function posicaoValida(posX,posY){
         return false;
 } 
 
-
 //encontra a direção em que o sprite está se movendo
 function defineDirecao(sprite){
     if (sprite.body.velocity.x > 0.1)           //OBS: coloquei 0.1 porque com 0 dava errado
@@ -404,7 +392,7 @@ function mostraSprites(){
         summon(linha,coluna,listaSprites[i]);
         console.log(linha,coluna);
         
-        if (i%11==0){
+        if (i%11==0 && i!=0){
             coluna +=2;
             linha = 1;
         }
@@ -412,4 +400,16 @@ function mostraSprites(){
         
         linha++;
     }
+}
+
+function atualizaTexto(){
+    textoAtk.forEachAlive(function(texto){
+        texto.x = texto.unidade.x-15;
+        texto.y = texto.unidade.y-26;
+    })
+    textoDef.forEachAlive(function(texto){
+        texto.x = texto.unidade.x;
+        texto.y = texto.unidade.y-26;
+
+    })
 }

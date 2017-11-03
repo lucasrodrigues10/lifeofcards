@@ -5,7 +5,7 @@ session_start();
 include "php/db.php";
 
 
-// REMOVIDO TEMPORARIAMENTE PARA FACILITAR Tdesenvolvimento
+// removido pra facilitar debugaem
 /*if (empty($_SESSION["id"])) {
     header("Location: login.php");
 }
@@ -13,6 +13,7 @@ include "php/db.php";
 
 $id = $_SESSION["id"];
 $DeckID = $_GET["id"];
+
 $query = "SELECT * FROM UsuarioNoJogo WHERE IDusuario = '$id'";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
@@ -24,6 +25,20 @@ if ($result->num_rows > 0) {
     $vitorias = $row["Vitorias"];
     $derrotas = $row["Derrotas"];
 }
+
+/* Fazer queries para recuperar cartas que já estão no deck */
+
+$query = "SELECT * FROM Cartas_Usuario WHERE IDusuario = '$id'";
+$result = $conn->query($query);
+$aux = 0;
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {   
+        $IDcarta[$aux] = $row["IDcarta"];
+        $Quantidade[$aux] = $row["Qtde"];
+        $aux = $aux+1;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -106,7 +121,65 @@ if ($result->num_rows > 0) {
         <div class="row">
             <div class="col-12">
                 <div class="container">
-                    
+                     <div class="card card-block" style="color:black;margin:2em auto 4em auto">
+
+                            <?php
+
+                            $aux2 = 0;
+                            $cont = 0;
+                            $cont1 = 0;
+                            while($cont < $aux){
+                                $query = "SELECT * FROM Cartas WHERE (IDtema= 1) AND (IDcarta = '$IDcarta[$cont]')";
+                                $result = $conn->query($query);
+                                if ($result->num_rows > 0) {
+                            ?>
+                            <div class="row equal" style="height: ;">
+                                <?php
+                                    while ($row = $result->fetch_assoc()) {
+                                        $General[$aux2] = $row["General"];
+                                ?>
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Postura<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
+                                    <div class="carta " style="border:5px solid black;border-radius: 10px;">
+                                        <?php
+                                        $Nome_Carta[$aux2] = $row["Nome"];
+                                        $Descricao_Carta[$aux2] = $row["Descricao"];
+                                        $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
+                                        $Ataque_Carta[$aux2] = $row["Ataque"];
+                                        $Vida_Carta[$aux2] = $row["Vida"];
+                                        ?>
+                                        <div class="nome Nome" style="Height:5%">
+                                            <p style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
+                                        </div>
+                                        <div class="imagem" style="Height:50%;border:1px solid black;margin: 2%;">
+                                            <img style="height:100%;width:100%"src="../img/cartas/<?php echo $Imagem_Carta[$aux2] ?> ">
+                                        </div>
+                                        <div class="descricao" style="Height:35%;border:1px solid black;margin: 2%;padding:2%;">
+                                            <p style="text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
+                                        </div>
+                                        <div class="stats" style="Height:5%;padding-right:2%;">
+                                            <p style="text-align: right"><?php echo $Ataque_Carta[$aux2] ?>
+                                                / <?php echo $Vida_Carta[$aux2] ?></p>
+                                        </div>
+                                    </div>
+                                    <?php if ($Quantidade[$cont] > 0){ ?>
+                                    <div class="Quantidade">
+                                        <p>x<span class="Qtde"><?php echo $Quantidade[$cont] ?></span></p>
+                                    </div>
+                                    <?php } ?>
+                                </div>
+
+                                <?php
+                                        $aux2 = $aux2 +1;
+                                    }
+                                ?>
+                            </div>
+                            <?php
+                                }
+                                $cont++;
+                            }
+                            ?>
+                        </div>
+
                 </div>     
             </div>
         </div>
