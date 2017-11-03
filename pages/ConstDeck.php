@@ -19,7 +19,6 @@ if ($result->num_rows > 0) {
 }
 
 
-
 /* Fazer queries para recuperar cartas que já estão no deck */
 
 $query = "SELECT * FROM Cartas_Usuario WHERE IDusuario = '$id'";
@@ -32,6 +31,32 @@ if ($result->num_rows > 0) {
         $aux = $aux+1;
     }
 }
+
+$IDCartaDeck = array();
+$QtdeCartaDeck = array();
+$CartaSelecionada = array();
+$EhGeneral = array();
+$auxCartasDeck = 0;
+
+$query = "SELECT * FROM Cartas_Deck WHERE IDdeck = '$DeckID'";
+$result = $conn->query($query);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {   
+        $IDCartaDeck[$auxCartasDeck] = $row["IDcarta"];
+        $QtdeCartaDeck[$auxCartasDeck] = $row["QtdeCartas"];
+        $query = "SELECT * FROM Cartas WHERE IDcarta = '$IDCartaDeck[$auxCartasDeck]'";
+        $result1 = $conn->query($query);
+        if ($result1->num_rows > 0) {
+            $row = $result1->fetch_assoc();
+            $CartaSelecionada[$auxCartasDeck] = $row["Nome"];
+            $EhGeneral[$auxCartasDeck] = $row["General"];
+        }
+        $auxCartasDeck = $auxCartasDeck+1;
+    }
+}
+
+
+
 
 ?>
 
@@ -168,7 +193,7 @@ if ($result->num_rows > 0) {
                             $cont = 0;
                             $cont1 = 0;
 
-                            while($cont < $aux){
+                            while($cont < $aux){ // Percorre Cartas que o usuário possui
 
                                 $query = "SELECT * FROM Cartas WHERE (IDtema= 1) AND (IDcarta = '$IDcarta[$cont]')";
 
@@ -206,9 +231,9 @@ if ($result->num_rows > 0) {
 
                                         ?>
 
-                                        <div class="nome Nome" style="Height:5%">
+                                        <div class="nome" style="Height:5%">
 
-                                            <p style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
+                                            <p class="Nome" style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
 
                                         </div>
 
@@ -237,10 +262,22 @@ if ($result->num_rows > 0) {
 
                                     </div>
 
-                                    <?php if ($Quantidade[$cont] > 0){ ?>
+                                    <?php if ($Quantidade[$cont] > 0){ 
+                                            $QuantidadeReal = $Quantidade[$cont];
+                                            $ContadorDeck = 0;
+                                            while ($ContadorDeck < $auxCartasDeck){
+                                                if(isset($IDCartaDeck[$ContadorDeck])){
+                                                    if($IDcarta[$cont] == $IDCartaDeck[$ContadorDeck]){
+                                                        $QuantidadeReal = $Quantidade[$cont] - $QtdeCartaDeck[$ContadorDeck];
+                                                    }
+                                                }
+                                                $ContadorDeck++;
+                                            }
+
+                                    ?>
 
                                     <div class="Quantidade">
-                                        <p>x<span class="Qtde"><?php echo $Quantidade[$cont] ?></span></p>
+                                        <p>x<span class="Qtde"><?php echo ($QuantidadeReal); ?></span></p>
                                     </div>
 
                                     <?php } ?>
@@ -286,49 +323,50 @@ if ($result->num_rows > 0) {
 
 
                             $aux2 = 0;
+                            $cont = 0;
+                            $cont1 = 0;
 
-                            $query = "SELECT * FROM Cartas WHERE IDtema= 2";
+                            while($cont < $aux){ // Percorre Cartas que o usuário possui
 
-                            $result = $conn->query($query);
+                                $query = "SELECT * FROM Cartas WHERE (IDtema= 2) AND (IDcarta = '$IDcarta[$cont]')";
 
-                            if ($result->num_rows > 0) {
+                                $result = $conn->query($query);
 
+                                if ($result->num_rows > 0) {
 
                             ?>
-
-
 
                             <div class="row equal" style="height: ;">
 
                                 <?php
 
-                                while ($row = $result->fetch_assoc()) {
+                                    while ($row = $result->fetch_assoc()) {
 
-                                    $General[$aux2] = $row["General"];
+                                        $General[$aux2] = $row["General"];
 
                                 ?>
 
-                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Tempo<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Postura<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
 
                                     <div class="carta " style="border:5px solid black;border-radius: 10px;">
 
                                         <?php
 
-                                    $Nome_Carta[$aux2] = $row["Nome"];
+                                        $Nome_Carta[$aux2] = $row["Nome"];
 
-                                    $Descricao_Carta[$aux2] = $row["Descricao"];
+                                        $Descricao_Carta[$aux2] = $row["Descricao"];
 
-                                    $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
+                                        $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
 
-                                    $Ataque_Carta[$aux2] = $row["Ataque"];
+                                        $Ataque_Carta[$aux2] = $row["Ataque"];
 
-                                    $Vida_Carta[$aux2] = $row["Vida"];
+                                        $Vida_Carta[$aux2] = $row["Vida"];
 
                                         ?>
 
-                                        <div class="nome Nome" style="Height:5%">
+                                        <div class="nome" style="Height:5%">
 
-                                            <p style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
+                                            <p class="Nome" style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
 
                                         </div>
 
@@ -356,16 +394,33 @@ if ($result->num_rows > 0) {
 
 
                                     </div>
+
+                                    <?php if ($Quantidade[$cont] > 0){ 
+                                            $QuantidadeReal = $Quantidade[$cont];
+                                            $ContadorDeck = 0;
+                                            while ($ContadorDeck < $auxCartasDeck){
+                                                if(isset($IDCartaDeck[$ContadorDeck])){
+                                                    if($IDcarta[$cont] == $IDCartaDeck[$ContadorDeck]){
+                                                        $QuantidadeReal = $Quantidade[$cont] - $QtdeCartaDeck[$ContadorDeck];
+                                                    }
+                                                }
+                                                $ContadorDeck++;
+                                            }
+
+                                    ?>
+
                                     <div class="Quantidade">
-                                        <p>x<span class="Qtde">3</span></p>
+                                        <p>x<span class="Qtde"><?php echo ($QuantidadeReal); ?></span></p>
                                     </div>
+
+                                    <?php } ?>
 
                                 </div>
 
 
                                 <?php
-                                            $aux2 = $aux2 +1;
-                                }
+                                        $aux2 = $aux2 +1;
+                                    }
 
                                 ?>
 
@@ -375,6 +430,8 @@ if ($result->num_rows > 0) {
 
                             <?php
 
+                                }
+                                $cont++;
                             }
 
                             ?>
@@ -399,49 +456,50 @@ if ($result->num_rows > 0) {
 
 
                             $aux2 = 0;
+                            $cont = 0;
+                            $cont1 = 0;
 
-                            $query = "SELECT * FROM Cartas WHERE IDtema= 3";
+                            while($cont < $aux){ // Percorre Cartas que o usuário possui
 
-                            $result = $conn->query($query);
+                                $query = "SELECT * FROM Cartas WHERE (IDtema= 3) AND (IDcarta = '$IDcarta[$cont]')";
 
-                            if ($result->num_rows > 0) {
+                                $result = $conn->query($query);
 
+                                if ($result->num_rows > 0) {
 
                             ?>
-
-
 
                             <div class="row equal" style="height: ;">
 
                                 <?php
 
-                                while ($row = $result->fetch_assoc()) {
+                                    while ($row = $result->fetch_assoc()) {
 
-                                    $General[$aux2] = $row["General"];
+                                        $General[$aux2] = $row["General"];
 
                                 ?>
 
-                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Swarm<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Postura<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
 
                                     <div class="carta " style="border:5px solid black;border-radius: 10px;">
 
                                         <?php
 
-                                    $Nome_Carta[$aux2] = $row["Nome"];
+                                        $Nome_Carta[$aux2] = $row["Nome"];
 
-                                    $Descricao_Carta[$aux2] = $row["Descricao"];
+                                        $Descricao_Carta[$aux2] = $row["Descricao"];
 
-                                    $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
+                                        $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
 
-                                    $Ataque_Carta[$aux2] = $row["Ataque"];
+                                        $Ataque_Carta[$aux2] = $row["Ataque"];
 
-                                    $Vida_Carta[$aux2] = $row["Vida"];
+                                        $Vida_Carta[$aux2] = $row["Vida"];
 
                                         ?>
 
-                                        <div class="nome Nome" style="Height:5%">
+                                        <div class="nome" style="Height:5%">
 
-                                            <p style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
+                                            <p class="Nome" style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
 
                                         </div>
 
@@ -469,16 +527,33 @@ if ($result->num_rows > 0) {
 
 
                                     </div>
+
+                                    <?php if ($Quantidade[$cont] > 0){ 
+                                            $QuantidadeReal = $Quantidade[$cont];
+                                            $ContadorDeck = 0;
+                                            while ($ContadorDeck < $auxCartasDeck){
+                                                if(isset($IDCartaDeck[$ContadorDeck])){
+                                                    if($IDcarta[$cont] == $IDCartaDeck[$ContadorDeck]){
+                                                        $QuantidadeReal = $Quantidade[$cont] - $QtdeCartaDeck[$ContadorDeck];
+                                                    }
+                                                }
+                                                $ContadorDeck++;
+                                            }
+
+                                    ?>
+
                                     <div class="Quantidade">
-                                        <p>x<span class="Qtde">3</span></p>
+                                        <p>x<span class="Qtde"><?php echo ($QuantidadeReal); ?></span></p>
                                     </div>
+
+                                    <?php } ?>
 
                                 </div>
 
 
                                 <?php
-                                            $aux2 = $aux2 +1;
-                                }
+                                        $aux2 = $aux2 +1;
+                                    }
 
                                 ?>
 
@@ -488,6 +563,8 @@ if ($result->num_rows > 0) {
 
                             <?php
 
+                                }
+                                $cont++;
                             }
 
                             ?>
@@ -512,12 +589,16 @@ if ($result->num_rows > 0) {
 
 
                             $aux2 = 0;
+                            $cont=0;
+                            $cont1 = 0;
 
-                            $query = "SELECT * FROM Cartas WHERE IDtema= 4";
+                            while($cont < $aux){
 
-                            $result = $conn->query($query);
+                                $query = "SELECT * FROM Cartas WHERE (IDtema= 4) AND (IDcarta = '$IDcarta[$cont]')";
 
-                            if ($result->num_rows > 0) {
+                                $result = $conn->query($query);
+
+                                if ($result->num_rows > 0) {
 
 
                             ?>
@@ -528,7 +609,7 @@ if ($result->num_rows > 0) {
 
                                 <?php
 
-                                while ($row = $result->fetch_assoc()) {
+                                    while ($row = $result->fetch_assoc()) {
 
                                 ?>
 
@@ -538,21 +619,21 @@ if ($result->num_rows > 0) {
 
                                         <?php
 
-                                    $Nome_Carta[$aux2] = $row["Nome"];
+                                        $Nome_Carta[$aux2] = $row["Nome"];
 
-                                    $Descricao_Carta[$aux2] = $row["Descricao"];
+                                        $Descricao_Carta[$aux2] = $row["Descricao"];
 
-                                    $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
+                                        $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
 
-                                    $Ataque_Carta[$aux2] = $row["Ataque"];
+                                        $Ataque_Carta[$aux2] = $row["Ataque"];
 
-                                    $Vida_Carta[$aux2] = $row["Vida"];
+                                        $Vida_Carta[$aux2] = $row["Vida"];
 
                                         ?>
 
-                                        <div class="nome Nome" style="Height:5%">
+                                        <div class="nome" style="Height:5%">
 
-                                            <p style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
+                                            <p class="Nome" style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
 
                                         </div>
 
@@ -580,16 +661,32 @@ if ($result->num_rows > 0) {
 
 
                                     </div>
+                                    <?php if ($Quantidade[$cont] > 0){ 
+                                            $QuantidadeReal = $Quantidade[$cont];
+                                            $ContadorDeck = 0;
+                                            while ($ContadorDeck < $auxCartasDeck){
+                                                if(isset($IDCartaDeck[$ContadorDeck])){
+                                                    if($IDcarta[$cont] == $IDCartaDeck[$ContadorDeck]){
+                                                        $QuantidadeReal = $Quantidade[$cont] - $QtdeCartaDeck[$ContadorDeck];
+                                                    }
+                                                }
+                                                $ContadorDeck++;
+                                            }
+
+                                    ?>
+
                                     <div class="Quantidade">
-                                        <p>x<span class="Qtde">3</span></p>
+                                        <p>x<span class="Qtde"><?php echo ($QuantidadeReal); ?></span></p>
                                     </div>
+
+                                    <?php } ?>
 
                                 </div>
 
 
                                 <?php
-                                            $aux2 = $aux2 +1;
-                                }
+                                        $aux2 = $aux2 +1;
+                                    }
 
                                 ?>
 
@@ -599,6 +696,8 @@ if ($result->num_rows > 0) {
 
                             <?php
 
+                                }
+                                $cont++;
                             }
 
                             ?>
@@ -617,9 +716,31 @@ if ($result->num_rows > 0) {
                     <form role="form" action="php/salve.php" method="post">
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb Generalizado">
                             <h3>General Selecionado</h3>
+                            <?php 
+                            $contador = 0;
+                            while($contador < $auxCartasDeck){
+                                if(isset($EhGeneral[$contador]))
+                                    if($EhGeneral[$contador] > 0){
+                            ?>
+                            <div class="col-lg-6 col-md-7 col-xs-12 Chefao">
+                                <input class="InputGeneral" type="hidden" name="General" value="<?php echo $CartaSelecionada[$contador]?>">
+                                <h3 class="nome-carta"><?php echo $CartaSelecionada[$contador] ?></h3>
+                            </div>
+                            <?php }$contador++;}?>
                         </div>
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb Adicionado">
                             <h3>Cartas Selecionadas</h3>
+                            <?php 
+                            $contador = 0;
+                            while($contador < $auxCartasDeck){
+                                if(isset($EhGeneral[$contador]))
+                                    if($EhGeneral[$contador] < 1){
+                            ?>
+                            <div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta">
+                                <h3 class="nome-carta"><?php if(isset($CartaSelecionada[$contador])) echo ($CartaSelecionada[$contador]); ?></h3>
+                                <h3>x<span class="Amount"><?php if(isset($QtdeCartaDeck[$contador])) echo ($QtdeCartaDeck[$contador]); ?></span></h3>
+                            </div>
+                            <?php }$contador++; }?>
                         </div>
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
                             <h3>Cartas no deck:</h3>
@@ -630,6 +751,7 @@ if ($result->num_rows > 0) {
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
                             <button type="submit" name="submit" class="btn-fullscreen btn-log">Salvar Deck</button>
                         </div>
+                        <input type="hidden" name="DeckID" value="<?php echo($DeckID); ?>">
                     </form>
                 </div>
             </div>
@@ -747,11 +869,21 @@ if ($result->num_rows > 0) {
                         $(this).click(false);
                     }
                     else{
-                        $('.Generalizado').append('<div class="col-lg-6 col-md-7 col-xs-12 Chefao"><h3 class="nome-carta">'+$(this).closest("div").find(".Nome").text()+'</h3></div>');
+
+                        var NomeGeneral = $(this).closest("div").find(".Nome").text();
+
+                        $('.Generalizado').append('<div class="col-lg-6 col-md-7 col-xs-12 Chefao"><input class="InputGeneral" type="hidden" name="General" value=""><h3 class="nome-carta">'+NomeGeneral+'</h3></div>');
                         Qtde = Qtde - 1;
                         $(this).closest("div").find(".Qtde").text(Qtde);
                         $('.Total').text(parseInt($('.Total').text()) + 1);
                         count = count + 1 ;
+
+                        //Altera valor do input do general
+                        var InputGeneral = $('.Generalizado').closest("div").find('.InputGeneral');
+                        if(!InputGeneral.val()){
+                            InputGeneral.attr('value', NomeGeneral);
+                        }
+
                         $('.General').css("color", "gray");
                         $('.Adicionar').css("color", "black");
                         $('.carta').css("border-color", "black");
@@ -774,8 +906,6 @@ if ($result->num_rows > 0) {
                     var Total = parseInt($(".Total").text());
                     var QuantidadeCarta = 0;
 
-
-
                     if(Qtde<1 || count === 0 || Total === 20){
                         $(this).click(false);
                     }
@@ -797,9 +927,9 @@ if ($result->num_rows > 0) {
                         //Adiciona carta nova se nao foi adicionada ainda
                         if(isNaN(QuantidadeCarta) || QuantidadeCarta < 1){
                             $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><input class="InputNome" type="hidden" name="carta[]" value=""></input><h3 class="nome-carta">'+Nome+'</h3><input class="InputQtde" type="hidden" name="QtdeCarta[]"></input><h3>x<span class="Amount">1</span></h3></div>');
-                            
+
                             //Adiciona valor no input para mandar para a pagina salve.php para adicionar no banco de dados
-                            
+
                             $('.RemoveCarta').each(function(i){
                                 var NomeCarta = $(this).find(".nome-carta").text();
                                 var InputNome = $(this).find(".InputNome");
