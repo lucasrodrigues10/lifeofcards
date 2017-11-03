@@ -614,21 +614,23 @@ if ($result->num_rows > 0) {
             </div>
             <div class="col-4">
                 <div class="container">
-                    <div class="col-lg-6 col-md-7 col-xs-12 thumb Generalizado">
-                        <h3>General Selecionado</h3>
-                    </div>
-                    <div class="col-lg-6 col-md-7 col-xs-12 thumb Adicionado">
-                        <h3>Cartas Selecionadas</h3>
-                    </div>
-                    <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                        <h3>Cartas no deck:</h3>
-                    </div>
-                    <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                        <h5 class="nome-carta"><span class="Total">0</span>/20</h5>
-                    </div>
-                    <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                        <button type="button" class="btn btn-primary btn-lg">Salvar Deck</button>
-                    </div>
+                    <form role="form" action="php/salve.php" method="post">
+                        <div class="col-lg-6 col-md-7 col-xs-12 thumb Generalizado">
+                            <h3>General Selecionado</h3>
+                        </div>
+                        <div class="col-lg-6 col-md-7 col-xs-12 thumb Adicionado">
+                            <h3>Cartas Selecionadas</h3>
+                        </div>
+                        <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
+                            <h3>Cartas no deck:</h3>
+                        </div>
+                        <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
+                            <h5 class="nome-carta"><span class="Total">0</span>/20</h5>
+                        </div>
+                        <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
+                            <button type="submit" name="submit" class="btn-fullscreen btn-log">Salvar Deck</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -782,20 +784,32 @@ if ($result->num_rows > 0) {
 
                         //Checa se ja tem carta igual adicionada
                         $('.Adicionado').each(function(i){ // Seleciona div adicionado
-
                             $(this).find(".RemoveCarta").find(".nome-carta").each(function(i){ //Seleciona cada carta no div
                                 if($(this).text() === Nome){
                                     QuantidadeCarta = parseInt($(this).closest("div").find(".Amount").text());
                                     QuantidadeCarta = QuantidadeCarta + 1;
+                                    var Input = $(this).closest("div").find('.InputQtde');
                                     $(this).closest("div").find(".Amount").text(QuantidadeCarta);
-                                    console.log(QuantidadeCarta);
+                                    Input.attr('value', QuantidadeCarta); //adiciona valor do input caso quantidade de cartas seja acrescentado
                                 }
                             });
                         });
 
                         //Adiciona carta nova se nao foi adicionada ainda
                         if(isNaN(QuantidadeCarta) || QuantidadeCarta < 1){
-                            $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><h3 class="nome-carta">'+Nome+'</h3><h3>x<span class="Amount">1</span></h3></div>');
+                            $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><input class="InputNome" type="hidden" name="carta[]" value=""></input><h3 class="nome-carta">'+Nome+'</h3><input class="InputQtde" type="hidden" name="QtdeCarta[]"></input><h3>x<span class="Amount">1</span></h3></div>');
+                            
+                            //Adiciona valor no input para mandar para a pagina salve.php para adicionar no banco de dados
+                            
+                            $('.RemoveCarta').each(function(i){
+                                var NomeCarta = $(this).find(".nome-carta").text();
+                                var InputNome = $(this).find(".InputNome");
+                                var InputQtde = $(this).find(".InputQtde");
+                                if(!InputNome.val()){
+                                    InputNome.attr('value', NomeCarta);
+                                    InputQtde.attr('value', 1);
+                                }
+                            });
                         }
 
 
@@ -813,6 +827,7 @@ if ($result->num_rows > 0) {
                         $(this).remove();
                     }else{
                         $(this).closest("div").find(".Amount").text(NumeroCartas);
+                        $(this).closest("div").find(".InputQtde").attr('value', NumeroCartas); //Atualiza quantidade de cartas no input para enviar no salve.php
                     }
                     var Nome = $(this).find(".nome-carta").text();
                     $('.Total').text(parseInt($('.Total').text()) - 1);

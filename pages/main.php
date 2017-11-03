@@ -365,6 +365,7 @@ $a = 0;
             </div>
             <div class="modal-body mx-auto">
                 <div class="form-group">
+                    <p style="font-size:1rem;color:black;font-family:'Francois One', sans-serif;text-align: center; "> Seu ID: <?php echo $id ?> </p>
                     <input class="form-control" id="input-add-amigo"
                            placeholder="ID Amigo" name="amigo">
                 </div>
@@ -545,6 +546,71 @@ $a = 0;
 
 </div>
 
+<div class="modal fade bd-example2-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="exampleModalLongTitle">Trocar avatar</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                    <span aria-hidden="true">&times;</span>
+
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="container-fluid text-center">
+
+                    <div class="row">
+
+
+                        <div class="col">
+                            <?php
+                            $dir = '../img/avatar/';
+                            $scan = scandir($dir);
+                 
+                            for ($i=0; $i<count($scan); $i++) {
+                             if ($scan[$i] != '.' && $scan[$i] != '..') {
+                             echo '
+                            
+                             
+                               <img class="img-avatar ' . $scan[$i] .'" value= "'. $id . '" src="'. $dir . $scan[$i] . '" alt="'. $scan[$i] . '" />
+                             
+                             ';
+                             }  
+                            }
+                            ?>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Descartar</button>
+
+                <button type="button" class="btn btn-primary salvar-avatar">Salvar</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <!--Barra de navegação de cima -->
 
@@ -715,6 +781,7 @@ $a = 0;
                     <img src="../img/avatar/<?php if (isset($avatar_imagem)) echo($avatar_imagem); ?> "
 
                          class="img-fluid img-thumbnail rounded mx-auto d-block rounded "
+                         data-toggle="modal" data-target=".bd-example2-modal-lg"
 
                          alt="Responsive image "
 
@@ -1009,9 +1076,13 @@ $a = 0;
 
                                     if (isset($Descricao_Carta[0])) echo($Descricao_Carta[0]); ?></p>
 
-                                <p><?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?> <img
-
-                                            src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
+                                <p class="preco_certo" alt="<?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>">Preço: <?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>
+								<img src="../img/icon/coin.svg" class="icone"></p>
+								
+				<p class="moedas" alt="<?php if (isset($moedas)) echo($moedas); ?>">
+						Suas Moedas: <?php if (isset($moedas)) echo($moedas); ?>
+						<img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
+						
 
                                 <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
 
@@ -1021,7 +1092,7 @@ $a = 0;
 
                                 </button>
 
-                                <button type="button" class="btn btn-danger">Comprar</button>
+                                <button type="button" value=<?php echo $id ?> class="btn btn-danger">Comprar</button>
 
                             </div>
 
@@ -1075,13 +1146,21 @@ $a = 0;
 
                                         if (isset($Descricao_Carta[$aux])) echo($Descricao_Carta[$aux]); ?></p>
 
-                                    <p><?php if (isset($preco_certo[$aux])) echo($preco_certo[$aux]); ?> <img
+                                    <p class="preco_certo" alt="<?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>">Preço: <?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>
+								<img src="../img/icon/coin.svg" class="icone"></p>
+								
+				
 
-                                                src="../img/icon/coin.svg" alt="moeda" class="icone">
 
-                                    </p>
+						<p class="moedas" alt="<?php if (isset($moedas)) echo($moedas); ?>">
+						Suas Moedas: <?php if (isset($moedas)) echo($moedas); ?>
+						<img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
 
-                                    <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
+					
+
+
+
+                                <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
 
                                             data-target="#collapseExample" aria-expanded="false"
 
@@ -1089,7 +1168,7 @@ $a = 0;
 
                                     </button>
 
-                                    <button type="button" class="btn btn-danger">Comprar</button>
+									<button type="button" value=<?php echo $id ?> class="btn btn-danger">Comprar</button>
 
                                 </div>
 
@@ -1128,96 +1207,7 @@ $a = 0;
 
     <div class="collapse" id="collapseExample">
 
-        <div class="card card-block" style="color:black;margin:2em auto 4em auto">
-
-            <?php
-
-
-            $aux2 = 0;
-
-            $query = "SELECT * FROM Cartas WHERE IDpacote= '$IDproduto[$aux2]'";
-
-            $result = $conn->query($query);
-
-            if ($result->num_rows > 0) {
-
-                ?>
-
-
-                <div class="row equal" style="height: ;">
-
-                    <?php
-
-                    while ($row = $result->fetch_assoc()) {
-
-                        ?>
-
-                        <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch">
-
-                            <div class="carta" style="border:5px solid black;border-radius: 10px;">
-
-                                <?php
-
-                                $Nome_Carta[$aux2] = $row["Nome"];
-
-                                $Descricao_Carta[$aux2] = $row["Descricao"];
-
-                                $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
-
-                                $Ataque_Carta[$aux2] = $row["Ataque"];
-
-                                $Vida_Carta[$aux2] = $row["Vida"];
-
-                                ?>
-
-                                <div class="nome" style="Height:5%">
-
-                                    <p style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
-
-                                </div>
-
-                                <div class="imagem" style="Height:50%;border:1px solid black;margin: 2%;">
-
-                                    <img style="height:100%;width:100%"
-
-                                         src="../img/cartas/<?php echo $Imagem_Carta[$aux2] ?> ">
-
-                                </div>
-
-                                <div class="descricao" style="Height:35%;border:1px solid black;margin: 2%;padding:2%;">
-
-                                    <p style="text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
-
-                                </div>
-
-                                <div class="stats" style="Height:5%;padding-right:2%;">
-
-                                    <p style="text-align: right"><?php echo $Ataque_Carta[$aux2] ?>
-
-                                        / <?php echo $Vida_Carta[$aux2] ?></p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <?php
-
-                    }
-
-                    ?>
-
-                </div>
-
-
-                <?php
-
-            }
-
-            ?>
-
-        </div>
+        
 
 
     </div>

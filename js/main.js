@@ -121,13 +121,139 @@ $(document).ready(function () {
 
 
     });
+    
+    $('.btn-editar').click(function () {
+ 
+         $('.field').show();
+         
+         $('.btn-editar').hide();
+         
+         $('.btn-enviar').show();
+     });
+     
+     $('.btn-enviar').click(function () {
+         
+     var idad = $('#idade').val();
+     var loc = $('#local').val();
+     var sex = $('#sexo').val();
+     var idu = $('#id').val();
+      $.ajax({
+             type: "POST",
+             url: '/pages/php/editardados.php',
+             data: 
+             { 
+                 idade: idad,
+                 local: loc,
+                 sexo: sex,
+                 id: idu
+                 
+             },
+             success: function(data) {
+              /*  location.reload();
+                $(document).ready(function () {
+                    $('.home').hide();
+                    $('.inventario').hide();
+                    $('.loja').hide();
+                    $('.perfil').show();
+                });*/
+ 	           // console.log(data);
+             }
+         });
+ 
+         $('.field').hide();
+         
+         $('.btn-editar').show();
+         
+         $('.btn-enviar').hide();
+     });
+     
+     
+     
+     $('.img-avatar').click(function () {
+         $('.escolhido').removeClass('escolhido');
+         
+         $(this).addClass('escolhido');
+        //console.log(this);
+     });
+     
+     
+    $('.salvar-avatar').click(function () {
+         
+     var a = $('.escolhido').attr("alt");
+ 	            console.log(a);
+     var idu = $('.escolhido').attr("value");
+     console.log(idu);
+      $.ajax({
+             type: "POST",
+             url: '/pages/php/editaravatar.php',
+             data: 
+             { 
+                 nome: a,
+                 id: idu
+             },
+             success: function(data) {
+                location.reload();
+               /* $(document).ready(function () {
+                    $('.home').hide();
+                    $('.inventario').hide();
+                    $('.loja').hide();
+                    $('.perfil').show();
+                });*/
+ 	            console.log(data);
+             }
+         });
+     });
 
+        
     $('.btn-mostrar').click(function () {
-
         $('.carousel').carousel('pause');
-        console.log($('.btn-mostrar').closest('.active').find('h3').html());
-
-
+        //console.log($('.btn-mostrar').closest('.active').find('h3').html());
+        var x = $('.btn-mostrar').closest('.active').find('h3').html();
+         $.ajax({
+             type: "POST",
+             url: '/pages/php/mostrarcartas.php',
+             data: 
+             { 
+                 nome: x
+             },
+             success: function(data) {
+                 $('#collapseExample').html(data);
+             }
+         });
+        if($('.collapse').hasClass('show'))
+        {
+            $('.carta').hide();
+        }
+        
+    });
+    
+    $('.btn-danger').click(function () { 
+        var x = $('.btn-mostrar').closest('.active').find('h3').html();
+		var y = $('.moedas').attr("alt");
+		var z = $('.preco_certo').attr("alt");
+		var idu = $('.btn-danger').attr("value");
+		if(z>y)
+		{
+			//nao compra
+			console.log('sem dinhero');
+		}
+		else
+		{
+		    console.log('com dinhero');
+			 $.ajax({
+				 type: "POST",
+				 url: '/pages/php/comprarpacote.php',
+				 data: 
+				 { 
+					 nome: x,
+					 id: idu
+				 },
+				 success: function(data) {
+					 console.log(data);
+					 alert("Pacote Comprado");
+				 }
+			 });
+        }
     });
 
     $('#opt-log').click(function () {
