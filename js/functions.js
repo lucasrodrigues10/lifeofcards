@@ -165,13 +165,13 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
         defesa.anchor.x = 0.9;
         defesa.anchor.y = 0.7;
         defesa.stroke = '#000000';
-        defesa.strokeThickness = 4;
+        defesa.strokeThickness = 3;
         
         ataque.fontWeight = 'bold';
         ataque.anchor.x = 1;
         ataque.anchor.y = 0.7;
         ataque.stroke = '#000000';
-        ataque.strokeThickness = 4;
+        ataque.strokeThickness = 3;
         
         textoAtk.add(defesa);
         textoDef.add(ataque);
@@ -188,6 +188,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 
 
 function move (sprite){
+    
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
     
@@ -202,8 +203,8 @@ function move (sprite){
     //move o objeto
     game.physics.arcade.moveToObject(spriteSelecionado,sprite,60,600);
     
-    defineDirecao(spriteSelecionado);
-    
+    var dir = defineDirecao(spriteSelecionado);
+    spriteSelecionado.animations.play(dir);
     
     
     
@@ -231,6 +232,7 @@ function move (sprite){
     
     }, this);
 	
+    //spriteSelecionado.animations.stop();
 	
     
 }
@@ -308,9 +310,6 @@ function criaMovimentacao (sprite){
     
     movimentacao.visible = true;
 	
-    console.clear();
-    console.log(spriteSelecionado.key);
-	
 	
 }
 
@@ -378,7 +377,8 @@ function defineDirecao(sprite){
         sprite.direcao = "up"; 
     if (sprite.body.velocity.y > 0.1 )
         sprite.direcao = "down";
-    spriteSelecionado.animations.play(spriteSelecionado.direcao);
+    
+    return sprite.direcao;
 }
 
 
@@ -411,10 +411,13 @@ function atualizaTexto(){
     textoAtk.forEachAlive(function(texto){
         texto.x = texto.unidade.x-15;
         texto.y = texto.unidade.y-26;
+        
     })
     textoDef.forEachAlive(function(texto){
         texto.x = texto.unidade.x;
         texto.y = texto.unidade.y-26;
 
     })
+    
+    
 }

@@ -47,9 +47,9 @@ function create (){
     
     
     
-    unidades.callAll('animations.play','animations','down'); 
+    //unidades.callAll('animations.play','animations','down'); 
 
-    
+    summon(7,7,'lost_soul');
     
    
 	
