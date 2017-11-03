@@ -46,7 +46,6 @@ function create (){
     jogo.addChild(unidades);
     
     
-    mostraSprites();
     
     unidades.callAll('animations.play','animations','down'); 
 

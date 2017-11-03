@@ -109,7 +109,7 @@ function deixaResponsivo(){
 var numLinhas = 12;
 var numColunas = 12;
 var margemLateral = 1;
-var margemVertical = 1;
+var margemVertical = 1  ;
 
 var listaSprites = [];
 var jogo; //referencia para o sprite do tabuleiro
@@ -383,22 +383,27 @@ function defineDirecao(sprite){
 
 
 function mostraSprites(){
+    
+    //textos removidos parafacilitar visualizacao dos sprites
+    textoAtk.visible=false;
+    textoDef.visible=false;
+    
     coluna = 1;
     linha = 1;
-    console.log(linha,coluna);
 
-    for (var i=0; i<listaSprites.length;i++){
-       
+    for (var i=0; i<listaSprites.length;i++){  
         summon(linha,coluna,listaSprites[i]);
-        console.log(linha,coluna);
         
         if (i%11==0 && i!=0){
-            coluna +=2;
+            coluna +=1;
             linha = 1;
         }
-        
+        summon(linha,coluna,listaSprites[i]);      //tem summon duas vezes porque não sei programar   
         
         linha++;
+       
+                
+        
     }
 }
 
