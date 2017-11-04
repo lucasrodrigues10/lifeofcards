@@ -346,7 +346,7 @@ if ($result->num_rows > 0) {
 
                                 ?>
 
-                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Postura<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Tempo<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
 
                                     <div class="carta " style="border:5px solid black;border-radius: 10px;">
 
@@ -479,7 +479,7 @@ if ($result->num_rows > 0) {
 
                                 ?>
 
-                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Postura<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
+                                <div class="col-6 col-sm-4 col-md-4 col-xs-4 col-lg d-flex align-items-stretch <?php if($General[$aux2] == 1){?> General Swarm<?php } ?> <?php if($General[$aux2] == 0){ ?> Adicionar <?php } ?>">
 
                                     <div class="carta " style="border:5px solid black;border-radius: 10px;">
 
@@ -711,42 +711,60 @@ if ($result->num_rows > 0) {
                     </div>
                 </div>
             </div>
+            <!-- Local mostrando informações de cartas escolhidas pelo usuário (Cartas e general) -->
             <div class="col-4">
                 <div class="container">
                     <form role="form" action="php/salve.php" method="post">
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb Generalizado">
                             <h3>General Selecionado</h3>
                             <?php 
+                            /* Procura o general do deck */
                             $contador = 0;
+                            $CheckIDGeneral = 0; // Variável que armazena ID do general - uso no jquery
+                            $TotalCartasDeck = 0; // Variável que armazena total de cartas no deck
                             while($contador < $auxCartasDeck){
                                 if(isset($EhGeneral[$contador]))
                                     if($EhGeneral[$contador] > 0){
+                                        $TotalCartasDeck = 1;
                             ?>
                             <div class="col-lg-6 col-md-7 col-xs-12 Chefao">
                                 <input class="InputGeneral" type="hidden" name="General" value="<?php echo $CartaSelecionada[$contador]?>">
                                 <h3 class="nome-carta"><?php echo $CartaSelecionada[$contador] ?></h3>
                             </div>
-                            <?php }$contador++;}?>
+                            <?php 
+                                $CheckIDGeneral = $IDCartaDeck[$contador];
+                                    }
+                                $contador++;
+                            }
+                            ?>
                         </div>
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb Adicionado">
                             <h3>Cartas Selecionadas</h3>
                             <?php 
                             $contador = 0;
+                            /* Imprime cartas em cartas selecionadas e Armazena o total de cartas já no deck na variável $TotalCartasDeck*/
                             while($contador < $auxCartasDeck){
                                 if(isset($EhGeneral[$contador]))
                                     if($EhGeneral[$contador] < 1){
                             ?>
                             <div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta">
+                                <input class="InputNome" type="hidden" name="carta[]" value="<?php if(isset($CartaSelecionada[$contador])) echo $CartaSelecionada[$contador]?>">
                                 <h3 class="nome-carta"><?php if(isset($CartaSelecionada[$contador])) echo ($CartaSelecionada[$contador]); ?></h3>
+                                <input class="InputQtde" type="hidden" name="QtdeCarta[]" value="<?php if(isset($QtdeCartaDeck[$contador])) echo ($QtdeCartaDeck[$contador]); ?>">
                                 <h3>x<span class="Amount"><?php if(isset($QtdeCartaDeck[$contador])) echo ($QtdeCartaDeck[$contador]); ?></span></h3>
                             </div>
-                            <?php }$contador++; }?>
+                            <?php 
+                                    $TotalCartasDeck = $TotalCartasDeck + $QtdeCartaDeck[$contador];
+                                    }
+                                $contador++; 
+                            }?>
                         </div>
+                        <!--Imprime quantidade já escolhida de cartas no deck -->
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
                             <h3>Cartas no deck:</h3>
                         </div>
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                            <h5 class="nome-carta"><span class="Total">0</span>/20</h5>
+                            <h5 class="nome-carta"><span class="Total"><?php echo($TotalCartasDeck); ?></span>/20</h5>
                         </div>
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
                             <button type="submit" name="submit" class="btn-fullscreen btn-log">Salvar Deck</button>
@@ -800,11 +818,57 @@ if ($result->num_rows > 0) {
         <script>
             $(document).ready(function() {
                 var Total = 0;
+                <?php
+    if(isset($CheckIDGeneral)){
+                ?>
+                var IDGeneral = <?php echo($CheckIDGeneral); ?>;
+                <?php
+    }else{
+                ?>
+                var IDGeneral = 0;
+                <?php
+    }
+                ?>
 
-                $('.Tematica0').show();
-                $('.Postura1').hide();
-                $('.Tempo1').hide();
-                $('.Swarm1').hide();
+                if(IDGeneral == 1){
+                    $(".Postura1").show();
+                    $(".Tempo1").hide();
+                    $(".Swarm1").hide();
+                    $(".Tematica0").hide();
+                    $(".Tema1").show();
+                    $(".Tema2").hide();
+                    $(".Tema3").hide();
+                    $(".Tema4").hide();
+                    Cor1();
+                }
+                if(IDGeneral == 2){
+                    $(".Postura1").hide();
+                    $(".Tempo1").show();
+                    $(".Swarm1").hide();
+                    $(".Tematica0").hide();
+                    $(".Tema2").show();
+                    $(".Tema1").hide();
+                    $(".Tema3").hide();
+                    $(".Tema4").hide();
+                    Cor2();
+                }
+                if(IDGeneral == 3){
+                    $(".Postura1").hide();
+                    $(".Tempo1").hide();
+                    $(".Swarm1").show();
+                    $(".Tematica0").hide();
+                    $(".Tema3").show();
+                    $(".Tema1").hide();
+                    $(".Tema2").hide();
+                    $(".Tema4").hide();
+                    Cor3();
+                }
+                if(IDGeneral == 0){
+                    $('.Tematica0').show();
+                    $('.Postura1').hide();
+                    $('.Tempo1').hide();
+                    $('.Swarm1').hide();
+                }
 
                 $(".Tematica1").click(function(){
                     $(".Tema1").show();
@@ -905,6 +969,8 @@ if ($result->num_rows > 0) {
                     var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
                     var Total = parseInt($(".Total").text());
                     var QuantidadeCarta = 0;
+                    
+                    Nome = $.trim(Nome);
 
                     if(Qtde<1 || count === 0 || Total === 20){
                         $(this).click(false);
@@ -914,7 +980,9 @@ if ($result->num_rows > 0) {
                         //Checa se ja tem carta igual adicionada
                         $('.Adicionado').each(function(i){ // Seleciona div adicionado
                             $(this).find(".RemoveCarta").find(".nome-carta").each(function(i){ //Seleciona cada carta no div
-                                if($(this).text() === Nome){
+                                NomeEsse = $(this).text();
+                                NomeEsse = $.trim(NomeEsse);
+                                if(NomeEsse === Nome){
                                     QuantidadeCarta = parseInt($(this).closest("div").find(".Amount").text());
                                     QuantidadeCarta = QuantidadeCarta + 1;
                                     var Input = $(this).closest("div").find('.InputQtde');
@@ -926,7 +994,7 @@ if ($result->num_rows > 0) {
 
                         //Adiciona carta nova se nao foi adicionada ainda
                         if(isNaN(QuantidadeCarta) || QuantidadeCarta < 1){
-                            $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><input class="InputNome" type="hidden" name="carta[]" value=""></input><h3 class="nome-carta">'+Nome+'</h3><input class="InputQtde" type="hidden" name="QtdeCarta[]"></input><h3>x<span class="Amount">1</span></h3></div>');
+                            $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><input class="InputNome" type="hidden" name="carta[]" value=""><h3 class="nome-carta">'+Nome+'</h3><input class="InputQtde" type="hidden" name="QtdeCarta[]"><h3>x<span class="Amount">1</span></h3></div>');
 
                             //Adiciona valor no input para mandar para a pagina salve.php para adicionar no banco de dados
 
@@ -947,6 +1015,8 @@ if ($result->num_rows > 0) {
                         $('.Total').text(parseInt($('.Total').text()) + 1);
                     }
                 });    
+                
+                //Remove cartas de cartas selecionadas
                 $('.Adicionado').on("click", ".RemoveCarta", function(e){
                     e.preventDefault();
                     var NumeroCartas = parseInt($(this).find(".Amount").text());
@@ -959,9 +1029,12 @@ if ($result->num_rows > 0) {
                         $(this).closest("div").find(".InputQtde").attr('value', NumeroCartas); //Atualiza quantidade de cartas no input para enviar no salve.php
                     }
                     var Nome = $(this).find(".nome-carta").text();
+                    Nome = $.trim(Nome);
                     $('.Total').text(parseInt($('.Total').text()) - 1);
                     $('.Adicionar').each(function(i){
-                        if($(this).closest("div").find(".Nome").text() === Nome){
+                        NomeEsse = $(this).closest("div").find(".Nome").text();
+                        NomeEsse = $.trim(NomeEsse);
+                        if(NomeEsse === Nome){
                             var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
                             Qtde = Qtde + 1;
                             $(this).closest("div").find(".Qtde").text(Qtde);

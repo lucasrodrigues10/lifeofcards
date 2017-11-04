@@ -91,7 +91,7 @@ if ($result->num_rows > 0) {
 
         $Nome_Deck[$i] = $row["Nome"];
 
-        $Descricao_Deck[$i] = $row["Descrição"];
+        $Descricao_Deck[$i] = $row["Descricao"];
 
         $Imagem_Deck[$i] = $row["ImagemDeck"];
 
@@ -100,6 +100,7 @@ if ($result->num_rows > 0) {
     }
 
 }
+$NovoDeck = -1;
 
 $nickname_amigos = array();
 
@@ -283,192 +284,158 @@ $a = 0;
 
 <html>
 
-<head>
+    <head>
 
-    <!-- Icone do site http://game-icons.net/ -->
-    <link rel="shortcut icon" type="image/x-icon" href="../img/icon/logo.ico"/>
+        <!-- Icone do site http://game-icons.net/ -->
+        <link rel="shortcut icon" type="image/x-icon" href="../img/icon/logo.ico"/>
 
-    <title>
+        <title>
 
-        Life of Cards
+            Life of Cards
 
-    </title>
+        </title>
 
-    <!--Ter todos os simbolos -->
+        <!--Ter todos os simbolos -->
 
-    <meta charset="utf-8">
+        <meta charset="utf-8">
 
-    <!--Zoom em tablets/mobile-->
+        <!--Zoom em tablets/mobile-->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!--Boostrap 4.0 CDN -->
+        <!--Boostrap 4.0 CDN -->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
 
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+              integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
-    <!--Fonte do google -->
+        <!--Fonte do google -->
 
-    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Rakkas" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rakkas" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
 
-    <!--Icones do google -->
+        <!--Icones do google -->
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!--CSS do projeto -->
+        <!--CSS do projeto -->
 
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
 
-</head>
+    </head>
 
-<!--body com background -->
+    <!--body com background -->
 
-<body class="full">
+    <body class="full">
 
-<?php if ($modal < 1) { ?>
-
-
-    <script>
-
-        window.open("nickname.php", "_self");
-
-    </script>
+        <?php if ($modal < 1) { ?>
 
 
-<?php } ?>
+        <script>
 
-<audio loop id="audio"> <!-- <audio autoplay loop id="audio"> vai comecar tocando -->
+            window.open("nickname.php", "_self");
 
-    <source src="/others/music.mp3">
-
-</audio>
-<!-- Modal para adicionar amigos -->
-<div class="modal fade" id="bd-amigos" role="dialog">
-
-    <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Digite o Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body mx-auto">
-                <div class="form-group">
-                    <p style="font-size:1rem;color:black;font-family:'Francois One', sans-serif;text-align: center; "> Seu ID: <?php echo $id ?> </p>
-                    <input class="form-control" id="input-add-amigo"
-                           placeholder="ID Amigo" name="amigo">
-                </div>
-                <?php
-                $query = "SELECT * FROM UsuarioNoJogo";
-                $result = $conn->query($query);
+        </script>
 
 
-                ?>
-                <div class="table-responsive" style="display: block; height: 20vh; overflow-y: scroll;">
-                    <table class="table table-hover table-bordered ">
-                        <thead>
-                        <tr>
-                            <th class="text-center">ID</th>
-                            <th class="text-center d-block">Nickname</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+        <?php } ?>
+
+        <audio loop id="audio"> <!-- <audio autoplay loop id="audio"> vai comecar tocando -->
+
+            <source src="/others/music.mp3">
+
+        </audio>
+        <!-- Modal para adicionar amigos -->
+        <div class="modal fade" id="bd-amigos" role="dialog">
+
+            <div class="modal-dialog" role="document">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Digite o Usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-auto">
+                        <div class="form-group">
+                            <p style="font-size:1rem;color:black;font-family:'Francois One', sans-serif;text-align: center; "> Seu ID: <?php echo $id ?> </p>
+                            <input class="form-control" id="input-add-amigo"
+                                   placeholder="ID Amigo" name="amigo">
+                        </div>
                         <?php
-                        while ($row = $result->fetch_assoc()) {
-                            ?>
-                            <tr>
-                                <th class="text-center"><?php echo $row['IDusuario']; ?></th>
-                                <td class="text-center d-block"><?php echo $row['Nickname']; ?></td>
-                            </tr>
-                            <?php
-                        }
+    $query = "SELECT * FROM UsuarioNoJogo";
+                                $result = $conn->query($query);
+
+
                         ?>
-                        </tbody>
-                    </table>
+                        <div class="table-responsive" style="display: block; height: 20vh; overflow-y: scroll;">
+                            <table class="table table-hover table-bordered ">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">ID</th>
+                                        <th class="text-center d-block">Nickname</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                    <tr>
+                                        <th class="text-center"><?php echo $row['IDusuario']; ?></th>
+                                        <td class="text-center d-block"><?php echo $row['Nickname']; ?></td>
+                                    </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" id="btn-add-amigo">Salvar</button>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary" id="btn-add-amigo">Salvar</button>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-</div>
-
-<div class="modal fade" id="teste" role="dialog">
-
-    <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                <h4 class="modal-title">Edit Data</h4>
-
-            </div>
-
-            <div class="modal-body">
-
-                <div class="fetched-data"><?php if (isset($message)) $message ?></div>
-
-            </div>
-
-            <div class="modal-footer">
-
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
             </div>
 
         </div>
 
-    </div>
+        </div>
 
-</div>
+    <div class="modal fade" id="teste" role="dialog">
 
-<!--Modal-->
+        <div class="modal-dialog" role="document">
 
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            <div class="modal-content">
 
-     aria-hidden="true">
+                <div class="modal-header">
 
-    <div class="modal-dialog modal-sm">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-        <div class="modal-content">
+                    <h4 class="modal-title">Edit Data</h4>
 
-            <div class="modal-header">
+                </div>
 
-                <h5 class="modal-title" id="exampleModalLongTitle">Deseja sair?</h5>
+                <div class="modal-body">
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <div class="fetched-data"><?php if (isset($message)) $message ?></div>
 
-                    <span aria-hidden="true">&times;</span>
+                </div>
 
-                </button>
+                <div class="modal-footer">
 
-            </div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-            <div class="modal-footer">
-
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-
-                <button onclick="location.href = 'php/sair.php';" type="button" class="btn btn-primary">Sim</button>
+                </div>
 
             </div>
 
@@ -476,51 +443,87 @@ $a = 0;
 
     </div>
 
-</div>
+    <!--Modal-->
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 
-     aria-hidden="true">
+         aria-hidden="true">
 
-    <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-sm">
 
-        <div class="modal-content">
+            <div class="modal-content">
 
-            <div class="modal-header">
+                <div class="modal-header">
 
-                <h5 class="modal-title" id="exampleModalLongTitle">Configurações</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Deseja sair?</h5>
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
-                    <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">&times;</span>
 
-                </button>
+                    </button>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+
+                    <button onclick="location.href = 'php/sair.php';" type="button" class="btn btn-primary">Sim</button>
+
+                </div>
 
             </div>
 
-            <div class="modal-body">
+        </div>
 
-                <div class="container-fluid text-center">
+    </div>
 
-                    <div class="row">
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 
-                        <div class="col txt-config">Som</div>
+         aria-hidden="true">
 
-                        <div class="col">
+        <div class="modal-dialog modal-lg">
 
-                            <div class="onoffswitch">
+            <div class="modal-content">
 
-                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+                <div class="modal-header">
 
-                                       id="myonoffswitch">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Configurações</h5>
 
-                                <label class="onoffswitch-label" for="myonoffswitch">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
-                                    <span class="onoffswitch-inner"></span>
+                        <span aria-hidden="true">&times;</span>
 
-                                    <span class="onoffswitch-switch"></span>
+                    </button>
 
-                                </label>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="container-fluid text-center">
+
+                        <div class="row">
+
+                            <div class="col txt-config">Som</div>
+
+                            <div class="col">
+
+                                <div class="onoffswitch">
+
+                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+
+                                           id="myonoffswitch">
+
+                                    <label class="onoffswitch-label" for="myonoffswitch">
+
+                                        <span class="onoffswitch-inner"></span>
+
+                                        <span class="onoffswitch-switch"></span>
+
+                                    </label>
+
+                                </div>
 
                             </div>
 
@@ -530,13 +533,13 @@ $a = 0;
 
                 </div>
 
-            </div>
+                <div class="modal-footer">
 
-            <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Descartar</button>
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Descartar</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
 
-                <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
 
             </div>
 
@@ -544,52 +547,131 @@ $a = 0;
 
     </div>
 
-</div>
+    <div class="modal fade bd-example2-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 
-<div class="modal fade bd-example2-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+         aria-hidden="true">
 
-     aria-hidden="true">
+        <div class="modal-dialog modal-lg">
 
-    <div class="modal-dialog modal-lg">
+            <div class="modal-content">
 
-        <div class="modal-content">
+                <div class="modal-header">
 
-            <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Trocar avatar</h5>
 
-                <h5 class="modal-title" id="exampleModalLongTitle">Trocar avatar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
 
-                    <span aria-hidden="true">&times;</span>
+                    </button>
 
-                </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="container-fluid text-center">
+
+                        <div class="row">
+
+
+                            <div class="col">
+                                <?php
+    $dir = '../img/avatar/';
+                        $scan = scandir($dir);
+
+                        for ($i=0; $i<count($scan); $i++) {
+                            if ($scan[$i] != '.' && $scan[$i] != '..') {
+                                echo '
+
+
+                               <img class="img-avatar ' . $scan[$i] .'" value= "'. $id . '" src="'. $dir . $scan[$i] . '" alt="'. $scan[$i] . '" />
+
+                             ';
+                            }  
+                        }
+                                ?>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Descartar</button>
+
+                    <button type="button" class="btn btn-primary salvar-avatar">Salvar</button>
+
+                </div>
 
             </div>
 
-            <div class="modal-body">
+        </div>
 
-                <div class="container-fluid text-center">
-
-                    <div class="row">
+    </div>
 
 
-                        <div class="col">
-                            <?php
-                            $dir = '../img/avatar/';
-                            $scan = scandir($dir);
-                 
-                            for ($i=0; $i<count($scan); $i++) {
-                             if ($scan[$i] != '.' && $scan[$i] != '..') {
-                             echo '
-                            
-                             
-                               <img class="img-avatar ' . $scan[$i] .'" value= "'. $id . '" src="'. $dir . $scan[$i] . '" alt="'. $scan[$i] . '" />
-                             
-                             ';
-                             }  
-                            }
-                            ?>
-                        </div>
+    <!--Barra de navegação de cima -->
+
+    <ul class="nav nav-pills nav-justified nav-top barra">
+
+        <li class="nav-item">
+
+            <a class="nav-link btn-home active" href="#">Início</a>
+
+        </li>
+
+        <li class="nav-item">
+
+            <a class="nav-link btn-perfil" href="#">Perfil</a>
+
+        </li>
+
+        <li class="nav-item">
+
+            <a class="nav-link btn-inventario" href="#">Inventário</a>
+
+        </li>
+
+        <li class="nav-item">
+
+            <a class="nav-link btn-loja" href="#">Loja</a>
+
+        </li>
+
+    </ul>
+
+    <!--Início -->
+
+    <div class="container home my-2">
+
+        <div class="row">
+
+            <div class="col-sm-6 mb-3">
+
+                <div class="card text-center fundo1" style="margin:1em auto; width: 97.3%">
+
+                    <div class="card-header fundo2" style="color:white">
+
+                        Jogue agora
+
+                    </div>
+
+                    <div class="card-block">
+
+                        <button type="button" class="btn btn-primary btn-lg btn-block"
+
+                                onclick="window.location='jogo.php'">Ranqueado
+
+                        </button>
+
+                        <button type="button" class="btn btn-secondary btn-lg btn-block"
+
+                                onclick="window.location='jogo.php'">Treino
+
+                        </button>
 
                     </div>
 
@@ -597,104 +679,23 @@ $a = 0;
 
             </div>
 
-            <div class="modal-footer">
+            <div class="col-sm-6">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Descartar</button>
+                <div class="card text-center fundo1" style="margin:1em auto; width: 97.3%;">
 
-                <button type="button" class="btn btn-primary salvar-avatar">Salvar</button>
+                    <div class="card-header fundo2" style="color:white">
 
-            </div>
+                        Amigos
 
-        </div>
+                    </div>
 
-    </div>
+                    <div class="card-block" style="  overflow-y:scroll; height: 150px">
 
-</div>
+                        <div class="container">
 
+                            <?php $l = 0;
 
-<!--Barra de navegação de cima -->
-
-<ul class="nav nav-pills nav-justified nav-top barra">
-
-    <li class="nav-item">
-
-        <a class="nav-link btn-home active" href="#">Início</a>
-
-    </li>
-
-    <li class="nav-item">
-
-        <a class="nav-link btn-perfil" href="#">Perfil</a>
-
-    </li>
-
-    <li class="nav-item">
-
-        <a class="nav-link btn-inventario" href="#">Inventário</a>
-
-    </li>
-
-    <li class="nav-item">
-
-        <a class="nav-link btn-loja" href="#">Loja</a>
-
-    </li>
-
-</ul>
-
-<!--Início -->
-
-<div class="container home my-2">
-
-    <div class="row">
-
-        <div class="col-sm-6 mb-3">
-
-            <div class="card text-center fundo1" style="margin:1em auto; width: 97.3%">
-
-                <div class="card-header fundo2" style="color:white">
-
-                    Jogue agora
-
-                </div>
-
-                <div class="card-block">
-
-                    <button type="button" class="btn btn-primary btn-lg btn-block"
-
-                            onclick="window.location='jogo.php'">Ranqueado
-
-                    </button>
-
-                    <button type="button" class="btn btn-secondary btn-lg btn-block"
-
-                            onclick="window.location='jogo.php'">Treino
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="col-sm-6">
-
-            <div class="card text-center fundo1" style="margin:1em auto; width: 97.3%;">
-
-                <div class="card-header fundo2" style="color:white">
-
-                    Amigos
-
-                </div>
-
-                <div class="card-block" style="  overflow-y:scroll; height: 150px">
-
-                    <div class="container">
-
-                        <?php $l = 0;
-
-                        while ($l < $k) { ?>
+                            while ($l < $k) { ?>
 
                             <div class="row">
 
@@ -704,14 +705,14 @@ $a = 0;
 
                                 </div>
                                 <!-- icone online
-                                <div class="col">
+<div class="col">
 
-                                    <i class="material-icons icn-status" data-toggle="tooltip" data-placement="top"
+<i class="material-icons icn-status" data-toggle="tooltip" data-placement="top"
 
-                                       title="online">cloud</i>
+title="online">cloud</i>
 
-                                </div>
-                                -->
+</div>
+-->
                                 <div class="col">
 
                                     <button type="button" class="btn btn-primary btn-sm">Jogar</button>
@@ -722,39 +723,41 @@ $a = 0;
 
                             <?php $l++;
 
-                        } ?>
-                        <div class="row my-3">
-                            <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#bd-amigos">
-                                Adicionar
-                            </button>
+                                            } ?>
+                            <div class="row my-3">
+                                <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#bd-amigos">
+                                    Adicionar
+                                </button>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
 
             </div>
 
-        </div>
+            <div class="card mx-3 mb-3 fundo1" style="margin:1em auto; width: 97.3%">
 
-        <div class="card mx-3 mb-3 fundo1" style="margin:1em auto; width: 97.3%">
+                <div class="card-header text-center fundo2" style=" color:white">
 
-            <div class="card-header text-center fundo2" style=" color:white">
+                    Notícias
 
-                Notícias
+                </div>
 
-            </div>
+                <div class="card-block fundo 2">
 
-            <div class="card-block fundo 2">
+                    <h4 class="card-title"><?php if (isset($titulo)) echo($titulo); ?></h4>
 
-                <h4 class="card-title"><?php if (isset($titulo)) echo($titulo); ?></h4>
-
-                <p class="card-text "><?php if (isset($descricao)) echo($descricao); ?> <a href="#"> Clique aqui para
+                    <p class="card-text "><?php if (isset($descricao)) echo($descricao); ?> <a href="#"> Clique aqui para
 
                         vê-la(o).</a></p>
 
-                <div class="card-footer text-muted text-center fundo2" style=" color:white">
+                    <div class="card-footer text-muted text-center fundo2" style=" color:white">
 
-                    <p style="color:white;display: inline"><?php if (isset($data)) echo($data); ?></p>
+                        <p style="color:white;display: inline"><?php if (isset($data)) echo($data); ?></p>
+
+                    </div>
 
                 </div>
 
@@ -764,101 +767,101 @@ $a = 0;
 
     </div>
 
-</div>
+    <!-- Perfil -->
 
-<!-- Perfil -->
+    <div class="container perfil my-3">
 
-<div class="container perfil my-3">
+        <div class="container">
 
-    <div class="container">
+            <div class="row">
 
-        <div class="row">
+                <div class="col-sm-4">
 
-            <div class="col-sm-4">
+                    <div class="card text-center fundo1">
 
-                <div class="card text-center fundo1">
+                        <img src="../img/avatar/<?php if (isset($avatar_imagem)) echo($avatar_imagem); ?> "
 
-                    <img src="../img/avatar/<?php if (isset($avatar_imagem)) echo($avatar_imagem); ?> "
+                             class="img-fluid img-thumbnail rounded mx-auto d-block rounded "
+                             data-toggle="modal" data-target=".bd-example2-modal-lg"
 
-                         class="img-fluid img-thumbnail rounded mx-auto d-block rounded "
-                         data-toggle="modal" data-target=".bd-example2-modal-lg"
+                             alt="Responsive image "
 
-                         alt="Responsive image "
+                             style="margin-top: 1em">
 
-                         style="margin-top: 1em">
+                        <div class="card-block">
 
-                    <div class="card-block">
+                            <h4 class="card-title nome-jogador"
 
-                        <h4 class="card-title nome-jogador"
-
-                            style='color:purple'><?php if (isset($nickname)) echo($nickname); ?></h4>
-
-                    </div>
-
-                    <div class="txt-perfil">
-
-                        <div class='container'>
-
-                            <div class="row">
-
-                                <div class="col text-right">
-
-                                    <p><?php if (isset($nivel)) {
-
-                                            $nivel = $nivel - 1;
-
-                                            echo($nivel);
-
-                                        } ?></p>
-
-                                </div>
-
-                                <div class="col text-left">
-
-                                    <img src="../img/icon/nivel.svg" alt="nivel" class="icone">
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col text-right">
-
-                                    <p><?php if (isset($moedas)) echo($moedas); ?></p>
-
-                                </div>
-
-                                <div class="col text-left">
-
-                                    <img src="../img/icon/coin.svg" alt="moeda" class="icone">
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col text-right">
-
-                                    <p><?php if (isset($exp)) echo($exp); ?></p>
-
-                                </div>
-
-                                <div class="col text-left">
-
-                                    <img src="../img/icon/xp.png" alt="xp" class="icone">
-
-                                </div>
-
-                            </div>
+                                style='color:purple'><?php if (isset($nickname)) echo($nickname); ?></h4>
 
                         </div>
 
-                        <div class="progress" style="width: 95%;margin:1.2em auto">
+                        <div class="txt-perfil">
 
-                            <div class="progress-bar" role="progressbar" style="width: <?php if (isset($exp)) echo($exp); ?>%" aria-valuenow="<?php if (isset($exp)) echo($exp); ?>"
-                                 aria-valuemin="0" aria-valuemax="100">
+                            <div class='container'>
+
+                                <div class="row">
+
+                                    <div class="col text-right">
+
+                                        <p><?php if (isset($nivel)) {
+
+    $nivel = $nivel - 1;
+
+    echo($nivel);
+
+} ?></p>
+
+                                    </div>
+
+                                    <div class="col text-left">
+
+                                        <img src="../img/icon/nivel.svg" alt="nivel" class="icone">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col text-right">
+
+                                        <p><?php if (isset($moedas)) echo($moedas); ?></p>
+
+                                    </div>
+
+                                    <div class="col text-left">
+
+                                        <img src="../img/icon/coin.svg" alt="moeda" class="icone">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col text-right">
+
+                                        <p><?php if (isset($exp)) echo($exp); ?></p>
+
+                                    </div>
+
+                                    <div class="col text-left">
+
+                                        <img src="../img/icon/xp.png" alt="xp" class="icone">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="progress" style="width: 95%;margin:1.2em auto">
+
+                                <div class="progress-bar" role="progressbar" style="width: <?php if (isset($exp)) echo($exp); ?>%" aria-valuenow="<?php if (isset($exp)) echo($exp); ?>"
+                                     aria-valuemin="0" aria-valuemax="100">
+
+                                </div>
 
                             </div>
 
@@ -868,231 +871,239 @@ $a = 0;
 
                 </div>
 
-            </div>
+                <div class="col-sm-8 text-center">
 
-            <div class="col-sm-8 text-center">
+                    <div class="card txt-info fundo1">
 
-                <div class="card txt-info fundo1">
+                        <div class="row">
 
-                    <div class="row">
+                            <div class="col">
 
-                        <div class="col">
+                                <p><img src="../img/icon/vitoria.svg" alt="vitoria"
 
-                            <p><img src="../img/icon/vitoria.svg" alt="vitoria"
+                                        class="icone"> <?php if (isset($vitorias)) echo($vitorias); ?></p>
 
-                                    class="icone"> <?php if (isset($vitorias)) echo($vitorias); ?></p>
+                            </div>
+
+                            <div class="col">
+
+                                <p><img src="../img/icon/derrota.svg" alt="vitoria"
+
+                                        class="icone"> <?php if (isset($derrotas)) echo($derrotas); ?></p>
+
+                            </div>
 
                         </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" style="font-size:.7em">
 
-                        <div class="col">
+                                <tbody>
 
-                            <p><img src="../img/icon/derrota.svg" alt="vitoria"
+                                    <tr>
 
-                                    class="icone"> <?php if (isset($derrotas)) echo($derrotas); ?></p>
+                                        <th scope="row" class="text-center">Idade</th>
 
+                                        <td>
+                                            <?php if (isset($idade)) echo($idade); ?>
+                                            <input style="display:none;" class="field" type="idade" id="idade" name="idade">
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <th scope="row" class="text-center">Localização</th>
+
+                                        <td>
+                                            <?php if (isset($localizacao)) echo($localizacao); ?>
+                                            <input style="display:none;" class="field" type="local" id="local" name="local">
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <th scope="row" class="text-center">Sexo</th>
+
+                                        <td>
+                                            <?php if (isset($sexo)) echo($sexo); ?>
+                                            <input style="display:none;" class="field" type="sexo" id="sexo" name="sexo">
+                                            <input style="display:none" id="id" value= <?php echo $id ?>>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <th scope="row" class="text-center">Email</th>
+
+                                        <td colspan="2"><?php if (isset($email)) echo($email); ?></td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
                         </div>
+                        <button type="button" class="btn btn-primary btn-enviar"
+                                style="margin:1em auto 1em auto;width: 40%;display:none">
+
+                            Enviar
+
+                            Dados
+
+                        </button>
+
+                        <button type="button" class="btn btn-primary btn-editar"
+                                style="margin:1em auto 1em auto;width: 40%">
+
+                            Editar
+
+                            Dados
+
+                        </button>
 
                     </div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered" style="font-size:.7em">
-
-                            <tbody>
-
-                            <tr>
-
-                                <th scope="row" class="text-center">Idade</th>
-
-                                <td>
-                                    <?php if (isset($idade)) echo($idade); ?>
-                                    <input style="display:none;" class="field" type="idade" id="idade" name="idade">
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <th scope="row" class="text-center">Localização</th>
-
-                                <td>
-                                    <?php if (isset($localizacao)) echo($localizacao); ?>
-                                    <input style="display:none;" class="field" type="local" id="local" name="local">
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <th scope="row" class="text-center">Sexo</th>
-
-                                <td>
-                                    <?php if (isset($sexo)) echo($sexo); ?>
-                                    <input style="display:none;" class="field" type="sexo" id="sexo" name="sexo">
-                                    <input style="display:none" id="id" value= <?php echo $id ?>>
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <th scope="row" class="text-center">Email</th>
-
-                                <td colspan="2"><?php if (isset($email)) echo($email); ?></td>
-
-                            </tr>
-
-                            </tbody>
-
-                        </table>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-enviar"
-                            style="margin:1em auto 1em auto;width: 40%;display:none">
-
-                        Enviar
-
-                        Dados
-
-                    </button>
-
-                    <button type="button" class="btn btn-primary btn-editar"
-                            style="margin:1em auto 1em auto;width: 40%">
-
-                        Editar
-
-                        Dados
-
-                    </button>
 
                 </div>
 
             </div>
 
-        </div>
+            <div class="col">
 
-        <div class="col">
+                <div class="ct-chart ct-perfect-fourth"></div>
 
-            <div class="ct-chart ct-perfect-fourth"></div>
+            </div>
 
         </div>
 
     </div>
 
-</div>
+    <!-- adiciona os decks no inventário -->
+    <div class="row-lg-6 inventario">
+        <div class="container inventario my-3">
 
-<!-- adiciona os decks no inventário -->
+            <div class="container ">
 
-<div class="container inventario my-3">
-
-    <div class="container ">
-
-        <div class="row ">
+                <div class="row ">
 
 
-            <?php
+                    <?php
 
-            $j = 0;
+                    $j = 0;
 
-            while ($j < $i) { ?>
+                    while ($j < $i) { ?>
 
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
 
-                    <a href="ConstDeck.php?id=<?php echo $IDdeck[$j] ?>">
+                        <a href="ConstDeck.php?id=<?php echo $IDdeck[$j] ?>">
 
-                        <img class="img-fluid img-thumbnail "
+                            <img class="img-fluid img-thumbnail "
 
-                             src="../img/deck/<?php if (isset($Imagem_Deck[$j])) echo($Imagem_Deck[$j]); ?>" alt=" ">
+                                 src="../img/cartas/<?php if (isset($Imagem_Deck[$j])) echo($Imagem_Deck[$j]); ?>" alt=" ">
 
-                    </a>
+                        </a>
 
-                    <p class="text-center nome-carta "><?php if (isset($Nome_Deck[$j])) echo($Nome_Deck[$j]); ?>  </p>
+                        <p class="text-center nome-carta "><?php if (isset($Nome_Deck[$j])) echo($Nome_Deck[$j]); ?>  </p>
+
+                    </div>
+
+                    <?php $j++;
+
+                                    }
+                    ?>
+
 
                 </div>
 
-                <?php $j++;
+                <hr>
 
-            } ?>
+            </div>
 
-
+            <!-- /.container -->
         </div>
-
-        <hr>
-
+        <!-- Fim da exibição dos decks -->
+    </div>
+    <!-- Exibição Botão Criar Deck -->
+    <div class="row-lg-6 inventario">
+        <a href="ConstDeck.php?id=<?php echo $NovoDeck ?>">
+            <button class="btn-fullscreen btn-log ">Criar Deck </button>
+        </a>
     </div>
 
-    <!-- /.container -->
+    <div class="container loja mt-3 mb-5">
 
-</div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-interval="3000" data-pause="hover"
 
-<div class="container loja mt-3 mb-5">
+             data-ride="carousel">
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-interval="3000" data-pause="hover"
+            <ol class="carousel-indicators">
 
-         data-ride="carousel">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 
-        <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            </ol>
 
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <div class="carousel-inner " role="listbox">
 
-        </ol>
+                <div class="carousel-item active ">
 
-        <div class="carousel-inner " role="listbox">
+                    <div class="container">
 
-            <div class="carousel-item active ">
+                        <div class="row ">
 
-                <div class="container">
+                            <div class="col-sm">
 
-                    <div class="row ">
+                                <img class="d-block img-fluid img-loja"
 
-                        <div class="col-sm">
+                                     src="../img/deck/<?php if (isset($Imagem_Pacote[0])) echo($Imagem_Pacote[0]);
 
-                            <img class="d-block img-fluid img-loja"
+           if (isset($Imagem_Skin[0])) echo($Imagem_Skin[0]);
 
-                                 src="../img/deck/<?php if (isset($Imagem_Pacote[0])) echo($Imagem_Pacote[0]);
+           if (isset($Imagem_Carta[0])) echo($Imagem_Carta[0]); ?>"
 
-                                 if (isset($Imagem_Skin[0])) echo($Imagem_Skin[0]);
+                                     alt="First slide">
 
-                                 if (isset($Imagem_Carta[0])) echo($Imagem_Carta[0]); ?>"
+                            </div>
 
-                                 alt="First slide">
+                            <div class="col-sm txt-loja">
 
-                        </div>
+                                <div>
 
-                        <div class="col-sm txt-loja">
+                                    <h3><?php if (isset($Nome_Pacote[0])) echo($Nome_Pacote[0]);
 
-                            <div>
+                                        if (isset($Nome_Skin[0])) echo($Nome_Skin[0]);
 
-                                <h3><?php if (isset($Nome_Pacote[0])) echo($Nome_Pacote[0]);
+                                        if (isset($Nome_Carta[0])) echo($Nome_Carta[0]); ?></h3>
 
-                                    if (isset($Nome_Skin[0])) echo($Nome_Skin[0]);
+                                    <p><?php if (isset($Descricao_Pacote[0])) echo($Descricao_Pacote[0]);
 
-                                    if (isset($Nome_Carta[0])) echo($Nome_Carta[0]); ?></h3>
+                                        if (isset($Descricao_Skin[0])) echo($Descricao_Skin[0]);
 
-                                <p><?php if (isset($Descricao_Pacote[0])) echo($Descricao_Pacote[0]);
+                                        if (isset($Descricao_Carta[0])) echo($Descricao_Carta[0]); ?></p>
 
-                                    if (isset($Descricao_Skin[0])) echo($Descricao_Skin[0]);
+                                    <p class="preco_certo" alt="<?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>">Preço: <?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>
+                                        <img src="../img/icon/coin.svg" class="icone"></p>
 
-                                    if (isset($Descricao_Carta[0])) echo($Descricao_Carta[0]); ?></p>
+                                    <p class="moedas" alt="<?php if (isset($moedas)) echo($moedas); ?>">
+                                        Suas Moedas: <?php if (isset($moedas)) echo($moedas); ?>
+                                        <img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
 
-                                <p class="preco_certo" alt="<?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>">Preço: <?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>
-								<img src="../img/icon/coin.svg" class="icone"></p>
-								
-				<p class="moedas" alt="<?php if (isset($moedas)) echo($moedas); ?>">
-						Suas Moedas: <?php if (isset($moedas)) echo($moedas); ?>
-						<img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
-						
 
-                                <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
+                                    <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
 
-                                        data-target="#collapseExample" aria-expanded="false"
+                                            data-target="#collapseExample" aria-expanded="false"
 
-                                        aria-controls="collapseExample">Mostrar Cartas
+                                            aria-controls="collapseExample">Mostrar Cartas
 
-                                </button>
+                                    </button>
 
-                                <button type="button" value=<?php echo $id ?> class="btn btn-danger">Comprar</button>
+                                    <button type="button" value=<?php echo $id ?> class="btn btn-danger">Comprar</button>
+
+                                </div>
 
                             </div>
 
@@ -1102,13 +1113,11 @@ $a = 0;
 
                 </div>
 
-            </div>
+                <?php
 
-            <?php
+    $aux = 1;
 
-            $aux = 1;
-
-            while ($aux < $z) { ?>
+                                            while ($aux < $z) { ?>
 
                 <div class="carousel-item ">
 
@@ -1122,9 +1131,9 @@ $a = 0;
 
                                      src="../img/deck/<?php if (isset($Imagem_Pacote[$aux])) echo($Imagem_Pacote[$aux]);
 
-                                     if (isset($Imagem_Skin[$aux])) echo($Imagem_Skin[$aux]);
+                                                               if (isset($Imagem_Skin[$aux])) echo($Imagem_Skin[$aux]);
 
-                                     if (isset($Imagem_Carta[$aux])) echo($Imagem_Carta[$aux]); ?>"
+                                                               if (isset($Imagem_Carta[$aux])) echo($Imagem_Carta[$aux]); ?>"
 
                                      alt="First slide">
 
@@ -1136,31 +1145,31 @@ $a = 0;
 
                                     <h3><?php if (isset($Nome_Pacote[$aux])) echo($Nome_Pacote[$aux]);
 
-                                        if (isset($Nome_Skin[$aux])) echo($Nome_Skin[$aux]);
+                                                               if (isset($Nome_Skin[$aux])) echo($Nome_Skin[$aux]);
 
-                                        if (isset($Nome_Carta[$aux])) echo($Nome_Carta[$aux]); ?></h3>
+                                                               if (isset($Nome_Carta[$aux])) echo($Nome_Carta[$aux]); ?></h3>
 
                                     <p><?php if (isset($Descricao_Pacote[$aux])) echo($Descricao_Pacote[$aux]);
 
-                                        if (isset($Descricao_Skin[$aux])) echo($Descricao_Skin[$aux]);
+                                                               if (isset($Descricao_Skin[$aux])) echo($Descricao_Skin[$aux]);
 
-                                        if (isset($Descricao_Carta[$aux])) echo($Descricao_Carta[$aux]); ?></p>
+                                                               if (isset($Descricao_Carta[$aux])) echo($Descricao_Carta[$aux]); ?></p>
 
                                     <p class="preco_certo" alt="<?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>">Preço: <?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>
-								<img src="../img/icon/coin.svg" class="icone"></p>
-								
-				
-
-
-						<p class="moedas" alt="<?php if (isset($moedas)) echo($moedas); ?>">
-						Suas Moedas: <?php if (isset($moedas)) echo($moedas); ?>
-						<img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
-
-					
+                                        <img src="../img/icon/coin.svg" class="icone"></p>
 
 
 
-                                <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
+
+                                    <p class="moedas" alt="<?php if (isset($moedas)) echo($moedas); ?>">
+                                        Suas Moedas: <?php if (isset($moedas)) echo($moedas); ?>
+                                        <img src="../img/icon/coin.svg" alt="moeda" class="icone"></p>
+
+
+
+
+
+                                    <button type="button" class="btn btn-primary btn-mostrar" data-toggle="collapse"
 
                                             data-target="#collapseExample" aria-expanded="false"
 
@@ -1168,7 +1177,7 @@ $a = 0;
 
                                     </button>
 
-									<button type="button" value=<?php echo $id ?> class="btn btn-danger">Comprar</button>
+                                    <button type="button" value=<?php echo $id ?> class="btn btn-danger">Comprar</button>
 
                                 </div>
 
@@ -1182,118 +1191,119 @@ $a = 0;
 
                 <?php $aux++;
 
-            } ?>
+                                                              } ?>
+
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                <span class="sr-only">Previous</span>
+
+            </a>
+
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                <span class="sr-only">Next</span>
+
+            </a>
 
         </div>
 
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-
-            <span class="sr-only">Previous</span>
-
-        </a>
-
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-
-            <span class="sr-only">Next</span>
-
-        </a>
-
-    </div>
+        <div class="collapse" id="collapseExample">
 
 
-    <div class="collapse" id="collapseExample">
-
-        
-
-
-    </div>
-
-</div>
-
-<!--Footer -->
-
-<nav class="navbar fixed-bottom navbar-light bg-faded nav-bottom barra">
-
-    <div class="row justify-content-between ">
-
-        <div class="col ">
-
-            <!--Botão Página Inicial -->
-
-            <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i
-
-                        class="material-icons ">settings</i></button>
-
-        </div>
-
-        <div class="col text-center ">
-
-            <!--Botão Página Inicial -->
-
-            <p class="nome-jogador " style="display: inline"> <?= $nickname ?> </p>
-
-            <!--Botão para logout com um modal para confirmar -->
-
-            <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i
-
-                        class="material-icons ">exit_to_app</i></button>
-
-        </div>
-
-        <div class="col text-right ">
-
-
-            <button class="btn btn-primary" href="javascript:void(0)" onclick="toggleFullScreen()">
-
-                <i class="material-icons" id="btn-fullscreen">fullscreen</i>
-
-            </button>
 
 
         </div>
 
     </div>
 
-</nav>
+    <!--Footer -->
+
+    <nav class="navbar fixed-bottom navbar-light bg-faded nav-bottom barra">
+
+        <div class="row justify-content-between ">
+
+            <div class="col ">
+
+                <!--Botão Página Inicial -->
+
+                <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i
+
+                                                                                                          class="material-icons ">settings</i></button>
+
+            </div>
+
+            <div class="col text-center ">
+
+                <!--Botão Página Inicial -->
+
+                <p class="nome-jogador " style="display: inline"> <?= $nickname ?> </p>
+
+                <!--Botão para logout com um modal para confirmar -->
+
+                <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i
+
+                                                                                                          class="material-icons ">exit_to_app</i></button>
+
+            </div>
+
+            <div class="col text-right ">
 
 
-<span class="glyphicons-home" aria-hidden="true "></span>
+                <button class="btn btn-primary" href="javascript:void(0)" onclick="toggleFullScreen()">
+
+                    <i class="material-icons" id="btn-fullscreen">fullscreen</i>
+
+                </button>
 
 
-<!--JQuery, Javascript para Bootstrap -->
+            </div>
 
-<script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
+        </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js "
+    </nav>
 
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb "
 
-        crossorigin="anonymous "></script>
+    <span class="glyphicons-home" aria-hidden="true "></span>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js "
+    <!--JQuery, Javascript para Bootstrap -->
 
-        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn "
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
 
-        crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js "
 
-<!-- Geral script from site -->
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb "
 
-<script src="../js/main.js "></script>
+            crossorigin="anonymous "></script>
 
-<!-- Fullscreen script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 
-<script type="text/javascript" src="../js/fullscreen.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js "
 
-</body>
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn "
+
+            crossorigin="anonymous "></script>
+
+    <!-- Geral script from site -->
+
+    <script src="../js/main.js "></script>
+
+
+    <!-- Fullscreen script -->
+
+    <script type="text/javascript" src="../js/fullscreen.js"></script>
+
+    </body>
 
 
 </html>
