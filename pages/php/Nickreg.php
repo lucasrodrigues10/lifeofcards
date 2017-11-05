@@ -7,6 +7,31 @@
 
   $situacaoN = ""; //erro de nickname igual
   $situacao = ""; //erros gerais
+
+$Contagem = 1;
+
+while($Contagem < 10){
+
+    if($Contagem < 4){
+        $query = "INSERT INTO Cartas_Usuario (IDusuario, IDcarta, Qtde) VALUES ('$id', '$Contagem', 0)";
+        if ($conn->query($query) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $query . "<br>" . $conn->error;
+        }
+    }
+    else {
+        $query = "INSERT INTO Cartas_Usuario (IDusuario, IDcarta, Qtde) VALUES ('$id', '$Contagem', 3)";
+        if ($conn->query($query) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $query . "<br>" . $conn->error;
+        }
+    }
+    
+    $Contagem ++ ;
+}
+
   
 
   /* Procura se já tem um nickname idêntico */
