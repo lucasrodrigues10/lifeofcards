@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="lifeofcards_site">
+  <component name="PublishConfigData" serverName="lifeofcards_site">
     <serverData>
       <paths name="lifeofcards_site">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$/../lifeofcards" web="/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
     </serverData>
-    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

@@ -178,132 +178,131 @@ if ($result->num_rows > 0) {
         <!-- Temática 1 -->
         <div class="container Tema1">
 
-            <div id="collapseExample">
 
-                <div class="card card-block" style="color:black;margin:2em auto 4em auto">
+            <div class="card card-block" style="color:black;margin:2em auto 4em auto;display: flex;flex-direction: row;align-items: stretch;justify-content: space-between">
 
-                    <?php
-
-
-                    $aux2 = 0;
-                    $cont = 0;
-                    $cont1 = 0;
-
-                    while ($cont < $aux) { // Percorre Cartas que o usuário possui
-
-                        $query = "SELECT * FROM Cartas WHERE (IDtema= 1) AND (IDcarta = '$IDcarta[$cont]')";
-
-                        $result = $conn->query($query);
-
-                        if ($result->num_rows > 0) {
-
-                            ?>
-
-                            <div class="row equal" style="height: ;">
-
-                                <?php
-
-                                while ($row = $result->fetch_assoc()) {
-
-                                    $General[$aux2] = $row["General"];
-
-                                    ?>
-
-                                    <div class="col-3" <?php if ($General[$aux2] == 1) { ?> General Postura<?php } ?> <?php if ($General[$aux2] == 0) { ?> Adicionar <?php } ?>">
-
-                                        <div class="carta " style="border:5px solid black;border-radius: 10px;">
-
-                                            <?php
-
-                                            $Nome_Carta[$aux2] = $row["Nome"];
-
-                                            $Descricao_Carta[$aux2] = $row["Descricao"];
-
-                                            $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
-
-                                            $Ataque_Carta[$aux2] = $row["Ataque"];
-
-                                            $Vida_Carta[$aux2] = $row["Vida"];
-
-                                            ?>
-
-                                            <div class="nome" style="Height:5%">
-
-                                                <p class="Nome"
-                                                   style="text-align: left; font-weight: bold;">ola <?php echo $Nome_Carta[$aux2] ?> </p>
-
-                                            </div>
-
-                                            <div class="imagem" style="Height:50%;border:1px solid black;margin: 2%;">
-
-                                                <img style="height:100%;width:100%"
-
-                                                     src="../img/cartas/<?php echo $Imagem_Carta[$aux2] ?> ">
-
-                                            </div>
-
-                                            <div class="descricao"
-                                                 style="Height:35%;border:1px solid black;margin: 2%;padding:2%;">
-
-                                                <p style="text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
-
-                                            </div>
-
-                                            <div class="stats" style="Height:5%;padding-right:2%;">
-
-                                                <p style="text-align: right"><?php echo $Ataque_Carta[$aux2] ?>
-
-                                                    / <?php echo $Vida_Carta[$aux2] ?></p>
-
-                                            </div>
+                <?php
 
 
-                                        </div>
+                $aux2 = 0;
+                $cont = 0;
+                $cont1 = 0;
 
-                                        <?php if ($Quantidade[$cont] > 0) {
-                                            $QuantidadeReal = $Quantidade[$cont];
-                                            $ContadorDeck = 0;
-                                            while ($ContadorDeck < $auxCartasDeck) {
-                                                if (isset($IDCartaDeck[$ContadorDeck])) {
-                                                    if ($IDcarta[$cont] == $IDCartaDeck[$ContadorDeck]) {
-                                                        $QuantidadeReal = $Quantidade[$cont] - $QtdeCartaDeck[$ContadorDeck];
-                                                    }
-                                                }
-                                                $ContadorDeck++;
-                                            }
+                while ($cont < $aux) { // Percorre Cartas que o usuário possui
 
-                                            ?>
+                    $query = "SELECT * FROM Cartas WHERE (IDtema= 1) AND (IDcarta = '$IDcarta[$cont]')";
 
-                                            <div class="Quantidade">
-                                                <p>x<span class="Qtde"><?php echo($QuantidadeReal); ?></span></p>
-                                            </div>
+                    $result = $conn->query($query);
 
-                                        <?php } ?>
+                    if ($result->num_rows > 0) {
 
-                                    </div>
+                        ?>
 
-
-                                    <?php
-                                    $aux2 = $aux2 + 1;
-                                }
-
-                                ?>
-
-                            </div>
-
+                        <div class="cartas" style="flex-basis: 30%; margin:2%;align-self: flex-start">
 
                             <?php
 
-                        }
-                        $cont++;
+                            while ($row = $result->fetch_assoc()) {
+
+                                $General[$aux2] = $row["General"];
+
+                                ?>
+
+                                <div <?php if ($General[$aux2] == 1) { ?> General Postura<?php } ?> <?php if ($General[$aux2] == 0) { ?> Adicionar <?php } ?>>
+
+                                    <div class="carta" style="border:5px solid black;border-radius: 10px;margin: 1%;">
+
+                                        <?php
+
+                                        $Nome_Carta[$aux2] = $row["Nome"];
+
+                                        $Descricao_Carta[$aux2] = $row["Descricao"];
+
+                                        $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
+
+                                        $Ataque_Carta[$aux2] = $row["Ataque"];
+
+                                        $Vida_Carta[$aux2] = $row["Vida"];
+
+                                        ?>
+
+                                        <div class="nome" style="Height:5%">
+
+                                            <p class="Nome"
+                                               style="text-align: left; font-weight: bold;">
+                                                <?php echo $Nome_Carta[$aux2] ?> </p>
+
+                                        </div>
+
+                                        <div class="imagem" style="Height:50%;border:1px solid black;margin: 2%;">
+
+                                            <img style="height:100%;width: 100%"
+
+                                                 src="../img/cartas/<?php echo $Imagem_Carta[$aux2] ?> ">
+
+                                        </div>
+
+                                        <div class="descricao"
+                                             style="Height:10rem;font-size:.8rem;border:1px solid black;margin: 2%;padding:2%;">
+
+                                            <p style="text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
+
+                                        </div>
+
+                                        <div class="stats" style="Height:5%;padding-right:2%;">
+
+                                            <p style="text-align: right"><?php echo $Ataque_Carta[$aux2] ?>
+
+                                                / <?php echo $Vida_Carta[$aux2] ?></p>
+
+                                        </div>
+
+
+                                    </div>
+
+                                    <?php if ($Quantidade[$cont] > 0) {
+                                        $QuantidadeReal = $Quantidade[$cont];
+                                        $ContadorDeck = 0;
+                                        while ($ContadorDeck < $auxCartasDeck) {
+                                            if (isset($IDCartaDeck[$ContadorDeck])) {
+                                                if ($IDcarta[$cont] == $IDCartaDeck[$ContadorDeck]) {
+                                                    $QuantidadeReal = $Quantidade[$cont] - $QtdeCartaDeck[$ContadorDeck];
+                                                }
+                                            }
+                                            $ContadorDeck++;
+                                        }
+
+                                        ?>
+
+                                        <div class="Quantidade">
+                                            <p>x<span class="Qtde"><?php echo($QuantidadeReal); ?></span></p>
+                                        </div>
+
+                                    <?php } ?>
+
+                                </div>
+
+
+                                <?php
+                                $aux2 = $aux2 + 1;
+                            }
+
+                            ?>
+
+                        </div>
+
+
+                        <?php
+
                     }
+                    $cont++;
+                }
 
-                    ?>
-
-                </div>
-
+                ?>
 
             </div>
+
+
         </div>
         <!--Temática 2 -->
         <div class="container Tema2" style="display:none;">
