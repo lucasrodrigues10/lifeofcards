@@ -60,20 +60,20 @@
       <file leaf-file-name="escolherDeck.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/escolherDeck.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="449" column="7" lean-forward="false" selection-start-line="449" selection-start-column="7" selection-end-line="449" selection-end-column="7" />
+            <state relative-caret-position="415">
+              <caret line="333" column="22" lean-forward="false" selection-start-line="333" selection-start-column="22" selection-end-line="333" selection-end-column="22" />
               <folding>
-                <marker date="1510008774124" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-                <marker date="1510008774124" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-                <marker date="1510008774124" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-                <marker date="1510008774124" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-                <marker date="1510008774124" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
-                <marker date="1510008774124" expanded="true" signature="1902:1946" ph="SELECT * FRO... noticias" />
-                <marker date="1510008774124" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
-                <marker date="1510008774124" expanded="true" signature="2607:2670" ph="SELECT Valor... promocao" />
-                <marker date="1510008774124" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
-                <marker date="1510008774124" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
-                <marker date="1510008774124" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
+                <marker date="1510009096229" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+                <marker date="1510009096229" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+                <marker date="1510009096229" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+                <marker date="1510009096229" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+                <marker date="1510009096229" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
+                <marker date="1510009096229" expanded="true" signature="1902:1946" ph="SELECT * FRO... noticias" />
+                <marker date="1510009096229" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
+                <marker date="1510009096229" expanded="true" signature="2607:2670" ph="SELECT Valor... promocao" />
+                <marker date="1510009096229" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
+                <marker date="1510009096229" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
+                <marker date="1510009096229" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
               </folding>
             </state>
           </provider>
@@ -306,7 +306,7 @@
       <workItem from="1509581553227" duration="115000" />
       <workItem from="1509650176835" duration="94000" />
       <workItem from="1509841084496" duration="7714000" />
-      <workItem from="1510005589360" duration="3181000" />
+      <workItem from="1510005589360" duration="3516000" />
     </task>
     <task id="LOCAL-00001" summary="canvas dentro de div e espaco para cartas e botoes">
       <created>1506972079531</created>
@@ -511,11 +511,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510007359642</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fiz pagina escolher deck pegando id do deck clicado">
+      <created>1510008808050</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1510008808050</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66016000" />
+    <option name="totallyTimeSpent" value="66351000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
@@ -572,7 +579,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="coloquei um logo temporario feito no illustrator" />
     <MESSAGE value="mudanca das cores do site em geral" />
     <MESSAGE value="login radio buttons color active consertado" />
     <MESSAGE value="cor de fundo do carrousel transparente" />
@@ -597,7 +603,8 @@
     <MESSAGE value="inventario aparece os decks de cada usuario do banco de dados" />
     <MESSAGE value="consertando db.php" />
     <MESSAGE value="adicionado arquivo sql para execucao local" />
-    <option name="LAST_COMMIT_MESSAGE" value="adicionado arquivo sql para execucao local" />
+    <MESSAGE value="fiz pagina escolher deck pegando id do deck clicado" />
+    <option name="LAST_COMMIT_MESSAGE" value="fiz pagina escolher deck pegando id do deck clicado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -852,20 +859,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/escolherDeck.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="449" column="7" lean-forward="false" selection-start-line="449" selection-start-column="7" selection-end-line="449" selection-end-column="7" />
+        <state relative-caret-position="415">
+          <caret line="333" column="22" lean-forward="false" selection-start-line="333" selection-start-column="22" selection-end-line="333" selection-end-column="22" />
           <folding>
-            <marker date="1510008774124" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-            <marker date="1510008774124" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1510008774124" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-            <marker date="1510008774124" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-            <marker date="1510008774124" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
-            <marker date="1510008774124" expanded="true" signature="1902:1946" ph="SELECT * FRO... noticias" />
-            <marker date="1510008774124" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
-            <marker date="1510008774124" expanded="true" signature="2607:2670" ph="SELECT Valor... promocao" />
-            <marker date="1510008774124" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
-            <marker date="1510008774124" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
-            <marker date="1510008774124" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
+            <marker date="1510009096229" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+            <marker date="1510009096229" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510009096229" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+            <marker date="1510009096229" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+            <marker date="1510009096229" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
+            <marker date="1510009096229" expanded="true" signature="1902:1946" ph="SELECT * FRO... noticias" />
+            <marker date="1510009096229" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
+            <marker date="1510009096229" expanded="true" signature="2607:2670" ph="SELECT Valor... promocao" />
+            <marker date="1510009096229" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
+            <marker date="1510009096229" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
+            <marker date="1510009096229" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
           </folding>
         </state>
       </provider>

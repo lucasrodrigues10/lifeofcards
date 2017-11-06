@@ -329,6 +329,12 @@ $a = 0;
 
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 
+    <style>
+        .checked{
+            border: .5rem solid red;
+        }
+    </style>
+
 </head>
 
 <!--body com background -->
@@ -445,6 +451,8 @@ $a = 0;
     $(document).ready(function () {
         $('.inventario').show();
         $(".deck-escolhido").on('click', (function () {
+            $(".deck-escolhido").removeClass("checked");
+            $(this).addClass("checked");
             alert($(this).attr('data-deck'));
         }));
     });
