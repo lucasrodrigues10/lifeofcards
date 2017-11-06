@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0d390e3-6308-459e-86de-0994556d3ca4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/ConstDeck.php" afterPath="$PROJECT_DIR$/pages/ConstDeck.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/main.php" afterPath="$PROJECT_DIR$/pages/main.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,31 +13,50 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="ConstDeck.php" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ConstDeck.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/ConstDeck.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="235">
-              <caret line="246" column="0" lean-forward="true" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
+              <caret line="246" column="0" lean-forward="false" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="escolherDeck.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/escolherDeck.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="70" column="47" lean-forward="true" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1509849056267" expanded="true" signature="168:219" ph="SELECT * FRO... UsuarioNoJogo" />
-                <marker date="1509849056267" expanded="true" signature="609:661" ph="SELECT * FRO... Cartas_Usuario" />
-                <marker date="1509849056267" expanded="true" signature="1029:1079" ph="SELECT * FRO... Cartas_Deck" />
-                <marker date="1509849056267" expanded="true" signature="1322:1389" ph="SELECT * FRO... Cartas" />
-                <marker date="1509849056267" expanded="true" signature="7444:7516" ph="SELECT * FRO... Cartas" />
-                <marker date="1509849056267" expanded="true" signature="12160:12232" ph="SELECT * FRO... Cartas" />
-                <marker date="1509849056267" expanded="true" signature="17102:17174" ph="SELECT * FRO... Cartas" />
-                <marker date="1509849056267" expanded="true" signature="22004:22076" ph="SELECT * FRO... Cartas" />
+                <element signature="e#5379#5384#0#PHP" expanded="false" />
+                <marker date="1510005369539" expanded="true" signature="212:263" ph="SELECT * FRO... UsuarioNoJogo" />
+                <marker date="1510005369539" expanded="true" signature="652:704" ph="SELECT * FRO... Cartas_Usuario" />
+                <marker date="1510005369539" expanded="true" signature="5082:5154" ph="SELECT * FRO... Cartas" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="181" column="43" lean-forward="true" selection-start-line="181" selection-start-column="43" selection-end-line="181" selection-end-column="43" />
+              <folding>
+                <marker date="1510006953195" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+                <marker date="1510006953195" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+                <marker date="1510006953195" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+                <marker date="1510006953195" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+                <marker date="1510006953195" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
+                <marker date="1510006953195" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
+                <marker date="1510006953195" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
+                <marker date="1510006953195" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
+                <marker date="1510006953195" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
+                <marker date="1510006953195" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
+                <marker date="1510006953195" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
+                <marker date="1510006953195" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
               </folding>
             </state>
           </provider>
@@ -55,8 +73,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>jogue agora</find>
-      <find>barra</find>
       <find>mostrar carta</find>
       <find>idade</find>
       <find>logo.ic</find>
@@ -85,6 +101,8 @@
       <find>nome_dec</find>
       <find>$nome_deck</find>
       <find>main</find>
+      <find>ranqueado</find>
+      <find>Título</find>
     </findStrings>
     <replaceStrings>
       <replace>--botao</replace>
@@ -116,10 +134,10 @@
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/pages/php/adicionaAmigo.php" />
         <option value="$PROJECT_DIR$/pages/jogo.php" />
-        <option value="$PROJECT_DIR$/pages/main.php" />
         <option value="$PROJECT_DIR$/pages/escolherDeck.php" />
         <option value="$PROJECT_DIR$/pages/php/db.php" />
         <option value="$PROJECT_DIR$/pages/ConstDeck.php" />
+        <option value="$PROJECT_DIR$/pages/main.php" />
       </list>
     </option>
   </component>
@@ -155,7 +173,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,6 +215,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,6 +284,7 @@
       <workItem from="1509581553227" duration="115000" />
       <workItem from="1509650176835" duration="94000" />
       <workItem from="1509841084496" duration="7714000" />
+      <workItem from="1510005589360" duration="1747000" />
     </task>
     <task id="LOCAL-00001" summary="canvas dentro de div e espaco para cartas e botoes">
       <created>1506972079531</created>
@@ -467,7 +486,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62835000" />
+    <option name="totallyTimeSpent" value="64582000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
@@ -478,7 +497,6 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32880846" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20211162" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730016" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -490,6 +508,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20211162" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -570,31 +589,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/devil.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/ferumbras.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/quadrado.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/tabuleiro.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/torturer.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/devil.png" />
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/ferumbras.png" />
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/quadrado.png" />
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/tabuleiro.png" />
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/torturer.png" />
     <entry file="file://$PROJECT_DIR$/assets/assetsTibia/mumia.png" />
     <entry file="file://$PROJECT_DIR$/pages/jogo.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -608,27 +607,23 @@
         <state relative-caret-position="2737">
           <caret line="161" column="4" lean-forward="false" selection-start-line="161" selection-start-column="4" selection-end-line="162" selection-end-column="90" />
           <folding>
-            <marker date="1509844097778" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-            <marker date="1509844097778" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1509844097778" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-            <marker date="1509844097778" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-            <marker date="1509844097778" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
-            <marker date="1509844097778" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
-            <marker date="1509844097778" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
-            <marker date="1509844097778" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
-            <marker date="1509844097778" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
-            <marker date="1509844097778" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
-            <marker date="1509844097778" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
-            <marker date="1509844097778" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510006953195" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+            <marker date="1510006953195" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510006953195" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+            <marker date="1510006953195" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+            <marker date="1510006953195" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
+            <marker date="1510006953195" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
+            <marker date="1510006953195" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
+            <marker date="1510006953195" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
+            <marker date="1510006953195" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
+            <marker date="1510006953195" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
+            <marker date="1510006953195" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
+            <marker date="1510006953195" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/banshee.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/banshee.png" />
     <entry file="uml://PHP/C:/xampp/htdocs/lifeofcards">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -659,74 +654,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/jquery.fullscreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/carta.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/js/functions.js" />
+    <entry file="file://$PROJECT_DIR$/js/jquery.fullscreen.js" />
+    <entry file="file://$PROJECT_DIR$/img/carta.jpg" />
     <entry file="file://$PROJECT_DIR$/img/deck/3eyes.jpg" />
-    <entry file="file://$PROJECT_DIR$/img/avatar/passaro.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/avatar/motoca.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/tabuleiro.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/torturer.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/quadrado.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/img/avatar/passaro.jpg" />
+    <entry file="file://$PROJECT_DIR$/img/avatar/motoca.jpg" />
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/tabuleiro.png" />
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/torturer.png" />
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/quadrado.png" />
     <entry file="file://$PROJECT_DIR$/assets/assetsTibia/mumia.png" />
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/ferumbras.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/devil.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/jogo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/banshee.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/ferumbras.png" />
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/devil.png" />
+    <entry file="file://$PROJECT_DIR$/css/jogo.css" />
+    <entry file="file://$PROJECT_DIR$/assets/assetsTibia/banshee.png" />
     <entry file="file://$PROJECT_DIR$/pages/jogo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -734,20 +675,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/logo/logo.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="75" lean-forward="false" selection-start-line="0" selection-start-column="75" selection-end-line="0" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="60" column="7" lean-forward="false" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/img/logo/logo.svg" />
+    <entry file="file://$PROJECT_DIR$/css/style.css" />
     <entry file="file://$PROJECT_DIR$/pages/Nickpag.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -784,21 +713,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/fullscreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="33" column="7" lean-forward="false" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="28" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/js/fullscreen.js" />
+    <entry file="file://$PROJECT_DIR$/js/login.js" />
     <entry file="file://$PROJECT_DIR$/pages/php/email_check.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -848,88 +764,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="file://$PROJECT_DIR$/js/main.js" />
+    <entry file="file://$PROJECT_DIR$/index.php" />
+    <entry file="file://$PROJECT_DIR$/pages/ConstDeck.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="177" column="37" lean-forward="true" selection-start-line="177" selection-start-column="37" selection-end-line="177" selection-end-column="37" />
-          <folding>
-            <marker date="1509844097778" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-            <marker date="1509844097778" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1509844097778" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-            <marker date="1509844097778" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-            <marker date="1509844097778" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
-            <marker date="1509844097778" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
-            <marker date="1509844097778" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
-            <marker date="1509844097778" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
-            <marker date="1509844097778" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
-            <marker date="1509844097778" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
-            <marker date="1509844097778" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
-            <marker date="1509844097778" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/php/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="235">
+          <caret line="246" column="0" lean-forward="false" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/escolherDeck.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="173" column="29" lean-forward="true" selection-start-line="173" selection-start-column="29" selection-end-line="173" selection-end-column="29" />
+        <state relative-caret-position="289">
+          <caret line="70" column="47" lean-forward="true" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#5379#5384#0#PHP" expanded="false" />
-            <marker date="1509845029058" expanded="true" signature="212:263" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1509845029058" expanded="true" signature="652:704" ph="SELECT * FRO... Cartas_Usuario" />
-            <marker date="1509845029058" expanded="true" signature="5082:5154" ph="SELECT * FRO... Cartas" />
+            <marker date="1510005369539" expanded="true" signature="212:263" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510005369539" expanded="true" signature="652:704" ph="SELECT * FRO... Cartas_Usuario" />
+            <marker date="1510005369539" expanded="true" signature="5082:5154" ph="SELECT * FRO... Cartas" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/pages/php/db.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/ConstDeck.php">
+    <entry file="file://$PROJECT_DIR$/pages/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="246" column="0" lean-forward="true" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
+        <state relative-caret-position="399">
+          <caret line="181" column="43" lean-forward="true" selection-start-line="181" selection-start-column="43" selection-end-line="181" selection-end-column="43" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1509849056267" expanded="true" signature="168:219" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1509849056267" expanded="true" signature="609:661" ph="SELECT * FRO... Cartas_Usuario" />
-            <marker date="1509849056267" expanded="true" signature="1029:1079" ph="SELECT * FRO... Cartas_Deck" />
-            <marker date="1509849056267" expanded="true" signature="1322:1389" ph="SELECT * FRO... Cartas" />
-            <marker date="1509849056267" expanded="true" signature="7444:7516" ph="SELECT * FRO... Cartas" />
-            <marker date="1509849056267" expanded="true" signature="12160:12232" ph="SELECT * FRO... Cartas" />
-            <marker date="1509849056267" expanded="true" signature="17102:17174" ph="SELECT * FRO... Cartas" />
-            <marker date="1509849056267" expanded="true" signature="22004:22076" ph="SELECT * FRO... Cartas" />
+            <marker date="1510006953195" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+            <marker date="1510006953195" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510006953195" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+            <marker date="1510006953195" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+            <marker date="1510006953195" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
+            <marker date="1510006953195" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
+            <marker date="1510006953195" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
+            <marker date="1510006953195" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
+            <marker date="1510006953195" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
+            <marker date="1510006953195" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
+            <marker date="1510006953195" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
+            <marker date="1510006953195" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
           </folding>
         </state>
       </provider>
