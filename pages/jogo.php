@@ -1,3 +1,5 @@
+<?php echo $deckId = $_POST['deckID']; ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,9 +56,11 @@
             overflow: scroll;
             height: 40%;
         }
-        .carta > img{
+
+        .carta > img {
             width: 33%;
         }
+
         #left > button, #right {
             display: block;
             margin: auto;
@@ -94,11 +98,10 @@
             </div>
 
         </div>
-        <img src="/img/banner-mc.jpg" class="img-fluid" alt="Responsive image" >
+        <img src="/img/banner-mc.jpg" class="img-fluid" alt="Responsive image">
 
     </div>
 </div>
-
 <script>
     document.body.addEventListener
     (
@@ -127,3 +130,5 @@
 
 
 </html>
+
+

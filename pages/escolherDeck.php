@@ -330,7 +330,7 @@ $a = 0;
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 
     <style>
-        .checked{
+        .checked {
             border: .5rem solid red;
         }
     </style>
@@ -372,7 +372,7 @@ $a = 0;
                     <!-- codigo do lucas -->
                     <?php if (isset($IDdeck[$j])) { ?>
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                            <img data-deck="<?php echo $IDdeck[$j]?>"
+                            <img data-deck="<?php echo $IDdeck[$j] ?>"
                                  class="deck-escolhido img-fluid img-thumbnail "
                                  src="../img/cartas/<?php if (isset($Imagem_Deck[$j])) echo($Imagem_Deck[$j]); ?>"
                                  alt=" ">
@@ -412,7 +412,7 @@ $a = 0;
 </div>
 <!-- Exibição Botão Criar Deck -->
 <div class="row">
-    <div class="col text-center">
+    <div class="col text-center" id="deck-jogar">
         <button class="btn btn-primary btn-lg ">Jogar</button>
     </div>
 </div>
@@ -446,14 +446,24 @@ $a = 0;
 <!-- Fullscreen script -->
 
 <script type="text/javascript" src="../js/fullscreen.js"></script>
+<script type="text/javascript" src="../js/jquery.redirect/jquery.redirect.js"></script>
 
 <script>
+
     $(document).ready(function () {
         $('.inventario').show();
+        var deckChecked;
+
         $(".deck-escolhido").on('click', (function () {
             $(".deck-escolhido").removeClass("checked");
             $(this).addClass("checked");
+            deckChecked = $(this).attr('data-deck');
             alert($(this).attr('data-deck'));
+        }));
+
+
+        $("#deck-jogar").on('click', (function () {
+            $.redirect('jogo.php', {'deckID': deckChecked}, 'post');
         }));
     });
 </script>
