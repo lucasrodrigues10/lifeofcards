@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f0d390e3-6308-459e-86de-0994556d3ca4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/main.php" afterPath="$PROJECT_DIR$/pages/main.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,7 +23,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="escolherDeck.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="escolherDeck.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/escolherDeck.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -34,29 +33,6 @@
                 <marker date="1510005369539" expanded="true" signature="212:263" ph="SELECT * FRO... UsuarioNoJogo" />
                 <marker date="1510005369539" expanded="true" signature="652:704" ph="SELECT * FRO... Cartas_Usuario" />
                 <marker date="1510005369539" expanded="true" signature="5082:5154" ph="SELECT * FRO... Cartas" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="181" column="43" lean-forward="true" selection-start-line="181" selection-start-column="43" selection-end-line="181" selection-end-column="43" />
-              <folding>
-                <marker date="1510006953195" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-                <marker date="1510006953195" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-                <marker date="1510006953195" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-                <marker date="1510006953195" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-                <marker date="1510006953195" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
-                <marker date="1510006953195" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
-                <marker date="1510006953195" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
-                <marker date="1510006953195" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
-                <marker date="1510006953195" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
-                <marker date="1510006953195" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
-                <marker date="1510006953195" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
-                <marker date="1510006953195" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
               </folding>
             </state>
           </provider>
@@ -151,7 +127,7 @@
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="654" />
     <option name="height" value="767" />
@@ -179,21 +155,6 @@
             <path>
               <item name="lifeofcards" type="b2602c69:ProjectViewProjectNode" />
               <item name="lifeofcards" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="lifeofcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lifeofcards" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="lifeofcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lifeofcards" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="img" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="lifeofcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lifeofcards" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="lifeofcards" type="b2602c69:ProjectViewProjectNode" />
@@ -284,7 +245,7 @@
       <workItem from="1509581553227" duration="115000" />
       <workItem from="1509650176835" duration="94000" />
       <workItem from="1509841084496" duration="7714000" />
-      <workItem from="1510005589360" duration="1747000" />
+      <workItem from="1510005589360" duration="1797000" />
     </task>
     <task id="LOCAL-00001" summary="canvas dentro de div e espaco para cartas e botoes">
       <created>1506972079531</created>
@@ -482,18 +443,24 @@
       <option name="project" value="LOCAL" />
       <updated>1509846927062</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="adicionado arquivo sql para execucao local">
+      <created>1510007359642</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1510007359642</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64582000" />
+    <option name="totallyTimeSpent" value="64632000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1296" height="776" extended-state="7" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0078125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32880846" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -543,7 +510,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="canvas dentro de div e espaco para cartas e botoes" />
     <MESSAGE value="coloquei um logo temporario feito no illustrator" />
     <MESSAGE value="mudanca das cores do site em geral" />
     <MESSAGE value="login radio buttons color active consertado" />
@@ -568,7 +534,8 @@
     <MESSAGE value="adicionei anuncio do mcdonalds como exemplo" />
     <MESSAGE value="inventario aparece os decks de cada usuario do banco de dados" />
     <MESSAGE value="consertando db.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="consertando db.php" />
+    <MESSAGE value="adicionado arquivo sql para execucao local" />
+    <option name="LAST_COMMIT_MESSAGE" value="adicionado arquivo sql para execucao local" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -774,19 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/escolherDeck.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="70" column="47" lean-forward="true" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
-          <folding>
-            <element signature="e#5379#5384#0#PHP" expanded="false" />
-            <marker date="1510005369539" expanded="true" signature="212:263" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1510005369539" expanded="true" signature="652:704" ph="SELECT * FRO... Cartas_Usuario" />
-            <marker date="1510005369539" expanded="true" signature="5082:5154" ph="SELECT * FRO... Cartas" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/php/db.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -798,7 +752,7 @@
     <entry file="file://$PROJECT_DIR$/pages/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="181" column="43" lean-forward="true" selection-start-line="181" selection-start-column="43" selection-end-line="181" selection-end-column="43" />
+          <caret line="181" column="44" lean-forward="false" selection-start-line="181" selection-start-column="44" selection-end-line="181" selection-end-column="44" />
           <folding>
             <marker date="1510006953195" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
             <marker date="1510006953195" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
@@ -812,6 +766,19 @@
             <marker date="1510006953195" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
             <marker date="1510006953195" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
             <marker date="1510006953195" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/escolherDeck.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="70" column="47" lean-forward="true" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+          <folding>
+            <element signature="e#5379#5384#0#PHP" expanded="false" />
+            <marker date="1510005369539" expanded="true" signature="212:263" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510005369539" expanded="true" signature="652:704" ph="SELECT * FRO... Cartas_Usuario" />
+            <marker date="1510005369539" expanded="true" signature="5082:5154" ph="SELECT * FRO... Cartas" />
           </folding>
         </state>
       </provider>
