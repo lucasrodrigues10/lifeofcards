@@ -924,9 +924,10 @@ if ($result->num_rows > 0) {
                 $(this).click(false);
             }
             else {
-                $('.Salve').show();
                 
                 var NomeGeneral = $(this).closest("div").find(".Nome").text();
+                
+                NomeGeneral = NomeGeneral.replace(/\s+/g, '');
 
                 $('.Generalizado').append('<div class="col-lg-6 col-md-7 col-xs-12 Chefao"><input class="InputGeneral" type="hidden" name="General" value=""><h3 class="nome-carta">' + NomeGeneral + '</h3></div>');
                 Qtde = Qtde - 1;
@@ -943,6 +944,8 @@ if ($result->num_rows > 0) {
                 $('.General').css("color", "gray");
                 $('.Adicionar').css("color", "black");
                 $('.carta').css("border-color", "black");
+                
+                $('.Salve').show();
             }
         });
 
@@ -961,7 +964,7 @@ if ($result->num_rows > 0) {
             var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
             var Total = parseInt($(".Total").text());
             var QuantidadeCarta = 0;
-
+            
             Nome = $.trim(Nome);
 
             if (Qtde < 1 || count === 0 || Total === 20) {

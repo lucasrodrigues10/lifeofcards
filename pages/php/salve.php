@@ -17,13 +17,14 @@ $IDdeck = $_POST['DeckID'];
 
 $IDcarta = array();
 
-$b = rtrim($NomeGeneral, "  "); // Remove ultimo espaço do nome carta
-$b = ltrim($b, " "); // Remove primeiro espaço do nome carta
+$b = rtrim($NomeGeneral, "     "); // Remove ultimo espaço do nome carta
+$b = ltrim($b, "    "); // Remove primeiro espaço do nome carta
 
 if($IDdeck == -1){
     $IDTemp = array();
     $i = 0;
     if($b == "Ananias"){
+        echo (1 . "<br>");
         $query = "INSERT INTO DeckUsuario (IDusuario, Descricao, ImagemDeck) VALUES ('$id', 'Deck Criado', '10.jpg')";
         if ($conn->query($query) === TRUE) {
             echo "New record created successfully";
@@ -77,6 +78,7 @@ $result = $conn->query($query);
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $IDGeneral = $row["IDcarta"];
+    echo ($IDGeneral . "<br>");
 }
 
 $query = "INSERT INTO Cartas_Deck (IDdeck, IDcarta, QtdeCartas) VALUES ('$IDdeck', '$IDGeneral', '1')";
