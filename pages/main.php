@@ -122,7 +122,7 @@ if ($result->num_rows > 0) {
 
 }
 
-$query = "SELECT * FROM noticias WHERE IDnoticia = '1'";
+$query = "SELECT * FROM Noticias WHERE IDnoticia = '1'";
 
 $result = $conn->query($query);
 
@@ -169,7 +169,7 @@ if ($result->num_rows > 0) {
 
         $preco[$z] = $row["Preço"];
 
-        $query = "SELECT Valor FROM promocao WHERE IDpromocao = '$IDpromocao[$z]'";
+        $query = "SELECT Valor FROM Promocao WHERE IDpromocao = '$IDpromocao[$z]'";
 
         $result2 = $conn->query($query);
 

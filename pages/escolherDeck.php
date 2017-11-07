@@ -122,22 +122,6 @@ if ($result->num_rows > 0) {
 
 }
 
-$query = "SELECT * FROM noticias WHERE IDnoticia = '1'";
-
-$result = $conn->query($query);
-
-if ($result->num_rows > 0) {
-
-    $row = $result->fetch_assoc();
-
-    $titulo = $row["Título"];
-
-    $descricao = $row["Descrição"];
-
-    $data = $row["Data"];
-
-}
-
 
 $IDproduto = array();
 
@@ -156,38 +140,6 @@ $query = "SELECT * FROM Loja";
 $result = $conn->query($query);
 
 $z = 0;
-
-if ($result->num_rows > 0) {
-
-    while ($row = $result->fetch_assoc()) {
-
-        $IDproduto[$z] = $row["IDproduto"];
-
-        $Tabnum[$z] = $row["TabNum"];
-
-        $IDpromocao[$z] = $row["IDpromocao"];
-
-        $preco[$z] = $row["Preço"];
-
-        $query = "SELECT Valor FROM promocao WHERE IDpromocao = '$IDpromocao[$z]'";
-
-        $result2 = $conn->query($query);
-
-        if ($result2->num_rows > 0) {
-
-            $row = $result2->fetch_assoc();
-
-            $valor = $row["Valor"];
-
-            $preco_certo[$z] = $preco[$z] * $valor;
-
-        }
-
-        $z++;
-
-    }
-
-}
 
 
 $a = 0;
@@ -458,7 +410,6 @@ $a = 0;
             $(".deck-escolhido").removeClass("checked");
             $(this).addClass("checked");
             deckChecked = $(this).attr('data-deck');
-            alert($(this).attr('data-deck'));
         }));
 
 
