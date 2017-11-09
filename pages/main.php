@@ -1218,8 +1218,8 @@ title="online">cloud</i>
                                         if (isset($Descricao_Carta[$aux])) echo($Descricao_Carta[$aux]); ?></p>
 
                                     <p class="preco_certo"
-                                       alt="<?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>">
-                                        Preço: <?php if (isset($preco_certo[0])) echo($preco_certo[0]); ?>
+                                       alt="<?php if (isset($preco_certo[$aux])) echo($preco_certo[$aux]); ?>">
+                                        Preço: <?php if (isset($preco_certo[$aux])) echo($preco_certo[$aux]); ?>
                                         <img src="../img/icon/coin.svg" class="icone"></p>
 
 
