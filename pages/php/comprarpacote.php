@@ -26,8 +26,8 @@ include "db.php";
 				$promo = $row["IDpromocao"];
 			  }
 			  
-		 $query = "SELECT * FROM Promoção WHERE IDpromoção = '$promo'";
-			 $result = $conn->query($query);
+		 $query = "SELECT * FROM Promocao WHERE IDpromocao = '$promo'";
+			 $result = $conn->query($query) or die($conn->error);
 			  $row = $result->fetch_assoc();
 				  $valor = $row["Valor"];
 				  
