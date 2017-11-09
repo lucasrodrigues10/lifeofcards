@@ -613,6 +613,55 @@ $a = 0;
 
 </div>
 
+<div class="modal fade bd-example3-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="exampleModalLongTitle">Compra de Pacote</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                    <span aria-hidden="true">&times;</span>
+
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="container-fluid text-center">
+
+                    <div class="row">
+
+                        <div class="col" id="pacote">
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
 
 <!--Barra de navegação de cima -->
 
@@ -1114,7 +1163,7 @@ title="online">cloud</i>
                                 </button>
 
                                 <button type="button" value=<?php echo $id ?> class="btn btn-danger
-                                ">Comprar</button>
+                                "data-toggle="modal" data-target=".bd-example3-modal-lg">Comprar</button>
 
                             </div>
 
@@ -1188,7 +1237,7 @@ title="online">cloud</i>
                                     </button>
 
                                     <button type="button" value=<?php echo $id ?> class="btn btn-danger
-                                    ">Comprar</button>
+                                    "data-toggle="modal" data-target=".bd-example3-modal-lg">Comprar</button>
 
                                 </div>
 
