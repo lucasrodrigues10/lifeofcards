@@ -232,14 +232,6 @@ $(document).ready(function () {
 		var y = $('.moedas').attr("alt");
 		var z = $('.preco_certo').attr("alt");
 		var idu = $('.btn-danger').attr("value");
-		if(z>y)
-		{
-			//nao compra
-			console.log('sem dinhero');
-		}
-		else
-		{
-		    console.log('com dinhero');
 			 $.ajax({
 				 type: "POST",
 				 url: '/pages/php/comprarpacote.php',
@@ -249,11 +241,11 @@ $(document).ready(function () {
 					 id: idu
 				 },
 				 success: function(data) {
-					 console.log(data);
-					 alert("Pacote Comprado");
+					 //console.log(data);
+                 $('#pacote').html(data);
+					 //alert("Pacote Comprado");
 				 }
 			 });
-        }
     });
 
     $('#opt-log').click(function () {
@@ -262,4 +254,3 @@ $(document).ready(function () {
     });
 
 });
-

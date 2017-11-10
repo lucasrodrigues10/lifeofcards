@@ -8,17 +8,16 @@ $id = $_SESSION["id"];
 $NomeCarta = array();
 $QtdeCarta = array();
 
-
-
 $NomeCarta = $_POST['carta'];
 $QtdeCarta = $_POST['QtdeCarta'];
 $NomeGeneral = $_POST['General'];
 $IDdeck = $_POST['DeckID'];
+$NomeDeck = $_POST['NomeDeck'];
 
 $IDcarta = array();
 
-$b = rtrim($NomeGeneral, "  "); // Remove ultimo espaço do nome carta
-$b = ltrim($b, " "); // Remove primeiro espaço do nome carta
+$b = rtrim($NomeGeneral, "     "); // Remove ultimo espaço do nome carta
+$b = ltrim($b, "    "); // Remove primeiro espaço do nome carta
 
 if($IDdeck == -1){
     $IDTemp = array();
@@ -50,6 +49,14 @@ if($IDdeck == -1){
         }
     }
 
+    $query = "INSERT INTO DeckUsuario (Nome) VALUES ('$NomeDeck') WHERE IDdeck='$IDdeck'";
+    if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
+
+
     $query = "SELECT IDdeck FROM DeckUsuario WHERE IDusuario = '$id'";
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
@@ -60,6 +67,13 @@ if($IDdeck == -1){
     }
     $IDdeck = $IDTemp[$i-1];
 }
+
+$query = "UPDATE DeckUsuario SET Nome='$NomeDeck' WHERE IDdeck='$IDdeck'";
+    if ($conn->query($query) === TRUE) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
 
 /* Deleta dados anteriores do banco */
 $query = "DELETE FROM Cartas_Deck WHERE IDdeck ='$IDdeck'";
@@ -116,5 +130,4 @@ while ($aux < $x){
 $conn->close();
 
 ?>
-
 <script> location.replace("../ConstDeck.php?id=<?php echo ($IDdeck)?>"); </script>
