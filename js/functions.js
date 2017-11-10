@@ -21,16 +21,10 @@ function loadAssets (){
         success: function(result){
             
             for(var key in result){
-                tamanhoFrame = result[key];
-                
+                tamanhoFrame = result[key];                
                 nomeArquivo = key;
-                
                 nomeTextura = nomeArquivo.replace(".png",""); //nome da textura do phaser é nome do arquivo sem o '.png' no fim
-                
-
                 game.load.spritesheet(nomeTextura, 'assets/sprites/'+nomeArquivo, tamanhoFrame, tamanhoFrame);  
-
-                
                 listaSprites.push(nomeTextura);
         
             }
@@ -41,25 +35,6 @@ function loadAssets (){
 }
 
 
-function exibeSprites(){
-    var coluna = 1;
-    var linha = 1;
-    
-    for (var i = 0;i<listaSprites.length;i++){
-        console.log(coluna,linha);
-        
-        summon(linha,coluna,listaSprites[i]);
-        linha++;
-        if (i%12==0 && i!=0){
-            linha = 1;
-            coluna += 2;
-        }
-        
-        
-    }
-    
-    
-}
 
 //cria os sprites de animações
 function addAnimations(sprite){
@@ -385,8 +360,7 @@ function defineDirecao(sprite){
 function mostraSprites(){
     
     //textos removidos parafacilitar visualizacao dos sprites
-    textoAtk.visible=false;
-    textoDef.visible=false;
+    
     
     coluna = 1;
     linha = 1;
@@ -405,6 +379,11 @@ function mostraSprites(){
                 
         
     }
+}
+
+function esconderTexto(){
+    stextoAtk.visible=false;
+    textoDef.visible=false;
 }
 
 function atualizaTexto(){
