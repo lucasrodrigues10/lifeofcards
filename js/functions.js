@@ -395,7 +395,7 @@ function mostraSprites(){
         summon(linha,coluna,listaSprites[i]);
         
         if (i%11==0 && i!=0){
-            coluna +=1;
+            coluna +=2;
             linha = 1;
         }
         summon(linha,coluna,listaSprites[i]);      //tem summon duas vezes porque não sei programar   
@@ -420,4 +420,18 @@ function atualizaTexto(){
     })
     
     
+}
+
+function desenhaInterface (){
+    //barConfig1 = {x:150,y:30,comprimento:10, espessura:190,background:'#000000',color:'#fc9802'};
+        
+    vidaAtual = new HealthBar(this.game,
+                         {x:16,y:5,width:190, height:25});
+    vidaAtual.setAnchor(0,0);
+    vidaAtual.setPercent(50);
+    
+    vidaInimigo = new HealthBar(this.game,
+                         {x:448-190-16,y:5,width:190,height:25,flipped:true});
+    vidaInimigo.setAnchor(0,0);
+    vidaInimigo.setPercent(1);
 }

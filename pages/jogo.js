@@ -11,8 +11,7 @@ function  preload () {
 }
 
 function create (){
-    
-   
+
     
     
     //jogo se torna responsivo de acordo com o tamanho da tela do browser
@@ -47,13 +46,15 @@ function create (){
     
     
     
-    //unidades.callAll('animations.play','animations','down'); 
+    unidades.callAll('animations.play','animations','down'); 
 
-    summon(7,7,'lost_soul');
+    //summon(7,7,'lost_soul');
     
+    
+
    
 	
-		
+	desenhaInterface();	
 	
 }
 

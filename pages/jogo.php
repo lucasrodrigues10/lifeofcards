@@ -31,6 +31,7 @@
     <!-- Phaser -->
     <script src="https://cdn.jsdelivr.net/npm/phaser-ce@2.8.3/build/phaser.js"></script>
     <script src="../js/functions.js"></script>
+    <script src="../js/HealthBar.standalone.js"x></script>
     <script type="text/javascript" src="jogo.js"></script>
 
     <!--Icones do google -->
