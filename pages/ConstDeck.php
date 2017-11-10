@@ -180,6 +180,11 @@ if ($result->num_rows > 0) {
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center">
+            <form id="form1" action="php/salve.php" method="post">
+                <input id="input-nome-deck" type="text" name="NomeDeck" placeholder="Nome do Deck" value="<?php if(isset($NomeDeck)) echo($NomeDeck) ?>">
+            </form>
+        </div>
         <!-- Inserção do nome do deck-->
         <div class="row">
             <div class="col-8">
@@ -193,16 +198,16 @@ if ($result->num_rows > 0) {
 
 
     $aux2 = 0;
-                $cont = 0;
-                $cont1 = 0;
+                       $cont = 0;
+                       $cont1 = 0;
 
-                while ($cont < $aux) { // Percorre Cartas que o usuário possui
+                       while ($cont < $aux) { // Percorre Cartas que o usuário possui
 
-                    $query = "SELECT * FROM Cartas WHERE (IDtema= 1) AND (IDcarta = '$IDcarta[$cont]')";
+                           $query = "SELECT * FROM Cartas WHERE (IDtema= 1) AND (IDcarta = '$IDcarta[$cont]')";
 
-                    $result = $conn->query($query);
+                           $result = $conn->query($query);
 
-                    if ($result->num_rows > 0) {
+                           if ($result->num_rows > 0) {
 
                         ?>
 
@@ -210,9 +215,9 @@ if ($result->num_rows > 0) {
 
                             <?php
 
-                        while ($row = $result->fetch_assoc()) {
+                               while ($row = $result->fetch_assoc()) {
 
-                            $General[$aux2] = $row["General"];
+                                   $General[$aux2] = $row["General"];
 
                             ?>
 
@@ -222,15 +227,15 @@ if ($result->num_rows > 0) {
 
                                     <?php
 
-                            $Nome_Carta[$aux2] = $row["Nome"];
+                                   $Nome_Carta[$aux2] = $row["Nome"];
 
-                            $Descricao_Carta[$aux2] = $row["Descricao"];
+                                   $Descricao_Carta[$aux2] = $row["Descricao"];
 
-                            $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
+                                   $Imagem_Carta[$aux2] = $row["arquivo.sprite"];
 
-                            $Ataque_Carta[$aux2] = $row["Ataque"];
+                                   $Ataque_Carta[$aux2] = $row["Ataque"];
 
-                            $Vida_Carta[$aux2] = $row["Vida"];
+                                   $Vida_Carta[$aux2] = $row["Vida"];
 
                                     ?>
 
@@ -292,8 +297,8 @@ if ($result->num_rows > 0) {
 
 
                             <?php
-                            $aux2 = $aux2 + 1;
-                        }
+                                   $aux2 = $aux2 + 1;
+                               }
 
                             ?>
 
@@ -302,9 +307,9 @@ if ($result->num_rows > 0) {
 
                         <?php
 
-                    }
-                    $cont++;
-                }
+                           }
+                           $cont++;
+                       }
 
                         ?>
 
@@ -692,8 +697,7 @@ if ($result->num_rows > 0) {
             <!-- Local mostrando informações de cartas escolhidas pelo usuário (Cartas e general) -->
             <div class="col-4">
                 <div class="container">
-                    <form id="form1" action="php/salve.php" method="post">
-                        <input type="text" name="NomeDeck" placeholder="Nome do Deck" value="<?php if(isset($NomeDeck)) echo($NomeDeck) ?>">
+                    <form id="form2" action="php/salve.php" method="post">
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb Generalizado">
                             <h3>General Selecionado</h3>
                             <?php
@@ -751,9 +755,9 @@ if ($result->num_rows > 0) {
                             <h5 class="nome-carta"><span class="Total"><?php echo($TotalCartasDeck); ?></span>/20</h5>
                         </div>
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb Salve">
-                            <input type="button" value="Salvar Deck" class="btn-fullscreen btn-log" onclick="submitForm()">
+                            <button type="button" class="btn btn-primary" id="btn-salvar-deck">Salvar Deck</button>
                         </div>
-                        <input type="hidden" name="DeckID" value="<?php echo($DeckID); ?>">
+                        <input id="input-id-deck" type="hidden" name="DeckID" value="<?php echo($DeckID); ?>">
                     </form>
                 </div>
             </div>
@@ -786,9 +790,11 @@ if ($result->num_rows > 0) {
         </nav>
 
         <!--JQuery, Javascript para Bootstrap -->
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js "
-                integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n "
-                crossorigin="anonymous "></script>
+        <script
+                src="https://code.jquery.com/jquery-3.2.1.min.js"
+                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                crossorigin="anonymous"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js "
                 integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb "
                 crossorigin="anonymous "></script>
@@ -813,14 +819,34 @@ if ($result->num_rows > 0) {
             function Cor4() {
                 document.getElementById("body").className = "tem4";
             }
-            submitForm = function(){
-                document.getElementById("form1").submit();
-            }
 
         </script>
         <script>
             $(document).ready(function () {
                 var Total = 0;
+
+                function submitTwoForms() {
+                    $.ajax({
+                        url: "php/salve.php",
+                        data : { 
+                            NomeDeck : $("#input-nome-deck").val(),
+                            DeckID : $("#input-id-deck").val()
+                        } ,
+                        type : 'post',
+                        success: function(){
+                            $("#form2").submit(); //envia o outro formulario
+                        }
+                    });
+                    return false;   //to prevent submit
+                }
+
+                $("#btn-salvar-deck").on("click", function () { 
+                    console.log(1);
+                    submitTwoForms();
+                    return false;
+                });
+
+
                 <?php
     if(isset($CheckIDGeneral)){
                 ?>

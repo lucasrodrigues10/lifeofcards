@@ -12,7 +12,30 @@ $NomeCarta = $_POST['carta'];
 $QtdeCarta = $_POST['QtdeCarta'];
 $NomeGeneral = $_POST['General'];
 $IDdeck = $_POST['DeckID'];
-$NomeDeck = $_POST['NomeDeck'];
+$NomeDeck = $_REQUEST['NomeDeck'];
+
+//Coloca nome do deck no banco
+
+if(isset($NomeDeck)){
+
+    if($IDdeck != -1){
+        $query = "UPDATE DeckUsuario SET Nome='$NomeDeck' WHERE IDdeck='$IDdeck'";
+        if ($conn->query($query) === TRUE) {
+            echo "Record updated successfully";
+        } else {
+            echo "Error updating record: " . $conn->error;
+        }
+    }
+    else{
+        $query = "INSERT INTO DeckUsuario (IDusuario, Nome) VALUES ('$id', '$NomeDeck')";
+        if ($conn->query($query) === TRUE) {
+            echo "Record inserted successfully";
+        } else {
+            echo "Error inserting record: " . $conn->error;
+        }
+    }
+
+}
 
 $IDcarta = array();
 
@@ -21,59 +44,48 @@ $b = ltrim($b, "    "); // Remove primeiro espaço do nome carta
 
 if($IDdeck == -1){
     $IDTemp = array();
-    $i = 0;
-    if($b == "Ananias"){
-        $query = "INSERT INTO DeckUsuario (IDusuario, Descricao, ImagemDeck) VALUES ('$id', 'Deck Criado', '10.jpg')";
-        if ($conn->query($query) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $query . "<br>" . $conn->error;
+        $i = 0;
+
+        $query = "SELECT IDdeck FROM DeckUsuario WHERE IDusuario = '$id'";
+        $result = $conn->query($query);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $IDTemp[$i] = $row["IDdeck"];
+                $i++;
+            }
         }
-    }
 
-    if($b == "Jonas"){
-        $query = "INSERT INTO DeckUsuario (IDusuario, Descricao, ImagemDeck) VALUES ('$id', 'Deck Criado', '11.jpg')";
-        if ($conn->query($query) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $query . "<br>" . $conn->error;
-        }
-    }
-
-    if($b == "Mamonas"){
-        $query = "INSERT INTO DeckUsuario (IDusuario, Descricao, ImagemDeck) VALUES ('$id', 'Deck Criado', '12.jpg')";
-        if ($conn->query($query) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $query . "<br>" . $conn->error;
-        }
-    }
-
-    $query = "INSERT INTO DeckUsuario (Nome) VALUES ('$NomeDeck') WHERE IDdeck='$IDdeck'";
-    if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully";
-    } else {
-        echo "Error updating record: " . $conn->error;
-    }
-
-
-    $query = "SELECT IDdeck FROM DeckUsuario WHERE IDusuario = '$id'";
-    $result = $conn->query($query);
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $IDTemp[$i] = $row["IDdeck"];
-            $i++;
-        }
-    }
-    $IDdeck = $IDTemp[$i-1];
+        $IDdeck = $IDTemp[$i-1];
 }
 
-$query = "UPDATE DeckUsuario SET Nome='$NomeDeck' WHERE IDdeck='$IDdeck'";
+//Insere General escolhido no banco e recupera o ID do novo deck
+
+if($b == "Ananias"){
+    $query = "UPDATE DeckUsuario SET Descricao = 'Deck Criado', ImagemDeck = '10.jpg' WHERE IDdeck = '$IDdeck'";
     if ($conn->query($query) === TRUE) {
-        echo "Record updated successfully";
+        echo "New record created successfully";
     } else {
-        echo "Error updating record: " . $conn->error;
+        echo "Error: " . $query . "<br>" . $conn->error;
     }
+}
+
+if($b == "Jonas"){
+    $query = "UPDATE DeckUsuario SET Descricao = 'Deck Criado', ImagemDeck = '11.jpg' WHERE IDdeck = '$IDdeck'";
+    if ($conn->query($query) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $query . "<br>" . $conn->error;
+    }
+}
+
+if($b == "Mamonas"){
+    $query = "UPDATE DeckUsuario SET Descricao = 'Deck Criado', ImagemDeck = '12.jpg' WHERE IDdeck = '$IDdeck'";
+    if ($conn->query($query) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $query . "<br>" . $conn->error;
+    }
+}
 
 /* Deleta dados anteriores do banco */
 $query = "DELETE FROM Cartas_Deck WHERE IDdeck ='$IDdeck'";
