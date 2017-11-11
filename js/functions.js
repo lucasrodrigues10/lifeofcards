@@ -7,7 +7,7 @@ function loadAssets (){
     
     game.load.image('tabuleiro','assets/tabuleiro.png');
     game.load.image('quadrado','assets/quadrado.png');
-    
+    game.load.image('quadInimigo','assets/quadInimigo.png');
     
     
     
@@ -81,7 +81,7 @@ function deixaResponsivo(){
 	game.scale.refresh();
 }
 var jogador = 1;
-var turno = 1 
+var turno = 1; 
 var numLinhas = 12;
 var numColunas = 12;
 var margemLateral = 1;
@@ -117,9 +117,12 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 
         //criando resposta ao clique
         sprite.inputEnabled = true;
-        sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32); 
-        sprite.events.onInputDown.add(criaMovimentacao,this); 
-
+        sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32);
+        
+        if (jogador == sprite.jogador)
+            sprite.events.onInputDown.add(criaMovimentacao,this); 
+        else 
+            sprite.events.onInputDown.add(criaMovInimiga,this); 
         //habilitando fisica para movimentar os sprites
         game.physics.arcade.enable(sprite);
 
@@ -229,6 +232,7 @@ function moveSec (sprite){
 	
 }
 
+
 function criaMovimentacao (sprite){
     
     
@@ -269,7 +273,9 @@ function criaMovimentacao (sprite){
         if (posicaoValida(posX,posY+32))
             quadSecundarios.push(game.add.sprite(posX,posY+32,'quadrado'));   //baixo
         if (posicaoValida(posX-32,posY))
-            quadSecundarios.push(game.add.sprite(posX-32,posY,'quadrado'));   //pra esquerda}
+            quadSecundarios.push(game.add.sprite(posX-32,posY,'quadrado'));   //pra esquerda
+        
+        //altera transparencia dos quadrados rincipais
         quadrado.alpha = 0.5;
             
 			
@@ -279,6 +285,7 @@ function criaMovimentacao (sprite){
 			quadradoSecundario.anchor.set(1,1);
 			quadradoSecundario.inputEnabled = true;
 			quadradoSecundario.events.onInputDown.add(moveSec,this);
+            //altera transparencia dos quadrados 
 			quadradoSecundario.alpha = 0.5;
 		});
         
@@ -350,18 +357,76 @@ function posicaoValida(posX,posY){
         if (jogador == outraUnidade.jogador && dentroDoMapa(posX,posY))
             return true;
         else
-            return false;
-        
+            return false;      
     
     } else
         if (dentroDoMapa(posX,posY))
-            return true;
-    
-        
-       
-   
-       
+            return true;      
 } 
+
+function criaMovInimiga(sprite){
+    var quadrados = [];
+    var quadSecundarios = [];
+    
+    spriteSelecionado = sprite;
+    movimentacao.removeAll(true);
+  
+    posX = sprite.x;
+    posY = sprite.y;
+    
+    //criando os quatro primeiros tiles de movimentação
+    if (posicaoValida(posX,posY-32))
+    quadrados.push(game.add.sprite(posX,posY-32,'quadInimigo'));   //cima
+    if (posicaoValida(posX+32,posY))                    
+    quadrados.push(game.add.sprite(posX+32,posY,'quadInimigo'));   //direita
+    if (posicaoValida(posX,posY+32))
+    quadrados.push(game.add.sprite(posX,posY+32,'quadInimigo'));   //baixo
+    if (posicaoValida(posX-32,posY))
+    quadrados.push(game.add.sprite(posX-32,posY,'quadInimigo'));   //pra esquerda
+
+    //adiciona os quadrados de movimento ao grupo
+    movimentacao.addMultiple(quadrados);
+    
+    movimentacao.children.forEach(function(quadrado){
+        quadrado.anchor.set(1,1);
+		quadrado.events.onInputDown.add(move,this);
+        posX = quadrado.x;
+        posY = quadrado.y;
+		
+        
+        //cria os próximos tiles de movimentação
+        if (posicaoValida(posX,posY-32))
+            quadSecundarios.push(game.add.sprite(posX,posY-32,'quadInimigo'));   //cima
+        if (posicaoValida(posX+32,posY))
+            quadSecundarios.push(game.add.sprite(posX+32,posY,'quadInimigo'));   //direita
+        if (posicaoValida(posX,posY+32))
+            quadSecundarios.push(game.add.sprite(posX,posY+32,'quadInimigo'));   //baixo
+        if (posicaoValida(posX-32,posY))
+            quadSecundarios.push(game.add.sprite(posX-32,posY,'quadInimigo'));   //pra esquerda
+        
+        //altera transparencia dos quadrados rincipais
+        quadrado.alpha = 0.5;
+            
+			
+		quadSecundarios.forEach(function(quadradoSecundario){
+            if (quadradoSecundario.anterior == null)
+			quadradoSecundario.anterior = quadrado; //cada quadrado secundario guarda um referencia do quadrado orirginal que o gerou
+			quadradoSecundario.anchor.set(1,1);
+			quadradoSecundario.inputEnabled = true;
+			quadradoSecundario.events.onInputDown.add(moveSec,this);
+            //altera transparencia dos quadrados 
+			quadradoSecundario.alpha = 0.5;
+		});
+        
+		movimentacao.addMultiple(quadSecundarios);
+		
+        quadrado.inputEnabled = true;
+    });
+    
+    
+    movimentacao.visible = true;
+    
+}
 
 //encontra a direção em que o sprite está se movendo
 function defineDirecao(sprite){
@@ -403,7 +468,7 @@ function mostraSprites(){
 }
 
 function esconderTexto(){
-    stextoAtk.visible=false;
+    textoAtk.visible=false;
     textoDef.visible=false;
 }
 
