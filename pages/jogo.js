@@ -48,7 +48,9 @@ function create (){
     
     unidades.callAll('animations.play','animations','down'); 
 
-    //summon(7,7,'lost_soul');
+    summon(7,7,'lost_soul');
+    turno = 2;
+    summon(6,6,'devil');
     
     
 

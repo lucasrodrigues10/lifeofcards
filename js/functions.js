@@ -80,7 +80,8 @@ function deixaResponsivo(){
 	game.scale.setShowAll();
 	game.scale.refresh();
 }
-
+var jogador = 1;
+var turno = 1 
 var numLinhas = 12;
 var numColunas = 12;
 var margemLateral = 1;
@@ -89,7 +90,7 @@ var margemVertical = 1  ;
 var listaSprites = [];
 var jogo; //referencia para o sprite do tabuleiro
 var spriteSelecionado;
-
+var spriteMovimentado;
 var listaSprites = [];
 //criando um vetor 12x12 pra guardar as referencias dos sprites
 var tabuleiro = new Array (12);
@@ -111,7 +112,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
         //adicionando informações da posição do sprite para facilatar posteriores funções
         sprite.linha = linhaTabuleiro;
         sprite.coluna = colTabuleiro;
-
+        sprite.jogador = turno;
         atualizaPosicao(posX,posY,sprite);
 
         //criando resposta ao clique
@@ -203,7 +204,8 @@ function move (sprite){
         
         //atualiza a posição do sprite movimentado na matriz.
         atualizaPosicao(spriteSelecionado.x,spriteSelecionado.y,null);
-               
+        spriteMovimentado = spriteSelecionado;
+        spriteSelecionado = null;       //apaga referencia pro sprite clicado
     
     }, this);
 	
@@ -214,8 +216,11 @@ function move (sprite){
 
 function moveSec (sprite){
     
+    //spriteSelecionado = spriteMovimentado;
     move(sprite.anterior);
+    //spriteSelecionado = spriteMovimentado;
     game.time.events.onComplete.add(function(){
+        spriteSelecionado = spriteMovimentado;
         game.time.events.removeAll();
         move(sprite);
         
@@ -265,7 +270,7 @@ function criaMovimentacao (sprite){
             quadSecundarios.push(game.add.sprite(posX,posY+32,'quadrado'));   //baixo
         if (posicaoValida(posX-32,posY))
             quadSecundarios.push(game.add.sprite(posX-32,posY,'quadrado'));   //pra esquerda}
-      
+        quadrado.alpha = 0.5;
             
 			
 		quadSecundarios.forEach(function(quadradoSecundario){
@@ -274,7 +279,7 @@ function criaMovimentacao (sprite){
 			quadradoSecundario.anchor.set(1,1);
 			quadradoSecundario.inputEnabled = true;
 			quadradoSecundario.events.onInputDown.add(moveSec,this);
-			
+			quadradoSecundario.alpha = 0.5;
 		});
         
 		movimentacao.addMultiple(quadSecundarios);
@@ -336,10 +341,26 @@ function encontraUnidade (posX,posY){
 }
 
 function posicaoValida(posX,posY){
-    if (encontraUnidade(posX,posY)== null && dentroDoMapa(posX,posY))
-        return true;
-    else
-        return false;
+    var linha = (posX-31)/32-1;     
+    var coluna = (posY-31)/32-1;
+    var outraUnidade = encontraUnidade(posX,posY);
+    
+    if(spriteSelecionado != null && outraUnidade != null){
+        var jogador = spriteSelecionado.jogador; 
+        if (jogador == outraUnidade.jogador && dentroDoMapa(posX,posY))
+            return true;
+        else
+            return false;
+        
+    
+    } else
+        if (dentroDoMapa(posX,posY))
+            return true;
+    
+        
+       
+   
+       
 } 
 
 //encontra a direção em que o sprite está se movendo
