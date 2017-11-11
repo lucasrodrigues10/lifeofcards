@@ -131,7 +131,17 @@ body {
     margin: 50px 100px 50px 100px;
 
 }
-
+#bot-jog {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: var(--botao1);
+    border-color: var(--botao1);
+    box-shadow: 0 -6px 0 -2px var(--botao1), 0 6px 0 -2px var(--botao1), 0 -12px 0 -4px var(--botao1), 0 12px 0 -4px var(--botao1), 0 -18px 0 -8px var(--botao1), 0 18px 0 -8px var(--botao1), 0 -24px 0 -12px var(--botao1), 0 24px 0 -12px var(--botao1), -2px 0 0 0 black, 2px 0 0 0 black, 0 -4px 0 0 black, 0 4px 0 0 black, 0 -10px 0 -2px black, 0 10px 0 -2px black, 0 -14px 0 -4px black, 0 14px 0 -4px black, 0 -20px 0 -8px black, 0 20px 0 -8px black, 0 -26px 0 -12px black, 0 26px 0 -12px black, -4px 0 0 0 white, 4px 0 0 0 white, 0 -2px 0 2px white, 0 2px 0 2px white, 0 -8px 0 0px white, 0 8px 0 0px white, 0 -12px 0 -2px white, 0 12px 0 -2px white, 0 -16px 0 -4px white, 0 16px 0 -4px white, 0 -22px 0 -8px white, 0 22px 0 -8px white, 0 -28px 0 -12px white, 0 28px 0 -12px white, -6px 0 0 0 black, 6px 0 0 0 black, 0 0 0 4px black, 0 -6px 0 2px black, 0 6px 0 2px black, 0 -10px 0 0 black, 0 10px 0 0 black, 0 -14px 0 -2px black, 0 14px 0 -2px black, 0 -18px 0 -4px black, 0 18px 0 -4px black, 0 -24px 0 -8px black, 0 24px 0 -8px black, 0 -30px 0 -12px black, 0 30px 0 -12px black !important;
+}
+#bot-jog:hover, #bot-jog:visited, #bot-jog:active {
+    background-color: var(--botao1Hover);
+    box-shadow: 0 -6px 0 -2px var(--botao1Hover), 0 6px 0 -2px var(--botao1Hover), 0 -12px 0 -4px var(--botao1Hover), 0 12px 0 -4px var(--botao1Hover), 0 -18px 0 -8px var(--botao1Hover), 0 18px 0 -8px var(--botao1Hover), 0 -24px 0 -12px var(--botao1Hover), 0 24px 0 -12px var(--botao1Hover), -2px 0 0 0 black, 2px 0 0 0 black, 0 -4px 0 0 black, 0 4px 0 0 black, 0 -10px 0 -2px black, 0 10px 0 -2px black, 0 -14px 0 -4px black, 0 14px 0 -4px black, 0 -20px 0 -8px black, 0 20px 0 -8px black, 0 -26px 0 -12px black, 0 26px 0 -12px black, -4px 0 0 0 white, 4px 0 0 0 white, 0 -2px 0 2px white, 0 2px 0 2px white, 0 -8px 0 0px white, 0 8px 0 0px white, 0 -12px 0 -2px white, 0 12px 0 -2px white, 0 -16px 0 -4px white, 0 16px 0 -4px white, 0 -22px 0 -8px white, 0 22px 0 -8px white, 0 -28px 0 -12px white, 0 28px 0 -12px white, -6px 0 0 0 black, 6px 0 0 0 black, 0 0 0 4px black, 0 -6px 0 2px black, 0 6px 0 2px black, 0 -10px 0 0 black, 0 10px 0 0 black, 0 -14px 0 -2px black, 0 14px 0 -2px black, 0 -18px 0 -4px black, 0 18px 0 -4px black, 0 -24px 0 -8px black, 0 24px 0 -8px black, 0 -30px 0 -12px black, 0 30px 0 -12px black !important;
+}
 .btn-inventario, .btn-perfil, .btn-loja, .btn-home {
 
     border-style: solid;

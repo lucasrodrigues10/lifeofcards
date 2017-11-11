@@ -711,18 +711,18 @@ $a = 0;
 
                 <div class="card-block">
 
-                    <button type="button" class="btn btn-primary btn-lg btn-block"
+                    <button type="button" class="btn btn-primary btn-lg btn-block" id="bot-jog"
 
                             onclick="window.location='escolherDeck.php'">Ranqueado
 
                     </button>
-
+<!--
                     <button type="button" class="btn btn-secondary btn-lg btn-block"
 
                             onclick="window.location='jogo.php'">Treino
 
                     </button>
-
+-->
                 </div>
 
             </div>
