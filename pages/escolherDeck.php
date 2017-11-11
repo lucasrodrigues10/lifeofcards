@@ -95,11 +95,26 @@ if ($result->num_rows > 0) {
 
         $Imagem_Deck[$i] = $row["ImagemDeck"];
 
+
+        //Pega numero de cartas para setar limite 20
+        $query2 = "SELECT * FROM Cartas_Deck WHERE IDDeck = '$IDdeck[$i]'";
+        $result2 = $conn->query($query2);
+        if ($result2->num_rows > 0) {
+
+            while ($row2 = $result2->fetch_assoc()) {
+                $QtdeCartas[$i] = $row2["QtdeCartas"];
+            }
+
+        }
+
+
         $i++;
 
     }
 
 }
+
+
 $NovoDeck = -1;
 
 $nickname_amigos = array();
@@ -322,7 +337,7 @@ $a = 0;
                 $j = 0;
                 while ($j < $i) { ?>
                     <!-- codigo do lucas -->
-                    <?php if (isset($IDdeck[$j])) { ?>
+                    <?php if (isset($IDdeck[$j]) AND $QtdeCartas[$j] >= 2) { ?>
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                             <img data-deck="<?php echo $IDdeck[$j] ?>"
                                  class="deck-escolhido img-fluid img-thumbnail "

@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0d390e3-6308-459e-86de-0994556d3ca4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/escolherDeck.php" afterPath="$PROJECT_DIR$/pages/escolherDeck.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/main.php" afterPath="$PROJECT_DIR$/pages/main.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,34 +17,12 @@
       <file leaf-file-name="ConstDeck.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/ConstDeck.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4284">
-              <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
+            <state relative-caret-position="4505">
+              <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
               <folding>
-                <marker date="1510013760248" expanded="true" signature="168:219" ph="SELECT * FRO... UsuarioNoJogo" />
-                <marker date="1510013760248" expanded="true" signature="609:661" ph="SELECT * FRO... Cartas_Usuario" />
-                <marker date="1510013760248" expanded="true" signature="1029:1079" ph="SELECT * FRO... Cartas_Deck" />
-                <marker date="1510013760248" expanded="true" signature="1322:1389" ph="SELECT * FRO... Cartas" />
-                <marker date="1510013760248" expanded="true" signature="7444:7516" ph="SELECT * FRO... Cartas" />
-                <marker date="1510013760248" expanded="true" signature="12177:12249" ph="SELECT * FRO... Cartas" />
-                <marker date="1510013760248" expanded="true" signature="16906:16978" ph="SELECT * FRO... Cartas" />
-                <marker date="1510013760248" expanded="true" signature="21624:21696" ph="SELECT * FRO... Cartas" />
-                <marker date="1510013760248" expanded="true" signature="32375:40879" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="35445:35642" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="35624:35642" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="37287:39670" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="37379:37432" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="37450:39660" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="37561:38409" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="37678:38389" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="37861:38367" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="38546:39478" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="39029:39458" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="39289:39436" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="39787:40870" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="39974:40023" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="40029:40272" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="40475:40858" ph="{...}" />
-                <marker date="1510013760248" expanded="true" signature="40633:40844" ph="{...}" />
+                <marker date="1510435794501" expanded="true" signature="168:219" ph="SELECT * FRO... UsuarioNoJogo" />
+                <marker date="1510435794501" expanded="true" signature="45340:45346" ph="..." />
+                <marker date="1510435794501" expanded="true" signature="45340:45354" ph="..." />
               </folding>
             </state>
           </provider>
@@ -55,21 +31,21 @@
       <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="-13941">
               <caret line="124" column="25" lean-forward="false" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
               <folding>
-                <marker date="1510014011525" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-                <marker date="1510014011525" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-                <marker date="1510014011525" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-                <marker date="1510014011525" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-                <marker date="1510014011525" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
-                <marker date="1510014011525" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
-                <marker date="1510014011525" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
-                <marker date="1510014011525" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
-                <marker date="1510014011525" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
-                <marker date="1510014011525" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
-                <marker date="1510014011525" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
-                <marker date="1510014011525" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
+                <marker date="1510435794533" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+                <marker date="1510435794533" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+                <marker date="1510435794533" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+                <marker date="1510435794533" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+                <marker date="1510435794533" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
+                <marker date="1510435794533" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
+                <marker date="1510435794533" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
+                <marker date="1510435794533" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
+                <marker date="1510435794533" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
+                <marker date="1510435794533" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
+                <marker date="1510435794533" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
+                <marker date="1510435794533" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
               </folding>
             </state>
           </provider>
@@ -78,18 +54,19 @@
       <file leaf-file-name="escolherDeck.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/escolherDeck.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="418" column="7" lean-forward="false" selection-start-line="418" selection-start-column="7" selection-end-line="418" selection-end-column="7" />
+            <state relative-caret-position="184">
+              <caret line="341" column="29" lean-forward="true" selection-start-line="341" selection-start-column="29" selection-end-line="341" selection-end-column="29" />
               <folding>
-                <marker date="1510014165855" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-                <marker date="1510014165855" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-                <marker date="1510014165855" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-                <marker date="1510014165855" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-                <marker date="1510014165855" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
-                <marker date="1510014165855" expanded="true" signature="2027:2045" ph="SELECT * FRO... Loja" />
-                <marker date="1510014165855" expanded="true" signature="2431:2511" ph="SELECT Nome,... Cartas" />
-                <marker date="1510014165855" expanded="true" signature="2810:2883" ph="SELECT Nome,... Skin" />
-                <marker date="1510014165855" expanded="true" signature="3175:3254" ph="SELECT Nome,... Pacote" />
+                <marker date="1510437010207" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+                <marker date="1510437010207" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+                <marker date="1510437010207" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+                <marker date="1510437010207" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+                <marker date="1510437010207" expanded="true" signature="1636:1690" ph="SELECT * FRO... Cartas_Deck" />
+                <marker date="1510437010207" expanded="true" signature="1992:2045" ph="SELECT Nickn... Amizades" />
+                <marker date="1510437010207" expanded="true" signature="2376:2394" ph="SELECT * FRO... Loja" />
+                <marker date="1510437010207" expanded="true" signature="2780:2860" ph="SELECT Nome,... Cartas" />
+                <marker date="1510437010207" expanded="true" signature="3159:3232" ph="SELECT Nome,... Skin" />
+                <marker date="1510437010207" expanded="true" signature="3524:3603" ph="SELECT Nome,... Pacote" />
               </folding>
             </state>
           </provider>
@@ -98,9 +75,34 @@
       <file leaf-file-name="jogo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/jogo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="1156">
+              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+              <folding>
+                <marker date="1510435794528" expanded="true" signature="1394:1858" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="1488:1524" ph="{...}" />
+                <marker date="1510435794528" expanded="true" signature="1541:1553" ph="{...}" />
+                <marker date="1510435794528" expanded="true" signature="1574:1640" ph="{...}" />
+                <marker date="1510435794528" expanded="true" signature="1731:1846" ph="{...}" />
+                <marker date="1510435794528" expanded="true" signature="1875:3998" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="1889:3172" ph="..." />
+                <marker date="1510435794528" expanded="false" signature="1917:1950" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="1951:2149" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="2047:2138" ph="..." />
+                <marker date="1510435794528" expanded="false" signature="2167:2200" ph="..." />
+                <marker date="1510435794528" expanded="false" signature="2237:2271" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="2283:3165" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="2312:3073" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="2344:2461" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="2493:2610" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="2642:2759" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="2791:2908" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="2940:3057" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="3181:3325" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="3266:3309" ph="{...}" />
+                <marker date="1510435794528" expanded="true" signature="3376:3547" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="3632:3765" ph="..." />
+                <marker date="1510435794528" expanded="true" signature="3857:3990" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -110,7 +112,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2023">
               <caret line="119" column="32" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1510435794491" expanded="true" signature="30:5307" ph="{...}" />
+                <marker date="1510435794491" expanded="true" signature="5109:5307" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,9 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bd-amigo</find>
-      <find>bd-amigos</find>
-      <find>email</find>
       <find>ajax</find>
       <find>header</find>
       <find>adicio</find>
@@ -145,7 +147,6 @@
       <find>ID</find>
       <find>$id</find>
       <find>criar deck</find>
-      <find>$iddeck</find>
       <find>imagem_dec</find>
       <find>nome_dec</find>
       <find>$nome_deck</find>
@@ -156,6 +157,10 @@
       <find>const</find>
       <find>deck-esc</find>
       <find>sty</find>
+      <find>qtdeCa</find>
+      <find>$iddeck</find>
+      <find>$qtde</find>
+      <find>$QtdeCartas</find>
     </findStrings>
     <replaceStrings>
       <replace>--botao</replace>
@@ -225,8 +230,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,39 +240,14 @@
             <path>
               <item name="lifeofcards" type="b2602c69:ProjectViewProjectNode" />
               <item name="lifeofcards" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="lifeofcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lifeofcards" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="lifeofcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lifeofcards" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="jquery.redirect" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="lifeofcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lifeofcards" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="others" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="lifeofcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lifeofcards" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="lifeofcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lifeofcards" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -340,7 +318,9 @@
       <workItem from="1509650176835" duration="94000" />
       <workItem from="1509841084496" duration="7714000" />
       <workItem from="1510005589360" duration="4862000" />
-      <workItem from="1510013734417" duration="427000" />
+      <workItem from="1510013734417" duration="1263000" />
+      <workItem from="1510053636480" duration="29000" />
+      <workItem from="1510435784136" duration="1268000" />
     </task>
     <task id="LOCAL-00001" summary="canvas dentro de div e espaco para cartas e botoes">
       <created>1506972079531</created>
@@ -566,28 +546,35 @@
       <option name="project" value="LOCAL" />
       <updated>1510010405393</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="diminuicao de codigo do escolher deck">
+      <created>1510014196027</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1510014196028</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68124000" />
+    <option name="totallyTimeSpent" value="70257000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0078125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06171875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32880846" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20211162" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730016" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730016" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -627,7 +614,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cor de fundo do carrousel transparente" />
     <MESSAGE value="cor do active da barra de navegacao principal consertada" />
     <MESSAGE value="mudei cor dos cards do perfil" />
     <MESSAGE value="cor da barra de navegacao superior consertada" />
@@ -652,7 +638,8 @@
     <MESSAGE value="fiz pagina escolher deck pegando id do deck clicado" />
     <MESSAGE value="adiciona borda quando deck selecionado" />
     <MESSAGE value="escolher deck redireciona para o jogo e manda o id do deck" />
-    <option name="LAST_COMMIT_MESSAGE" value="escolher deck redireciona para o jogo e manda o id do deck" />
+    <MESSAGE value="diminuicao de codigo do escolher deck" />
+    <option name="LAST_COMMIT_MESSAGE" value="diminuicao de codigo do escolher deck" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -691,18 +678,18 @@
         <state relative-caret-position="2737">
           <caret line="161" column="4" lean-forward="false" selection-start-line="161" selection-start-column="4" selection-end-line="162" selection-end-column="90" />
           <folding>
-            <marker date="1510014011525" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-            <marker date="1510014011525" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1510014011525" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-            <marker date="1510014011525" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-            <marker date="1510014011525" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
-            <marker date="1510014011525" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
-            <marker date="1510014011525" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
-            <marker date="1510014011525" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
-            <marker date="1510014011525" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
-            <marker date="1510014011525" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
-            <marker date="1510014011525" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
-            <marker date="1510014011525" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510435794533" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+            <marker date="1510435794533" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510435794533" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+            <marker date="1510435794533" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+            <marker date="1510435794533" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
+            <marker date="1510435794533" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
+            <marker date="1510435794533" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
+            <marker date="1510435794533" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
+            <marker date="1510435794533" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
+            <marker date="1510435794533" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
+            <marker date="1510435794533" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
+            <marker date="1510435794533" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
           </folding>
         </state>
       </provider>
@@ -852,34 +839,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/ConstDeck.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4284">
-          <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
+        <state relative-caret-position="4505">
+          <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
           <folding>
-            <marker date="1510013760248" expanded="true" signature="168:219" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1510013760248" expanded="true" signature="609:661" ph="SELECT * FRO... Cartas_Usuario" />
-            <marker date="1510013760248" expanded="true" signature="1029:1079" ph="SELECT * FRO... Cartas_Deck" />
-            <marker date="1510013760248" expanded="true" signature="1322:1389" ph="SELECT * FRO... Cartas" />
-            <marker date="1510013760248" expanded="true" signature="7444:7516" ph="SELECT * FRO... Cartas" />
-            <marker date="1510013760248" expanded="true" signature="12177:12249" ph="SELECT * FRO... Cartas" />
-            <marker date="1510013760248" expanded="true" signature="16906:16978" ph="SELECT * FRO... Cartas" />
-            <marker date="1510013760248" expanded="true" signature="21624:21696" ph="SELECT * FRO... Cartas" />
-            <marker date="1510013760248" expanded="true" signature="32375:40879" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="35445:35642" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="35624:35642" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="37287:39670" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="37379:37432" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="37450:39660" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="37561:38409" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="37678:38389" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="37861:38367" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="38546:39478" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="39029:39458" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="39289:39436" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="39787:40870" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="39974:40023" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="40029:40272" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="40475:40858" ph="{...}" />
-            <marker date="1510013760248" expanded="true" signature="40633:40844" ph="{...}" />
+            <marker date="1510435794501" expanded="true" signature="168:219" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510435794501" expanded="true" signature="45340:45346" ph="..." />
+            <marker date="1510435794501" expanded="true" signature="45340:45354" ph="..." />
           </folding>
         </state>
       </provider>
@@ -888,53 +853,82 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2023">
           <caret line="119" column="32" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1510435794491" expanded="true" signature="30:5307" ph="{...}" />
+            <marker date="1510435794491" expanded="true" signature="5109:5307" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/jogo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1156">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <marker date="1510435794528" expanded="true" signature="1394:1858" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="1488:1524" ph="{...}" />
+            <marker date="1510435794528" expanded="true" signature="1541:1553" ph="{...}" />
+            <marker date="1510435794528" expanded="true" signature="1574:1640" ph="{...}" />
+            <marker date="1510435794528" expanded="true" signature="1731:1846" ph="{...}" />
+            <marker date="1510435794528" expanded="true" signature="1875:3998" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="1889:3172" ph="..." />
+            <marker date="1510435794528" expanded="false" signature="1917:1950" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="1951:2149" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="2047:2138" ph="..." />
+            <marker date="1510435794528" expanded="false" signature="2167:2200" ph="..." />
+            <marker date="1510435794528" expanded="false" signature="2237:2271" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="2283:3165" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="2312:3073" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="2344:2461" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="2493:2610" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="2642:2759" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="2791:2908" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="2940:3057" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="3181:3325" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="3266:3309" ph="{...}" />
+            <marker date="1510435794528" expanded="true" signature="3376:3547" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="3632:3765" ph="..." />
+            <marker date="1510435794528" expanded="true" signature="3857:3990" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="-13941">
           <caret line="124" column="25" lean-forward="false" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
           <folding>
-            <marker date="1510014011525" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-            <marker date="1510014011525" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1510014011525" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-            <marker date="1510014011525" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-            <marker date="1510014011525" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
-            <marker date="1510014011525" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
-            <marker date="1510014011525" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
-            <marker date="1510014011525" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
-            <marker date="1510014011525" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
-            <marker date="1510014011525" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
-            <marker date="1510014011525" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
-            <marker date="1510014011525" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510435794533" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+            <marker date="1510435794533" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510435794533" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+            <marker date="1510435794533" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+            <marker date="1510435794533" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
+            <marker date="1510435794533" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
+            <marker date="1510435794533" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
+            <marker date="1510435794533" expanded="true" signature="2607:2670" ph="SELECT Valor... Promoção" />
+            <marker date="1510435794533" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
+            <marker date="1510435794533" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
+            <marker date="1510435794533" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
+            <marker date="1510435794533" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/escolherDeck.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="418" column="7" lean-forward="false" selection-start-line="418" selection-start-column="7" selection-end-line="418" selection-end-column="7" />
+        <state relative-caret-position="184">
+          <caret line="341" column="29" lean-forward="true" selection-start-line="341" selection-start-column="29" selection-end-line="341" selection-end-column="29" />
           <folding>
-            <marker date="1510014165855" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-            <marker date="1510014165855" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1510014165855" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-            <marker date="1510014165855" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-            <marker date="1510014165855" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
-            <marker date="1510014165855" expanded="true" signature="2027:2045" ph="SELECT * FRO... Loja" />
-            <marker date="1510014165855" expanded="true" signature="2431:2511" ph="SELECT Nome,... Cartas" />
-            <marker date="1510014165855" expanded="true" signature="2810:2883" ph="SELECT Nome,... Skin" />
-            <marker date="1510014165855" expanded="true" signature="3175:3254" ph="SELECT Nome,... Pacote" />
+            <marker date="1510437010207" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+            <marker date="1510437010207" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1510437010207" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+            <marker date="1510437010207" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+            <marker date="1510437010207" expanded="true" signature="1636:1690" ph="SELECT * FRO... Cartas_Deck" />
+            <marker date="1510437010207" expanded="true" signature="1992:2045" ph="SELECT Nickn... Amizades" />
+            <marker date="1510437010207" expanded="true" signature="2376:2394" ph="SELECT * FRO... Loja" />
+            <marker date="1510437010207" expanded="true" signature="2780:2860" ph="SELECT Nome,... Cartas" />
+            <marker date="1510437010207" expanded="true" signature="3159:3232" ph="SELECT Nome,... Skin" />
+            <marker date="1510437010207" expanded="true" signature="3524:3603" ph="SELECT Nome,... Pacote" />
           </folding>
         </state>
       </provider>
