@@ -1,5 +1,3 @@
-<?php echo $deckId = $_POST['deckID']; ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +31,6 @@
     <!-- Phaser -->
     <script src="https://cdn.jsdelivr.net/npm/phaser-ce@2.8.3/build/phaser.js"></script>
     <script src="../js/functions.js"></script>
-    <script src="../js/HealthBar.standalone.js"x></script>
     <script type="text/javascript" src="jogo.js"></script>
 
     <!--Icones do google -->
@@ -57,11 +54,9 @@
             overflow: scroll;
             height: 40%;
         }
-
-        .carta > img {
+        .carta > img{
             width: 33%;
         }
-
         #left > button, #right {
             display: block;
             margin: auto;
@@ -81,28 +76,56 @@
     </div>
     <div style="background-color: blue;width: 60%" id="center"></div>
     <div style="background-color: green;width: 30%" id="right">
+        <?php
+		include "php/db.php";
+		$deckId = $_POST['deckID']; 
+			$query = "SELECT Cartas.IDcarta, Cartas.`arquivo.sprite`, Cartas_Deck.QtdeCartas FROM Cartas 
+			INNER JOIN Cartas_Deck ON Cartas.IDcarta=Cartas_Deck.IDcarta WHERE Cartas_Deck.IDdeck = '$deckId'";	   
+            $result = $conn->query($query);
+			$i=0;
+			$deck = array();
+			if ($result->num_rows > 0) 
+			{
+			  while($row = $result->fetch_assoc())
+			  {
+					$qtd = $row["QtdeCartas"];
+					$deck[$i][0] = $row["IDcarta"];
+					$deck[$i][1] = $row["arquivo.sprite"];
+					while($qtd > 1)
+					{
+						$i++;
+						$deck[$i][0] = $row["IDcarta"];
+						$deck[$i][1] = $row["arquivo.sprite"];
+						$qtd--;
+					}
+					$i++;
+			  }
+			}
+			shuffle($deck);
+			//$x=0;for ($x =0;$x< 20;$x++)	{echo $deck[$x][0];echo ' ';} echo '<br>';
+			//$x=0;for ($x =0;$x< 20;$x++)	{echo $deck[$x][1];echo ' ';} echo '<br>';
+		?>
         <div id="ct-cartas">
+		<div class ="row">
+		<?php 
+		for($a=0;$a<5;$a++)
+		{?>
+	<div class="col-sm-5">
             <div class="carta">
-                <img src="https://pbs.twimg.com/profile_images/1233627159/TibiaIcon_400x400.png">
+                  <img style="height:100%;width:100%"
+				  src="../img/cartas/<?php echo $deck[$a][1] ?> ">
             </div>
-            <div class="carta">
-                <img src="https://pbs.twimg.com/profile_images/1233627159/TibiaIcon_400x400.png">
-            </div>
-            <div class="carta">
-                <img src="https://pbs.twimg.com/profile_images/1233627159/TibiaIcon_400x400.png">
-            </div>
-            <div class="carta">
-                <img src="https://pbs.twimg.com/profile_images/1233627159/TibiaIcon_400x400.png">
-            </div>
-            <div class="carta">
-                <img src="https://pbs.twimg.com/profile_images/1233627159/TibiaIcon_400x400.png">
-            </div>
-
+	  </div>
+		<?php 
+		}
+		?>
+		  </div>
         </div>
-        <img src="/img/banner-mc.jpg" class="img-fluid" alt="Responsive image">
+        <img src="/img/banner-mc.jpg" class="img-fluid" alt="Responsive image" >
 
     </div>
 </div>
+
 <script>
     document.body.addEventListener
     (
@@ -131,5 +154,3 @@
 
 
 </html>
-
-
