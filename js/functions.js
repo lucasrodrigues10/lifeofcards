@@ -102,27 +102,34 @@ for (i=0;i<12;i++)
 function summon (linhaTabuleiro,colTabuleiro,nome){ 
     var posX = linhaTabuleiro*32+31;
     var posY = colTabuleiro*32+31;
-    
+    var marcador;
 	
 	if (posicaoValida(posX,posY)){
         
-     
+        /*if (turno == jogador)
+            marcador = game.add.sprite(posX,posY,'quadrado');
+        else if (turno != jogador)
+            marcador = game.add.sprite(posX,posY,'quadInimigo'); 
+        
+        marcador.anchor.setTo(1,1)*/
+        
         var sprite = game.add.sprite(posX,posY,nome);
-
+        //sprite.addChild(marcador);
         //adicionando informações da posição do sprite para facilatar posteriores funções
         sprite.linha = linhaTabuleiro;
         sprite.coluna = colTabuleiro;
         sprite.jogador = turno;
+        
         atualizaPosicao(posX,posY,sprite);
-
+        
+        
         //criando resposta ao clique
         sprite.inputEnabled = true;
         sprite.hitArea = new Phaser.Rectangle(-32,-32,32,32);
         
-        if (jogador == sprite.jogador)
-            sprite.events.onInputDown.add(criaMovimentacao,this); 
-        else 
-            sprite.events.onInputDown.add(criaMovInimiga,this); 
+        
+        sprite.events.onInputDown.add(criaMovimentacao,this); 
+       
         //habilitando fisica para movimentar os sprites
         game.physics.arcade.enable(sprite);
 
@@ -137,20 +144,20 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
         
         
         //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
-        var defesa = game.make.text(sprite.x,sprite.y-26,'D:'+6,{font:'8px Arial',fill: "#FF0000"});
-        var ataque = game.make.text(sprite.x-15,sprite.y-26,'A:'+3,{font:'8px Arial',fill:"#43d637"});
+        var defesa = game.make.text(sprite.x,sprite.y+15,6,{font:'11px Tahoma',fill: "#FF0000"});
+        var ataque = game.make.text(sprite.x-15,sprite.y+15,3,{font:'11px Tahoma',fill:"#43d637"});
         
         defesa.fontWeight = 'bold';
         defesa.anchor.x = 0.9;
-        defesa.anchor.y = 0.7;
+        defesa.anchor.y = 0.6;
         defesa.stroke = '#000000';
-        defesa.strokeThickness = 3;
+        defesa.strokeThickness = 2;
         
         ataque.fontWeight = 'bold';
         ataque.anchor.x = 1;
-        ataque.anchor.y = 0.7;
+        ataque.anchor.y = 0.6;
         ataque.stroke = '#000000';
-        ataque.strokeThickness = 3;
+        ataque.strokeThickness = 2;
         
         textoAtk.add(defesa);
         textoDef.add(ataque);
@@ -234,26 +241,53 @@ function moveSec (sprite){
 
 
 function criaMovimentacao (sprite){
+    mostraInfo(sprite);
     
-    
+    var cima,direita,baixo,esquerda;
     var quadrados = [];
     var quadSecundarios = [];
-    
+    var tipo_quadrado;
     spriteSelecionado = sprite;
     movimentacao.removeAll(true);
   
     posX = sprite.x;
     posY = sprite.y;
     
+    
+    if (sprite.jogador == jogador)
+        tipo_quadrado = 'quadrado'; //quadrado para movimentação de unidades aliadas 
+    else if (sprite.jogador != jogador)
+        tipo_quadrado = 'quadInimigo';
+        
+        
+        
+    /* go horse lindu*/
+    try{
+        cima = encontraUnidade(posX,posY-32).jogador == sprite.jogador;
+    } catch(erro){ cima = true;}
+        
+    try{
+        direita = encontraUnidade(posX+32,posY).jogador == sprite.jogador;
+    } catch(erro){ direita = true;}
+    
+    try{
+        baixo = encontraUnidade(posX,posY+32).jogador == sprite.jogador;
+    } catch(erro){ baixo = true;}
+        
+    try{
+        esquerda = encontraUnidade(posX-32,posY).jogador == sprite.jogador;
+    } catch(erro){ esquerda = true;}
+        
+        
     //criando os quatro primeiros tiles de movimentação
-    if (posicaoValida(posX,posY-32))
-    quadrados.push(game.add.sprite(posX,posY-32,'quadrado'));   //cima
-    if (posicaoValida(posX+32,posY))                    
-    quadrados.push(game.add.sprite(posX+32,posY,'quadrado'));   //direita
-    if (posicaoValida(posX,posY+32))
-    quadrados.push(game.add.sprite(posX,posY+32,'quadrado'));   //baixo
-    if (posicaoValida(posX-32,posY))
-    quadrados.push(game.add.sprite(posX-32,posY,'quadrado'));   //pra esquerda
+    if (dentroDoMapa(posX,posY-32) && cima)
+    quadrados.push(game.add.sprite(posX,posY-32,tipo_quadrado));   //cima
+    if (dentroDoMapa(posX+32,posY) && direita)                    
+    quadrados.push(game.add.sprite(posX+32,posY,tipo_quadrado));   //direita
+    if (dentroDoMapa(posX,posY+32) && baixo)
+    quadrados.push(game.add.sprite(posX,posY+32,tipo_quadrado));   //baixo
+    if (dentroDoMapa(posX-32,posY) && esquerda)
+    quadrados.push(game.add.sprite(posX-32,posY,tipo_quadrado));   //pra esquerda
 
     //adiciona os quadrados de movimento ao grupo
     movimentacao.addMultiple(quadrados);
@@ -263,17 +297,32 @@ function criaMovimentacao (sprite){
 		quadrado.events.onInputDown.add(move,this);
         posX = quadrado.x;
         posY = quadrado.y;
-		
+		/* go horse lindu 2 */
+        try{
+            cima = encontraUnidade(posX,posY-32).jogador == sprite.jogador;
+        } catch(erro){ cima = true;}
+
+        try{
+            direita = encontraUnidade(posX+32,posY).jogador == sprite.jogador;
+        } catch(erro){ direita = true;}
+
+        try{
+            baixo = encontraUnidade(posX,posY+32).jogador == sprite.jogador;
+        } catch(erro){ baixo = true;}
+
+        try{
+            esquerda = encontraUnidade(posX-32,posY).jogador == sprite.jogador;
+        } catch(erro){ esquerda = true;}
         
         //cria os próximos tiles de movimentação
-        if (posicaoValida(posX,posY-32))
-            quadSecundarios.push(game.add.sprite(posX,posY-32,'quadrado'));   //cima
-        if (posicaoValida(posX+32,posY))
-            quadSecundarios.push(game.add.sprite(posX+32,posY,'quadrado'));   //direita
-        if (posicaoValida(posX,posY+32))
-            quadSecundarios.push(game.add.sprite(posX,posY+32,'quadrado'));   //baixo
-        if (posicaoValida(posX-32,posY))
-            quadSecundarios.push(game.add.sprite(posX-32,posY,'quadrado'));   //pra esquerda
+        if (dentroDoMapa(posX,posY-32)&&cima)
+            quadSecundarios.push(game.add.sprite(posX,posY-32,tipo_quadrado));   //cima
+        if (dentroDoMapa(posX+32,posY)&&direita)
+            quadSecundarios.push(game.add.sprite(posX+32,posY,tipo_quadrado));   //direita
+        if (dentroDoMapa(posX,posY+32)&&baixo)
+            quadSecundarios.push(game.add.sprite(posX,posY+32,tipo_quadrado));   //baixo
+        if (dentroDoMapa(posX-32,posY)&&esquerda)
+            quadSecundarios.push(game.add.sprite(posX-32,posY,tipo_quadrado));   //pra esquerda
         
         //altera transparencia dos quadrados rincipais
         quadrado.alpha = 0.5;
@@ -348,85 +397,12 @@ function encontraUnidade (posX,posY){
 }
 
 function posicaoValida(posX,posY){
-    var linha = (posX-31)/32-1;     
-    var coluna = (posY-31)/32-1;
-    var outraUnidade = encontraUnidade(posX,posY);
-    
-    if(spriteSelecionado != null && outraUnidade != null){
-        var jogador = spriteSelecionado.jogador; 
-        if (jogador == outraUnidade.jogador && dentroDoMapa(posX,posY))
-            return true;
-        else
-            return false;      
-    
-    } else
-        if (dentroDoMapa(posX,posY))
-            return true;      
+    if (encontraUnidade(posX,posY)== null && dentroDoMapa(posX,posY))
+      return true;
+    else
+      return false;     
 } 
 
-function criaMovInimiga(sprite){
-    var quadrados = [];
-    var quadSecundarios = [];
-    
-    spriteSelecionado = sprite;
-    movimentacao.removeAll(true);
-  
-    posX = sprite.x;
-    posY = sprite.y;
-    
-    //criando os quatro primeiros tiles de movimentação
-    if (posicaoValida(posX,posY-32))
-    quadrados.push(game.add.sprite(posX,posY-32,'quadInimigo'));   //cima
-    if (posicaoValida(posX+32,posY))                    
-    quadrados.push(game.add.sprite(posX+32,posY,'quadInimigo'));   //direita
-    if (posicaoValida(posX,posY+32))
-    quadrados.push(game.add.sprite(posX,posY+32,'quadInimigo'));   //baixo
-    if (posicaoValida(posX-32,posY))
-    quadrados.push(game.add.sprite(posX-32,posY,'quadInimigo'));   //pra esquerda
-
-    //adiciona os quadrados de movimento ao grupo
-    movimentacao.addMultiple(quadrados);
-    
-    movimentacao.children.forEach(function(quadrado){
-        quadrado.anchor.set(1,1);
-		quadrado.events.onInputDown.add(move,this);
-        posX = quadrado.x;
-        posY = quadrado.y;
-		
-        
-        //cria os próximos tiles de movimentação
-        if (posicaoValida(posX,posY-32))
-            quadSecundarios.push(game.add.sprite(posX,posY-32,'quadInimigo'));   //cima
-        if (posicaoValida(posX+32,posY))
-            quadSecundarios.push(game.add.sprite(posX+32,posY,'quadInimigo'));   //direita
-        if (posicaoValida(posX,posY+32))
-            quadSecundarios.push(game.add.sprite(posX,posY+32,'quadInimigo'));   //baixo
-        if (posicaoValida(posX-32,posY))
-            quadSecundarios.push(game.add.sprite(posX-32,posY,'quadInimigo'));   //pra esquerda
-        
-        //altera transparencia dos quadrados rincipais
-        quadrado.alpha = 0.5;
-            
-			
-		quadSecundarios.forEach(function(quadradoSecundario){
-            if (quadradoSecundario.anterior == null)
-			quadradoSecundario.anterior = quadrado; //cada quadrado secundario guarda um referencia do quadrado orirginal que o gerou
-			quadradoSecundario.anchor.set(1,1);
-			quadradoSecundario.inputEnabled = true;
-			quadradoSecundario.events.onInputDown.add(moveSec,this);
-            //altera transparencia dos quadrados 
-			quadradoSecundario.alpha = 0.5;
-		});
-        
-		movimentacao.addMultiple(quadSecundarios);
-		
-        quadrado.inputEnabled = true;
-    });
-    
-    
-    movimentacao.visible = true;
-    
-}
 
 //encontra a direção em que o sprite está se movendo
 function defineDirecao(sprite){
@@ -474,13 +450,13 @@ function esconderTexto(){
 
 function atualizaTexto(){
     textoAtk.forEachAlive(function(texto){
-        texto.x = texto.unidade.x-15;
-        texto.y = texto.unidade.y-26;
+        texto.x = texto.unidade.x-20;
+        texto.y = texto.unidade.y;
         
     })
     textoDef.forEachAlive(function(texto){
         texto.x = texto.unidade.x;
-        texto.y = texto.unidade.y-26;
+        texto.y = texto.unidade.y;
 
     })
     
@@ -499,4 +475,16 @@ function desenhaInterface (){
                          {x:448-190-16,y:5,width:190,height:25,flipped:true});
     vidaInimigo.setAnchor(0,0);
     vidaInimigo.setPercent(1);
+}
+
+function mostraInfo(sprite){
+    try{
+        console.log ("-----------------------------")
+        console.log("key: "+sprite.key);
+        console.log("linha: "+sprite.linha);
+        console.log("coluna: "+sprite.coluna);
+        console.log("jogador: "+sprite.jogador);
+    } catch (erro){
+    console.log("erro: "+erro);
+    }
 }
