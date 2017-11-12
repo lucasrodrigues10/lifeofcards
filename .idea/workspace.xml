@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0d390e3-6308-459e-86de-0994556d3ca4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/background1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/background2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/background3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/background4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/background5.jpg" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/background.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/login.php" afterPath="$PROJECT_DIR$/pages/login.php" />
@@ -24,9 +18,23 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="93" column="17" lean-forward="true" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
+            <state relative-caret-position="248">
+              <caret line="331" column="60" lean-forward="true" selection-start-line="331" selection-start-column="60" selection-end-line="331" selection-end-column="60" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="134" column="66" lean-forward="false" selection-start-line="134" selection-start-column="66" selection-end-line="134" selection-end-column="66" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#form#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,10 +50,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>adicio</find>
-      <find>salva</find>
-      <find>login</find>
-      <find>entrar</find>
       <find>fullscre</find>
       <find>salvar</find>
       <find>table</find>
@@ -72,6 +76,10 @@
       <find>$QtdeCartas</find>
       <find>btn</find>
       <find>ranquead</find>
+      <find>ranque</find>
+      <find>digite</find>
+      <find>bot-jog</find>
+      <find>digite o se</find>
     </findStrings>
     <replaceStrings>
       <replace>--botao</replace>
@@ -184,13 +192,13 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\lifeofcards\pages\php" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\lifeofcards\img" />
       <recent name="C:\xampp\htdocs\lifeofcards\js" />
       <recent name="C:\xampp\htdocs\lifeofcards\img\icon" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\lifeofcards\pages\php" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -244,7 +252,7 @@
       <workItem from="1510435784136" duration="1268000" />
       <workItem from="1510437920726" duration="907000" />
       <workItem from="1510443383261" duration="2731000" />
-      <workItem from="1510446281644" duration="574000" />
+      <workItem from="1510446281644" duration="1279000" />
     </task>
     <task id="LOCAL-00001" summary="canvas dentro de div e espaco para cartas e botoes">
       <created>1506972079531</created>
@@ -484,11 +492,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510438728473</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="mudanca background">
+      <created>1510446871366</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1510446871366</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74469000" />
+    <option name="totallyTimeSpent" value="75174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
@@ -545,7 +560,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mudei cor dos cards do perfil" />
     <MESSAGE value="cor da barra de navegacao superior consertada" />
     <MESSAGE value="removido icone online" />
     <MESSAGE value="cor do perfil conforme o resto do site" />
@@ -570,7 +584,8 @@
     <MESSAGE value="escolher deck redireciona para o jogo e manda o id do deck" />
     <MESSAGE value="diminuicao de codigo do escolher deck" />
     <MESSAGE value="botao ranqueado pixelado" />
-    <option name="LAST_COMMIT_MESSAGE" value="botao ranqueado pixelado" />
+    <MESSAGE value="mudanca background" />
+    <option name="LAST_COMMIT_MESSAGE" value="mudanca background" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -798,10 +813,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/img/background8.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12189">
-          <caret line="717" column="29" lean-forward="false" selection-start-line="717" selection-start-column="29" selection-end-line="717" selection-end-column="29" />
+        <state relative-caret-position="150">
+          <caret line="805" column="47" lean-forward="false" selection-start-line="805" selection-start-column="47" selection-end-line="805" selection-end-column="47" />
           <folding>
             <marker date="1510438247778" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
             <marker date="1510438247778" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
@@ -821,21 +841,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="46" lean-forward="false" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="46" />
-          <folding />
+        <state relative-caret-position="282">
+          <caret line="134" column="66" lean-forward="false" selection-start-line="134" selection-start-column="66" selection-end-line="134" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#form#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/background8.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="93" column="17" lean-forward="true" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
+        <state relative-caret-position="248">
+          <caret line="331" column="60" lean-forward="true" selection-start-line="331" selection-start-column="60" selection-end-line="331" selection-end-column="60" />
           <folding />
         </state>
       </provider>
