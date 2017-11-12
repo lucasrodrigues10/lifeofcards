@@ -142,13 +142,15 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
         //adiciona o sprite ao grupo de unidades
         unidades.add(sprite);
         
+        sprite.ataque = Math.floor((Math.random() * 10) + 1);
+        sprite.defesa = Math.floor((Math.random() * 10) + 1);
         
         //insere na posicao do tabuleiro levando em conta a numeração do tabuleiro
-        var defesa = game.make.text(sprite.x,sprite.y+15,6,{font:'11px Tahoma',fill: "#FF0000"});
-        var ataque = game.make.text(sprite.x-15,sprite.y+15,3,{font:'11px Tahoma',fill:"#43d637"});
+        var defesa = game.make.text(sprite.x,sprite.y+15,sprite.ataque,{font:'11px Tahoma',fill: "#FF0000"});
+        var ataque = game.make.text(sprite.x-15,sprite.y+15,sprite.defesa,{font:'11px Tahoma',fill:"#43d637"});
         
         defesa.fontWeight = 'bold';
-        defesa.anchor.x = 0.9;
+        defesa.anchor.x = 1;
         defesa.anchor.y = 0.6;
         defesa.stroke = '#000000';
         defesa.strokeThickness = 2;
@@ -180,10 +182,6 @@ function move (sprite){
     
     //remove a posicao anterior na matriz
     removePosicao(spriteSelecionado.x,spriteSelecionado.y);
-	
-	
-	
-	 
 	
     
     //move o objeto
@@ -241,7 +239,6 @@ function moveSec (sprite){
 
 
 function criaMovimentacao (sprite){
-    mostraInfo(sprite);
     
     var cima,direita,baixo,esquerda;
     var quadrados = [];
@@ -253,6 +250,7 @@ function criaMovimentacao (sprite){
     posX = sprite.x;
     posY = sprite.y;
     
+    mostraInfo(sprite);
     
     if (sprite.jogador == jogador)
         tipo_quadrado = 'quadrado'; //quadrado para movimentação de unidades aliadas 
@@ -334,7 +332,7 @@ function criaMovimentacao (sprite){
 			quadradoSecundario.anchor.set(1,1);
 			quadradoSecundario.inputEnabled = true;
 			quadradoSecundario.events.onInputDown.add(moveSec,this);
-            //altera transparencia dos quadrados 
+            //altera transparencia dos quadrados secundarios
 			quadradoSecundario.alpha = 0.5;
 		});
         
@@ -355,8 +353,11 @@ function atualizaPosicao (posX,posY,sprite){
     var coluna = (posY-31)/32-1;
     
     //mande 'null' como paramentro para atualizar a posicao do sprite clicado
-    if (sprite==null)
-        tabuleiro[linha][coluna] = spriteSelecionado;          
+    if (sprite==null){
+        if(tabuleiro[linha][coluna] == null) //evita que as cartas apaguem referencias de outros sprites
+            tabuleiro[linha][coluna] = spriteSelecionado;
+        return;
+    }
     else 
         tabuleiro[linha][coluna] = sprite;      
     
@@ -375,11 +376,15 @@ function dentroDoMapa (posX,posY){
     return !(foraDoMapa(posX,posY));
 }
 
-function removePosicao (posX,posY){
+function removePosicao (posX,posY,sprite){
     var linha = (posX-31)/32-1;     
     var coluna = (posY-31)/32-1;
-    tabuleiro[linha][coluna] = null;
-    console.log(linha,coluna);
+    if  (sprite == null)  {              //se sprite veio como nulo, significa que deve-se mexer no spriteSelecionado
+        if (encontraUnidade(posX,posY)==spriteSelecionado)
+            tabuleiro[linha][coluna] = null;
+    } else {
+        tabuleiro[linha][coluna] = null;
+    }
 }
 
 function encontraUnidade (posX,posY){
@@ -450,12 +455,12 @@ function esconderTexto(){
 
 function atualizaTexto(){
     textoAtk.forEachAlive(function(texto){
-        texto.x = texto.unidade.x-20;
+        texto.x = texto.unidade.x;
         texto.y = texto.unidade.y;
         
     })
     textoDef.forEachAlive(function(texto){
-        texto.x = texto.unidade.x;
+        texto.x = texto.unidade.x-20;
         texto.y = texto.unidade.y;
 
     })
@@ -484,7 +489,16 @@ function mostraInfo(sprite){
         console.log("linha: "+sprite.linha);
         console.log("coluna: "+sprite.coluna);
         console.log("jogador: "+sprite.jogador);
+        console.log("posição x : "+sprite.x);
+        console.log("posição y : "+sprite.y);
+        console.log("esta casa esta vazia?: "+ encontraUnidade(posX,posY))
+        
     } catch (erro){
     console.log("erro: "+erro);
     }
+    
+}
+
+function procuraInimigo(sprite){
+    
 }
