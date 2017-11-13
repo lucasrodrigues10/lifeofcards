@@ -8,7 +8,7 @@ function loadAssets (){
     game.load.image('tabuleiro','assets/tabuleiro.png');
     game.load.image('quadrado','assets/quadrado.png');
     game.load.image('quadInimigo','assets/quadInimigo.png');
-    
+    game.load.image('battle','assets/battle.png');
     
     
     //perguntando pro servidor quais são os arquivos que estão na pasta de spritesheets
@@ -251,6 +251,8 @@ function criaMovimentacao (sprite){
     posY = sprite.y;
     
     mostraInfo(sprite);
+    
+    procuraInimigo(sprite);
     
     if (sprite.jogador == jogador)
         tipo_quadrado = 'quadrado'; //quadrado para movimentação de unidades aliadas 
@@ -500,5 +502,30 @@ function mostraInfo(sprite){
 }
 
 function procuraInimigo(sprite){
-    
+     var posX = sprite.x;
+     var posY = sprite.y;
+     
+     var unidadesProximas = [];
+     
+     unidadesProximas.push (encontraUnidade(posX,posY-32));
+     unidadesProximas.push (encontraUnidade(posX+32,posY-32));
+     unidadesProximas.push (encontraUnidade(posX+32,posY));
+     unidadesProximas.push (encontraUnidade(posX+32,posY+32));
+     unidadesProximas.push (encontraUnidade(posX,posY+32));
+     unidadesProximas.push (encontraUnidade(posX-32,posY+32));
+     unidadesProximas.push (encontraUnidade(posX-32,posY));
+     unidadesProximas.push (encontraUnidade(posX-32,posY-32));
+     
+     for (var i =0;i<unidadesProximas.length;i++){
+         if (unidadesProximas[i] != null)
+             if(unidadesProximas[i].jogador != sprite.jogador)
+                 {   //encontrou inimigos
+                     var lutar = game.add.sprite(0,0,'battle');
+                     lutar.anchor.setTo(1,1);
+                     lutar.scale.setTo(0.02);
+                     unidadesProximas[i].addChild(lutar);
+                     //unidadesProximas[i].events.onInputDown.add(luta,this);
+                     console.log("UNDIDADE PRÓXIMA "+unidadesProximas[i].key)
+                 }
+     }
 }
