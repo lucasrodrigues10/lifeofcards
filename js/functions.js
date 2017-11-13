@@ -532,8 +532,8 @@ function procuraInimigo(sprite){
 }
 
 function criaRelogio(){
-    tempo = 100;
-    count = 0;
+    duracao = 60
+    count = duracao; //tempo em segundos
     minutos = 0;
     segundo = 0;
     
@@ -557,12 +557,32 @@ function criaRelogio(){
     
     
     setInterval(function(){
-        count++;
+        count--;
         minutos = Math.floor(count/60);
         segundos = count - minutos *60;
+        
+        //melhor visualizaçao do tempo
         if (segundos >= 10)
             contador.text = minutos + ":" + segundos;
         else if (segundos < 10)
             contador.text = minutos + ":0" + segundos;
-    },tempo)
+        
+         if (segundos <=15)
+            {
+                fundo.loadTexture('fundo_vermelho');    
+            }
+        
+        //troca de turno
+        if (segundos == 0){
+            count = duracao; 
+            fundo.loadTexture('fundo_verde');
+            if (turno==1)
+                turno = 2;
+            else if(turno==2)
+                turno = 1;    
+        }
+        
+       
+            
+    },1000)
 }
