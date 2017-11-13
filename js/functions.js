@@ -83,10 +83,10 @@ function deixaResponsivo(){
 }
 var jogador = 1;
 var turno = 1; 
-var numLinhas = 12;
-var numColunas = 12;
+var numLinhas = 7;
+var numColunas = 11;
 var margemLateral = 1;
-var margemVertical = 1  ;
+var margemVertical = 2;
 
 var listaSprites = [];
 var jogo; //referencia para o sprite do tabuleiro
