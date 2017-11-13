@@ -31,6 +31,8 @@ function create (){
     textoDef = game.add.group(); //grupo para renderizar as informaçoes das cartas no tabuleiro
     textoDef.visible = true;
     
+    criaRelogio();
+    
     
     movimentacao = game.add.group(); // grupo para movimentação das unidades
     movimentacao.visible = false;
@@ -56,7 +58,7 @@ function create (){
 
    
 	
-	desenhaInterface();	
+	//desenhaInterface();	
 	
 }
 

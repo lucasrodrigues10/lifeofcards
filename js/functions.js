@@ -9,8 +9,9 @@ function loadAssets (){
     game.load.image('quadrado','assets/quadrado.png');
     game.load.image('quadInimigo','assets/quadInimigo.png');
     game.load.image('battle','assets/battle.png');
-    
-    
+    game.load.image('fundo_verde','assets/fundo_verde.png');
+    game.load.image('fundo_vermelho','assets/fundo_vermelho.png');
+    game.load.image('relogio','assets/clock.png');
     //perguntando pro servidor quais são os arquivos que estão na pasta de spritesheets
     $.ajax({
         url: "getSprites.php",
@@ -528,4 +529,40 @@ function procuraInimigo(sprite){
                      console.log("UNDIDADE PRÓXIMA "+unidadesProximas[i].key)
                  }
      }
+}
+
+function criaRelogio(){
+    tempo = 100;
+    count = 0;
+    minutos = 0;
+    segundo = 0;
+    
+    posicaoH = game.width/2;
+    
+    fundo = game.add.sprite(posicaoH,0,'fundo_verde');    
+    fundo.anchor.setTo(0.5,0);
+    fundo.height = 44;
+    
+    
+    
+    relogio = game.add.sprite(posicaoH,2,'relogio');
+    relogio.anchor.setTo(0.5,0);
+    relogio.scale.setTo(0.01);
+    
+    contador = game.make.text(0,21,"0:00",{font:'10px Tahoma ',fill: "#000000"});
+    contador.anchor.setTo(0.5,0);
+    
+    
+    fundo.addChild(contador);
+    
+    
+    setInterval(function(){
+        count++;
+        minutos = Math.floor(count/60);
+        segundos = count - minutos *60;
+        if (segundos >= 10)
+            contador.text = minutos + ":" + segundos;
+        else if (segundos < 10)
+            contador.text = minutos + ":0" + segundos;
+    },tempo)
 }
