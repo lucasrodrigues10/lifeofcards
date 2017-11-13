@@ -178,6 +178,14 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 
 function move (sprite){
     
+    if (spriteSelecionado.jogador != jogador || jogador != turno){
+        console.log("jogador do sprite: "+spriteSelecionado.jogador)
+        console.log("jogador: "+ jogador);
+        console.log("turno: "+ turno);
+        return;
+    }
+                 //sprite não se move se estiver em outro turno ou se não for do jogador
+    
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
     
