@@ -477,12 +477,12 @@ function desenhaInterface (){
     //barConfig1 = {x:150,y:30,comprimento:10, espessura:190,background:'#000000',color:'#fc9802'};
         
     vidaAtual = new HealthBar(this.game,
-                         {x:16,y:5,width:190, height:25});
+                         {x:16,y:5,width:190, height:32});
     vidaAtual.setAnchor(0,0);
     vidaAtual.setPercent(50);
     
     vidaInimigo = new HealthBar(this.game,
-                         {x:448-190-16,y:5,width:190,height:25,flipped:true});
+                         {x:448-190-16,y:5,width:190,height:32,flipped:true});
     vidaInimigo.setAnchor(0,0);
     vidaInimigo.setPercent(1);
 }
@@ -544,7 +544,6 @@ function criaRelogio(){
     fundo = game.add.sprite(posicaoH,0,'fundo_verde');    
     fundo.anchor.setTo(0.5,0);
     fundo.height = 44;
-    
     
     
     relogio = game.add.sprite(posicaoH,2,'relogio');

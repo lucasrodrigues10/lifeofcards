@@ -1,4 +1,4 @@
-var game = new Phaser.Game(448, 448, Phaser.AUTO, 'center', { preload: preload, create: create, update: update},false,false);  
+var game = new Phaser.Game(448-32, 448, Phaser.AUTO, 'center', { preload: preload, create: create, update: update},false,false);  
     
 
 
@@ -23,7 +23,7 @@ function create (){
     //inicializa fisica. necessario para fazer as unidades se movimentar
 	game.physics.startSystem(Phaser.Physics.ARCADE);
     
-    jogo = game.add.sprite( 0 ,0, 'tabuleiro');
+    jogo = game.add.sprite( 0 ,32, 'tabuleiro');
     
     textoAtk = game.add.group(); //grupo para renderizar as informaçoes das cartas no tabuleiro
     textoAtk.visible = true;
