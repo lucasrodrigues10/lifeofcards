@@ -102,7 +102,7 @@ for (i=0;i<12;i++)
 //função para criar sprites de maneira mais rápida
 function summon (linhaTabuleiro,colTabuleiro,nome){ 
     var posX = linhaTabuleiro*32+31;
-    var posY = colTabuleiro*32+31;
+    var posY = colTabuleiro*32+32*margemVertical-1;
     var marcador;
 	
 	if (posicaoValida(posX,posY)){
@@ -178,13 +178,6 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 
 function move (sprite){
     
-    if (spriteSelecionado.jogador != jogador || jogador != turno){
-        console.log("jogador do sprite: "+spriteSelecionado.jogador)
-        console.log("jogador: "+ jogador);
-        console.log("turno: "+ turno);
-        return;
-    }
-                 //sprite não se move se estiver em outro turno ou se não for do jogador
     
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
@@ -360,8 +353,9 @@ function criaMovimentacao (sprite){
 
 //função que atualiza a variavel global "tabuleiro"
 function atualizaPosicao (posX,posY,sprite){
-    var linha = (posX-31)/32-1;     
-    var coluna = (posY-31)/32-1;
+    var linha = (posX-31)/32-1;
+    var coluna = (posY-63)/32-1;
+    //corrigido
     
     //mande 'null' como paramentro para atualizar a posicao do sprite clicado
     if (sprite==null){
@@ -388,8 +382,8 @@ function dentroDoMapa (posX,posY){
 }
 
 function removePosicao (posX,posY,sprite){
-    var linha = (posX-31)/32-1;     
-    var coluna = (posY-31)/32-1;
+    var linha = (posX-31)/32-1;   
+    var coluna = (posY-63)/32-1;
     if  (sprite == null)  {              //se sprite veio como nulo, significa que deve-se mexer no spriteSelecionado
         if (encontraUnidade(posX,posY)==spriteSelecionado)
             tabuleiro[linha][coluna] = null;
@@ -400,8 +394,8 @@ function removePosicao (posX,posY,sprite){
 
 function encontraUnidade (posX,posY){
 	//transforma a coordenada em pixels para posição do tabuleiro 
-	var linha = (posX-31)/32;
-	var coluna = (posY-31)/32
+    var linha = (posX-31)/32; 
+	var coluna = (posY-63)/32;
 	
 	
 	if (dentroDoMapa(posX,posY))                   //evita possiveis erros de indices
