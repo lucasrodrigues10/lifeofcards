@@ -26,6 +26,8 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <!-- Jogo CSS -->
     <link rel="stylesheet" type="text/css" href="../css/jogo.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="../css/jogo.css">
 
 
     <!-- Phaser -->
@@ -80,7 +82,9 @@
             <i class="material-icons" id="btn-fullscreen">fullscreen</i>
         </button>
     </div>
-    <div style="background-color: blue;width: 60%" id="center"></div>
+    <div style="background-color: blue;width: 60%" id="center">    
+        <div><a id="terminar-jogada" href="#">Terminar jogada</a> </div>     
+    </div>
     <div style="background-color: green;width: 30%" id="right">
         <?php
 		include "php/db.php";
