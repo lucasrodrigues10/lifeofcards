@@ -247,8 +247,10 @@ function criaMovimentacao (sprite){
     var quadSecundarios = [];
     var tipo_quadrado;
     spriteSelecionado = sprite;
+    
     movimentacao.removeAll(true);
-  
+    grupoSummon.removeAll(true);
+    
     posX = sprite.x;
     posY = sprite.y;
     
@@ -503,27 +505,32 @@ function mostraInfo(sprite){
 
 function criaSummon(){
     
+    movimentacao.removeAll("true"); // limpa o tabuleiro dos quadrados de movimentação
     unidades.children.forEach(function(unidade) {
         if (unidade.jogador == jogador){
-            if (encontraQuadrado(unidade.x,unidade.y-32)==null && dentroDoMapa(unidade.x,unidade.y-32)) 
+            if (dentroDoMapa(unidade.x,unidade.y-32)) 
                 grupoSummon.add(game.add.sprite(unidade.x,unidade.y-32,'quadrado'))
-            if (encontraQuadrado(unidade.x+32,unidade.y-32)==null && dentroDoMapa(unidade.x+32,unidade.y-32)) 
+            if (dentroDoMapa(unidade.x+32,unidade.y-32)) 
                 grupoSummon.add(game.add.sprite(unidade.x+32,unidade.y-32,'quadrado'))
-            if (encontraQuadrado(unidade.x+32,unidade.y)==null && dentroDoMapa(unidade.x+32,unidade.y)) 
+            if (dentroDoMapa(unidade.x+32,unidade.y)) 
                 grupoSummon.add(game.add.sprite(unidade.x+32,unidade.y,'quadrado'))
-            if (encontraQuadrado(unidade.x+32,unidade.y+32)==null && dentroDoMapa(unidade.x+32,unidade.y+32)) 
+            if (dentroDoMapa(unidade.x+32,unidade.y+32)) 
                 grupoSummon.add(game.add.sprite(unidade.x+32,unidade.y+32,'quadrado'))
-            if (encontraQuadrado(unidade.x,unidade.y+32)==null && dentroDoMapa(unidade.x,unidade.y+32)) 
+            if (dentroDoMapa(unidade.x,unidade.y+32)) 
                 grupoSummon.add(game.add.sprite(unidade.x,unidade.y+32,'quadrado'))
-            if (encontraQuadrado(unidade.x-32,unidade.y+32)==null && dentroDoMapa(unidade.x-32,unidade.y+32)) 
+            if (dentroDoMapa(unidade.x-32,unidade.y+32)) 
                 grupoSummon.add(game.add.sprite(unidade.x-32,unidade.y+32,'quadrado'))
-            if (encontraQuadrado(unidade.x,unidade.y+32)==null && dentroDoMapa(unidade.x,unidade.y+32)) 
-                grupoSummon.add(game.add.sprite(unidade.x,unidade.y+32,'quadrado'))
+            if ((unidade.x-32,unidade.y)) 
+                grupoSummon.add(game.add.sprite(unidade.x-32,unidade.y,'quadrado'))
+            if (dentroDoMapa(unidade.x-32,unidade.y-32)) 
+                grupoSummon.add(game.add.sprite(unidade.x-32,unidade.y-32,'quadrado'))
         }                  
     })
     
     grupoSummon.children.forEach(function(tile){
         tile.anchor.setTo(1,1);
+        tile.alpha = 0.3;
+        //tile.events.onInputDown.add(,this)
     })
     
     
@@ -531,7 +538,8 @@ function criaSummon(){
 
 function encontraQuadrado(posX,posY){
     var quadEncontrados = grupoSummon.getAll('x',posX);
-    for (var i=0;i<quadEncontrados,length;i++)
+    
+    for (var i=0;i<quadEncontrados.length;i++)
         if (quadEncontrados[i].y != posY)
             quadEncontrados.splice(i,1);
     
