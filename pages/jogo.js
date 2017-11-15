@@ -33,6 +33,7 @@ function create (){
     
     criaRelogio();
     
+    grupoSummon = game.add.group();
     
     movimentacao = game.add.group(); // grupo para movimentação das unidades
     movimentacao.visible = false;
@@ -43,6 +44,7 @@ function create (){
     
     
     //vincula todos os sprites ao tabuleiro
+    jogo.addChild(grupoSummon);
     jogo.addChild(movimentacao);
     jogo.addChild(unidades);
     

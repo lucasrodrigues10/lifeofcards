@@ -453,10 +453,7 @@ function mostraSprites(){
     }
 }
 
-function esconderTexto(){
-    textoAtk.visible=false;
-    textoDef.visible=false;
-}
+
 
 function atualizaTexto(){
     textoAtk.forEachAlive(function(texto){
@@ -502,6 +499,46 @@ function mostraInfo(sprite){
     console.log("erro: "+erro);
     }
     
+}
+
+function criaSummon(){
+    
+    unidades.children.forEach(function(unidade) {
+        if (unidade.jogador == jogador){
+            if (encontraQuadrado(unidade.x,unidade.y-32)==null && dentroDoMapa(unidade.x,unidade.y-32)) 
+                grupoSummon.add(game.add.sprite(unidade.x,unidade.y-32,'quadrado'))
+            if (encontraQuadrado(unidade.x+32,unidade.y-32)==null && dentroDoMapa(unidade.x+32,unidade.y-32)) 
+                grupoSummon.add(game.add.sprite(unidade.x+32,unidade.y-32,'quadrado'))
+            if (encontraQuadrado(unidade.x+32,unidade.y)==null && dentroDoMapa(unidade.x+32,unidade.y)) 
+                grupoSummon.add(game.add.sprite(unidade.x+32,unidade.y,'quadrado'))
+            if (encontraQuadrado(unidade.x+32,unidade.y+32)==null && dentroDoMapa(unidade.x+32,unidade.y+32)) 
+                grupoSummon.add(game.add.sprite(unidade.x+32,unidade.y+32,'quadrado'))
+            if (encontraQuadrado(unidade.x,unidade.y+32)==null && dentroDoMapa(unidade.x,unidade.y+32)) 
+                grupoSummon.add(game.add.sprite(unidade.x,unidade.y+32,'quadrado'))
+            if (encontraQuadrado(unidade.x-32,unidade.y+32)==null && dentroDoMapa(unidade.x-32,unidade.y+32)) 
+                grupoSummon.add(game.add.sprite(unidade.x-32,unidade.y+32,'quadrado'))
+            if (encontraQuadrado(unidade.x,unidade.y+32)==null && dentroDoMapa(unidade.x,unidade.y+32)) 
+                grupoSummon.add(game.add.sprite(unidade.x,unidade.y+32,'quadrado'))
+        }                  
+    })
+    
+    grupoSummon.children.forEach(function(tile){
+        tile.anchor.setTo(1,1);
+    })
+    
+    
+}
+
+function encontraQuadrado(posX,posY){
+    var quadEncontrados = grupoSummon.getAll('x',posX);
+    for (var i=0;i<quadEncontrados,length;i++)
+        if (quadEncontrados[i].y != posY)
+            quadEncontrados.splice(i,1);
+    
+    if (quadEncontrados.length == 0)
+        return null;
+    else
+        return quadEncontrados;
 }
 
 function procuraInimigo(sprite){
@@ -586,4 +623,9 @@ function criaRelogio(){
        
             
     },1000)
+}
+
+function esconderTexto(){
+    textoAtk.visible=false;
+    textoDef.visible=false;
 }
