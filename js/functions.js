@@ -184,11 +184,10 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 
 
 function move (sprite){
-<<<<<<< HEAD
+
     movimentacao.removeAll(true);           //elimina quadrados antigos
-=======
+
     var frame;
->>>>>>> 0cde2fe10d9bc11bcfbeb2dc8673e0d27e403ed7
     
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
