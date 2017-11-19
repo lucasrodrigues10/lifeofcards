@@ -107,12 +107,19 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 	
 	if (posicaoValida(posX,posY)){
         
-        /*if (turno == jogador)
+        if (turno == jogador){
             marcador = game.add.sprite(posX,posY,'quadrado');
-        else if (turno != jogador)
+            marcadores.add(marcador);
+        }
+        else if (turno != jogador){
             marcador = game.add.sprite(posX,posY,'quadInimigo'); 
+            marcadoresInimigo.add(marcador);
+        }
+    
+        marcador.anchor.setTo(1,1);
         
-        marcador.anchor.setTo(1,1)*/
+        marcadores.setAll('alpha',0.5);
+        marcadoresInimigo.setAll('alpha',0.5);
         
         var sprite = game.add.sprite(posX,posY,nome);
         //sprite.addChild(marcador);
@@ -120,7 +127,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
         sprite.linha = linhaTabuleiro;
         sprite.coluna = colTabuleiro;
         sprite.jogador = turno;
-        
+        marcador.sprite = sprite;
         atualizaPosicao(posX,posY,sprite);
         
         
@@ -177,7 +184,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 
 
 function move (sprite){
-    
+    movimentacao.removeAll(true);           //elimina quadrados antigos
     
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
@@ -209,7 +216,7 @@ function move (sprite){
         unidades.sort('x');
         unidades.sort('y');
         
-        movimentacao.removeAll(true);           //elimina quadrados antigos
+        
         game.input.enabled = true;
         
         //atualiza a posição do sprite movimentado na matriz.
@@ -622,10 +629,18 @@ function criaRelogio(){
         if (segundos == 0){
             count = duracao; 
             fundo.loadTexture('fundo_verde');
-            if (turno==1)
+            if (turno==1){ 
+                console.log("começa turno do jogador 2");
                 turno = 2;
-            else if(turno==2)
-                turno = 1;    
+                marcadoresInimigo.visible = true;
+                marcadores.visible = false;
+            }
+            else if(turno==2){
+                console.log("começa turno do jogador 1");
+                turno = 1;
+                marcadoresInimigo.visible = false;
+                marcadores.visible = true;
+            }
         }
         
        
@@ -636,4 +651,17 @@ function criaRelogio(){
 function esconderTexto(){
     textoAtk.visible=false;
     textoDef.visible=false;
+}
+
+function atualizaMarcadores(){
+    marcadores.forEachAlive (function(marcador){
+        marcador.x = marcador.sprite.x;
+        marcador.y = marcador.sprite.y;
+    })
+    marcadoresInimigo.forEachAlive (function(marcador){
+        marcador.x = marcador.sprite.x;
+        marcador.y = marcador.sprite.y;
+    })
+    
+    
 }

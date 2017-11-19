@@ -33,7 +33,13 @@ function create (){
     
     criaRelogio();
     
-    grupoSummon = game.add.group();
+    grupoSummon = game.add.group(); // cria tiles para summonar
+    
+    marcadores = game.add.group();
+    marcadores.setAll('alpha',0.5);
+    
+    marcadoresInimigo = game.add.group();
+    marcadoresInimigo.setAll('alpha',0.5);
     
     movimentacao = game.add.group(); // grupo para movimentação das unidades
     movimentacao.visible = false;
@@ -44,6 +50,8 @@ function create (){
     
     
     //vincula todos os sprites ao tabuleiro
+    jogo.addChild(marcadoresInimigo);
+    jogo.addChild(marcadores);
     jogo.addChild(grupoSummon);
     jogo.addChild(movimentacao);
     jogo.addChild(unidades);
@@ -53,20 +61,31 @@ function create (){
     unidades.callAll('animations.play','animations','down'); 
 
     summon(1,1,'lost_soul');
-    //turno = 2;
-    //summon(6,6,'devil');
+    turno = 2;
+    summon(6,6,'devil');
     
     
 
    
 	
 	//desenhaInterface();	
-	
+    
+    //atualiza os marcadores pela primeira vez.
+    if (turno==1){           
+        marcadoresInimigo.visible = false;
+        marcadores.visible = true;
+    }
+    else if(turno==2){             
+        marcadoresInimigo.visible = true;
+        marcadores.visible = false;
+    }
+
 }
 
 function update (){
     
     atualizaTexto();
+    atualizaMarcadores();
     
 }
     
