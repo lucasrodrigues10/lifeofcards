@@ -184,7 +184,11 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 
 
 function move (sprite){
+<<<<<<< HEAD
     movimentacao.removeAll(true);           //elimina quadrados antigos
+=======
+    var frame;
+>>>>>>> 0cde2fe10d9bc11bcfbeb2dc8673e0d27e403ed7
     
     //desabilita o input pro usuario não fazer m*rda
     game.input.enabled = false;
@@ -199,9 +203,23 @@ function move (sprite){
     var dir = defineDirecao(spriteSelecionado);
     spriteSelecionado.animations.play(dir);
     
+    switch (dir){
+        case 'up':
+            frame = 0;
+            break;
+        case 'right':
+            frame = 1;
+            break;
+        case 'down':
+            frame=2;
+            break;
+        case 'left':
+            frame = 3;
+            break;
+    }
     
-    
-     //função para para o sprite quando ele chega ao destin
+   
+    //função para para o sprite quando ele chega ao destin
     game.time.events.add(600, function () {
         
         //corrige erro de precisão ao movimentar 
@@ -222,20 +240,22 @@ function move (sprite){
         //atualiza a posição do sprite movimentado na matriz.
         atualizaPosicao(spriteSelecionado.x,spriteSelecionado.y,null);
         spriteMovimentado = spriteSelecionado;
+        spriteSelecionado.animations.stop();
+        spriteSelecionado.frame = frame;
         spriteSelecionado = null;       //apaga referencia pro sprite clicado
     
     }, this);
 	
-    //spriteSelecionado.animations.stop();
+    
 	
     
 }
 
 function moveSec (sprite){
     
-    //spriteSelecionado = spriteMovimentado;
+    
     move(sprite.anterior);
-    //spriteSelecionado = spriteMovimentado;
+    
     game.time.events.onComplete.add(function(){
         spriteSelecionado = spriteMovimentado;
         game.time.events.removeAll();
