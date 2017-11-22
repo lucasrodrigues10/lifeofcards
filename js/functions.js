@@ -267,12 +267,18 @@ function moveSec (sprite){
 
 
 function criaMovimentacao (sprite){
-    
+   
+    var podeMover = true;
     var cima,direita,baixo,esquerda;
     var quadrados = [];
     var quadSecundarios = [];
     var tipo_quadrado;
     spriteSelecionado = sprite;
+    
+     if (spriteSelecionado.jogador != jogador || jogador != turno){
+         podeMover = false;
+     } else
+         podeMover = true;
     
     movimentacao.removeAll(true);
     grupoSummon.removeAll(true);
@@ -324,7 +330,10 @@ function criaMovimentacao (sprite){
     
     movimentacao.children.forEach(function(quadrado){
         quadrado.anchor.set(1,1);
+        
+        if(podeMover)
 		quadrado.events.onInputDown.add(move,this);
+        
         posX = quadrado.x;
         posY = quadrado.y;
 		/* go horse lindu 2 */
@@ -363,6 +372,7 @@ function criaMovimentacao (sprite){
 			quadradoSecundario.anterior = quadrado; //cada quadrado secundario guarda um referencia do quadrado orirginal que o gerou
 			quadradoSecundario.anchor.set(1,1);
 			quadradoSecundario.inputEnabled = true;
+            if(podeMover)
 			quadradoSecundario.events.onInputDown.add(moveSec,this);
             //altera transparencia dos quadrados secundarios
 			quadradoSecundario.alpha = 0.5;
@@ -682,5 +692,9 @@ function atualizaMarcadores(){
         marcador.y = marcador.sprite.y;
     })
     
+    
+}
+
+function trocaTurno(){
     
 }
