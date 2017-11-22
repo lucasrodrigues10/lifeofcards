@@ -656,20 +656,7 @@ function criaRelogio(){
         
         //troca de turno
         if (segundos == 0){
-            count = duracao; 
-            fundo.loadTexture('fundo_verde');
-            if (turno==1){ 
-                console.log("começa turno do jogador 2");
-                turno = 2;
-                marcadoresInimigo.visible = true;
-                marcadores.visible = false;
-            }
-            else if(turno==2){
-                console.log("começa turno do jogador 1");
-                turno = 1;
-                marcadoresInimigo.visible = false;
-                marcadores.visible = true;
-            }
+            trocaTurno();
         }
         
        
@@ -695,6 +682,26 @@ function atualizaMarcadores(){
     
 }
 
-function trocaTurno(){
+function trocaTurno(){ 
+    
+    //limpa os quadrados para maior usabilidade do usuário
+    movimentacao.removeAll(true);
+    grupoSummon.removeAll(true);
+    
+    count = duracao; //reseta o relogio
+    count = duracao; 
+    fundo.loadTexture('fundo_verde');
+    if (turno==1){ 
+        console.log("começa turno do jogador 2");
+        turno = 2;
+        marcadoresInimigo.visible = true;
+        marcadores.visible = false;
+    }
+    else if(turno==2){
+        console.log("começa turno do jogador 1");
+        turno = 1;
+        marcadoresInimigo.visible = false;
+        marcadores.visible = true;
+    }
     
 }

@@ -83,7 +83,7 @@
         </button>
     </div>
     <div style="background-color: blue;width: 60%" id="center">    
-        <a id="terminar-jogada" href="#">Terminar jogada</a>    
+        <a id="terminar-jogada" href="#" onclick="trocaTurno()">Terminar jogada</a>    
     </div>
     <div style="background-color: green;width: 30%" id="right">
         <?php
