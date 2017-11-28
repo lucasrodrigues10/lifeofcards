@@ -185,7 +185,7 @@ function summon (linhaTabuleiro,colTabuleiro,nome){
 
 function move (sprite){
 
-    movimentacao.removeAll(true);           //elimina quadrados antigos
+    limpaSprites();           //elimina quadrados antigos
 
     var frame;
     
@@ -280,8 +280,8 @@ function criaMovimentacao (sprite){
      } else
          podeMover = true;
     
-    movimentacao.removeAll(true);
-    grupoSummon.removeAll(true);
+  
+    limpaSprites();
     
     posX = sprite.x;
     posY = sprite.y;
@@ -607,9 +607,10 @@ function procuraInimigo(sprite){
                      var lutar = game.add.sprite(-16,-16,'battle');
                      lutar.anchor.setTo(0.5,0.5);
                      lutar.scale.setTo(0.3);
-                     unidadesProximas[i].addChild(lutar);
+                     grupoLuta.add(lutar);
+                     unidadesProximas[i].addChild(grupoLuta);
                      //unidadesProximas[i].events.onInputDown.add(luta,this);
-                     console.log("UNDIDADE PRÓXIMA "+unidadesProximas[i].key)
+                     
                  }
      }
 }
@@ -704,4 +705,10 @@ function trocaTurno(){
         marcadores.visible = true;
     }
     
+}
+
+function limpaSprites(){
+    movimentacao.removeAll(true);
+    grupoSummon.removeAll(true);
+    grupoLuta.removeAll(true);
 }

@@ -48,6 +48,8 @@ function create (){
     unidades = game.add.group(); //grupo para renderizar a "layer" das cartas no tabuleiro
     unidades.enableBody = true;
     
+    grupoLuta = game.add.group(); //grupo para os icones de luta
+    
     
     //vincula todos os sprites ao tabuleiro
     jogo.addChild(marcadoresInimigo);
