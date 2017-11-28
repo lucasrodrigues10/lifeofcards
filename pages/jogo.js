@@ -62,7 +62,7 @@ function create (){
 
     summon(1,1,'lost_soul');
     turno = 2;
-    summon(6,6,'devil');
+    summon(2,2,'devil');
     
     
 

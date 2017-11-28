@@ -604,9 +604,9 @@ function procuraInimigo(sprite){
          if (unidadesProximas[i] != null)
              if(unidadesProximas[i].jogador != sprite.jogador)
                  {   //encontrou inimigos
-                     var lutar = game.add.sprite(0,0,'battle');
-                     lutar.anchor.setTo(1,1);
-                     lutar.scale.setTo(0.02);
+                     var lutar = game.add.sprite(-16,-16,'battle');
+                     lutar.anchor.setTo(0.5,0.5);
+                     lutar.scale.setTo(0.3);
                      unidadesProximas[i].addChild(lutar);
                      //unidadesProximas[i].events.onInputDown.add(luta,this);
                      console.log("UNDIDADE PRÓXIMA "+unidadesProximas[i].key)
