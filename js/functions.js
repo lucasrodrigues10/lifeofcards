@@ -511,15 +511,15 @@ function atualizaTexto(){
 function desenhaInterface (){
     //barConfig1 = {x:150,y:30,comprimento:10, espessura:190,background:'#000000',color:'#fc9802'};
         
-    vidaAtual = new HealthBar(this.game,
-                         {x:16,y:5,width:190, height:32});
-    vidaAtual.setAnchor(0,0);
-    vidaAtual.setPercent(50);
+    vida1 = new HealthBar(this.game,
+                         {x:0,y:0,width:192, height:32});
+    vida1.setAnchor(0,0);
+    vida1.setPercent(100);
     
-    vidaInimigo = new HealthBar(this.game,
-                         {x:448-190-16,y:5,width:190,height:32,flipped:true});
-    vidaInimigo.setAnchor(0,0);
-    vidaInimigo.setPercent(1);
+    vida2 = new HealthBar(this.game,
+                         {x:game.width,y:0,width:192,height:32,flipped:true});  
+    vida2.setAnchor(1,0);
+    vida2.setPercent(100);
 }
 
 function mostraInfo(sprite){
@@ -711,4 +711,10 @@ function limpaSprites(){
     movimentacao.removeAll(true);
     grupoSummon.removeAll(true);
     grupoLuta.removeAll(true);
+}
+
+function atualizaVida(){
+    vida1.setPercent(jogador1.vida/25);
+    vida2.setPercent(jogador2.vida/25);
+    
 }

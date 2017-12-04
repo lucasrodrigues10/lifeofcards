@@ -1,4 +1,4 @@
-var game = new Phaser.Game(448-32, 448-63, Phaser.AUTO, 'center', { preload: preload, create: create, update: update},false,false);  
+var game = new Phaser.Game(416, 448-64, Phaser.AUTO, 'center', { preload: preload, create: create, update: update},false,false);  
     
 
 
@@ -11,8 +11,17 @@ function  preload () {
 }
 
 function create (){
-
     
+    jogador1= {
+        vida:25,
+        cartas:0,
+        cartasDeck:0
+    }
+    jogador2 = {
+        vida:25,
+        cartas:0,
+        cartasDeck:0
+    }
     
     //jogo se torna responsivo de acordo com o tamanho da tela do browser
     deixaResponsivo();
@@ -62,15 +71,17 @@ function create (){
     
     unidades.callAll('animations.play','animations','down'); 
 
-    summon(1,1,'lost_soul');
+    summon(3,1,'lost_soul');
+    summon(4,1,'ferumbras');
     turno = 2;
-    summon(2,2,'devil');
+    summon(2,1,'devil');
+    
     
     
 
    
 	
-	//desenhaInterface();	
+	desenhaInterface();	
     
     //atualiza os marcadores pela primeira vez.
     if (turno==1){           
@@ -88,6 +99,7 @@ function update (){
     
     atualizaTexto();
     atualizaMarcadores();
+    
     
 }
     
