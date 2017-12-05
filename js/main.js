@@ -241,9 +241,15 @@ $(document).ready(function () {
 					 id: idu
 				 },
 				 success: function(data) {
-					 //console.log(data);
+				 if(y-z>0)
+				 {
+				    $('.moedas').html('Suas Moedas: ');
+				    $('.moedas').append(y-z);
+	                $('.moedas').attr("alt", y-z);
+    				$('.moedas').append(` <img src="../img/icon/coin.svg" alt="moeda" class="icone">`);
+    	            $('.moedas').attr("alt", y-z);
+				 }
                  $('#pacote').html(data);
-					 //alert("Pacote Comprado");
 				 }
 			 });
     });

@@ -36,7 +36,7 @@ include "db.php";
 			$qnt = 1;
 		if($moedas>$preco)
 		{
-            ?> Pacote comprado com sucesso <?php
+            ?> <div style="font-size:45px; text-align:center;"> Pacote comprado com sucesso </div><?php
 		  $moedas = $moedas - $preco;
           $query = "SELECT * FROM Cartas WHERE IDpacote= '$id'";   
             $result = $conn->query($query);
@@ -79,7 +79,7 @@ include "db.php";
 		}
         else 
         {
-            ?> Moedas insuficientes <?php
+            ?> <div style="font-size:45px; text-align:center;"> Moedas insuficientes </div> <?php
         }
 }
 ?>
