@@ -94,19 +94,19 @@ if ($result->num_rows > 0) {
         $Descricao_Deck[$i] = $row["Descricao"];
 
         $Imagem_Deck[$i] = $row["ImagemDeck"];
-
+        
+        $numeroDeCartas[$i] = 0;
 
         //Pega numero de cartas para setar limite 20
         $query2 = "SELECT * FROM Cartas_Deck WHERE IDDeck = '$IDdeck[$i]'";
         $result2 = $conn->query($query2);
         if ($result2->num_rows > 0) {
-
             while ($row2 = $result2->fetch_assoc()) {
                 $QtdeCartas[$i] = $row2["QtdeCartas"];
+                $numeroDeCartas[$i] = $numeroDeCartas[$i] + $QtdeCartas[$i];
             }
 
         }
-
 
         $i++;
 
@@ -300,6 +300,15 @@ $a = 0;
         .checked {
             border: .5rem solid red;
         }
+        .outline
+        {
+            color: black;
+            text-shadow:
+            -1px -1px 0 #FFF,
+            1px -1px 0 #FFF,
+            -1px 1px 0 #FFF,
+            1px 1px 0 #FFF;  
+        }
     </style>
 
 </head>
@@ -335,17 +344,23 @@ $a = 0;
             <div class="row ">
                 <?php
                 $j = 0;
+                $sucesso = false;
                 while ($j < $i) { ?>
                     <!-- codigo do lucas -->
-                    <?php if (isset($IDdeck[$j]) AND $QtdeCartas[$j] >= 20) { ?>
+                    <?php if (isset($IDdeck[$j]) AND $numeroDeCartas[$j] >= 20) 
+                    { 
+                    $sucesso = true;
+                    ?>
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                             <img data-deck="<?php echo $IDdeck[$j] ?>"
                                  class="deck-escolhido img-fluid img-thumbnail "
                                  src="../img/cartas/<?php if (isset($Imagem_Deck[$j])) echo($Imagem_Deck[$j]); ?>"
-                                 alt=" ">
+                                 alt="<?php echo $numeroDeCartas[$j] ?> / 20 cartas">
                             <p class="text-center nome-carta "><?php echo $Nome_Deck[$j]; ?> </p>
                         </div>
-                    <?php } ?>
+                    <?php 
+                    }
+                    ?>
                     <!-- codigo do raul
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
 
@@ -364,6 +379,14 @@ $a = 0;
                     -->
                     <?php $j++;
                 }
+                    if($i==0 or !$sucesso)   
+                    {   
+                        ?>
+                        <div>
+                           <b class="outline" style="font-size:75px; text-align:center;">Não há decks com 20 cartas<b>
+                        </div>
+                        <?php
+                    }
                 ?>
 
 
