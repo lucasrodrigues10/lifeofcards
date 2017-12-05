@@ -452,7 +452,14 @@ $a = 0;
 
 
         $("#deck-jogar").on('click', (function () {
-            $.redirect('jogo.php', {'deckID': deckChecked}, 'post');
+            if( !$(".deck-escolhido")[0])  //verifica se não existe essa classe 
+            {
+                location.replace("ConstDeck.php?id=-1");
+            }
+            else
+            {
+                $.redirect('jogo.php', {'deckID': deckChecked}, 'post');
+            }
         }));
     });
 </script>
