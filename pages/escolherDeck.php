@@ -337,7 +337,7 @@ $a = 0;
                 $j = 0;
                 while ($j < $i) { ?>
                     <!-- codigo do lucas -->
-                    <?php if (isset($IDdeck[$j]) AND $QtdeCartas[$j] >= 2) { ?>
+                    <?php if (isset($IDdeck[$j]) AND $QtdeCartas[$j] >= 20) { ?>
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                             <img data-deck="<?php echo $IDdeck[$j] ?>"
                                  class="deck-escolhido img-fluid img-thumbnail "
