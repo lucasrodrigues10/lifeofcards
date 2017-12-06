@@ -1084,9 +1084,9 @@ title="online">cloud</i>
     <!-- Fim da exibição dos decks -->
 </div>
 <!-- Exibição Botão Criar Deck -->
-<div class="row-lg-6 inventario">
+<div class="row-lg-6 inventario text-center">
     <a href="ConstDeck.php?id=<?php echo $NovoDeck ?>">
-        <button class="btn-fullscreen btn-log ">Criar Deck</button>
+        <button class="btn btn-primary btn-fullscreen btn-log ">Criar Deck</button>
     </a>
 </div>
 

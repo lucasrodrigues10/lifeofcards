@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f0d390e3-6308-459e-86de-0994556d3ca4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/login.php" afterPath="$PROJECT_DIR$/pages/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/main.php" afterPath="$PROJECT_DIR$/pages/main.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,12 +24,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/login.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="192">
               <caret line="49" column="54" lean-forward="false" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="1086" column="43" lean-forward="false" selection-start-line="1086" selection-start-column="43" selection-end-line="1086" selection-end-column="43" />
+              <folding>
+                <marker date="1512522060047" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+                <marker date="1512522060047" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+                <marker date="1512522060047" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+                <marker date="1512522060047" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+                <marker date="1512522060047" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
+                <marker date="1512522060047" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
+                <marker date="1512522060047" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
+                <marker date="1512522060047" expanded="true" signature="2607:2670" ph="SELECT Valor... Promocao" />
+                <marker date="1512522060047" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
+                <marker date="1512522060047" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
+                <marker date="1512522060047" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
+                <marker date="1512522060047" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,9 +130,9 @@
         <option value="$PROJECT_DIR$/pages/ConstDeck.php" />
         <option value="$PROJECT_DIR$/pages/jogo.php" />
         <option value="$PROJECT_DIR$/pages/escolherDeck.php" />
-        <option value="$PROJECT_DIR$/pages/main.php" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/pages/login.php" />
+        <option value="$PROJECT_DIR$/pages/main.php" />
       </list>
     </option>
   </component>
@@ -146,6 +168,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -172,7 +195,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -250,7 +272,9 @@
       <workItem from="1510443383261" duration="2731000" />
       <workItem from="1510446281644" duration="1298000" />
       <workItem from="1510447879560" duration="1263000" />
-      <workItem from="1510449165583" duration="4000" />
+      <workItem from="1510449165583" duration="53000" />
+      <workItem from="1511399022486" duration="20000" />
+      <workItem from="1512521951978" duration="118000" />
     </task>
     <task id="LOCAL-00001" summary="canvas dentro de div e espaco para cartas e botoes">
       <created>1506972079531</created>
@@ -504,21 +528,28 @@
       <option name="project" value="LOCAL" />
       <updated>1510447572107</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="mudanca background login 100%">
+      <created>1510449210821</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1510449210821</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76460000" />
+    <option name="totallyTimeSpent" value="76647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21640626" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19140625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19140625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32880846" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20211162" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730016" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -530,7 +561,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20211162" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -565,7 +595,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="removido icone online" />
     <MESSAGE value="cor do perfil conforme o resto do site" />
     <MESSAGE value="mudei o logo e titulo do site para todas as telas" />
     <MESSAGE value="pagina de erro de login/erro e redirecionamento" />
@@ -590,7 +619,8 @@
     <MESSAGE value="botao ranqueado pixelado" />
     <MESSAGE value="mudanca background" />
     <MESSAGE value="mudanca botao pixelado" />
-    <option name="LAST_COMMIT_MESSAGE" value="mudanca botao pixelado" />
+    <MESSAGE value="mudanca background login 100%" />
+    <option name="LAST_COMMIT_MESSAGE" value="mudanca background login 100%" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -787,31 +817,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5797">
           <caret line="341" column="29" lean-forward="false" selection-start-line="341" selection-start-column="29" selection-end-line="341" selection-end-column="29" />
-          <folding>
-            <marker date="1510437010207" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
-            <marker date="1510437010207" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
-            <marker date="1510437010207" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
-            <marker date="1510437010207" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
-            <marker date="1510437010207" expanded="true" signature="1636:1690" ph="SELECT * FRO... Cartas_Deck" />
-            <marker date="1510437010207" expanded="true" signature="1992:2045" ph="SELECT Nickn... Amizades" />
-            <marker date="1510437010207" expanded="true" signature="2376:2394" ph="SELECT * FRO... Loja" />
-            <marker date="1510437010207" expanded="true" signature="2780:2860" ph="SELECT Nome,... Cartas" />
-            <marker date="1510437010207" expanded="true" signature="3159:3232" ph="SELECT Nome,... Skin" />
-            <marker date="1510437010207" expanded="true" signature="3524:3603" ph="SELECT Nome,... Pacote" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/img/background8.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="805" column="47" lean-forward="false" selection-start-line="805" selection-start-column="47" selection-end-line="805" selection-end-column="47" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
@@ -827,6 +839,27 @@
         <state relative-caret-position="192">
           <caret line="49" column="54" lean-forward="false" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="1086" column="43" lean-forward="false" selection-start-line="1086" selection-start-column="43" selection-end-line="1086" selection-end-column="43" />
+          <folding>
+            <marker date="1512522060047" expanded="true" signature="152:197" ph="SELECT * FRO... Usuario" />
+            <marker date="1512522060047" expanded="true" signature="414:465" ph="SELECT * FRO... UsuarioNoJogo" />
+            <marker date="1512522060047" expanded="true" signature="874:933" ph="SELECT Nivel... Nivel" />
+            <marker date="1512522060047" expanded="true" signature="1225:1274" ph="SELECT * FRO... DeckUsuario" />
+            <marker date="1512522060047" expanded="true" signature="1643:1696" ph="SELECT Nickn... Amizades" />
+            <marker date="1512522060047" expanded="true" signature="1902:1946" ph="SELECT * FRO... Noticias" />
+            <marker date="1512522060047" expanded="true" signature="2282:2300" ph="SELECT * FRO... Loja" />
+            <marker date="1512522060047" expanded="true" signature="2607:2670" ph="SELECT Valor... Promocao" />
+            <marker date="1512522060047" expanded="true" signature="3266:3346" ph="SELECT Nome,... Cartas" />
+            <marker date="1512522060047" expanded="true" signature="3645:3718" ph="SELECT Nome,... Skin" />
+            <marker date="1512522060047" expanded="true" signature="4010:4089" ph="SELECT Nome,... Pacote" />
+            <marker date="1512522060047" expanded="true" signature="6993:7020" ph="SELECT * FRO... UsuarioNoJogo" />
+          </folding>
         </state>
       </provider>
     </entry>
