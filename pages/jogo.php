@@ -26,12 +26,19 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <!-- Jogo CSS -->
     <link rel="stylesheet" type="text/css" href="../css/jogo.css">
-
-
-    <!-- Phaser -->
+    <!-- deixar jquery em cima pra não bugar o phaser-->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    
+   <!-- Phaser -->
     <script src="https://cdn.jsdelivr.net/npm/phaser-ce@2.8.3/build/phaser.js"></script>
     <script src="../js/functions.js"></script>
     <script type="text/javascript" src="jogo.js"></script>
+    <script src="../js/HealthBar.standalone.js"></script>
+
+   
 
     <!--Icones do google -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -74,7 +81,9 @@
             <i class="material-icons" id="btn-fullscreen">fullscreen</i>
         </button>
     </div>
-    <div style="background-color: blue;width: 60%" id="center"></div>
+    <div style="background-color: blue;width: 60%" id="center">
+        <a id="terminar-jogada" href="#" onclick="trocaTurno()">Terminar jogada</a>
+    </div>
     <div style="background-color: green;width: 30%" id="right">
         <?php
 		include "php/db.php";
@@ -154,8 +163,9 @@
 </div>
 
 
+
 <!--JQuery, Javascript para Bootstrap -->
-<script
+ <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>

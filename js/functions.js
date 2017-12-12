@@ -520,6 +520,8 @@ function desenhaInterface (){
                          {x:game.width,y:0,width:192,height:32,flipped:true});  
     vida2.setAnchor(1,0);
     vida2.setPercent(100);
+    
+    vida1.texto = game.make.text();
 }
 
 function mostraInfo(sprite){
