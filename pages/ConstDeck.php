@@ -90,7 +90,7 @@ if ($result->num_rows > 0) {
 
     </head>
     <!--body com background -->
-    <body class="tem1" id="body">
+    <body class="full" id="body">
         <audio loop id="audio"> <!-- <audio autoplay loop id="audio"> vai comecar tocando -->
             <source src="/others/music.mp3">
         </audio>
@@ -192,7 +192,7 @@ if ($result->num_rows > 0) {
                 <div class="container Tema1">
 
 
-                    <div class="card card-block" style="color:black;margin:2em auto 4em auto;display: flex;flex-direction: row;align-items: stretch;justify-content: space-between">
+                    <div class="card card-block" style="background-color: inherit; color:black;margin:2em auto 4em auto;display: flex;flex-direction: row;align-items: stretch;justify-content: space-between">
 
                         <?php
 
@@ -223,7 +223,7 @@ if ($result->num_rows > 0) {
 
                             <div class="<?php if ($General[$aux2] == 1) { ?> General Postura<?php } ?> <?php if ($General[$aux2] == 0) { ?> Adicionar <?php } ?>">
 
-                                <div class="carta" style="border:5px solid black;border-radius: 10px;margin: 1%;">
+                                <div class="carta <?php if ($General[$aux2] == 1) { ?> Gen<?php } ?> <?php if ($General[$aux2] == 0) { ?> NGen <?php } ?>" style="border:5px solid black;border-radius: 10px;margin: 1%;">
 
                                     <?php
 
@@ -258,7 +258,7 @@ if ($result->num_rows > 0) {
                                     <div class="descricao"
                                          style="Height:10rem;font-size:.8rem;border:1px solid black;margin: 2%;padding:2%;">
 
-                                        <p style="text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
+                                        <p style="background-clor: white;text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
 
                                     </div>
 
@@ -350,7 +350,7 @@ if ($result->num_rows > 0) {
 
                             <div class="<?php if ($General[$aux2] == 1) { ?> General Tempo<?php } ?> <?php if ($General[$aux2] == 0) { ?> Adicionar <?php } ?>">
 
-                                <div class="carta" style="border:5px solid black;border-radius: 10px;margin: 1%;">
+                                <div class="carta <?php if ($General[$aux2] == 1) { ?> Gen<?php } ?> <?php if ($General[$aux2] == 0) { ?> NGen <?php } ?>" style="border:5px solid black;border-radius: 10px;margin: 1%;">
 
                                     <?php
 
@@ -475,7 +475,7 @@ if ($result->num_rows > 0) {
 
                             <div class="<?php if ($General[$aux2] == 1) { ?> General Swarm<?php } ?> <?php if ($General[$aux2] == 0) { ?> Adicionar <?php } ?>">
 
-                                <div class="carta" style="border:5px solid black;border-radius: 10px;margin: 1%;">
+                                <div class="carta <?php if ($General[$aux2] == 1) { ?> Gen<?php } ?> <?php if ($General[$aux2] == 0) { ?> NGen <?php } ?>" style="border:5px solid black;border-radius: 10px;margin: 1%;">
 
                                     <?php
 
@@ -601,7 +601,7 @@ if ($result->num_rows > 0) {
 
                             <div class=" Adicionar">
 
-                                <div class="carta " style="border:5px solid black;border-radius: 10px;">
+                                <div class="carta NGen" style="border:5px solid black;border-radius: 10px;">
 
                                     <?php
 
@@ -737,8 +737,8 @@ if ($result->num_rows > 0) {
                                 <h3 class="nome-carta"><?php if (isset($CartaSelecionada[$contador])) echo($CartaSelecionada[$contador]); ?></h3>
                                 <input class="InputQtde" type="hidden" name="QtdeCarta[]"
                                        value="<?php if (isset($QtdeCartaDeck[$contador])) echo($QtdeCartaDeck[$contador]); ?>">
-                                <h3>
-                                    x<span class="Amount"><?php if (isset($QtdeCartaDeck[$contador])) echo($QtdeCartaDeck[$contador]); ?></span>
+                                <h3 style="color: white;">
+                                    x<span class="Amount" style="color: white;"><?php if (isset($QtdeCartaDeck[$contador])) echo($QtdeCartaDeck[$contador]); ?></span>
                                 </h3>
                             </div>
                             <?php
@@ -804,7 +804,7 @@ if ($result->num_rows > 0) {
                 crossorigin="anonymous "></script>
 
         <script>
-            function Cor1() {
+           /* function Cor1() {
                 document.getElementById("body").className = "tem1";
             }
 
@@ -818,7 +818,7 @@ if ($result->num_rows > 0) {
 
             function Cor4() {
                 document.getElementById("body").className = "tem4";
-            }
+            }*/
 
         </script>
         <script>
@@ -868,7 +868,7 @@ if ($result->num_rows > 0) {
                     $(".Tema2").hide();
                     $(".Tema3").hide();
                     $(".Tema4").hide();
-                    Cor1();
+                    //Cor1();
                 }
                 if (IDGeneral == 2) {
                     $(".Postura1").hide();
@@ -879,7 +879,7 @@ if ($result->num_rows > 0) {
                     $(".Tema1").hide();
                     $(".Tema3").hide();
                     $(".Tema4").hide();
-                    Cor2();
+                    //Cor2();
                 }
                 if (IDGeneral == 3) {
                     $(".Postura1").hide();
@@ -890,7 +890,7 @@ if ($result->num_rows > 0) {
                     $(".Tema1").hide();
                     $(".Tema2").hide();
                     $(".Tema4").hide();
-                    Cor3();
+                    //Cor3();
                 }
                 if (IDGeneral == 0) {
                     $('.Tematica0').show();
@@ -949,7 +949,7 @@ if ($result->num_rows > 0) {
 
                 if (count === 0) {
                     $('.Adicionar').css("color", "gray");
-                    $('.carta').css("border-color", "gray");
+                    $('.NGen').css("border-color", "gray");
                     $('.Salve').hide();
                 }
 
@@ -983,7 +983,8 @@ if ($result->num_rows > 0) {
 
                         $('.General').css("color", "gray");
                         $('.Adicionar').css("color", "black");
-                        $('.carta').css("border-color", "black");
+                        $('.NGen').css("border-color", "black");
+                        $('.Gen').css("border-color", "gray");
 
                         $('.Salve').show();
                     }
@@ -993,7 +994,8 @@ if ($result->num_rows > 0) {
                 if (count > 0) {
                     $('.General').css("color", "gray");
                     $('.Adicionar').css("color", "black");
-                    $('.carta').css("border-color", "black");
+                    $('.NGen').css("border-color", "black");
+                    $('.Gen').css("border-color", "gray");
                 }
 
                 //Adiciona Cartas no Deck
@@ -1029,7 +1031,7 @@ if ($result->num_rows > 0) {
 
                         //Adiciona carta nova se nao foi adicionada ainda
                         if (isNaN(QuantidadeCarta) || QuantidadeCarta < 1) {
-                            $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><input class="InputNome" type="hidden" name="carta[]" value=""><h3 class="nome-carta">' + Nome + '</h3><input class="InputQtde" type="hidden" name="QtdeCarta[]"><h3>x<span class="Amount">1</span></h3></div>');
+                            $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><input class="InputNome" type="hidden" name="carta[]" value=""><h3 class="nome-carta">' + Nome + '</h3><input class="InputQtde" type="hidden" name="QtdeCarta[]"><h3 style="color: white;">x<span class="Amount" style="color: white;">1</span></h3></div>');
 
                             //Adiciona valor no input para mandar para a pagina salve.php para adicionar no banco de dados
 
