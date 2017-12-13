@@ -77,7 +77,7 @@ $Descricao_Deck = array();
 
 $Imagem_Deck = array();
 
-$i = 0;
+$NumeroDeck = 0;
 
 $query = "SELECT * FROM DeckUsuario WHERE IDusuario = '$id'";
 
@@ -87,15 +87,15 @@ if ($result->num_rows > 0) {
 
     while ($row = $result->fetch_assoc()) {
 
-        $IDdeck[$i] = $row["IDdeck"];
+        $IDdeck[$NumeroDeck] = $row["IDdeck"];
 
-        $Nome_Deck[$i] = $row["Nome"];
+        $Nome_Deck[$NumeroDeck] = $row["Nome"];
 
-        $Descricao_Deck[$i] = $row["Descricao"];
+        $Descricao_Deck[$NumeroDeck] = $row["Descricao"];
 
-        $Imagem_Deck[$i] = $row["ImagemDeck"];
+        $Imagem_Deck[$NumeroDeck] = $row["ImagemDeck"];
 
-        $i++;
+        $NumeroDeck++;
 
     }
 
@@ -1040,7 +1040,7 @@ title="online">cloud</i>
             <div class="row ">
                 <?php
                 $j = 0;
-                while ($j < $i) { ?>
+                while ($j < $NumeroDeck) { ?>
                     <!-- codigo do lucas -->
                     <?php if (isset($IDdeck[$j])){ ?>
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
