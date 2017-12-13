@@ -96,40 +96,40 @@ if ($result->num_rows > 0) {
         </audio>
         <ul class="nav nav-pills nav-justified nav-top Tematica0">
             <li class="nav-item">
-                <a class="nav-link btn-home Tematica1" href="#" onclick="Cor1()">Temática 1</a>
+                <a class="nav-link btn-home Tematica1" href="#">Reinos Terranos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link btn-perfil Tematica2" href="#" onclick="Cor2()">Temática 2</a>
+                <a class="nav-link btn-perfil Tematica2" href="#">Andarilhos Temporais</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link btn-inventario Tematica3" href="#" onclick="Cor3()">Temática 3</a>
+                <a class="nav-link btn-inventario Tematica3" href="#">Enxame</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link btn-loja Tematica4" href="#" onclick="Cor4()">Neutros</a>
+                <a class="nav-link btn-loja Tematica4" href="#">Neutros</a>
             </li>
         </ul>
         <ul class="nav nav-pills nav-justified nav-top Postura1">
             <li class="nav-item">
-                <a class="nav-link btn-home Tematica1" href="#" onclick="Cor1()">Temática 1</a>
+                <a class="nav-link btn-home Tematica1" href="#">Reinos Terranos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link btn-loja Tematica4" href="#" onclick="Cor4()">Neutros</a>
+                <a class="nav-link btn-loja Tematica4" href="#">Neutros</a>
             </li>
         </ul>
         <ul class="nav nav-pills nav-justified nav-top Tempo1">
             <li class="nav-item">
-                <a class="nav-link btn-perfil Tematica2" href="#" onclick="Cor2()">Temática 2</a>
+                <a class="nav-link btn-perfil Tematica2" href="#">Andarilhos Temporais</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link btn-loja Tematica4" href="#" onclick="Cor4()">Neutros</a>
+                <a class="nav-link btn-loja Tematica4" href="#">Neutros</a>
             </li>
         </ul>
         <ul class="nav nav-pills nav-justified nav-top Swarm1">
             <li class="nav-item">
-                <a class="nav-link btn-inventario Tematica3" href="#" onclick="Cor3()">Temática 3</a>
+                <a class="nav-link btn-inventario Tematica3" href="#">Enxame</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link btn-loja Tematica4" href="#" onclick="Cor4()">Neutros</a>
+                <a class="nav-link btn-loja Tematica4" href="#">Neutros</a>
             </li>
         </ul>
         <!-- modal -->
@@ -239,7 +239,7 @@ if ($result->num_rows > 0) {
 
                                     ?>
 
-                                    <div class="nome" style="Height:5%">
+                                    <div class="nome" style="background-color: #ffffff; Height:5%">
 
                                         <p class="Nome"
                                            style="text-align: left; font-weight: bold;">
@@ -247,7 +247,7 @@ if ($result->num_rows > 0) {
 
                                     </div>
 
-                                    <div class="imagem" style="Height:50%;border:1px solid black;margin: 2%;">
+                                    <div class="imagem" style="Height:50%;border:1px solid black;">
 
                                         <img style="height:100%;width: 100%"
 
@@ -256,13 +256,13 @@ if ($result->num_rows > 0) {
                                     </div>
 
                                     <div class="descricao"
-                                         style="Height:10rem;font-size:.8rem;border:1px solid black;margin: 2%;padding:2%;">
+                                         style="background-color: #ffffff; Height:10rem;font-size:.8rem;border:1px solid black;padding:2%;">
 
-                                        <p style="background-clor: white;text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
+                                        <p style="text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
 
                                     </div>
 
-                                    <div class="stats" style="Height:5%;padding-right:2%;">
+                                    <div class="stats" style="background-color: #ffffff; Height:5%;padding-right:2%;">
 
                                         <p style="text-align: right"><?php echo $Ataque_Carta[$aux2] ?>
 
@@ -319,7 +319,7 @@ if ($result->num_rows > 0) {
                 </div>
                 <!--Temática 2 -->
                 <div class="container Tema2" style="display:none;">
-                    <div class="card card-block" style="color:black;margin:2em auto 4em auto;display: flex;flex-direction: row;align-items: stretch;justify-content: left">
+                    <div class="card card-block" style="background-color: inherit; color:black;margin:2em auto 4em auto;display: flex;flex-direction: row;align-items: stretch;justify-content: left">
 
                         <?php
 
@@ -366,7 +366,7 @@ if ($result->num_rows > 0) {
 
                                     ?>
 
-                                    <div class="nome" style="Height:5%">
+                                    <div class="nome" style="background-color: #ffffff; Height:5%">
 
                                         <p class="Nome"
                                            style="text-align: left; font-weight: bold;">
@@ -374,7 +374,7 @@ if ($result->num_rows > 0) {
 
                                     </div>
 
-                                    <div class="imagem" style="Height:50%;border:1px solid black;margin: 2%;">
+                                    <div class="imagem" style="Height:50%;border:1px solid black;">
 
                                         <img style="height:100%;width: 100%"
 
@@ -383,13 +383,13 @@ if ($result->num_rows > 0) {
                                     </div>
 
                                     <div class="descricao"
-                                         style="Height:10rem;font-size:.8rem;border:1px solid black;margin: 2%;padding:2%;">
+                                         style="background-color: #ffffff; Height:10rem;font-size:.8rem;border:1px solid black;padding:2%;">
 
                                         <p style="text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
 
                                     </div>
 
-                                    <div class="stats" style="Height:5%;padding-right:2%;">
+                                    <div class="stats" style="background-color: #ffffff; Height:5%;padding-right:2%;">
 
                                         <p style="text-align: right"><?php echo $Ataque_Carta[$aux2] ?>
 
@@ -444,7 +444,7 @@ if ($result->num_rows > 0) {
                 </div>
                 <!--Temática 3 -->
                 <div class="container Tema3" style="display:none;">
-                    <div class="card card-block" style="color:black;margin:2em auto 4em auto;display: flex;flex-direction: row;align-items: stretch;justify-content: left">
+                    <div class="card card-block" style="background-color: inherit; color:black;margin:2em auto 4em auto;display: flex;flex-direction: row;align-items: stretch;justify-content: left">
 
                         <?php
 
@@ -491,7 +491,7 @@ if ($result->num_rows > 0) {
 
                                     ?>
 
-                                    <div class="nome" style="Height:5%">
+                                    <div class="nome" style="background-color: #ffffff; Height:5%">
 
                                         <p class="Nome"
                                            style="text-align: left; font-weight: bold;">
@@ -499,7 +499,7 @@ if ($result->num_rows > 0) {
 
                                     </div>
 
-                                    <div class="imagem" style="Height:50%;border:1px solid black;margin: 2%;">
+                                    <div class="imagem" style="background-color: #ffffff; Height:50%;border:1px solid black;">
 
                                         <img style="height:100%;width: 100%"
 
@@ -508,13 +508,13 @@ if ($result->num_rows > 0) {
                                     </div>
 
                                     <div class="descricao"
-                                         style="Height:10rem;font-size:.8rem;border:1px solid black;margin: 2%;padding:2%;">
+                                         style="background-color: #ffffff; Height:10rem;font-size:.8rem;border:1px solid black;padding:2%;">
 
                                         <p style="text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
 
                                     </div>
 
-                                    <div class="stats" style="Height:5%;padding-right:2%;">
+                                    <div class="stats" style="background-color: #ffffff; Height:5%;padding-right:2%;">
 
                                         <p style="text-align: right"><?php echo $Ataque_Carta[$aux2] ?>
 
@@ -570,7 +570,7 @@ if ($result->num_rows > 0) {
                 <!--Temática 4 -->
                 <div class="container Tema4" style="display:none;">
 
-                    <div class="card card-block" style="color:black;margin:2em auto 4em auto;display: flex;flex-direction: row;align-items: stretch;justify-content: left">
+                    <div class="card card-block" style="background-color: inherit; color:black;margin:2em auto 4em auto;display: flex;flex-direction: row;align-items: stretch;justify-content: left">
 
                         <?php
 
@@ -617,14 +617,14 @@ if ($result->num_rows > 0) {
 
                                     ?>
 
-                                    <div class="nome" style="Height:5%">
+                                    <div class="nome" style="background-color: #ffffff; Height:5%">
 
                                         <p class="Nome"
                                            style="text-align: left; font-weight: bold;"> <?php echo $Nome_Carta[$aux2] ?> </p>
 
                                     </div>
 
-                                    <div class="imagem" style="Height:50%;border:1px solid black;margin: 2%;">
+                                    <div class="imagem" style="Height:50%;border:1px solid black;">
 
                                         <img style="height:100%;width:100%"
 
@@ -633,13 +633,13 @@ if ($result->num_rows > 0) {
                                     </div>
 
                                     <div class="descricao"
-                                         style="Height:35%;border:1px solid black;margin: 2%;padding:2%;">
+                                         style="background-color: #ffffff; Height:35%;border:1px solid black;padding:2%;">
 
                                         <p style="text-align: left"><?php echo $Descricao_Carta[$aux2] ?></p>
 
                                     </div>
 
-                                    <div class="stats" style="Height:5%;padding-right:2%;">
+                                    <div class="stats" style="background-color: #ffffff; Height:5%;padding-right:2%;">
 
                                         <p style="text-align: right"><?php echo $Ataque_Carta[$aux2] ?>
 
@@ -699,7 +699,7 @@ if ($result->num_rows > 0) {
                 <div class="container">
                     <form id="form2" action="php/salve.php" method="post">
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb Generalizado">
-                            <h3>General Selecionado</h3>
+                            <h3 style="color:#df624c">General Selecionado</h3>
                             <?php
                             /* Procura o general do deck */
                             $contador = 0;
@@ -723,7 +723,7 @@ if ($result->num_rows > 0) {
                             ?>
                         </div>
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb Adicionado">
-                            <h3>Cartas Selecionadas</h3>
+                            <h3 style="color:#df624c">Cartas Selecionadas</h3>
                             <?php
                             $contador = 0;
                             /* Imprime cartas em cartas selecionadas e Armazena o total de cartas já no deck na variável $TotalCartasDeck*/
@@ -749,7 +749,7 @@ if ($result->num_rows > 0) {
                         </div>
                         <!--Imprime quantidade já escolhida de cartas no deck -->
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
-                            <h3>Cartas no deck:</h3>
+                            <h3 style="color:#df624c">Cartas no deck:</h3>
                         </div>
                         <div class="col-lg-6 col-md-7 col-xs-12 thumb ">
                             <h5 class="nome-carta"><span class="Total"><?php echo($TotalCartasDeck); ?></span>/20</h5>
@@ -983,6 +983,7 @@ if ($result->num_rows > 0) {
 
                         $('.General').css("color", "gray");
                         $('.Adicionar').css("color", "black");
+                        $('.Quantidade').css("color", "white");
                         $('.NGen').css("border-color", "black");
                         $('.Gen').css("border-color", "gray");
 
@@ -994,6 +995,7 @@ if ($result->num_rows > 0) {
                 if (count > 0) {
                     $('.General').css("color", "gray");
                     $('.Adicionar').css("color", "black");
+                    $('.Quantidade').css("color", "white");
                     $('.NGen').css("border-color", "black");
                     $('.Gen').css("border-color", "gray");
                 }
