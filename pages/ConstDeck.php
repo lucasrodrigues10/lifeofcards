@@ -42,6 +42,7 @@ if ($result->num_rows > 0) {
 $IDCartaDeck = array();
 $QtdeCartaDeck = array();
 $CartaSelecionada = array();
+$ImgCarta = array();
 $EhGeneral = array();
 $auxCartasDeck = 0;
 
@@ -55,6 +56,7 @@ if ($result->num_rows > 0) {
         $result1 = $conn->query($query);
         if ($result1->num_rows > 0) {
             $row = $result1->fetch_assoc();
+            $ImgCarta[$auxCartasDeck] = $row["arquivo.sprite"];
             $CartaSelecionada[$auxCartasDeck] = $row["Nome"];
             $EhGeneral[$auxCartasDeck] = $row["General"];
         }
@@ -249,7 +251,7 @@ if ($result->num_rows > 0) {
 
                                     <div class="imagem" style="Height:50%;border:1px solid black;">
 
-                                        <img style="height:100%;width: 100%"
+                                        <img class="ImagemCarta" style="height:100%;width: 100%"
 
                                              src="../img/cartas/<?php echo $Imagem_Carta[$aux2] ?> ">
 
@@ -376,7 +378,7 @@ if ($result->num_rows > 0) {
 
                                     <div class="imagem" style="Height:50%;border:1px solid black;">
 
-                                        <img style="height:100%;width: 100%"
+                                        <img class="ImagemCarta" style="height:100%;width: 100%"
 
                                              src="../img/cartas/<?php echo $Imagem_Carta[$aux2] ?> ">
 
@@ -501,7 +503,7 @@ if ($result->num_rows > 0) {
 
                                     <div class="imagem" style="background-color: #ffffff; Height:50%;border:1px solid black;">
 
-                                        <img style="height:100%;width: 100%"
+                                        <img class="ImagemCarta" style="height:100%;width: 100%"
 
                                              src="../img/cartas/<?php echo $Imagem_Carta[$aux2] ?> ">
 
@@ -626,7 +628,7 @@ if ($result->num_rows > 0) {
 
                                     <div class="imagem" style="Height:50%;border:1px solid black;">
 
-                                        <img style="height:100%;width:100%"
+                                        <img class="ImagemCarta" style="height:100%;width:100%"
 
                                              src="../img/cartas/<?php echo $Imagem_Carta[$aux2] ?> ">
 
@@ -698,7 +700,7 @@ if ($result->num_rows > 0) {
             <div class="col-4">
                 <div class="container">
                     <form id="form2" action="php/salve.php" method="post">
-                        <div class="col-lg-6 col-md-7 col-xs-12 thumb Generalizado">
+                        <div class="Generalizado">
                             <h3 style="color:#df624c">General Selecionado</h3>
                             <?php
                             /* Procura o general do deck */
@@ -710,10 +712,11 @@ if ($result->num_rows > 0) {
                                     if ($EhGeneral[$contador] > 0) {
                                         $TotalCartasDeck = 1;
                             ?>
-                            <div class="col-lg-6 col-md-7 col-xs-12 Chefao">
+                            <div class="Chefao">
+                                <img src="../img/cartas/<?php echo $ImgCarta[$contador] ?> " style="display:inline-block; height: 10%;width: 10%;">
                                 <input class="InputGeneral" type="hidden" name="General"
                                        value="<?php echo $CartaSelecionada[$contador] ?>">
-                                <h3 class="nome-carta"><?php echo $CartaSelecionada[$contador] ?></h3>
+                                <h3 style="display: inline;" class="nome-carta"><?php echo $CartaSelecionada[$contador] ?></h3>
                             </div>
                             <?php
                                 $CheckIDGeneral = $IDCartaDeck[$contador];
@@ -722,7 +725,7 @@ if ($result->num_rows > 0) {
                             }
                             ?>
                         </div>
-                        <div class="col-lg-6 col-md-7 col-xs-12 thumb Adicionado">
+                        <div class="Adicionado">
                             <h3 style="color:#df624c">Cartas Selecionadas</h3>
                             <?php
                             $contador = 0;
@@ -731,13 +734,16 @@ if ($result->num_rows > 0) {
                                 if (isset($EhGeneral[$contador]))
                                     if ($EhGeneral[$contador] < 1) {
                             ?>
-                            <div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta">
+                            <div class="RemoveCarta">
                                 <input class="InputNome" type="hidden" name="carta[]"
                                        value="<?php if (isset($CartaSelecionada[$contador])) echo $CartaSelecionada[$contador] ?>">
-                                <h3 class="nome-carta"><?php if (isset($CartaSelecionada[$contador])) echo($CartaSelecionada[$contador]); ?></h3>
+                                
+                                <img src="../img/cartas/<?php echo $ImgCarta[$contador] ?> " style="display:inline-block; height: 10%;width: 10%;">
+                                
+                                <h3 style="display:inline" class="nome-carta"><?php if (isset($CartaSelecionada[$contador])) echo($CartaSelecionada[$contador]); ?></h3>
                                 <input class="InputQtde" type="hidden" name="QtdeCarta[]"
                                        value="<?php if (isset($QtdeCartaDeck[$contador])) echo($QtdeCartaDeck[$contador]); ?>">
-                                <h3 style="color: white;">
+                                <h3 style="display: inline; color: white;">
                                     x<span class="Amount" style="color: white;"><?php if (isset($QtdeCartaDeck[$contador])) echo($QtdeCartaDeck[$contador]); ?></span>
                                 </h3>
                             </div>
@@ -966,10 +972,11 @@ if ($result->num_rows > 0) {
                     else {
 
                         var NomeGeneral = $(this).closest("div").find(".Nome").text();
+                        var Imagem = $(this).closest("div").find(".ImagemCarta").attr('src');
 
                         NomeGeneral = NomeGeneral.replace(/\s+/g, '');
 
-                        $('.Generalizado').append('<div class="col-lg-6 col-md-7 col-xs-12 Chefao"><input class="InputGeneral" type="hidden" name="General" value=""><h3 class="nome-carta">' + NomeGeneral + '</h3></div>');
+                        $('.Generalizado').append('<div class="Chefao"><img src='+Imagem+' style="display: inline-block; height: 10%;width: 10%;"><input class="InputGeneral" type="hidden" name="General" value=""><h3 style="display: inline;" class="nome-carta">' + NomeGeneral + '</h3></div>');
                         Qtde = Qtde - 1;
                         $(this).closest("div").find(".Qtde").text(Qtde);
                         $('.Total').text(parseInt($('.Total').text()) + 1);
@@ -1005,6 +1012,7 @@ if ($result->num_rows > 0) {
                 $('.Adicionar').on("click", function (e) {
                     e.preventDefault();
                     var Nome = $(this).closest("div").find(".Nome").text();
+                    var Imagem = $(this).closest("div").find(".ImagemCarta").attr('src');
                     var Qtde = parseInt($(this).closest("div").find(".Qtde").text());
                     var Total = parseInt($(".Total").text());
                     var QuantidadeCarta = 0;
@@ -1033,7 +1041,7 @@ if ($result->num_rows > 0) {
 
                         //Adiciona carta nova se nao foi adicionada ainda
                         if (isNaN(QuantidadeCarta) || QuantidadeCarta < 1) {
-                            $('.Adicionado').append('<div class="col-lg-6 col-md-7 col-xs-12 RemoveCarta"><input class="InputNome" type="hidden" name="carta[]" value=""><h3 class="nome-carta">' + Nome + '</h3><input class="InputQtde" type="hidden" name="QtdeCarta[]"><h3 style="color: white;">x<span class="Amount" style="color: white;">1</span></h3></div>');
+                            $('.Adicionado').append('<div class="RemoveCarta"><img src='+Imagem+' style="display: inline-block; height: 10%;width: 10%;"><input class="InputNome" type="hidden" name="carta[]" value=""><h3 style="display:inline;" class="nome-carta">' + Nome + '</h3><input class="InputQtde" type="hidden" name="QtdeCarta[]"><h3 style="display:inline; color: white;">x<span class="Amount" style="color: white;">1</span></h3></div>');
 
                             //Adiciona valor no input para mandar para a pagina salve.php para adicionar no banco de dados
 
