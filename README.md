@@ -1,9 +1,5 @@
 # Life of Cards - Jogo de Cartas #
 
-<p align="center">
-  <img width="460" height="300" src="https://s3.amazonaws.com/galapagosproduction/system/ckeditor_assets/pictures/175/content_original_jogo-senhor-dos-aneis-card-game_cartas.png">
-</p>
-
 # [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/Tiagoeem/embarcados-Diurno/tree/LucasRodrigues_14005565/awesome)
 
 [![Github-Release](https://img.shields.io/github/release/filoe/cscore.svg)](https://github.com/Tiagoeem/embarcados-Diurno/tree/LucasRodrigues_14005565/releases)
